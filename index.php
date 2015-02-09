@@ -8,7 +8,7 @@
     <img src="http://i1061.photobucket.com/albums/t480/ericqweinstein/php-logo_zps408c82d7.png"/>
     <div class="header"><h1>
       <?php
-      $welcome = "Let's get started with PHP!";
+      $welcome = "Welcome to Virtual Learning Environment!";
       echo $welcome;
       ?>
     </h1></div>
@@ -22,7 +22,8 @@
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-default">Login</button>
+      <button type="register" class="btn btn-default">Register</button>
     </form>
   </body>
 </html>
