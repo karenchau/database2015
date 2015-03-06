@@ -8,7 +8,11 @@
     <img src="http://i1061.photobucket.com/albums/t480/ericqweinstein/php-logo_zps408c82d7.png"/>
     <div class="header"><h1>
       <?php
+<<<<<<< HEAD
       $welcome = "Welcome to the Learning Platform!";
+=======
+      $welcome = "Welcome to Virtual Learning Place";
+>>>>>>> FETCH_HEAD
       echo $welcome;
       ?>
     </h1></div>
