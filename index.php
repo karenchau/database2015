@@ -18,7 +18,8 @@
       $welcome = "Welcome to Virtual Learning Environment!";
       echo $welcome;
       ?>
-    </h1></div>
+    </h1>
+  </div>
 
     <form>
       <div class="form-group">
@@ -32,5 +33,6 @@
       <button type="submit" class="btn btn-default">Login</button>
       <button type="register" class="btn btn-default">Register</button>
     </form>
+    <a href="UserPage.php">UserPage</a>
   </body>
 </html>
