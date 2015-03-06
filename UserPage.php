@@ -21,6 +21,7 @@
     if(!$connection) {
         die('Could not connect: '. mysql_error());
     }
+    ?>
 
     <div id="header">
         <h1>Platform</h1>
