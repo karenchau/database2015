@@ -8,7 +8,7 @@
     <img src="http://i1061.photobucket.com/albums/t480/ericqweinstein/php-logo_zps408c82d7.png"/>
     <div class="header"><h1>
       <?php
-      $welcome = "Welcome to Virtual Learning Environment!!!";
+      $welcome = "Welcome to Virtual Learning Place";
       echo $welcome;
       ?>
     </h1></div>
