@@ -25,7 +25,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 		}
 	}
 } else {
-	//unset($errors);
+	//unset($errors); 			<?php if (isset($errors)) { echo $errors; } ?<
 }
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 	<body>
 		<div id="wrap">
 			<h1>LOGIN</h1>
-			<?php if (isset($errors)) { echo $errors; } ?>
+
 			<form method="post" action="login.php">
 				<p><label for="email">Email: </label><input type="text" name="email"/></p>
 				<p><label for="password">Password: </label><input type="password" name="password"/></p>
