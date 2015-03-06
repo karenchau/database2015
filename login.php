@@ -10,20 +10,16 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 	} else {
 		require('scripts/connect.php');
 		$db = open_connection();
-		echo "connection opened";
 		$email = mysql_real_escape_string($_POST['email']);
 		$password = mysql_real_escape_string($_POST['password']);
 		$query = "select * from user_account where email = '$email' and password = '$password' limit 1";
 		$result = mysql_query($query);
-		echo "result found, maybe";
 		if (mysql_num_rows($result) > 0) {
-		    echo "result def found";
 			mysql_close($db);
 			$_SESSION['email'] = $email;
 			header('Location: index.php');
 			return;
 		} else {
-		    echo "result not found";
 			mysql_close($db);
 			//$errors = '<p class="error">Invalid credentials</p>';
 		}
@@ -36,7 +32,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 <html lang="en">
         <head>
 		<title>Login Page</title>
-		<link type="text/stylesheet" rel="stylesheet" href="css/layout.css">
+		<link type="text/stylesheet" rel="stylesheet" href="css/style.css">
 	</head>
 
 	<body>
