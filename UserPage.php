@@ -14,7 +14,7 @@
 
 <body>
     <?php
-    $dbhost = 'cy9dfntmir.database.windows.net';
+    $dbhost = 'cy9dfntmir.database.windows.net,1433';
     $dbuser = 'database2015@outlook.com@cy9dfntmir';
     $dbpass = 'Londonn!';
     $connection = mysqli_connect($dbhost, $dbuser, $dbpass);
