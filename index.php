@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link type='text/css' rel='stylesheet' href='style.css'/>
-    <title>Virtual Learning Environment</title>
-  </head>
-  <body>
-    <img src="http://i1061.photobucket.com/albums/t480/ericqweinstein/php-logo_zps408c82d7.png"/>
-    <div class="header"><h1>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../4427.png">
+  <link type='text/css' rel='stylesheet' href='style.css'/>
+  
+  <title>Virtual Learning Environment</title>
+</head>
+
+<body>
+  <div class="header"><h1>
       <?php
       $welcome = "Welcome to Virtual Learning Environment!";
       echo $welcome;

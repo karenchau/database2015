@@ -7,18 +7,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../4427.png">
-
-    <title>User Homepage</title>
-
-    <!-- Link to CSS -->
     <link type='text/css' rel='stylesheet' href='style.css'/>
+
+    <title>User Homepage</title>  
 </head>
 
 <body>
     <div id="header">
         <h1>City Gallery</h1>
     </div>
-    
+
     <div id="nav">
         London<br>
         Paris<br>
