@@ -1,22 +1,22 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['email'])) {
 	header('Location: index.php');
 	return;
 }
-if (isset($_POST['username']) || isset($_POST['password'])) {
-	if (empty($_POST['username']) || empty($_POST['password'])) {
+if (isset($_POST['email']) || isset($_POST['password'])) {
+	if (empty($_POST['email']) || empty($_POST['password'])) {
 		$errors = '<p class="error">Please fill all fields</p>';
 	} else {
 		require('scripts/connect.php');
 		$db = open_connection();
-		$username = mysql_real_escape_string($_POST['username']);
+		$email = mysql_real_escape_string($_POST['email']);
 		$password = mysql_real_escape_string($_POST['password']);
-		$query = "select * from user where username = '$username' and password = '$password' limit 1";
+		$query = "select * from user_account where email = '$email' and password = '$password' limit 1";
 		$result = mysql_query($query);
 		if (mysql_num_rows($result) > 0) {
 			mysql_close($db);
-			$_SESSION['username'] = $username;
+			$_SESSION['email'] = $email;
 			header('Location: index.php');
 			return;
 		} else {
@@ -40,7 +40,7 @@ if (isset($_POST['username']) || isset($_POST['password'])) {
 			<h1>LOGIN</h1>
 			<?php if (isset($errors)) { echo $errors; } ?>
 			<form method="post" action="login.php">
-				<p><label for="username">Username: </label><input type="text" name="username"/></p>
+				<p><label for="email">Email: </label><input type="text" name="email"/></p>
 				<p><label for="password">Password: </label><input type="password" name="password"/></p>
 				<p><input type="submit" value="Login"/></p>
 			</form>
