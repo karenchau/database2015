@@ -37,11 +37,12 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 
 	<body>
 		<div id="wrap">
-			<h1>LOGIN</h1>
+			<header>LOGIN</header>
 			<?php if (isset($errors)) { echo $errors; } ?>
 			<form method="post" action="login.php">
-				<p><label for="email">Email: </label><input type="text" name="email"/></p>
-				<p><label for="password">Password: </label><input type="password" name="password"/></p>
+			 
+				<p><label for="email">Email:        </label><input type="text" name="email"/></p>
+				<p><label for="password">Password:  </label><input type="password" name="password"/></p>
 				<p><input type="submit" value="Login"/></p>
 			</form>
 		</div>

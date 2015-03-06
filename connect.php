@@ -1,7 +1,7 @@
 <?php
 function open_connection() {
 	$server = 'tcp:cy9dfntmir.database.windows.net';
-	$user = 'database2015@outlook.com';
+	$user = 'database2015@outlook.com@cy9dfntmir';
 	$password = 'Londonn!';
 	$database = 'Project';
 	$handle = mysql_connect($server, $user, $password);
