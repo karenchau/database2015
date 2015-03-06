@@ -21,11 +21,11 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 			return;
 		} else {
 			mysql_close($db);
-			$errors = '<p class="error">Invalid credentials</p>';
+			//$errors = '<p class="error">Invalid credentials</p>';
 		}
 	}
 } else {
-	unset($errors);
+	//unset($errors);
 }
 ?>
 <!DOCTYPE html>
@@ -44,7 +44,6 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 				<p><label for="password">Password: </label><input type="password" name="password"/></p>
 				<p><input type="submit" value="Login"/></p>
 			</form>
-			<p><a href="register.php">If you do not have an account, you are welcome to create one.</a></p>
 		</div>
 	</body>
 </html>
