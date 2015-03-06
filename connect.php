@@ -6,7 +6,9 @@ function open_connection() {
 	$database = 'Project';
 	$handle = mysql_connect($server, $user, $password);
 	$found = mysql_select_db($database, $handle);
+	
 	if ($found){
+	   echo "FOUND DATABASE";
 		return $found;
 	} 	
 	else {
