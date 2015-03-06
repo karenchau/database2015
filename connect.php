@@ -1,6 +1,6 @@
 <?php
 function open_connection() {
-	$server = 'tcp:cy9dfntmir.database.windows.net';
+	$server = 'cy9dfntmir.database.windows.net';
 	$user = 'database2015@outlook.com@cy9dfntmir';
 	$password = 'Londonn!';
 	$database = 'Project';
