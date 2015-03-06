@@ -14,13 +14,12 @@
 
 <body>
     <?php
-    $dbhost = "tcp:cy9dfntmir.database.windows.net";
-    $dbuser = "database2015@outlook.com@cy9dfntmir";
-    $dbpass = "Londonn!";
-    $dbname = "Project"
-    $connection = sqlsrv_connect($dbhost, array("UID"=>$dbuser, "PWD"=>$dbpass, "Database"=>$dbname));
+    $dbhost = 'cy9dfntmir.database.windows.net';
+    $dbuser = 'database2015@outlook.com@cy9dfntmir';
+    $dbpass = 'Londonn!';
+    $connection = mysqli_connect($dbhost, $dbuser, $dbpass);
     if(!$connection) {
-        die('Could not connect: '. print_r(sqlsrv_errors()));
+        die('Could not connect: '. mysql_error());
     }
     ?>
 
