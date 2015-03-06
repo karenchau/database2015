@@ -17,7 +17,8 @@
     $dbhost = 'cy9dfntmir.database.windows.net';
     $dbuser = 'database2015@outlook.com@cy9dfntmir';
     $dbpass = 'Londonn!';
-    $connection = mysqli_connect($dbhost, $dbuser, $dbpass);
+    $dbname = 'Project'
+    $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
     if(!$connection) {
         die('Could not connect: '. mysql_error());
     }
