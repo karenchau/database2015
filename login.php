@@ -17,7 +17,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 		if (mysql_num_rows($result) > 0) {
 			mysql_close($db);
 			$_SESSION['email'] = $email;
-			header('Location: index.php');
+			header('Location: UserPage.php');
 			return;
 		} else {
 			mysql_close($db);
@@ -25,7 +25,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 		}
 	}
 } else {
-	//unset($errors); 			<?php if (isset($errors)) { echo $errors; } ?<
+	//unset($errors);
 }
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 	<body>
 		<div id="wrap">
 			<h1>LOGIN</h1>
-
+			<?php if (isset($errors)) { echo $errors; } ?>
 			<form method="post" action="login.php">
 				<p><label for="email">Email: </label><input type="text" name="email"/></p>
 				<p><label for="password">Password: </label><input type="password" name="password"/></p>
