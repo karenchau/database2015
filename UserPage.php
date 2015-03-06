@@ -13,14 +13,23 @@
 </head>
 
 <body>
+    <?php
+    $dbhost = 'cy9dfntmir.database.windows.net';
+    $dbuser = 'database2015@outlook.com@cy9dfntmir';
+    $dbpass = 'Londonn!';
+    $connection = mysqli_connect($dbhost, $dbuser, $dbpass);
+    if(!$connection) {
+        die('Could not connect: '. mysql_error());
+    }
+
     <div id="header">
-        <h1>City Gallery</h1>
+        <h1>Platform</h1>
     </div>
 
     <div id="nav">
         London<br>
-        Paris<br>
-        Tokyo<br>
+        <a href="studentclasspage.php">COMP2015</a><br>
+        <a href="studentclasspage2.php">COMP4008</a><br>
     </div>
 
     <div id="section">
@@ -34,6 +43,6 @@
     </div>
 
     <div id="footer">
-        Copyright © W3Schools.com
+        Virtual Learning Environment
     </div>
 </body>
