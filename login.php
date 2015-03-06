@@ -32,7 +32,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 <html lang="en">
         <head>
 		<title>Login Page</title>
-		<link type="text/stylesheet" rel="stylesheet" href="css/style.css">
+		<link type="text/stylesheet" rel="stylesheet" href="style.css">
 	</head>
 
 	<body>
