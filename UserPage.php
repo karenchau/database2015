@@ -18,9 +18,9 @@
     $dbuser = 'database2015@outlook.com@cy9dfntmir';
     $dbpass = 'Londonn!';
     $dbname = 'Project';
-    $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+    $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('Could not connect: '. mysql_error());
     if(!$connection) {
-        die('Could not connect: '. mysql_error());
+        
     }
     ?>
 
