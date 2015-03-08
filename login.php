@@ -10,14 +10,14 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 	} else {
 		require('connect.php');
 		$db = open_connection();
-		$email = mysqli_real_escape_string($_POST['email']);
-		$password = mysqli_real_escape_string($_POST['password']);
+		$email = mysqli_real_escape_string($db, $_POST['email']);
+		$password = mysqli_real_escape_string($db, $_POST['password']);
 		$query = "select * from user where email = '$email' and password = '$password' limit 1";
-		$result = mysqli_query($query);
+		$result = mysqli_query($db, $query);
 		$num = mysql_num_rows($result);
 		echo $num;	
 		
-		if (mysql_num_rows($result) > 0) {
+		if (mysqli_num_rows($result) > 0) {
 			mysqli_close($db);
 			$_SESSION['email'] = $email;
 			header('Location: index.php');
@@ -41,7 +41,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 	<body>
 		<div id="wrap">
 			<header>LOGIN</header>
-			<?php if (isset($errors)) { echo $errors; } ?>
+			<?php if (isset($errors)) { echo $errors; }?>
 			<form method="post" action="login.php">
 			 
 				<p><label for="email">Email:        </label><input type="text" name="email"/></p>
