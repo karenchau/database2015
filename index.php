@@ -23,11 +23,9 @@ if (!isset($_SESSION['email'])) {
 <body>
   <div class="header"><h1>
       <?php
-      $welcome = "Welcome to Virtual Learning Environment!";
-      echo $welcome;
       require('connect.php');
       $db = open_connection();
-      $query = "select * from user where email = $_SESSION['email']";
+      $query = "select * from user where email = 'james@mail.com']";
       $result = mysqli_query($db, $query);
       if (mysqli_num_rows($result) > 0) {
         mysqli_close($db);
