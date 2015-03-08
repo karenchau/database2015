@@ -23,18 +23,8 @@ if (!isset($_SESSION['email'])) {
 <body>
   <div class="header"><h1>
       <?php
-      require('connect.php');
-      $db = open_connection();
-      $query = "select * from user where email = " .$_SESSION['email'];
-      $result = mysqli_query($db, $query);
-      if (mysqli_num_rows($result) > 0) {
-        mysqli_close($db);
-        $welcome = "Welcome to 3Virtual Learning Environment!";
+        $welcome = "Welcome to Virtual Learning Environment!";
         echo $welcome;
-        return;
-      } else {
-        mysqli_close($db);
-      }
       ?>
     </h1>
   </div>
@@ -57,3 +47,20 @@ if (!isset($_SESSION['email'])) {
     </form>
   </body>
 </html>
+
+  <!-- Using the session id to make a query and it prints out the welcome message if it worked
+      <?php
+  /*  require('connect.php');
+      $db = open_connection();
+      $query = "select * from user where email = " .$_SESSION['email'];
+      $result = mysqli_query($db, $query);
+      if (mysqli_num_rows($result) > 0) {
+        mysqli_close($db);
+        $welcome = "Welcome to 3Virtual Learning Environment!";
+        echo $welcome;
+        return;
+      } else {
+        mysqli_close($db);
+      }
+      ?>
+  */
