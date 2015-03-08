@@ -41,8 +41,7 @@ if (!isset($_SESSION['email'])) {
         <p><a href="logout.php">Logout link (as an alternative for now)</a></p>
         
         <form action="logout.php" method="post">
-            <input name="return" type="hidden" value="<?php echo urlencode($_SERVER["PHP_SELF"]);?>" />
-            <p><input type="submit" value="logout"/></p>
+                <p><input type="submit" value="logout"></p>
         </form>
       </div>
     </form>
