@@ -25,6 +25,7 @@ if (!isset($_SESSION['email'])) {
       <?php
       $welcome = "Welcome to 3Virtual Learning Environment!";
         echo $welcome;
+        echo $welcome;
       require('connect.php');
       $db = open_connection();
       $query = "select * from user where email = 'james@mail.com' ";
