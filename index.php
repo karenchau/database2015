@@ -23,7 +23,8 @@ if (!isset($_SESSION['email'])) {
 <body>
   <div class="header"><h1>
       <?php
-      
+      $welcome = "Welcome to 2Virtual Learning Environment!";
+        echo $welcome;
       require('connect.php');
       $db = open_connection();
       $query = "select * from user where email = 'james@mail.com' ";
