@@ -63,7 +63,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
         
         
                 <form align="right" name="form1" method="post" action="logout.php">
-                <label class="logout"><input name="submit" type="submit" value="logout"></label>
+                <label class="logout"><input name="submit" type="submit" value="logout.php"></label>
 				
 			</form>
 		</div>
