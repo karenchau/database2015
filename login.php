@@ -12,7 +12,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 		$db = open_connection();
 		$email = mysql_real_escape_string($_POST['email']);
 		$password = mysql_real_escape_string($_POST['password']);
-		$query = "select * from user_account where email = '$email' and password = '$password' limit 1";
+		$query = "select * from user where email = '$email' and password = '$password' limit 1";
 		$result = mysql_query($query);
 		if (mysql_num_rows($result) > 0) {
 			mysql_close($db);
@@ -21,11 +21,11 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 			return;
 		} else {
 			mysql_close($db);
-			//$errors = '<p class="error">Invalid credentials</p>';
+			$errors = '<p class="error">Invalid credentials</p>';
 		}
 	}
 } else {
-	//unset($errors);
+	unset($errors);
 }
 ?>
 <!DOCTYPE html>
