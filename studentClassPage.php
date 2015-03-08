@@ -9,12 +9,12 @@
   <link rel="icon" href="../4427.png">
   <link type='text/css' rel='stylesheet' href='style.css'/>
   
-  <title>Virtual Learning Environment</title>
+  <title>Class Page</title>
 </head>
 
   <body>
   
-    <header><h1>
+    <div id = "header"><h1>
     <p>Welcome!</p>
     </h1>
     <h3>
@@ -24,7 +24,7 @@
       echo $welcome;
       ?>
     </h3>
-    </header>
+    </div>
   <div id="menu">
     <ul>
       <li><a href ="#" title = "Announcements and Forum" class="active"></a></li>
