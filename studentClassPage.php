@@ -18,11 +18,7 @@
     <p>Welcome!</p>
     </h1>
     <h3>
-      <?php
-      $class = "COMP3013"
-      $welcome = "Welcome to " . $class;
-      echo $welcome;
-      ?>
+      
     </h3>
     </div>
   <div id="menu">
