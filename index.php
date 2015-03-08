@@ -38,9 +38,10 @@ if (!isset($_SESSION['email'])) {
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         
-        <a href="logout.php">Logout link (as an alternative for now)</a>
+        <p><a href="logout.php">Logout link (as an alternative for now)</a></p>
+        
         <form method="post" action="logout.php">
-            <label class="logout"><input name="submit" type="submit" value="logout"></label>
+            <p><label class="logout"><input type="submit" value="logout"></label></p>
         </form>
       </div>
     </form>
