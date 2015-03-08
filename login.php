@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['email'])) {
+if (isset($_SESSION['x'])) {
 	header('Location: index.php');
 	return;
 }
