@@ -11,9 +11,14 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 		require('connect.php');
 		$db = open_connection();
 		$email = mysqli_real_escape_string($_POST['email']);
+		echo "got email";
 		$password = mysqli_real_escape_string($_POST['password']);
+		echo "got password";
 		$query = "select * from user where email = '$email' and password = '$password' limit 1";
+		echo "got query";
 		$result = mysqli_query($query);
+		echo "got result";
+		echo mysqli_num_rows($result);		
 		
 		if (mysql_num_rows($result) > 0) {
 			mysqli_close($db);
