@@ -14,10 +14,11 @@
 
 <body>
     <?php
-    $dbhost = 'cy9dfntmir.database.windows.net';
-    $dbuser = 'database2015@outlook.com@cy9dfntmir';
-    $dbpass = 'Londonn!';
-    $dbname = 'Project';
+    $dbhost = 'eu-cdbr-azure-north-c.cloudapp.net';
+    $dbuser = 'b082b6b1ae51cd';
+    $dbpass = 'd0e3a918';
+    $dbname = 'platforAJXH8IC9y';
+
     $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('Could not connect: '. mysql_error());
     if(!$connection) {
         
