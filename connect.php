@@ -6,7 +6,6 @@ function open_connection() {
 	$database = 'platforAJXH8lC9y';
 	$connection = mysqli_connect($server, $user, $password, $database);
 	if ($connection){
-	    echo "Found db";
         return $connection;
 	} 	
 	else {

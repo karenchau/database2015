@@ -10,17 +10,18 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 	} else {
 		require('connect.php');
 		$db = open_connection();
-		$email = mysql_real_escape_string($_POST['email']);
-		$password = mysql_real_escape_string($_POST['password']);
+		$email = mysqli_real_escape_string($_POST['email']);
+		$password = mysqli_real_escape_string($_POST['password']);
 		$query = "select * from user where email = '$email' and password = '$password' limit 1";
-		$result = mysql_query($query);
+		$result = mysqli_query($query);
+		
 		if (mysql_num_rows($result) > 0) {
-			mysql_close($db);
+			mysqli_close($db);
 			$_SESSION['email'] = $email;
 			header('Location: index.php');
 			return;
 		} else {
-			mysql_close($db);
+			mysqli_close($db);
 			$errors = '<p class="error">Invalid credentials</p>';
 		}
 	}
