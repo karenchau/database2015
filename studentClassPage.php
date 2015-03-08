@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="../4427.png">
+  <link rel="icon" href="3333.png">
   <link type='text/css' rel='stylesheet' href='style.css'/>
   
   <title>Class Page</title>
