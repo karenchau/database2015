@@ -35,7 +35,13 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 <html lang="en">
         <head>
 		<title>Login Page</title>
-		<link type="text/stylesheet" rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../4427.png">
+        <link type='text/css' rel='stylesheet' href='style.css'/>
 	</head>
 
 	<body>
@@ -43,10 +49,22 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 			<header>LOGIN</header>
 			<?php if (isset($errors)) { echo $errors; }?>
 			<form method="post" action="login.php">
-			 
-				<p><label for="email">Email:        </label><input type="text" name="email"/></p>
-				<p><label for="password">Password:  </label><input type="password" name="password"/></p>
-				<p><input type="submit" value="Login"/></p>
+			     <div class="form-group">
+			         <p><label for="email">Email</label> 
+			         <input type="text" name ="email" placeholder="Enter email"></p>
+			     </div>
+			      
+			     <div class="form-group">
+			         <p><label for="password">Password</label> 
+			         <input type="password" name="password" placeholder="Enter a password"></p>
+			         <p><label class="logout"><input type="submit" value="Login"/></label></p>
+			     </div>
+
+        
+        
+                <form align="right" name="form1" method="post" action="logout.php">
+                <label class="logout"><input name="submit" type="submit" value="logout"></label>
+				
 			</form>
 		</div>
 	</body>
