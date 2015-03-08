@@ -19,7 +19,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 		
 		if (mysqli_num_rows($result) > 0) {
 			mysqli_close($db);
-			$_SESSION['email'] = $email;
+			$_SESSION['x'] = $email;
 			header('Location: index.php');
 			return;
 		} else {
