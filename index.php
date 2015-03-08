@@ -30,7 +30,7 @@ if (!isset($_SESSION['email'])) {
       $result = mysqli_query($db, $query);
       if (mysqli_num_rows($result) > 0) {
         mysqli_close($db);
-        $welcome = "Welcome to Virtual Learning Environment!";
+        $welcome = "Welcome to 2Virtual Learning Environment!";
         echo $welcome;
         unset($_SESSION);
         return;
