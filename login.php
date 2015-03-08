@@ -12,12 +12,16 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 		$db = open_connection();
 		$email = mysql_real_escape_string($_POST['email']);
 		$password = mysql_real_escape_string($_POST['password']);
+		echo "received credentials";
 		$query = "select * from user where email = '$email' and password = '$password' limit 1";
+		echo "comparing credentials";
 		$result = mysql_query($query);
 		if (mysql_num_rows($result) > 0) {
+			echo "result not found";
 			mysql_close($db);
 			$_SESSION['email'] = $email;
 			header('Location: index.php');
+			echo "returned to index then login";
 			return;
 		} else {
 			mysql_close($db);
