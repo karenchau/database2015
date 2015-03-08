@@ -14,7 +14,11 @@
 
   <body>
   
+<<<<<<< HEAD
     <div id = "header"><h1>
+=======
+    <header><h1>
+>>>>>>> fa694374382a59df612530b4c7e6b085b6b1e9ca
     <p>Welcome!</p>
     </h1>
     <h3>
@@ -24,7 +28,11 @@
       echo $welcome;
       ?>
     </h3>
+<<<<<<< HEAD
     </div>
+=======
+    </header>
+>>>>>>> fa694374382a59df612530b4c7e6b085b6b1e9ca
   <div id="menu">
     <ul>
       <li><a href ="#" title = "Announcements and Forum" class="active"></a></li>
