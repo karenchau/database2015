@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['x'])) {
+if (!isset($_SESSION['email'])) {
 	header('Location: login.php');
 	return;
 }
@@ -14,7 +14,7 @@ if (!isset($_SESSION['x'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="../4427.png">
+  <link rel="icon" href="3333.png">
   <link type='text/css' rel='stylesheet' href='style.css'/>
   
   <title>Virtual Learning Environment</title>
@@ -25,6 +25,17 @@ if (!isset($_SESSION['x'])) {
       <?php
       $welcome = "Welcome to Virtual Learning Environment!";
       echo $welcome;
+      require('connect.php');
+      $db = open_connection();
+      $query = "select * from user where email = $_SESSION['email']";
+      $result = mysqli_query($db, $query);
+      if (mysqli_num_rows($result) > 0) {
+        mysqli_close($db);
+        unset($_SESSION);
+        return;
+      } else {
+        mysqli_close($db);
+      }
       ?>
     </h1>
   </div>
