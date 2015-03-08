@@ -13,13 +13,17 @@
 </head>
 
   <body>
+  
     <header><h1>
+    <p>Welcome!</p>
+    </h1>
+    <h3>
       <?php
       $class = "COMP3013"
       $welcome = "Welcome to " . $class;
       echo $welcome;
       ?>
-    </h1>
+    </h3>
     </header>
   <div id="menu">
     <ul>
