@@ -13,9 +13,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 		$email = mysqli_real_escape_string($db, $_POST['email']);
 		$password = mysqli_real_escape_string($db, $_POST['password']);
 		$query = "select * from user where email = '$email' and password = '$password' limit 1";
-		$result = mysqli_query($db, $query);
-		$num = mysql_num_rows($result);
-		echo $num;	
+		$result = mysqli_query($db, $query);	
 		
 		if (mysqli_num_rows($result) > 0) {
 			mysqli_close($db);
