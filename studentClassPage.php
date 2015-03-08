@@ -23,11 +23,11 @@
     </div>
   <div id="menu">
     <ul>
-      <li><a href ="#" title = "Announcements and Forum" class="active"></a></li>
-      <li><a href ="#" title = "Upload Your Report"></a></li>
-      <li><a href ="#" title = "Submit Peer Assessments"></a></li>
-      <li><a href ="#" title = "Assessments of Your Report"></a></li>
-      <li><a href ="#" title = "Your Grades"></a></li>
+      <li><a href ="#" title = "Announcements and Forum" class="active">Announcements and Forum</a></li>
+      <li><a href ="#" title = "Upload Your Report">Upload Your Report</a></li>
+      <li><a href ="#" title = "Submit Peer Assessments">Submit Peer Assessments</a></li>
+      <li><a href ="#" title = "Assessments of Your Report">Assessments of Your Report</a></li>
+      <li><a href ="#" title = "Your Grades">Your Grades</a></li>
     </ul>
   </div>
 
