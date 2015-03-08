@@ -57,14 +57,8 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 			     <div class="form-group">
 			         <p><label for="password">Password</label> 
 			         <input type="password" name="password" placeholder="Enter a password"></p>
-			         <p><label class="logout"><input type="submit" value="Login"/></label></p>
+			         <p><label class="login"><input type="submit" value="Login"/></label></p>
 			     </div>
-
-        
-        
-                <form align="right" name="form1" method="post" action="logout.php">
-                <label class="logout"><input value="logout.php"></label>
-				</form>
             </form>
 		</div>
 	</body>
