@@ -60,10 +60,15 @@ if (!isset($_SESSION['email'])) {
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
               while ($field < $res->field_count) {
-                 echo $datarow[$field] ."\n";
-                 $field++;
-               } 
-          }
+                if($field == 0) {
+                  echo $datarow[$field];
+                  $field = $res->field_count;
+                } else{
+                  echo $datarow[$field] ."<br>";
+                  $field++;
+                }
+              }
+            }
 
           $db = open_connection();
           $query = "select * from user where email = '$_SESSION[email]' ";
