@@ -77,7 +77,7 @@ if (!isset($_SESSION['email'])) {
           $db = open_connection();
           $query = "select * from user where email = '$_SESSION[email]' ";
           $result = mysqli_query($db, $query);
-          mysqli_printresult($result, mysqli_num_rows($result), 0);
+          mysqli_getresult($result, mysqli_num_rows($result), 0);
           $num = mysqli_num_rows($result);
           echo $num;
           mysqli_close($db);
