@@ -59,9 +59,9 @@ if (!isset($_SESSION['email'])) {
           function mysqli_result($res, $row, $field) { 
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
-              while ($field < 8) {
-                 echo $field . PHP_EOL;
-                 echo $datarow[$field] . "\xA";
+              while ($field < $res->field_count) {
+                 echo $field .PHP_EOL;
+                 echo $datarow[$field] ."\xA";
                  $field++;
                } 
               return $datarow[$field-1]; 
