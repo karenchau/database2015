@@ -60,8 +60,8 @@ if (!isset($_SESSION['email'])) {
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
               while ($field < 8) {
-                 echo "$field\n";
-                 echo "$datarow[$field]\n";
+                 echo $field . PHP_EOL;
+                 echo $datarow[$field] . "\xA";
                  $field++;
                } 
               return $datarow[$field-1]; 
@@ -75,7 +75,6 @@ if (!isset($_SESSION['email'])) {
           echo '    ';
           $num = mysqli_num_rows($result);
           echo $num;
-          var_dump($result);
           mysqli_close($db);
           ?>
           <p><a href="logout.php">Logout link (as an alternative for now)</a></p>
