@@ -45,7 +45,18 @@ if (!isset($_SESSION['email'])) {
           <?php
             $db = open_connection();
             $query = "select role from user where email = '$_SESSION[email]' ";
-
+            $result = mysqli_query($db, $query);
+            $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
+            if($role) {
+              <html>
+              <a href="adminclasspage.php">COMP2015</a><br>
+              </html>
+            } else {
+              <html>
+              <a href="studentclasspage.php">COMP2015</a><br>
+              </html>
+            }
+            mysqli_close($db);
             ?>
           <a href="studentclasspage.php">COMP2015</a><br>
           <a href="studentclasspage2.php">COMP4008</a><br>
