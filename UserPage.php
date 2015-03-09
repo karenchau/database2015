@@ -24,8 +24,8 @@ if (!isset($_SESSION['email'])) {
           $query = "select first_name from user where email = '$_SESSION[email]' ";
           $result = mysqli_query($db, $query);
           if (mysqli_num_rows($result) > 0) {
-              mysqli_printresult($result, mysqli_num_rows($result), 0);
-              echo "'s ";
+              $entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+              echo "$entry .'s ";
               mysqli_close($db);
               } else {
                   echo "User";
@@ -42,6 +42,11 @@ if (!isset($_SESSION['email'])) {
 
       <div id="nav">
           London<br>
+          <?php
+            $db = open_connection();
+            $query = "select role from user where email = '$_SESSION[email]' ";
+
+            ?>
           <a href="studentclasspage.php">COMP2015</a><br>
           <a href="studentclasspage2.php">COMP4008</a><br>
 
@@ -56,11 +61,11 @@ if (!isset($_SESSION['email'])) {
               Standing on the River Thames, London has been a major settlement for two millennia.
           </p>
           <?php 
-              function mysqli_printresult($res, $row, $field) { //takes the row (expects only one row since a primary key is used) and prints out all the fields
+              function mysqli_getresult($res, $row, $field) { //takes the row (expects only one row since a primary key is used) and prints out all the fields
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
               if($res->field_count == 1) {
-                echo $datarow[$field];
+                return $datarow[$field];
               } else {
                 while($field < $res->field_count) {
                   echo $datarow[$field] ."<br>";
