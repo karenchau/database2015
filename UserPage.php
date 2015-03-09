@@ -19,7 +19,7 @@ if (!isset($_SESSION['email'])) {
 
     <title>
         <?php
-        $abc = 'Hi';
+        $abc = 'Hii';
         echo $abc;
         require('connect.php');
         $db = open_connection();
