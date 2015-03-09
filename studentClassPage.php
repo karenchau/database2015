@@ -9,31 +9,66 @@
   <link rel="icon" href="3333.png">
   <link type='text/css' rel='stylesheet' href='style.css'/>
   
+  <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>
+  jQuery(document).ready(function() {
+    jQuery('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+ 
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+ 
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+ 
+        e.preventDefault();
+    });
+  });
+  </script>
+
   <title>Class Page</title>
 </head>
 
   <body>
   
-    <div id = "header"><h1>
+    <div class = "header"><h1>
     <p>Welcome!</p>
     </h1>
     <h3>
       
     </h3>
     </div>
-  <div id="menu">
-    <ul>
-      <li><a href ="#" title = "Announcements and Forum" class="active">Announcements and Forum</a></li>
-      <li><a href ="#" title = "Upload Your Report">Upload Your Report</a></li>
-      <li><a href ="#" title = "Submit Peer Assessments">Submit Peer Assessments</a></li>
-      <li><a href ="#" title = "Assessments of Your Report">Assessments of Your Report</a></li>
-      <li><a href ="#" title = "Your Grades">Your Grades</a></li>
+  <div class="tabs">
+    <ul class = "tab-links">
+      <li><a href ="#announcements" title = "Announcements and Forum" class="active">Announcements and Forum</a></li>
+      <li><a href ="#upload" title = "Upload Your Report">Upload Your Report</a></li>
+      <li><a href ="#submit-assessments" title = "Submit Peer Assessments">Submit Peer Assessments</a></li>
+      <li><a href ="#your-projects-assessments" title = "Assessments of Your Report">Assessments of Your Report</a></li>
+      <li><a href ="#grades" title = "Your Grades">Your Grades</a></li>
     </ul>
-  </div>
+  
 
-  <div id="main">
-    <h1>Announcements and Forum</h1>
-    <p>Main Content</p>
+    <div class="tab-content">
+      <div id="announcements" class="tab active">
+        <p>announcements and forum here</p>
+      </div>
+
+      <div id="upload" class="tab">
+        <p>put upload report button here. indicate whether report has been uploaded</p>
+      </div>
+
+      <div id="submit-assessments" class="tab">
+        <p>see reports you have to assess here. assessment form for each report. make it so group can't assess a report more than once</p>
+      </div>
+
+      <div id="your-projects-assessments" class="tab">
+        <p>view assessments of your reports</p>
+      </div>
+
+      <div id="grades" class="tab">
+        <p>view your group's grades and ranking</p>
+      </div>
+    </div>
   </div>
   </body>
 </html>
