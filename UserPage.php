@@ -50,11 +50,11 @@ if (!isset($_SESSION['email'])) {
             if($role) {
               echo "<a href=\"adminclasspage.php\">COMP2015</a><br>";
             } else {
-              echo "<a href=\"studentclasspage.php\">COMP2015</a><br>";
+              echo "<a href=\"studentclasspage.php\">COMP3019</a><br>";
             }
             mysqli_close($db);
             ?>
-          <a href="studentclasspage.php">COMP2015</a><br>
+          <a href="studentclasspage.php">COMP9999</a><br>
           <a href="studentclasspage2.php">COMP4008</a><br>
 
       </div>
