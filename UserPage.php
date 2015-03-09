@@ -63,7 +63,7 @@ if (!isset($_SESSION['email'])) {
         }
 
         $db = open_connection();
-        $query = "select first_name from user where email = 'james@mail.com' ";
+        $query = "select first_name from user where email = '$_SESSION[email]' ";
         $result = mysqli_query($db, $query);
         $z = mysqli_result($result, mysqli_num_rows($result));
         echo $z;
