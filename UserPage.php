@@ -19,6 +19,8 @@ if (!isset($_SESSION['email'])) {
 
     <title>
         <?php
+        $abc = 'Hi';
+        echo $abc;
         require('connect.php');
         $db = open_connection();
         $query = "select first_name from user where email = " .$_SESSION['email'];
