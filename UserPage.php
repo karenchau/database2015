@@ -58,8 +58,8 @@ if (!isset($_SESSION['email'])) {
           <?php 
           function mysqli_result($res, $row, $field) { 
               $res->data_seek($row); 
-              $datarow = $res->fetch_array();
-              while ($field < 4) {
+              $datarow = $res->fetch_array(MYSQLI_NUM);
+              while ($field < 8) {
                  echo $field;
                  echo $datarow[$field];
                  $field++;
