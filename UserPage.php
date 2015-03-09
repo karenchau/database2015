@@ -25,15 +25,13 @@ if (!isset($_SESSION['email'])) {
         $db = open_connection();
         $query = "select first_name from user where email = " .$_SESSION['email'];
         $result = mysqli_query($db, $query);
+        $num = mysqli_num_rows($result);
+        echo $num;
         if (mysqli_num_rows($result) > 0) {
-            $num = mysqli_num_rows($result);
             mysqli_close($db);
-            echo $abc;
-            echo $num;
             return;
             } else {
                 mysqli_close($db);
-                echo $abc;
             }
             ?>
             Homepage</title>  
