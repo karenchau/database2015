@@ -58,11 +58,6 @@ if (!isset($_SESSION['email'])) {
         </p>
         <?php 
         echo 'heythere';
-function mysqli_result($res, $row, $field) { 
-    $res->data_seek($row); 
-    $datarow = $res->fetch_array(); 
-    return $datarow[$field]; 
-} 
     require('connect.php');
     $db = open_connection();
     echo 'heythere2';
