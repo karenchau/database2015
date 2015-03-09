@@ -56,7 +56,12 @@ if (!isset($_SESSION['email'])) {
         <p>
             Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it L2ondinium.
         </p>
-        <?php
+        <?php 
+function mysqli_result($res, $row, $field=0) { 
+    $res->data_seek($row); 
+    $datarow = $res->fetch_array(); 
+    return $datarow[$field]; 
+} 
     $dbhost = 'eu-cdbr-azure-north-c.cloudapp.net';
     $dbuser = 'b082b6b1ae51cd';
     $dbpass = 'd0e3a918';
@@ -68,8 +73,9 @@ if (!isset($_SESSION['email'])) {
     } else {
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
-        echo $result;
-        echo 'hello';
+        $z = mysqli_result($result, $result->num_rows, 0);
+        echo $z;
+        echo 'heythere';
         mysqli_close($connection);
     }
     ?>
