@@ -25,7 +25,6 @@ if (!isset($_SESSION['email'])) {
         $db = open_connection();
         $query = "select first_name from user where email = " .$_SESSION['email'];
         $result = mysqli_query($db, $query);
-        echo $result;
         if (mysqli_num_rows($result) > 0) {
             mysqli_close($db);
             echo $result;
@@ -38,18 +37,6 @@ if (!isset($_SESSION['email'])) {
 </head>
 
 <body>
-    <?php
-    $dbhost = 'eu-cdbr-azure-north-c.cloudapp.net';
-    $dbuser = 'b082b6b1ae51cd';
-    $dbpass = 'd0e3a918';
-    $dbname = 'platforAJXH8lC9y';
-
-    $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('Could not connect: '. mysql_error());
-    if(!$connection) {
-        
-    }
-    ?>
-
     <div id="header">
         <h1>Platform</h1>
     </div>
@@ -58,6 +45,7 @@ if (!isset($_SESSION['email'])) {
         London<br>
         <a href="studentclasspage.php">COMP2015</a><br>
         <a href="studentclasspage2.php">COMP4008</a><br>
+
     </div>
 
     <div id="section">
@@ -68,6 +56,22 @@ if (!isset($_SESSION['email'])) {
         <p>
             Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.
         </p>
+        <?php
+    $dbhost = 'eu-cdbr-azure-north-c.cloudapp.net';
+    $dbuser = 'b082b6b1ae51cd';
+    $dbpass = 'd0e3a918';
+    $dbname = 'platforAJXH8lC9y';
+
+    $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('Could not connect: '. mysql_error());
+    if(!$connection) {
+        mysqli_close($connection);
+    } else {
+        $query = "select first_name from user where email = " .$_SESSION['email'];
+        $result = mysqli_query($db, $query);
+        echo $result;
+        mysqli_close($connection);
+    }
+    ?>
     </div>
 
     <div id="footer">
