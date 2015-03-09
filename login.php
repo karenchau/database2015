@@ -13,10 +13,6 @@ if (isset($_POST['signin'])) {
 		} else {
             require('connect.php');
             $db = open_connection();
-            if ($db)
-            {
-                echo "DB found";
-            }
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);
             $query = "select * from user where email = '$email' and password = '$password' limit 1";
