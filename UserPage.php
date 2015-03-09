@@ -57,15 +57,20 @@ if (!isset($_SESSION['email'])) {
             Standing on the River Thames, London has been a major settlement for two millennia.
         </p>
         <?php 
+        function mysqli_result($res, $row, $field) { 
+    $res->data_seek($row); 
+    $datarow = $res->fetch_array(); 
+    return $datarow[$field]; 
+}
         echo 'heythere1';
-        echo 'heythere1';
-        echo 'heythere2';
         $db = open_connection();
-        echo 'heythere4';
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
         echo 'heythere3';
         var_dump($result);
+        echo 'heythere4';
+        $z = mysqli_result($result, 1, 0);
+        echo $z;
         mysqli_close($db);
         ?>
     </div>
