@@ -28,6 +28,7 @@ if (!isset($_SESSION['email'])) {
         if (mysqli_num_rows($result) > 0) {
             $num = mysqli_num_rows($result);
             mysqli_close($db);
+            echo $abc;
             echo $num;
             return;
             } else {
