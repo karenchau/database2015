@@ -51,6 +51,7 @@ if (!isset($_SESSION['email'])) {
               echo "<a href=\"adminClassPage.php\">COMP2015</a><br>";
             } else {
               echo "<a href=\"studentClassPage.php\">COMP3019</a><br>";
+              echo "<a href=\"adminClassPage.php\">admin</a><br>";
             }
             $_SESSION['isAdmin'] = $role;
             mysqli_close($db);
