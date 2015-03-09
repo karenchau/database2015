@@ -33,7 +33,7 @@ if (isset($_POST['signin'])) {
 	}
 } else if (isset($_POST['signup'])) { //If the user chooses to signup, then this would initiate this if statement
     if (isset($_POST['email']) || isset($_POST['password']) || isset($_POST['first_name']) || isset($_POST['last_name']) || isset($_POST['role'])) {
-        if (empty($_POST['email']) || empty($_POST['password'])) {
+        if (empty($_POST['email']) || empty($_POST['password']) || empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['role'])) {
             $signup_errors = 'Please fill all fields.';
 		} else {
             require('connect.php');
@@ -46,7 +46,7 @@ if (isset($_POST['signin'])) {
 				mysqli_close($db);
 				$signup_errors = 'A user with this email already exists.';
 			} else {
-				$query = "insert into user(first_name, last_name, email, password, role) values ($first_name, $last_name, '$email', '$password', $role)";
+				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$password', '$role')";
 				mysqli_query($db, $query);
 				$_SESSION['email'] = $email;
 				header('Location: index.php');
