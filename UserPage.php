@@ -24,7 +24,7 @@ if (!isset($_SESSION['email'])) {
           $query = "select first_name from user where email = '$_SESSION[email]' ";
           $result = mysqli_query($db, $query);
           if (mysqli_num_rows($result) > 0) {
-              $y = mysqli_result($result, mysqli_num_rows($result));
+              $y = mysqli_result($result, mysqli_num_rows($result), 0);
               echo $y ."'s ";
               mysqli_close($db);
               } else {
