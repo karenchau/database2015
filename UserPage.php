@@ -66,7 +66,7 @@ if (!isset($_SESSION['email'])) {
     if(!$connection) {
         mysqli_close($connection);
     } else {
-        $query = "select first_name from user where email = " .$_SESSION['email'];
+        $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
         echo $result;
         mysqli_close($connection);
