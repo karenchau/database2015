@@ -59,8 +59,9 @@ if (!isset($_SESSION['email'])) {
           function mysqli_result($res, $row, $field) { 
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
-              while ($field < 5) {
+              while ($field < 4) {
                  echo $field;
+                 echo $datarow[$field];
                  $field++;
                } 
               return $datarow[$field]; 
