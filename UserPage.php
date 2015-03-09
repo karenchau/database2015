@@ -57,7 +57,7 @@ if (!isset($_SESSION['email'])) {
             Standing on the River Thames, London has been a major settlement for two millennia.
         </p>
         <?php 
-        function mysqli_result($res, $row, $field) { 
+        function mysqli_result($res, $row, $field=0) { 
     $res->data_seek($row); 
     $datarow = $res->fetch_array(); 
     return $datarow[$field]; 
@@ -69,7 +69,7 @@ if (!isset($_SESSION['email'])) {
         echo 'heythere3';
         var_dump($result);
         echo 'heythere4';
-        $z = mysqli_result($result, 1, 0);
+        $z = mysqli_result($result, 1);
         echo $z;
         mysqli_close($db);
         ?>
