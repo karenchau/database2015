@@ -23,11 +23,12 @@ if (!isset($_SESSION['email'])) {
         $db = open_connection();
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
-        $y = mysqli_result($result, mysqli_num_rows($result));
-        echo $y;
         if (mysqli_num_rows($result) > 0) {
+            $y = mysqli_result($result, mysqli_num_rows($result));
+            echo $y ."'s ";
             mysqli_close($db);
             } else {
+                echo "User";
                 mysqli_close($db);
             }
             ?>
