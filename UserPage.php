@@ -58,9 +58,11 @@ if (!isset($_SESSION['email'])) {
         </p>
         <?php 
         echo 'heythere1';
+        echo 'heythere1';
         require('connect.php');
-        $db = open_connection();
         echo 'heythere2';
+        $db = open_connection();
+        echo 'heythere4';
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
         echo 'heythere3';
