@@ -48,7 +48,7 @@ if (!isset($_SESSION['email'])) {
   <div class="tabs">
     <ul class = "tab-links">
       <li><a href ="#announcements" title = "Announcements and Forum" class="active">Announcements and Forum</a></li>
-      <li><a href ="#upload" title = "Upload Your Report">Upload Your Report</a></li>
+      <li><a href ="#upload" title = "Upload Term Project Report">Upload Term Project Report</a></li>
       <li><a href ="#submit-assessments" title = "Submit Peer Assessments">Submit Peer Assessments</a></li>
       <li><a href ="#your-projects-assessments" title = "Assessments of Your Report">Assessments of Your Report</a></li>
       <li><a href ="#grades" title = "Your Grades">Your Grades</a></li>
@@ -61,10 +61,10 @@ if (!isset($_SESSION['email'])) {
       </div>
 
       <div id="upload" class="tab">
-        <p>put upload report button here. indicate whether report has been uploaded</p>
+        <p>insert blurb about project. provide coursework briefing file download link. put upload report button here. indicate whether report has been uploaded</p>
         <form action="upload.php" method="post" enctype="multipart/form-data">
-          Select a file to upload:
-          <input type="file" name="file" size = "50">
+          Select a file to upload:<br>
+          <input type="file" name="file" size = "50"><br>
           <input type="submit" value="Upload File" name="submit">
         </form>
       </div>
