@@ -32,6 +32,7 @@ if (isset($_POST['signin'])) {
 		unset($signin_errors);
 	}
 } else if (isset($_POST['signup'])) { //If the user chooses to signup, then this would initiate this if statement
+    if (isset($_POST['email']) || isset($_POST['password']) || isset($_POST['first_name']) || isset($_POST['last_name']) || isset($_POST['role'])) {
         if (empty($_POST['email']) || empty($_POST['password']) || empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['role'])) {
             $signup_errors = 'Please fill all fields.';
 		} 
@@ -54,6 +55,9 @@ if (isset($_POST['signin'])) {
 				return;
 			}
 		}
+	else {
+		unset($signup_errors);
+	}
 }
 
 ?>
