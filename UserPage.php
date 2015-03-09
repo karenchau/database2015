@@ -17,6 +17,7 @@ if (!isset($_SESSION['email'])) {
       <link rel="icon" href="3333.png">
       <link type='text/css' rel='stylesheet' href='style.css'/>
 
+      <!-- Creating a personalized tab greeting-->
       <title>
           <?php
           require('connect.php');
@@ -24,8 +25,8 @@ if (!isset($_SESSION['email'])) {
           $query = "select first_name from user where email = '$_SESSION[email]' ";
           $result = mysqli_query($db, $query);
           if (mysqli_num_rows($result) > 0) {
-              $entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-              echo "$entry's ";
+              $fname_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+              echo "$fname_entry's ";
               mysqli_close($db);
               } else {
                   echo "User";
@@ -36,8 +37,13 @@ if (!isset($_SESSION['email'])) {
   </head>
 
   <body>
+      <!-- Creating a personalized homepage greeting-->
       <div id="header">
-          <h1>Platform</h1>
+          <h1>
+            <?php
+            echo "$fname_entry's ";
+            ?>
+            Platform</h1>
       </div>
 
       <div id="nav">
