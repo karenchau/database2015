@@ -71,6 +71,7 @@ if (!isset($_SESSION['email'])) {
           $result = mysqli_query($db, $query);
           $z = mysqli_result($result, mysqli_num_rows($result), 0);
           echo $z;
+          echo '    ';
           $num = mysqli_num_rows($result);
           echo $num;
           var_dump($result);
