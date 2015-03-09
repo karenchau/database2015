@@ -25,6 +25,7 @@ if (!isset($_SESSION['email'])) {
         $db = open_connection();
         $query = "select first_name from user where email = " .$_SESSION['email'];
         $result = mysqli_query($db, $query);
+        echo $result;
         if (mysqli_num_rows($result) > 0) {
             mysqli_close($db);
             echo $result;
