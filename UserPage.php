@@ -73,7 +73,7 @@ function mysqli_result($res, $row, $field) {
     } else {
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
-        $z = mysqli_result($result, $result->num_rows, 0);
+        $z = mysqli_result($result, 1, 0);
         echo $z;
         echo 'heythere';
         mysqli_close($connection);
