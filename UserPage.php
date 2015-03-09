@@ -19,14 +19,14 @@ if (!isset($_SESSION['email'])) {
 
     <title>
         <?php
-        $abc = 'Hi';
-        echo $abc;
         require('connect.php');
         $db = open_connection();
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
         $num = mysqli_num_rows($result);
         echo $num;
+        $y = mysqli_result($result, mysqli_num_rows($result));
+        echo $y;
         if (mysqli_num_rows($result) > 0) {
             mysqli_close($db);
             } else {
@@ -62,7 +62,7 @@ if (!isset($_SESSION['email'])) {
             $datarow = $res->fetch_array(); 
             return $datarow[$field]; 
         }
-        
+
         $db = open_connection();
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
