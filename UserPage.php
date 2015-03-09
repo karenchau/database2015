@@ -58,18 +58,15 @@ if (!isset($_SESSION['email'])) {
         </p>
         <?php 
         function mysqli_result($res, $row, $field=0) { 
-    $res->data_seek($row); 
-    $datarow = $res->fetch_array(); 
-    return $datarow[$field]; 
-}
-        echo 'heythere1';
+            $res->data_seek($row); 
+            $datarow = $res->fetch_array(); 
+            return $datarow[$field]; 
+        }
+        
         $db = open_connection();
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
-        echo 'heythere3';
-        var_dump($result);
-        echo 'heythere4';
-        $z = mysqli_result($result, 1);
+        $z = mysqli_result($result, mysqli_num_rows($result));
         echo $z;
         mysqli_close($db);
         ?>
