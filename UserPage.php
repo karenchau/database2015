@@ -29,7 +29,6 @@ if (!isset($_SESSION['email'])) {
         echo $num;
         if (mysqli_num_rows($result) > 0) {
             mysqli_close($db);
-            return;
             } else {
                 mysqli_close($db);
             }
