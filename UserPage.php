@@ -59,7 +59,6 @@ if (!isset($_SESSION['email'])) {
         <?php 
         echo 'heythere1';
         echo 'heythere1';
-        require('connect.php');
         echo 'heythere2';
         $db = open_connection();
         echo 'heythere4';
