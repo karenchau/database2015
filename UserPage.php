@@ -17,7 +17,21 @@ if (!isset($_SESSION['email'])) {
     <link rel="icon" href="3333.png">
     <link type='text/css' rel='stylesheet' href='style.css'/>
 
-    <title>User Homepage</title>  
+    <title>
+        <?php
+        require('connect.php');
+        $db = open_connection();
+        $query = "select first_name from user where email = " .$_SESSION['email'];
+        $result = mysqli_query($db, $query);
+        if (mysqli_num_rows($result) > 0) {
+            mysqli_close($db);
+            echo $result;
+            return;
+            } else {
+                mysqli_close($db);
+            }
+            ?>
+            Homepage</title>  
 </head>
 
 <body>
