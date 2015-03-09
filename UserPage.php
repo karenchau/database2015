@@ -31,7 +31,7 @@ if (!isset($_SESSION['email'])) {
                 mysqli_close($db);
             }
             ?>
-            's Homepage</title>  
+            Homepage</title>  
 </head>
 
 <body>
@@ -66,7 +66,6 @@ if (!isset($_SESSION['email'])) {
         $result = mysqli_query($db, $query);
         $z = mysqli_result($result, mysqli_num_rows($result));
         echo $z;
-        echo "Number of results: "
         $num = mysqli_num_rows($result);
         echo $num;
         mysqli_close($db);
