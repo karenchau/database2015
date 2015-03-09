@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+  header('Location: login.php');
+  return;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +33,13 @@
   });
   </script>
 
-  <title>Class Page</title>
+  <title>COMP3013</title>
 </head>
 
   <body>
   
     <div class = "header"><h1>
-    <p>Welcome!</p>
+    <p>Welcome to COMP3013</p>
     </h1>
     <h3>
       
@@ -55,6 +62,11 @@
 
       <div id="upload" class="tab">
         <p>put upload report button here. indicate whether report has been uploaded</p>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+          Select a file to upload:
+          <input type="file" name="file" size = "50">
+          <input type="submit" value="Upload File" name="submit">
+        </form>
       </div>
 
       <div id="submit-assessments" class="tab">
