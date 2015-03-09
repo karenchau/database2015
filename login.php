@@ -47,7 +47,7 @@ if (isset($_POST['signin'])) {
 				$signup_errors = 'A user with this email already exists.';
 			} else {
 				$query = "insert into user(first_name, last_name, email, password, role) values ($first_name, $last_name, '$email', '$password', $role)";
-				mysql_query($query);
+				mysqli_query($db, $query);
 				$_SESSION['email'] = $email;
 				header('Location: index.php');
 				return;
