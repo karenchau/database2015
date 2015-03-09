@@ -48,9 +48,9 @@ if (!isset($_SESSION['email'])) {
             $result = mysqli_query($db, $query);
             $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
             if($role) {
-              echo "<a href="adminclasspage.php">COMP2015</a><br>";
+              echo "<a href=\"adminclasspage.php\">COMP2015</a><br>";
             } else {
-              echo "<a href="studentclasspage.php">COMP2015</a><br>";
+              echo "<a href=\"studentclasspage.php\">COMP2015</a><br>";
             }
             mysqli_close($db);
             ?>
