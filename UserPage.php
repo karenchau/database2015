@@ -54,7 +54,7 @@ if (!isset($_SESSION['email'])) {
             London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.
         </p>
         <p>
-            Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it L2ondinium.
+            Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it L3ondinium.
         </p>
         <?php 
 function mysqli_result($res, $row, $field) { 
@@ -73,7 +73,7 @@ function mysqli_result($res, $row, $field) {
     } else {
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
-        $z = mysqli_result($result, 1, 0);
+        $z = mysqli_result($result, 0, 0);
         echo $z;
         echo 'heythere';
         mysqli_close($connection);
