@@ -23,7 +23,7 @@ if (!isset($_SESSION['email'])) {
         echo $abc;
         require('connect.php');
         $db = open_connection();
-        $query = "select first_name from user where email = " .$_SESSION['email'];
+        $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
         $num = mysqli_num_rows($result);
         var_dump($result);
