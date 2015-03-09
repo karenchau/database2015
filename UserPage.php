@@ -21,7 +21,7 @@ if (!isset($_SESSION['email'])) {
         <?php
         require('connect.php');
         $db = open_connection();
-        $query = "select first_name from user where email = " .$_SESSION['email'];
+        $query = "select first_name from user where email = '$_SESSION['email']' ";
         $result = mysqli_query($db, $query);
         if (mysqli_num_rows($result) > 0) {
             $y = mysqli_result($result, mysqli_num_rows($result));
