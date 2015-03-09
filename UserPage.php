@@ -57,7 +57,7 @@ if (!isset($_SESSION['email'])) {
             Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it L2ondinium.
         </p>
         <?php 
-function mysqli_result($res, $row, $field=0) { 
+function mysqli_result($res, $row, $field) { 
     $res->data_seek($row); 
     $datarow = $res->fetch_array(); 
     return $datarow[$field]; 
