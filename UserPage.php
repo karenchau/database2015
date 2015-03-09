@@ -60,7 +60,7 @@ if (!isset($_SESSION['email'])) {
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
               while ($field < $res->field_count) {
-                 echo $datarow[$field] ."<p>\n</p>";
+                 echo $datarow[$field] ."\n";
                  $field++;
                } 
           }
