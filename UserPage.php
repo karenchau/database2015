@@ -64,7 +64,7 @@ if (!isset($_SESSION['email'])) {
                  echo $datarow[$field] ."\xA";
                  $field++;
                } 
-              return $datarow[$field-1]; 
+              return $datarow[$field-3]; 
           }
 
           $db = open_connection();
