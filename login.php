@@ -165,7 +165,7 @@ if (isset($_POST['signin'])) {
 							
 							<!-- First Name Field-->
 							<div class="form-group">
-								<label for="password" class="col-md-3 control-label">First Name</label>
+								<label for="first_name" class="col-md-3 control-label">First Name</label>
 								<div class="col-md-9">
 									<input type="text" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
 								</div>
@@ -173,7 +173,7 @@ if (isset($_POST['signin'])) {
 							
 							<!-- Last Name Field-->
 							<div class="form-group">
-								<label for="password" class="col-md-3 control-label">Last Name</label>
+								<label for="last_name" class="col-md-3 control-label">Last Name</label>
 								<div class="col-md-9">
 									<input type="text" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
 								</div>
@@ -181,7 +181,7 @@ if (isset($_POST['signin'])) {
 							
 							<!-- Role Field-->
 							<div class="form-group">
-								<label for="password" class="col-md-3 control-label">Role</label>
+								<label for="role" class="col-md-3 control-label">Role</label>
 								<div class="col-md-9">
 									<input type="text" class="form-control" name="role" placeholder="Please Enter 1 (admin) or 0 (stdn)">
 								</div>
