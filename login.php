@@ -40,7 +40,7 @@ if (isset($_POST['signin'])) {
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);
-			$query = "select * from user where username = '$username' limit 1";
+			$query = "select * from user where email = '$email' limit 1";
 			$result = mysql_query($query);
 			if (mysql_num_rows($result) > 0) {
 				mysql_close($db);
@@ -112,9 +112,9 @@ if (isset($_POST['signin'])) {
 								</div>
 							<?php } ?>
 							<div class="form-group">
-								<label for="username" class="col-md-3 control-label">Email</label>
+								<label for="email" class="col-md-3 control-label">Email</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" name="username" placeholder="Please Enter Email">
+									<input type="text" class="form-control" name="email" placeholder="Please Enter Email">
 								</div>
 							</div>
 							<div class="form-group">
@@ -149,9 +149,9 @@ if (isset($_POST['signin'])) {
 							
 							<!-- Email Field-->
 							<div class="form-group">
-								<label for="username" class="col-md-3 control-label">Email</label>
+								<label for="email" class="col-md-3 control-label">Email</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" name="username" placeholder="Please Enter Email">
+									<input type="text" class="form-control" name="email" placeholder="Please Enter Email">
 								</div>
 							</div>
 							
@@ -167,7 +167,7 @@ if (isset($_POST['signin'])) {
 							<div class="form-group">
 								<label for="password" class="col-md-3 control-label">First Name</label>
 								<div class="col-md-9">
-									<input type="password" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
+									<input type="text" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
 								</div>
 							</div>
 							
@@ -175,7 +175,7 @@ if (isset($_POST['signin'])) {
 							<div class="form-group">
 								<label for="password" class="col-md-3 control-label">Last Name</label>
 								<div class="col-md-9">
-									<input type="password" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
+									<input type="text" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
 								</div>
 							</div>
 							
@@ -183,7 +183,7 @@ if (isset($_POST['signin'])) {
 							<div class="form-group">
 								<label for="password" class="col-md-3 control-label">Role</label>
 								<div class="col-md-9">
-									<input type="password" class="form-control" name="role" placeholder="Please Enter 1 (admin) or 0 (stdn)">
+									<input type="text" class="form-control" name="role" placeholder="Please Enter 1 (admin) or 0 (stdn)">
 								</div>
 							</div>
 							
