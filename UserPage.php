@@ -59,11 +59,10 @@ if (!isset($_SESSION['email'])) {
               function mysqli_printresult($res, $row, $field) { //takes the row (expects only one row since a primary key is used) and prints out all the fields
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
-              while ($field < $res->field_count) {
-                if($field == 0) {
-                  echo $datarow[$field];
-                  $field = $res->field_count;
-                } else{
+              if($res->field_count == 1) {
+                echo $datarow[$field];
+              } else {
+                while($field < $res->field_count) {
                   echo $datarow[$field] ."<br>";
                   $field++;
                 }
