@@ -60,11 +60,11 @@ if (!isset($_SESSION['email'])) {
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
               while ($field < 8) {
-                 echo $field;
+                 echo "$field\n";
                  echo "$datarow[$field]\n";
                  $field++;
                } 
-              return $datarow[$field]; 
+              return $datarow[$field-1]; 
           }
 
           $db = open_connection();
