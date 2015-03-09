@@ -4,6 +4,12 @@ if (!isset($_SESSION['email'])) {
   header('Location: login.php');
   return;
 }
+if (!$_SESSION['isAdmin']) {
+  $adminerror = "You do not have the privileges to view this page.";
+  echo $adminerror;
+  header('Location: studentClassPage.php');
+  return;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
