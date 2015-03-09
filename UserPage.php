@@ -60,11 +60,10 @@ if (!isset($_SESSION['email'])) {
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
               while ($field < $res->field_count) {
-                 echo $field .PHP_EOL;
                  echo $datarow[$field] ."\xA";
                  $field++;
                } 
-              return $datarow[$field-3]; 
+              return $datarow[$field-1]; 
           }
 
           $db = open_connection();
