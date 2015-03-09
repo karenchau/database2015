@@ -183,7 +183,7 @@ if (isset($_POST['signin'])) {
 							<div class="form-group">
 								<label for="role" class="col-md-3 control-label">Role</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" name="role" placeholder="Please Enter 1 (admin) or 0 (stdn)">
+									<input type="number" class="form-control" name="role" placeholder="Please Enter 1 (admin) or 0 (stdn)">
 								</div>
 							</div>
 							
