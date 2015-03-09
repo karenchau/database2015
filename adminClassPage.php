@@ -38,7 +38,7 @@ if (!isset($_SESSION['email'])) {
   if (!$_SESSION['isAdmin']) {
   $adminerror = "You do not have the privileges to view this page.";
   echo $adminerror;
-  header('Location: studentClassPage.php');
+  header("refresh:5; url=studentClassPage.php");
   return;
 }
 ?>
