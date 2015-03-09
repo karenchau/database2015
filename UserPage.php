@@ -57,6 +57,7 @@ if (!isset($_SESSION['email'])) {
             Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it L3ondinium.
         </p>
         <?php 
+        echo 'heythere';
 function mysqli_result($res, $row, $field) { 
     $res->data_seek($row); 
     $datarow = $res->fetch_array(); 
@@ -64,6 +65,7 @@ function mysqli_result($res, $row, $field) {
 } 
     require('connect.php');
     $db = open_connection();
+    echo 'heythere2';
     $query = "select first_name from user where email = 'james@mail.com' ";
     $result = mysqli_query($db, $query);
     echo 'heythere';
