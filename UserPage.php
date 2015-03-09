@@ -24,8 +24,8 @@ if (!isset($_SESSION['email'])) {
           $query = "select first_name from user where email = '$_SESSION[email]' ";
           $result = mysqli_query($db, $query);
           if (mysqli_num_rows($result) > 0) {
-              $y = mysqli_result($result, mysqli_num_rows($result), 0);
-              echo $y ."'s ";
+              mysqli_printresult($result, mysqli_num_rows($result), 0);
+              echo "'s ";
               mysqli_close($db);
               } else {
                   echo "User";
@@ -56,22 +56,24 @@ if (!isset($_SESSION['email'])) {
               Standing on the River Thames, London has been a major settlement for two millennia.
           </p>
           <?php 
-          function mysqli_result($res, $row, $field) { 
+              function mysqli_printresult($res, $row, $field) { //takes the row (expects only one row since a primary key is used) and prints out all the fields
               $res->data_seek($row); 
               $datarow = $res->fetch_array();
               while ($field < $res->field_count) {
-                 echo $datarow[$field] ."\xA";
-                 $field++;
-               } 
-              return $datarow[$field-1]; 
-          }
+                if($field == 0) {
+                  echo $datarow[$field];
+                  $field = $res->field_count;
+                } else{
+                  echo $datarow[$field] ."<br>";
+                  $field++;
+                }
+              }
+            }
 
           $db = open_connection();
           $query = "select * from user where email = '$_SESSION[email]' ";
           $result = mysqli_query($db, $query);
-          $z = mysqli_result($result, mysqli_num_rows($result), 0);
-          echo $z;
-          echo '    ';
+          mysqli_printresult($result, mysqli_num_rows($result), 0);
           $num = mysqli_num_rows($result);
           echo $num;
           mysqli_close($db);
