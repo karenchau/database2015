@@ -3,8 +3,7 @@ session_start();
 if (!isset($_SESSION['email'])) {
     header('Location: login.php');
     return;
-}
-?>
+}?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +15,8 @@ if (!isset($_SESSION['email'])) {
       <meta name="author" content="">
       <link rel="icon" href="3333.png">
       <link type='text/css' rel='stylesheet' href='style.css'/>
-
+      
+      <!-- Creating a personalized homepage greeting-->
       <title>
           <?php
           require('connect.php');
@@ -33,6 +33,9 @@ if (!isset($_SESSION['email'])) {
               }
               ?>
               Homepage</title>  
+              
+              
+
   </head>
 
   <body>
@@ -71,7 +74,6 @@ if (!isset($_SESSION['email'])) {
           echo $num;
           mysqli_close($db);
           ?>
-          <p><a href="logout.php">Logout link (as an alternative for now)</a></p>
           <p class="navbar-btn"><a href="logout.php" class="btn btn-danger">Sign out</a></p>
       </div>
 

@@ -4,30 +4,60 @@ if (isset($_SESSION['email'])) {
 	header('Location: index.php');
 	return;
 }
-if (isset($_POST['email']) || isset($_POST['password'])) {
-	if (empty($_POST['email']) || empty($_POST['password'])) {
-		$errors = '<p class="error">Please fill all fields</p>';
-	} else {
-		require('connect.php');
-		$db = open_connection();
-		$email = mysqli_real_escape_string($db, $_POST['email']);
-		$password = mysqli_real_escape_string($db, $_POST['password']);
-		$query = "select * from user where email = '$email' and password = '$password' limit 1";
-		$result = mysqli_query($db, $query);	
-		
-		if (mysqli_num_rows($result) > 0) {
-			mysqli_close($db);
-			$_SESSION['email'] = $email;
-			header('Location: index.php');
-			return;
+
+//If the user chooses to signin, then this would initiate this if statement
+if (isset($_POST['signin'])) {
+    if (isset($_POST['email']) || isset($_POST['password'])) {
+        if (empty($_POST['email']) || empty($_POST['password'])) {
+            $signin_errors = 'Error!: Please fill all fields';
 		} else {
-			mysqli_close($db);
-			$errors = '<p class="error">Invalid credentials</p>';
-		}
+            require('connect.php');
+            $db = open_connection();
+            $email = mysqli_real_escape_string($db, $_POST['email']);
+            $password = mysqli_real_escape_string($db, $_POST['password']);
+            $query = "select * from user where email = '$email' and password = '$password' limit 1";
+            $result = mysqli_query($db, $query);
+            
+            if (mysqli_num_rows($result) > 0) {
+                    mysql_close($db);
+                    $_SESSION['email'] = $email;
+                    header('Location: index.php');
+                    return;
+                } else {
+                    mysql_close($db);
+                    $signin_errors = 'Invalid credentials.';
+                }
+            }
+	} else {
+		unset($signin_errors);
 	}
-} else {
-	unset($errors);
+} else if (isset($_POST['signup'])) { //If the user chooses to signup, then this would initiate this if statement
+    if (isset($_POST['email']) || isset($_POST['password']) || isset($_POST['first_name']) || isset($_POST['last_name']) || isset($_POST['role'])) {
+        if (empty($_POST['email']) || empty($_POST['password']) || isset($_POST['first_name']) || isset($_POST['last_name']) || isset($_POST['role']) ) {
+            $signup_errors = 'Please fill all fields.';
+		} else {
+            require('connect.php');
+            $db = open_connection();
+            $email = mysqli_real_escape_string($db, $_POST['email']);
+            $password = mysqli_real_escape_string($db, $_POST['password']);
+			$query = "select * from user where username = '$username' limit 1";
+			$result = mysql_query($query);
+			if (mysql_num_rows($result) > 0) {
+				mysql_close($db);
+				$signup_errors = 'A user with this email already exists.';
+			} else {
+				$query = "insert into user(first_name, last_name, email, password, role) values ($first_name, $last_name, '$email', '$password', $role)";
+				mysql_query($query);
+				$_SESSION['email'] = $email;
+				header('Location: index.php');
+				return;
+			}
+		}
+	} else {
+		unset($signup_errors);
+	}
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,24 +70,139 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
         <meta name="author" content="">
         <link rel="icon" href="3333.png">
         <link type='text/css' rel='stylesheet' href='style.css'/>
-	</head>
+        
+        <!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 
+		<!-- Custom styles for this template -->
+		<link href="css/main.css" rel="stylesheet">
+
+	</head>
+	
 	<body>
-		<div id="wrap">
-			<header>LOGIN</header>
-			<?php if (isset($errors)) { echo $errors; }?>
-			<form method="post" action="login.php">
-			     <div class="form-group">
-			         <p><label for="email">Email</label> 
-			         <input type="text" name ="email" placeholder="Enter email"></p>
-			     </div>
-			      
-			     <div class="form-group">
-			         <p><label for="password">Password</label> 
-			         <input type="password" name="password" placeholder="Enter a password"></p>
-			         <p><label class="login"><input type="submit" value="Login"/></label></p>
-			     </div>
-            </form>
-		</div>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.php">Login</a>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div class="page-header">
+				<h1>Welcome <small>Please sign in or sign up</small></h1>
+			</div>
+			<div id="signinbox" class="mainbox col-sm-6">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">Sign In</div>
+					</div>  
+					<div class="panel-body">
+						<form id="signinform" class="form-horizontal" role="form" method="post" action="login.php">
+							<?php if (isset($signin_errors)) { ?>
+								<div id="signinalert" class="alert alert-danger">
+									<p><?php echo $signin_errors; ?></p>
+									<span></span>
+								</div>
+							<?php } ?>
+							<div class="form-group">
+								<label for="username" class="col-md-3 control-label">Email</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" name="username" placeholder="Please Enter Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">Password</label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" name="password" placeholder="Please Enter Password">
+								</div>
+							</div>
+							<div class="form-group">
+								<!-- Button -->                                        
+								<div class="col-md-offset-3 col-md-9">
+									<button id="btn-signin" name="signin" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Sign In</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="signupbox" class="mainbox col-sm-6">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<div class="panel-title">Sign Up</div>
+					</div>  
+					<div class="panel-body">
+						<form id="signupform" class="form-horizontal" role="form" method="post" action="login.php">
+							<?php if (isset($signup_errors)) { ?>
+								<div id="signupalert" class="alert alert-danger">
+									<p><?php echo $signup_errors; ?></p>
+									<span></span>
+								</div>
+							<?php } ?>
+							
+							<!-- Email Field-->
+							<div class="form-group">
+								<label for="username" class="col-md-3 control-label">Email</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" name="username" placeholder="Please Enter Email">
+								</div>
+							</div>
+							
+							<!-- Password Field-->
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">Password</label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" name="password" placeholder="Password">
+								</div>
+							</div>
+							
+							<!-- First Name Field-->
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">First Name</label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
+								</div>
+							</div>
+							
+							<!-- Last Name Field-->
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">Last Name</label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
+								</div>
+							</div>
+							
+							<!-- Role Field-->
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">Role</label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" name="role" placeholder="Please Enter 1 (admin) or 0 (stdn)">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<!-- Button -->                                        
+								<div class="col-md-offset-3 col-md-9">
+									<button id="btn-signup" name="signup" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i>Sign Up</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div> 
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 	</body>
+
+	
 </html>
