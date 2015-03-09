@@ -54,9 +54,6 @@ if (isset($_POST['signin'])) {
 				return;
 			}
 		}
-		else {
-		unset($signup_errors);
-	}
 }
 
 ?>
