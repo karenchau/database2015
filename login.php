@@ -41,15 +41,16 @@ if (isset($_POST['signin'])) {
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);
 			$query = "select * from user where email = '$email' limit 1";
-			$result = mysql_query($query);
+			$result = mysqli_query($db, $query);
 			if (mysql_num_rows($result) > 0) {
-				mysql_close($db);
+				mysqli_close($db);
 				$signup_errors = 'A user with this email already exists.';
 			} else {
 				$query = "insert into user(first_name, last_name, email, password, role) values ($first_name, $last_name, '$email', '$password', $role)";
 				mysqli_query($db, $query);
 				$_SESSION['email'] = $email;
 				header('Location: index.php');
+				mysqli_close($db);
 				return;
 			}
 		}
