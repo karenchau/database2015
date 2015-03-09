@@ -19,7 +19,7 @@ if (!isset($_SESSION['email'])) {
 
     <title>
         <?php
-        $abc = 'Hii';
+        $abc = 'Hi';
         echo $abc;
         require('connect.php');
         $db = open_connection();
@@ -62,23 +62,16 @@ function mysqli_result($res, $row, $field) {
     $datarow = $res->fetch_array(); 
     return $datarow[$field]; 
 } 
-    $dbhost = 'eu-cdbr-azure-north-c.cloudapp.net';
-    $dbuser = 'b082b6b1ae51cd';
-    $dbpass = 'd0e3a918';
-    $dbname = 'platforAJXH8lC9y';
-
-    $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die('Could not connect: '. mysql_error());
-    if(!$connection) {
-        mysqli_close($connection);
-    } else {
-        $query = "select first_name from user where email = 'james@mail.com' ";
-        $result = mysqli_query($db, $query);
-        var_dump($result);
+    require('connect.php');
+    $db = open_connection();
+    $query = "select first_name from user where email = 'james@mail.com' ";
+    $result = mysqli_query($db, $query);
+    echo 'heythere';
+    var_dump($result);
+    mysqli_close($db);
+        
         $z = mysqli_result($result, 0, 0);
         echo $z;
-        echo 'heythere';
-        mysqli_close($connection);
-    }
     ?>
     </div>
 
