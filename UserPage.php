@@ -26,7 +26,7 @@ if (!isset($_SESSION['email'])) {
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
         $num = mysqli_num_rows($result);
-        var_dump($result);
+        echo $num;
         if (mysqli_num_rows($result) > 0) {
             mysqli_close($db);
             return;
@@ -74,6 +74,7 @@ function mysqli_result($res, $row, $field) {
     } else {
         $query = "select first_name from user where email = 'james@mail.com' ";
         $result = mysqli_query($db, $query);
+        var_dump($result);
         $z = mysqli_result($result, 0, 0);
         echo $z;
         echo 'heythere';
