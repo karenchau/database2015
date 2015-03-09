@@ -33,6 +33,7 @@ if (!isset($_SESSION['email'])) {
             return;
             } else {
                 mysqli_close($db);
+                echo $abc;
             }
             ?>
             Homepage</title>  
