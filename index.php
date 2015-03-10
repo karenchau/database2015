@@ -47,6 +47,7 @@ if (!isset($_SESSION['email'])) {
           London<br>
           <a href="studentclasspage.php">COMP2015</a><br>
           <a href="studentclasspage2.php">COMP4008</a><br>
+          <a href="classpage.php">Classes Page</a><br>
 
       </div>
 
