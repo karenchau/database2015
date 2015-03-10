@@ -40,6 +40,9 @@ if (isset($_POST['signin'])) {
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);
+            $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
+            $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
+            $role = mysqli_real_escape_string($db, $_POST['role']);
 			$query = "select * from user where email = '$email' limit 1";
 			$result = mysqli_query($db, $query);
 			if (mysql_num_rows($result) > 0) {
