@@ -52,7 +52,7 @@ if (!isset($_SESSION['email'])) {
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.php"> <img alt="Brand" src="3333.png"></a>
+					<a class="navbar-brand" href="index.php">Platform</a>
 				</div>				
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
