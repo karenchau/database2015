@@ -56,6 +56,7 @@ if (!isset($_SESSION['email'])) {
                     <!--left col-->
                     <ul class="list-group">
                         <?php
+                        	require('connect.php');
                             $db = open_connection();
                             $email = mysqli_real_escape_string($db, $_SESSION['email']);
                             $query = "select * from user where email = '$email' ";
@@ -70,7 +71,7 @@ if (!isset($_SESSION['email'])) {
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">First Name</strong></span> <?php echo $row['first_name']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last Name </strong></span> <?php echo $row['last_name']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email </strong></span> <?php echo $row['email']; ?></li>
-                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department </strong></span> <?php echo $row['department']; ?></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department </strong></span> <?php echo " " .$row['department']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role </strong></span> <?php echo $row['role']; ?></li> 
                         </ul>
                         <?php
