@@ -79,7 +79,7 @@ if (!isset($_SESSION['email'])) {
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Class Year </strong></span> 
                                 	<?php echo ($row['year'] == NULL) ? "N/A" : $row['year']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role </strong></span>
-                                	 <?php echo ($row['year'] == 1) ? "Admin" : "Student"; ?></li>
+                                	 <?php echo ($row['year'] == "1") ? "Admin" : "Student"; ?></li>
                         </ul>
                         <?php
                             mysqli_close($db);  
