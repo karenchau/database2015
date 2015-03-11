@@ -73,7 +73,7 @@ if (!isset($_SESSION['email'])) {
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email </strong></span> <?php echo $row['email']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department </strong></span> 
                                 	<?php 
-                                	$row['department'] == NULL? echo "N/A" : echo $row['department'];
+                                	$row['department'] == NULL ? echo "N/A" : echo $row['department'];
                                 	?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role </strong></span> <?php echo $row['role']; ?></li> 
                         </ul>
