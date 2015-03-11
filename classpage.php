@@ -56,10 +56,12 @@ if (!isset($_SESSION['email'])) {
                     <!--left col-->
                     <ul class="list-group">
                         <?php
+                        	require('connect.php');
                             $db = open_connection();
                             $email = mysqli_real_escape_string($db, $_SESSION['email']);
                             $query = "select * from user where email = '$email' ";
                             $result = mysqli_query($db, $query);
+                            echo $query;
                         ?>
                         <!--php
                             mysqli_getresult($result, mysqli_num_rows($result), 0);
