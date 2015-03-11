@@ -72,15 +72,14 @@ if (!isset($_SESSION['email'])) {
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last Name </strong></span> <?php echo $row['last_name']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email </strong></span> <?php echo $row['email']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department </strong></span> 
-                                	<?php 
-                                	if($row['department'] == NULL) {
-                                		echo "N/A";
-                                	} else {
-                                		echo $row['department'];
-                                	}
-                                	?>
-                                	<?php echo ($row['department']==NULL) ? "N/A" : $row['department']; ?></li>
-                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role </strong></span> <?php echo $row['role']; ?></li> 
+                                	<!-- Checks if the field is NULL for the columns that can be NULL to prevent layout discrepancies -->
+                                	<?php echo ($row['department'] == NULL) ? "N/A" : $row['department']; ?></li> 
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Group </strong></span> 
+                                	<?php echo ($row['group'] == NULL) ? "N/A" : $row['group']; ?></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Class Year </strong></span> 
+                                	<?php echo ($row['year'] == NULL) ? "N/A" : $row['year']; ?></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role </strong></span>
+                                	 <?php echo ($row['year'] == 1) ? "Admin" : "Student"; ?></li>
                         </ul>
                         <?php
                             mysqli_close($db);  
