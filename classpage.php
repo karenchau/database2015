@@ -78,7 +78,8 @@ if (!isset($_SESSION['email'])) {
                                 	} else {
                                 		echo $row['department'];
                                 	}
-                                	?></li>
+                                	?>
+                                	<?php echo ($row['department']==NULL) ? "N/A" : $row['department']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role </strong></span> <?php echo $row['role']; ?></li> 
                         </ul>
                         <?php
