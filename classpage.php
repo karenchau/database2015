@@ -23,7 +23,7 @@ if (!isset($_SESSION['email'])) {
 
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
-		<link href="css/layout.css" rel="stylesheet">
+		<link href="layout.css" rel="stylesheet">
     </head>
     
     <body>
@@ -72,7 +72,7 @@ if (!isset($_SESSION['email'])) {
                             <li class="list-group-item text-muted" contenteditable="false">Profile</li>
                             
                             <!-- a while loop to display all the information from the db-->
-                            <?php $row =mysqli_fetch_assoc($result) ?>
+                            <?php $row = mysqli_fetch_assoc($result) ?>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">First Name</strong></span> <?php echo $row['first_name']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last Name </strong></span> <?php echo $row['last_name']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email </strong></span> <?php echo $row['email']; ?></li>
