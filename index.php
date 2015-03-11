@@ -97,7 +97,7 @@ if (!isset($_SESSION['email'])) {
           echo $num;
           mysqli_close($db);
           ?>
-          <p><a href="logout.php">Logout link (as an alternative for now)</a></p>
+          
           <p class="navbar-btn"><a href="logout.php" class="btn btn-danger">Sign out</a></p>
       </div>
 

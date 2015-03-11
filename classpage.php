@@ -5,6 +5,7 @@ if (!isset($_SESSION['email'])) {
     return;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -49,14 +50,48 @@ if (!isset($_SESSION['email'])) {
 			<div class="page-header">
 				<h1>Main User Page</h1>
 			</div>
-			<ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="classpage.php">Class List</a></li>
-            <li role="presentation"><a href="profilepage.php">Profile</a></li>
-            <li role="presentation"><a href="forumpage.php">Forum</a></li>
-        </ul>
-		</div>
+			<br>
+            <div class="row"> <!-- Allows the profile and the tabs to be on the same level(row) -->
+                <div class="col-sm-3">
+                    <!--left col-->
+                    <ul class="list-group">
+                        <?php
+                            $db = open_connection();
+                            $email = mysqli_real_escape_string($db, $_SESSION['email']);
+                            $query = "select * from user where email = '$email' ";
+                            $result = mysqli_query($db, $query);
+                        ?>
+                        <!--php
+                            mysqli_getresult($result, mysqli_num_rows($result), 0);
+                            $num = mysqli_num_rows($result);
+                            echo $num;
+                        ?> -->
+                        
+                        <!-- creating the group listing (side profile) -->
+                        <ul class="list-group">
+                            <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+                            
+                            <!-- a while loop to display all the information from the db-->
+                            <?php $row =mysqli_fetch_assoc($result) ?>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">First Name</strong></span> <?php echo $row['first_name']; ?></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last Name </strong></span> <?php echo $row['last_name']; ?></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email </strong></span> <?php echo $row['email']; ?></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department </strong></span> <?php echo $row['department']; ?></li>  
+                        </ul>
+                        <?php
+                            mysqli_close($db);  
+                        ?>
 
+
+                </ul>
+                </div>
+                <!-- right colomn -->
+                <!-- Tabs for navigating the user options-->    
+                <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="classpage.php">Class List</a></li>
+                <li role="presentation"><a href="profilepage.php">Profile</a></li>
+                <li role="presentation"><a href="forumpage.php">Forum</a></li>
+            </div>
+        </div>
     </body>
-
-
 </html>
