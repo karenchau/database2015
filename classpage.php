@@ -61,14 +61,7 @@ if (!isset($_SESSION['email'])) {
                             $email = mysqli_real_escape_string($db, $_SESSION['email']);
                             $query = "select * from user where email = '$email' ";
                             $result = mysqli_query($db, $query);
-                            echo "123";
                         ?>
-                        <!--php
-                            mysqli_getresult($result, mysqli_num_rows($result), 0);
-                            $num = mysqli_num_rows($result);
-                            echo $num;
-                        ?> -->
-                        
                         <!-- creating the group listing (side profile) -->
                         <ul class="list-group">
                             <li class="list-group-item text-muted" contenteditable="false">Profile</li>
@@ -78,7 +71,8 @@ if (!isset($_SESSION['email'])) {
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">First Name</strong></span> <?php echo $row['first_name']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last Name </strong></span> <?php echo $row['last_name']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Email </strong></span> <?php echo $row['email']; ?></li>
-                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department </strong></span> <?php echo $row['department']; ?></li>  
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department </strong></span> <?php echo $row['department']; ?></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role </strong></span> <?php echo $row['role']; ?></li> 
                         </ul>
                         <?php
                             mysqli_close($db);  
