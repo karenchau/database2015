@@ -53,7 +53,7 @@ if (!isset($_SESSION['email'])) {
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.php"><img style="height:16px; width:16px" alt="Virtual Learning Environment" src="3333.png">Platform</a>
+					<a class="navbar-brand" href="index.php"><img style="height:30px; width:30px" alt="Virtual Learning Environment" src="3333.png">Platform</a>
 				</div>				
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
