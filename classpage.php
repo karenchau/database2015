@@ -23,7 +23,7 @@ if (!isset($_SESSION['email'])) {
 
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
-		<link href="layout.css" rel="stylesheet">
+		<link href="style.css" rel="stylesheet">
     </head>
     
     <body>
