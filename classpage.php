@@ -16,7 +16,23 @@ if (!isset($_SESSION['email'])) {
         <meta name="author" content="">
         <link rel="icon" href="3333.png">
         
-        <title>Class Page</title>
+        <!-- Creating a personalized tab greeting-->
+        <title>
+        	<?php
+        	require('connect.php');
+        	$db = open_connection();
+        	$email = mysqli_real_escape_string($db, $_SESSION['email']);
+        	$query = "select first_name from user where email = '$email' ";
+        	$result = mysqli_query($db, $query);
+        	if (mysqli_num_rows($result) > 0) {
+        		$fname_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+        		echo "$fname_entry's ";
+        	} else {
+        		echo "User";
+        	}
+        	mysqli_close($db);
+        	?>
+        	Homepage</title>
         
         <!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +52,7 @@ if (!isset($_SESSION['email'])) {
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.php">University College London</a>
+					<a class="navbar-brand" href="index.php">Platform</a>
 				</div>				
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -48,7 +64,8 @@ if (!isset($_SESSION['email'])) {
 		
         <div class="container">
 			<div class="page-header">
-				<h1>Main User Page</h1>
+				<!-- Creating a personalized homepage greeting-->
+				<h2>Welcome <?php echo "$fname_entry" ?>!</h2> <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!! change this back to h1 if we change style.css -->
 			</div>
 			<br>
             <div class="row"> <!-- Allows the profile and the tabs to be on the same level(row) -->
