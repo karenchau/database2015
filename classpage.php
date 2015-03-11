@@ -83,14 +83,15 @@ if (!isset($_SESSION['email'])) {
                         ?>
 
 
-                </ul>
+                    </ul>
                 </div>
-                <!-- right colomn -->
-                <!-- Tabs for navigating the user options-->    
-                <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="classpage.php">Class List</a></li>
-                <li role="presentation"><a href="profilepage.php">Profile</a></li>
-                <li role="presentation"><a href="forumpage.php">Forum</a></li>
+                    <!-- right colomn -->
+                    <!-- Tabs for navigating the user options-->    
+                    <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="classpage.php">Class List</a></li>
+                    <li role="presentation"><a href="profilepage.php">Profile</a></li>
+                    <li role="presentation"><a href="forumpage.php">Forum</a></li>
+                    </ul>
             </div>
         </div>
     </body>
