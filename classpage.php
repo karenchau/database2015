@@ -109,9 +109,9 @@ if (!isset($_SESSION['email'])) {
                     <!-- Tabs for navigating the user options-->    
                     <ul class="nav nav-tabs">
                     <li role="presentation" class="active"><a href="classpage.php">Class List</a></li>
-	                    <div class="tab-content" id="classtab">
-	                    	<!-- neeeds work -->
-	                    </div>
+	                    <!-- <div class="tab-content" id="classtab">
+	                    	Needs work
+	                    </div> -->
                     <li role="presentation"><a href="profilepage.php">Profile</a></li>
                     <li role="presentation"><a href="forumpage.php">Forum</a></li>
                     </ul>
