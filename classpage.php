@@ -109,7 +109,9 @@ if (!isset($_SESSION['email'])) {
                     <!-- Tabs for navigating the user options-->    
                     <ul class="nav nav-tabs">
                     <li role="presentation" class="active"><a href="classpage.php">Class List</a></li>
-	                    <ul class="list-group">
+	                    <div class="tab-content" id="classtab">
+	                    	19
+	                    </div>
 	                    	<li class="list-group-item">
 			                    <?php
 				                    $db = open_connection();
