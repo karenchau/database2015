@@ -109,20 +109,23 @@ if (!isset($_SESSION['email'])) {
                     <!-- Tabs for navigating the user options-->    
                     <ul class="nav nav-tabs">
                     <li role="presentation" class="active"><a href="classpage.php">Class List</a></li>
-                    <?php
-	                    $db = open_connection();
-	                    $query = "select role from user where email = '$_SESSION[email]' ";
-	                    $result = mysqli_query($db, $query);
-	                    $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
-			            if($role) {  														//depending on the role, a different page will appear
-			            	echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a><br>";
-			            } else {
-			            	echo "<a href=\"studentClassPage.php\">Consumer Informatics</a><br>";
-			            	echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a><br>";
-			            }
-			            $_SESSION['isAdmin'] = $role;
-			            mysqli_close($db);
-			        ?>
+                    <ul class="list-group">
+                    	<li class="list-group-item">
+		                    <?php
+			                    $db = open_connection();
+			                    $query = "select role from user where email = '$_SESSION[email]' ";
+			                    $result = mysqli_query($db, $query);
+			                    $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
+					            if($role) {  														//depending on the role, a different page will appear
+					            	echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a><br>";
+					            } else {
+					            	echo "<a href=\"studentClassPage.php\">Consumer Informatics</a><br>";
+					            	echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a><br>";
+					            }
+					            $_SESSION['isAdmin'] = $role;
+					            mysqli_close($db);
+					        ?></li>
+			        	<li class="list-group-item">Dapibus ac facilisis in</li>
                     <li role="presentation"><a href="profilepage.php">Profile</a></li>
                     <li role="presentation"><a href="forumpage.php">Forum</a></li>
                     </ul>
