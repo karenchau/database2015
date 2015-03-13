@@ -70,11 +70,13 @@ if (!isset($_SESSION['email'])) {
         <div class="container">
             <div class="page-header">
                 <!-- Creating a personalized homepage greeting-->
-                <h2>Welcome <?php echo "$fname_entry" ?>!</h2> <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!! change this back to h1 if we change style.css -->
+                <h1>Welcome <?php echo "$fname_entry" ?>!</h1>
             </div>
             <br>
-            <div class="row"> <!-- Allows the profile and the tabs to be on the same level(row) -->
-                <div class="col-sm-3">
+            <!-- Allows the profile and the tabs to be on the same level(row) -->
+            <div class="row"> 
+                <!-- Left column -->
+                <div class="col-sm-3"> 
                     <!--left col-->
                     <ul class="list-group">
                         <?php
@@ -107,8 +109,8 @@ if (!isset($_SESSION['email'])) {
                         ?>
                     </ul>
                 </div>
-                    <!-- right colomn -->
-                    <!-- Tabs for navigating the user options-->    
+                <!-- Right colomn -->
+                <!-- Tabs for navigating the user options-->    
                 <div class="col-sm-9">
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">
