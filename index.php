@@ -40,7 +40,6 @@ if (!isset($_SESSION['email'])) {
 
     <!-- Custom styles for this template -->
     <link href="css/main.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
 
     <!-- Latest compiled and minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -115,7 +114,7 @@ if (!isset($_SESSION['email'])) {
                     <ul class="nav nav-tabs">
                       <li class="nav active"><a href="#classlist" data-toggle="tab">Classes</a></li>
                       <li class="nav"><a href="#profile" data-toggle="tab">Profile</a></li>
-                      <li class="nav"><a href="#forum" data-toggle="tab">Forum</a></li>
+                      <li class="nav"><a href="#other" data-toggle="tab">Other</a></li>
                     </ul>
 
                     <!-- Tab panes -->

@@ -15,7 +15,7 @@ if (!isset($_SESSION['email'])) {
       <meta name="description" content="">
       <meta name="author" content="">
       <link rel="icon" href="3333.png">
-      <link type='text/css' rel='stylesheet' href='style.css'/>
+      <link type='text/css' rel='stylesheet' href='css/bootstrap.min.css'/>
 
       <!-- Creating a personalized tab greeting-->
       <title>
