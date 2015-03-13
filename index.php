@@ -17,7 +17,6 @@ if (!isset($_SESSION['email'])) {
         <link rel="icon" href="3333.png">
         
         <!-- Creating a personalized tab greeting-->
-        <title><?php echo $fname_entry ?>'s Homepage</title>
         <?php
           require('connect.php');
           $db = open_connection();
@@ -31,7 +30,8 @@ if (!isset($_SESSION['email'])) {
             $fname_entry = "User";
           }
           mysqli_close($db);
-          ?>
+        ?>
+        <title><?php echo $fname_entry ?>'s Homepage</title>
         
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
