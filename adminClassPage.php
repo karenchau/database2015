@@ -74,7 +74,6 @@ if (!isset($_SESSION['email'])) {
         <div class="tab-content">
           <div id="announcements" class="tab-pane fade in active">
             <p>announcements and forum here</p>
-            <div class="alert alert-danger" role="alert">warning!!!</div>
           </div>
 
           <div id="students" class="tab-pane fade">
