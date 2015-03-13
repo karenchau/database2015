@@ -28,7 +28,7 @@ if (!isset($_SESSION['email'])) {
 
     <title>Consumer Informatics (Admin)</title>
     <!-- Prevents students who type in the admin url to access the admin page -->
-    
+
     <?php
     if (!$_SESSION['isAdmin']) {
       $adminerror = "You do not have the privileges to view this page.";
@@ -78,6 +78,7 @@ if (!isset($_SESSION['email'])) {
 
           <div id="students" class="tab-pane fade">
             <p>enroll students in class, search and browse information of enrolled students</p>
+            <?php include('enroll.php') ?>
           </div>
 
           <div id="groups" class="tab-pane fade">
