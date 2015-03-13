@@ -113,16 +113,16 @@ if (!isset($_SESSION['email'])) {
                 <div class="col-sm-9">
                 	<div class="col-sm-12">
                 		<ul class="nav nav-tabs">
-                			<li class="nav active"><a href="#A" data-toggle="tab">A</a></li>
-                			<li class="nav"><a href="#B" data-toggle="tab">B</a></li>
-                			<li class="nav"><a href="#C" data-toggle="tab">C</a></li>
+                			<li class="nav active"><a href="#classlist" data-toggle="tab">Classes</a></li>
+                			<li class="nav"><a href="#profile" data-toggle="tab">Profile</a></li>
+                			<li class="nav"><a href="#forum" data-toggle="tab">Forum</a></li>
                 		</ul>
 
                 		<!-- Tab panes -->
                 		<div class="tab-content">
-                			<div class="tab-pane fade in active" id="A">Content inside tab A</div>
-                			<div class="tab-pane fade" id="B">Content inside tab B</div>
-                			<div class="tab-pane fade" id="C">Content inside tab C</div>
+                			<div class="tab-pane fade in active" id="classlist">Content inside tab A</div>
+                			<div class="tab-pane fade" id="profile">Content inside tab B</div>
+                			<div class="tab-pane fade" id="forum">Content inside tab C</div>
                 		</div>
                 	</div>
                 </div>
