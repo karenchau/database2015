@@ -38,33 +38,28 @@ if (!isset($_SESSION['email'])) {
   });
   </script>
 
-  <title>Class Page</title>
+  <title>Consumer Informatics (Admin)</title>
   <?php
-  if (!$_SESSION['isAdmin']) {
-  $adminerror = "You do not have the privileges to view this page.";
-  echo "<p>$adminerror</p>";
-  header("refresh:5; url=studentClassPage.php");
-  return;
-}
-?>
+    if (!$_SESSION['isAdmin']) {
+    $adminerror = "You do not have the privileges to view this page.";
+    echo "<p>$adminerror</p>";
+    header("refresh:5; url=studentClassPage.php");
+    return;
+    }
+  ?>
 </head>
 
   <body>
-  
-    <div class = "header"><h1>
-    <p>Welcome!</p>
-    </h1>
-    <h3>
-      
-    </h3>
+    <div class = "header">
+      <h1>Consumer Informatics</h1>
     </div>
-  <div class="tabs">
-    <ul class = "tab-links">
-      <li><a href ="#announcements" title = "Announcements and Forum" class="active">Announcements and Forum</a></li>
-      <li><a href ="#students" title = "Enrolled Students">Enrolled Students</a></li>
-      <li><a href ="#groups" title = "Manage Project Groups">Manage Project Groups</a></li>
-      <li><a href ="#grades" title = "View Grades and Rankings">View Grades and Rankings</a></li>
-    </ul>
+    <div class="tabs">
+      <ul class = "tab-links">
+        <li><a href ="#announcements" title = "Announcements and Forum" class="active">Announcements and Forum</a></li>
+        <li><a href ="#students" title = "Enrolled Students">Enrolled Students</a></li>
+        <li><a href ="#groups" title = "Manage Project Groups">Manage Project Groups</a></li>
+        <li><a href ="#grades" title = "View Grades and Rankings">View Grades and Rankings</a></li>
+      </ul>
   
 
     <div class="tab-content">

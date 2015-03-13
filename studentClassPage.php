@@ -38,7 +38,7 @@ if (!isset($_SESSION['email'])) {
   });
   </script>
 
-  <title>COMP3013</title>
+  <title>Consumer Informatics</title>
 </head>
 
   <body>
