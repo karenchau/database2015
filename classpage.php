@@ -74,7 +74,7 @@ if (!isset($_SESSION['email'])) {
 				<h2>Welcome <?php echo "$fname_entry" ?>!</h2> <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!! change this back to h1 if we change style.css -->
 			</div>
 			<br>
-            
+            <div class="row"> <!-- Allows the profile and the tabs to be on the same level(row) -->
                 <div class="col-sm-3">
                     <!--left col-->
                     <ul class="list-group">
@@ -106,27 +106,27 @@ if (!isset($_SESSION['email'])) {
                         <?php
                             mysqli_close($db);  
                         ?>
-
-
                     </ul>
                 </div>
                     <!-- right colomn -->
                     <!-- Tabs for navigating the user options-->    
-                <div class="container" style="align:right">
-                	<ul class="nav nav-tabs">
-                		<li class="nav active"><a href="#A" data-toggle="tab">A</a></li>
-                		<li class="nav"><a href="#B" data-toggle="tab">B</a></li>
-                		<li class="nav"><a href="#C" data-toggle="tab">C</a></li>
-                	</ul>
+                <div class="col-sm-9">
+                	<div class="container">
+                		<ul class="nav nav-tabs">
+                			<li class="nav active"><a href="#A" data-toggle="tab">A</a></li>
+                			<li class="nav"><a href="#B" data-toggle="tab">B</a></li>
+                			<li class="nav"><a href="#C" data-toggle="tab">C</a></li>
+                		</ul>
 
-                	<!-- Tab panes -->
-                	<div class="tab-content">
-                		<div class="tab-pane fade in active" id="A">Content inside tab A</div>
-                		<div class="tab-pane fade" id="B">Content inside tab B</div>
-                		<div class="tab-pane fade" id="C">Content inside tab C</div>
+                		<!-- Tab panes -->
+                		<div class="tab-content">
+                			<div class="tab-pane fade in active" id="A">Content inside tab A</div>
+                			<div class="tab-pane fade" id="B">Content inside tab B</div>
+                			<div class="tab-pane fade" id="C">Content inside tab C</div>
+                		</div>
                 	</div>
                 </div>
-
+            </div>
         </div>
     </body>
 </html>
