@@ -74,7 +74,7 @@ if (!isset($_SESSION['email'])) {
 				<h2>Welcome <?php echo "$fname_entry" ?>!</h2> <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!! change this back to h1 if we change style.css -->
 			</div>
 			<br>
-            <div class="row"> <!-- Allows the profile and the tabs to be on the same level(row) -->
+            
                 <div class="col-sm-3">
                     <!--left col-->
                     <ul class="list-group">
@@ -126,7 +126,7 @@ if (!isset($_SESSION['email'])) {
                 		<div class="tab-pane fade" id="C">Content inside tab C</div>
                 	</div>
                 </div>
-            </div>
+
         </div>
     </body>
 </html>
