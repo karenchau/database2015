@@ -5,6 +5,8 @@ if (!isset($_SESSION['email'])) {
   return;
 }
 
+echo 'hi';
+
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
 	/*
