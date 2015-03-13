@@ -128,8 +128,8 @@ if (!isset($_SESSION['email'])) {
                                     if($role) {                                                           //depending on the role, a different page will appear
                                         echo "<p><a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a></p><br>";
                                     } else {
-                                        echo "<a href=\"studentClassPage.php\">Consumer Informatics (Student)</a><br>";
-                                        echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a><br>";
+                                        echo "<p><a href=\"studentClassPage.php\">Consumer Informatics (Student)</a></p><br>";
+                                        echo "<p><a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a></p><br>";
                                     }
                                     $_SESSION['isAdmin'] = $role;
                                     mysqli_close($db);

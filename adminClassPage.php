@@ -28,6 +28,7 @@ if (!isset($_SESSION['email'])) {
 
     <title>Consumer Informatics (Admin)</title>
     <!-- Prevents students who type in the admin url to access the admin page -->
+    
     <?php
     if (!$_SESSION['isAdmin']) {
       $adminerror = "You do not have the privileges to view this page.";
