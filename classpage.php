@@ -112,7 +112,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
                     <!-- right colomn -->
                     <!-- Tabs for navigating the user options-->    
-                
+                <div class="container">
                 	<ul class="nav nav-tabs">
                 		<li class="nav active"><a href="#A" data-toggle="tab">A</a></li>
                 		<li class="nav"><a href="#B" data-toggle="tab">B</a></li>
@@ -125,7 +125,7 @@ if (!isset($_SESSION['email'])) {
                 		<div class="tab-pane fade" id="B">Content inside tab B</div>
                 		<div class="tab-pane fade" id="C">Content inside tab C</div>
                 	</div>
-
+                </div>
             </div>
         </div>
     </body>
