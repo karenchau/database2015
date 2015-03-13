@@ -28,15 +28,6 @@ if (!isset($_SESSION['email'])) {
 
     <title>Consumer Informatics (Admin)</title>
     <!-- Prevents students who type in the admin url to access the admin page -->
-
-    <?php
-    if (!$_SESSION['isAdmin']) {
-      $adminerror = "You do not have the privileges to view this page.";
-      echo "<div class=\"alert alert-danger\" role=\"alert\" style=\"padding:20px\">$adminerror</div>";
-      header("refresh:4; url=studentClassPage.php");
-      return;
-    }
-    ?>
   </head>
 
   <body>
@@ -62,6 +53,14 @@ if (!isset($_SESSION['email'])) {
       <div class="page-header">
         <h1>Consumer Informatics</h1>
       </div>
+      <?php
+        if (!$_SESSION['isAdmin']) {
+          $adminerror = "You do not have the privileges to view this page.";
+          echo "<div class=\"alert alert-danger\" role=\"alert\">$adminerror</div>";
+          header("refresh:4; url=studentClassPage.php");
+          return;
+        }
+      ?>
       <div class="col-sm-12">
         <ul class = "nav nav-tabs">
           <li class = "nav active"><a href ="#announcements" data-toggle="tab">Announcements and Forum</a></li>
