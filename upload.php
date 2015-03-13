@@ -5,6 +5,8 @@ if (!isset($_SESSION['email'])) {
   return;
 }
 
+echo 'hi';
+
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
 	/*
@@ -30,7 +32,7 @@ if (isset($_FILES['file'])){
 	$file_size = intval($_FILES['file']['size']);
 
 	$query = "INSERT INTO 'report'('name', 'type', 'size', 'data', 'group', 'uploadtime')
-			VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', 1, NOW())";
+			VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '1', NOW())";
 
 	$result = $db->query($query);
 
