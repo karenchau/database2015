@@ -120,9 +120,24 @@ if (!isset($_SESSION['email'])) {
 
                 		<!-- Tab panes -->
                 		<div class="tab-content">
-                			<div class="tab-pane fade in active" id="classlist">Content inside tab A</div>
-                			<div class="tab-pane fade" id="profile">Content inside tab B</div>
-                			<div class="tab-pane fade" id="forum">Content inside tab C</div>
+                			<div class="tab-pane fade in active" id="classlist">
+                				<?php
+                				$db = open_connection();
+                				$query = "select role from user where email = '$_SESSION[email]' ";
+                				$result = mysqli_query($db, $query);
+                				$role = mysqli_getresult($result, mysqli_num_rows($result), 0);
+					            if($role) {                                                           //depending on the role, a different page will appear
+					            	echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a><br>";
+					            } else {
+					            	echo "<a href=\"studentClassPage.php\">Consumer Informatics (Student)</a><br>";
+					            	echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a><br>";
+					            }
+					            $_SESSION['isAdmin'] = $role;
+					            mysqli_close($db);
+					            ?>
+                			</div>
+                			<div class="tab-pane fade" id="profile">Content inside profile tab</div>
+                			<div class="tab-pane fade" id="forum">Content inside classes tab</div>
                 		</div>
                 	</div>
                 </div>
