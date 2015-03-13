@@ -4,28 +4,29 @@ if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
 	if ($_FILES['file'][['error']] == 0) {
 		//Connect to database
-		$db_link = table_connect('report');
+		require('connect.php');
+		$db = open_connection();
 	}
 
-	$file_name = $db_link->mysql_real_escape_string($_FILES['file']['name']);
-	$file_type = $db_link->mysql_real_escape_string($_FILES['file']['type']);
-	$content = $db_link->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
+	$file_name = $db->mysql_real_escape_string($_FILES['file']['name']);
+	$file_type = $db->mysql_real_escape_string($_FILES['file']['type']);
+	$content = $db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
 	$file_size = intval($_FILES['file']['size']);
 
 	$query = "INSERT INTO 'report'('name', 'type', 'size', 'data', 'group', 'uploadtime')
 			VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', NOW())";
 
-	$result = $db_link->query($query);
+	$result = $db->query($query);
 
 	if ($result) {
 		echo 'Your file was successfully uploaded.';
 	} else {
-		echo 'ERROR: failed to insert file.' . "<pre>{$db_link->error}</pre>";
+		echo 'ERROR: failed to insert file.' . "<pre>{$db->error}</pre>";
 	}
 	else {
 		echo 'An error occurred while the file was being uploaded.' . 'Error code: ' . intval($_FILES[file]['error']);
 	}
-	$db_link->close();
+	$db->close();
 }
 else {
 	echo 'Error: A file was not sent';
