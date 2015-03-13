@@ -112,7 +112,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
                     <!-- right colomn -->
                     <!-- Tabs for navigating the user options-->    
-                <div class="container">
+                <div class="container" style="align:right">
                 	<ul class="nav nav-tabs">
                 		<li class="nav active"><a href="#A" data-toggle="tab">A</a></li>
                 		<li class="nav"><a href="#B" data-toggle="tab">B</a></li>
