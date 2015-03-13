@@ -41,6 +41,11 @@ if (!isset($_SESSION['email'])) {
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
+
+		<!-- Latest compiled and minified JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     </head>
     
     <body>
@@ -107,14 +112,20 @@ if (!isset($_SESSION['email'])) {
                 </div>
                     <!-- right colomn -->
                     <!-- Tabs for navigating the user options-->    
-                    <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="classpage.php">Class List</a></li>
-	                    <!-- <div class="tab-content" id="classtab">
-	                    	Needs work
-	                    </div> -->
-                    <li role="presentation"><a href="profilepage.php">Profile</a></li>
-                    <li role="presentation"><a href="forumpage.php">Forum</a></li>
-                    </ul>
+                    <div class="container">
+                    	<ul class="nav nav-tabs">
+                    		<li class="nav active"><a href="#A" data-toggle="tab">A</a></li>
+                    		<li class="nav"><a href="#B" data-toggle="tab">B</a></li>
+                    		<li class="nav"><a href="#C" data-toggle="tab">C</a></li>
+                    	</ul>
+
+                    	<!-- Tab panes -->
+                    	<div class="tab-content">
+                    		<div class="tab-pane fade in active" id="A">Content inside tab A</div>
+                    		<div class="tab-pane fade" id="B">Content inside tab B</div>
+                    		<div class="tab-pane fade" id="C">Content inside tab C</div>
+                    	</div>
+                    </div>
             </div>
         </div>
     </body>
