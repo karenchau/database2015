@@ -1,12 +1,28 @@
 <?php
+session_start();
+if (!isset($_SESSION['email'])) {
+  header('Location: login.php');
+  return;
+}
 
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
+	/*
 	if ($_FILES['file'][['error']] == 0) {
 		//Connect to database
 		require('connect.php');
 		$db = open_connection();
+		$email = mysqli_real_escape_string($db, $_SESSION['email']);
+        $query = "select group from user where email = '$email' ";
+        $result = mysqli_query($db, $query);
+        require('functions.php');
+        if (mysqli_num_rows($result) > 0) {
+          $fname_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+        } else {
+          $fname_entry = "User";
+        }
 	}
+	*/
 
 	$file_name = $db->mysql_real_escape_string($_FILES['file']['name']);
 	$file_type = $db->mysql_real_escape_string($_FILES['file']['type']);
@@ -14,7 +30,7 @@ if (isset($_FILES['file'])){
 	$file_size = intval($_FILES['file']['size']);
 
 	$query = "INSERT INTO 'report'('name', 'type', 'size', 'data', 'group', 'uploadtime')
-			VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', NOW())";
+			VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', 1, NOW())";
 
 	$result = $db->query($query);
 
@@ -26,7 +42,7 @@ if (isset($_FILES['file'])){
 	else {
 		echo 'An error occurred while the file was being uploaded.' . 'Error code: ' . intval($_FILES[file]['error']);
 	}
-	$db->close();
+	mysql_close($db);
 }
 else {
 	echo 'Error: A file was not sent';
