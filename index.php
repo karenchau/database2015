@@ -126,7 +126,7 @@ if (!isset($_SESSION['email'])) {
                                     $result = mysqli_query($db, $query);
                                     $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
                                     if($role) {                                                           //depending on the role, a different page will appear
-                                        echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a><br>";
+                                        echo "<p><a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a></p><br>";
                                     } else {
                                         echo "<a href=\"studentClassPage.php\">Consumer Informatics (Student)</a><br>";
                                         echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a><br>";
@@ -135,8 +135,8 @@ if (!isset($_SESSION['email'])) {
                                     mysqli_close($db);
                                 ?>
                             </div>
-                            <div class="tab-pane fade" id="profile">Content inside profile tab</div>
-                            <div class="tab-pane fade" id="other">Content inside some other tab</div>
+                            <div class="tab-pane fade" id="profile"><p>Content inside profile tab</p></div>
+                            <div class="tab-pane fade" id="other"><p>Content inside some other tab</p></div>
                         </div>
                     </div>
                 </div>

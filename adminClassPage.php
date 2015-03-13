@@ -57,35 +57,36 @@ if (!isset($_SESSION['email'])) {
         </div>
       </div>
     </nav>
-    <div class="page-header">
-      <h1>Consumer Informatics</h1>
-    </div>
-    <div class="col-sm-12">
-      <ul class = "nav nav-tabs">
-        <li class = "nav active"><a href ="#announcements" data-toggle="tab">Announcements and Forum</a></li>
-        <li class="nav"><a href ="#students" data-toggle="tab">Enrolled Students</a></li>
-        <li class="nav"><a href ="#groups" data-toggle="tab">Manage Project Groups</a></li>
-        <li class="nav"><a href ="#grades" data-toggle="tab">View Grades and Rankings</a></li>
-      </ul>
+    <div class="container">
+      <div class="page-header">
+        <h1>Consumer Informatics</h1>
+      </div>
+      <div class="col-sm-12">
+        <ul class = "nav nav-tabs">
+          <li class = "nav active"><a href ="#announcements" data-toggle="tab">Announcements and Forum</a></li>
+          <li class="nav"><a href ="#students" data-toggle="tab">Enrolled Students</a></li>
+          <li class="nav"><a href ="#groups" data-toggle="tab">Manage Project Groups</a></li>
+          <li class="nav"><a href ="#grades" data-toggle="tab">View Grades and Rankings</a></li>
+        </ul>
 
 
-      <div class="tab-content">
-        <div id="announcements" class="tab-pane fade in active">
-          <p>announcements and forum here</p>
+        <div class="tab-content">
+          <div id="announcements" class="tab-pane fade in active">
+            <p>announcements and forum here</p>
+          </div>
+
+          <div id="students" class="tab-pane fade">
+            <p>enroll students in class, search and browse information of enrolled students</p>
+          </div>
+
+          <div id="groups" class="tab-pane fade">
+            <p>create groups, add students to groups, remove students from groups</p>
+          </div>
+
+          <div id="grades" class="tab-pane fade">
+            <p>view grades and aggregate rankings of group reports</p>
+          </div>
         </div>
-
-        <div id="students" class="tab-pane fade">
-          <p>enroll students in class, search and browse information of enrolled students</p>
-        </div>
-
-        <div id="groups" class="tab-pane fade">
-          <p>create groups, add students to groups, remove students from groups</p>
-        </div>
-
-        <div id="grades" class="tab-pane fade">
-          <p>view grades and aggregate rankings of group reports</p>
-        </div>
-
       </div>
     </div>
   </body>
