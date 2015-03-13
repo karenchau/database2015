@@ -14,7 +14,12 @@ if (!isset($_SESSION['email'])) {
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="3333.png">
-  <link type='text/css' rel='stylesheet' href='style.css'/>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/main.css" rel="stylesheet">
   
   <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>
