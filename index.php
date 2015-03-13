@@ -17,7 +17,7 @@ if (!isset($_SESSION['email'])) {
         <link rel="icon" href="3333.png">
         
         <!-- Creating a personalized tab greeting-->
-        <title><?php echo $fname_entry?>'s Homepage</title>
+        <title><?php echo $fname_entry ?>'s Homepage</title>
         <?php
           require('connect.php');
           $db = open_connection();
@@ -28,7 +28,7 @@ if (!isset($_SESSION['email'])) {
           if (mysqli_num_rows($result) > 0) {
             $fname_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
           } else {
-            $fname_entry = "User"
+            $fname_entry = "User";
           }
           mysqli_close($db);
           ?>
