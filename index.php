@@ -21,7 +21,7 @@ if (!isset($_SESSION['email'])) {
           require('connect.php');
           $db = open_connection();
           $email = mysqli_real_escape_string($db, $_SESSION['email']);
-          $query = "select first_name from user where email = '$email' ";
+          $query = "SELECT first_name from user where email = '$email' ";
           $result = mysqli_query($db, $query);
           require('functions.php');
           if (mysqli_num_rows($result) > 0) {
@@ -80,7 +80,7 @@ if (!isset($_SESSION['email'])) {
                         <?php
                             $db = open_connection();
                             $email = mysqli_real_escape_string($db, $_SESSION['email']);
-                            $query = "select * from user where email = '$email' ";
+                            $query = "SELECT * from user where email = '$email' ";
                             $result = mysqli_query($db, $query);
                         ?>
                         <!-- creating the group listing (side profile) -->
@@ -122,7 +122,7 @@ if (!isset($_SESSION['email'])) {
                             <div class="tab-pane fade in active" id="classlist">
                                 <?php
                                     $db = open_connection();
-                                    $query = "select role from user where email = '$_SESSION[email]' ";
+                                    $query = "SELECT role from user where email = '$_SESSION[email]' ";
                                     $result = mysqli_query($db, $query);
                                     $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
                                     if($role) {                                                           //depending on the role, a different page will appear
