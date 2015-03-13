@@ -17,8 +17,8 @@ if (!isset($_SESSION['email'])) {
         <link rel="icon" href="3333.png">
         
         <!-- Creating a personalized tab greeting-->
-        <title>
-          <?php
+        <title><?php echo $fname_entry?>'s Homepage</title>
+        <?php
           require('connect.php');
           $db = open_connection();
           $email = mysqli_real_escape_string($db, $_SESSION['email']);
@@ -27,13 +27,11 @@ if (!isset($_SESSION['email'])) {
           require('functions.php');
           if (mysqli_num_rows($result) > 0) {
             $fname_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-            echo "$fname_entry's ";
           } else {
-            echo "User";
+            $fname_entry = "User"
           }
           mysqli_close($db);
           ?>
-          Homepage</title>
         
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
