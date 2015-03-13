@@ -8,8 +8,8 @@
 	while($row = $result->fetch_array()) {
 		echo $row['first_name'] . " " . $row['last_name'];
   		echo "<br />";
-  		echo "working";
 	}
+	mysqli_close($db);
 ?>
 
 <p>end</p>
