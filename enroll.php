@@ -10,7 +10,6 @@
 		$data[] = $row;
 	}
 	$colNames = array_keys(reset($data))
-	mysqli_close($db);
 ?>
 <table border="1">
  <tr>
@@ -34,6 +33,7 @@
           }
           echo "</tr>";
        }
+    mysqli_close($db);
     ?>
  </table>
 <p>end</p>
