@@ -73,7 +73,6 @@ if (isset($_POST['signin'])) {
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="3333.png">
-        <link type='text/css' rel='stylesheet' href='style.css'/>
         
         <!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
