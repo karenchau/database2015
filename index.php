@@ -138,7 +138,7 @@ if (!isset($_SESSION['email'])) {
                                 ?>
                             </div>
                             <div class="tab-pane fade" id="profile">Content inside profile tab</div>
-                            <div class="tab-pane fade" id="forum">Content inside classes tab</div>
+                            <div class="tab-pane fade" id="other">Content inside some other tab</div>
                         </div>
                     </div>
                 </div>
