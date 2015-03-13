@@ -7,79 +7,68 @@ if (!isset($_SESSION['email'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="3333.png">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="3333.png">
 
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/main.css" rel="stylesheet">
-  
-  <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script>
-  jQuery(document).ready(function() {
-    jQuery('.tabs .tab-links a').on('click', function(e)  {
-        var currentAttrValue = jQuery(this).attr('href');
- 
-        // Show/Hide Tabs
-        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
- 
-        // Change/remove current tab to active
-        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
- 
-        e.preventDefault();
-    });
-  });
-  </script>
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+    
+    <!-- Latest compiled and minified JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-  <title>Consumer Informatics (Admin)</title>
-  <?php
+    <title>Consumer Informatics (Admin)</title>
+    <!-- Prevents students who type in the admin url to access the admin page -->
+    <?php
     if (!$_SESSION['isAdmin']) {
-    $adminerror = "You do not have the privileges to view this page.";
-    echo "<p>$adminerror</p>";
-    header("refresh:5; url=studentClassPage.php");
-    return;
+      $adminerror = "You do not have the privileges to view this page.";
+      echo "<p>$adminerror</p>";
+      header("refresh:5; url=studentClassPage.php");
+      return;
     }
-  ?>
-</head>
+    ?>
+  </head>
 
   <body>
-    <div class = "header">
+    <div class="page-header">
       <h1>Consumer Informatics</h1>
     </div>
-    <div class="tabs">
-      <ul class = "tab-links">
-        <li><a href ="#announcements" title = "Announcements and Forum" class="active">Announcements and Forum</a></li>
-        <li><a href ="#students" title = "Enrolled Students">Enrolled Students</a></li>
-        <li><a href ="#groups" title = "Manage Project Groups">Manage Project Groups</a></li>
-        <li><a href ="#grades" title = "View Grades and Rankings">View Grades and Rankings</a></li>
+    <div class="col-sm-12">
+      <ul class = "nav nav-tabs">
+        <li class = "nav active"><a href ="#announcements" data-toggle="tab">Announcements and Forum</a></li>
+        <li class="nav"><a href ="#students" data-toggle="tab">Enrolled Students</a></li>
+        <li class="nav"><a href ="#groups" data-toggle="tab">Manage Project Groups</a></li>
+        <li class="nav"><a href ="#grades" data-toggle="tab">View Grades and Rankings</a></li>
       </ul>
-  
 
-    <div class="tab-content">
-      <div id="announcements" class="tab active">
-        <p>announcements and forum here</p>
+
+      <div class="tab-content">
+        <div id="announcements" class="tab-pane fade in active">
+          <p>announcements and forum here</p>
+        </div>
+
+        <div id="students" class="tab-pane fade">
+          <p>enroll students in class, search and browse information of enrolled students</p>
+        </div>
+
+        <div id="groups" class="tab-pane fade">
+          <p>create groups, add students to groups, remove students from groups</p>
+        </div>
+
+        <div id="grades" class="tab-pane fade">
+          <p>view grades and aggregate rankings of group reports</p>
+        </div>
+
       </div>
-
-      <div id="students" class="tab">
-        <p>enroll students in class, search and browse information of enrolled students</p>
-      </div>
-
-      <div id="groups" class="tab">
-        <p>create groups, add students to groups, remove students from groups</p>
-      </div>
-
-      <div id="grades" class="tab">
-        <p>view grades and aggregate rankings of group reports</p>
-      </div>
-
     </div>
-  </div>
   </body>
 </html>
