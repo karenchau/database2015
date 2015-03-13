@@ -78,7 +78,7 @@ if (!isset($_SESSION['email'])) {
 
           <div id="students" class="tab-pane fade">
             <p>enroll students in class, search and browse information of enrolled students</p>
-            <?php include('enroll.php') ?>
+            <?php include("enroll.php") ?>
           </div>
 
           <div id="groups" class="tab-pane fade">
