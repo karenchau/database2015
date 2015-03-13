@@ -92,7 +92,7 @@ if (isset($_POST['signin'])) {
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.php">Login</a>
+					<a class="navbar-brand" href="index.php"><img alt="Virtual Learning Environment" src="3333.png">latform</a>
 				</div>
 			</div>
 		</nav>

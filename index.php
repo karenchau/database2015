@@ -36,43 +36,43 @@ if (!isset($_SESSION['email'])) {
           Homepage</title>
         
         <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/main.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="css/main.css" rel="stylesheet">
 
-    <!-- Latest compiled and minified JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     </head>
     
     <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php"><img alt="Virtual Learning Environment" src="3333.png">latform</a>
-        </div>        
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><p class="navbar-btn"><a href="logout.php" class="btn btn-danger">Sign out</a></p></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.php"><img alt="Virtual Learning Environment" src="3333.png">latform</a>
+                </div>        
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><p class="navbar-btn"><a href="logout.php" class="btn btn-danger">Sign out</a></p></li>
+                    </ul>
+                </div>
+          </div>
+        </nav>
     
         <div class="container">
-      <div class="page-header">
-        <!-- Creating a personalized homepage greeting-->
-        <h2>Welcome <?php echo "$fname_entry" ?>!</h2> <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!! change this back to h1 if we change style.css -->
-      </div>
-      <br>
+            <div class="page-header">
+                <!-- Creating a personalized homepage greeting-->
+                <h2>Welcome <?php echo "$fname_entry" ?>!</h2> <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!! change this back to h1 if we change style.css -->
+            </div>
+            <br>
             <div class="row"> <!-- Allows the profile and the tabs to be on the same level(row) -->
                 <div class="col-sm-3">
                     <!--left col-->
@@ -110,35 +110,35 @@ if (!isset($_SESSION['email'])) {
                     <!-- right colomn -->
                     <!-- Tabs for navigating the user options-->    
                 <div class="col-sm-9">
-                  <div class="col-sm-12">
-                    <ul class="nav nav-tabs">
-                      <li class="nav active"><a href="#classlist" data-toggle="tab">Classes</a></li>
-                      <li class="nav"><a href="#profile" data-toggle="tab">Profile</a></li>
-                      <li class="nav"><a href="#other" data-toggle="tab">Other</a></li>
-                    </ul>
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            <li class="nav active"><a href="#classlist" data-toggle="tab">Classes</a></li>
+                            <li class="nav"><a href="#profile" data-toggle="tab">Profile</a></li>
+                            <li class="nav"><a href="#other" data-toggle="tab">Other</a></li>
+                        </ul>
 
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                      <div class="tab-pane fade in active" id="classlist">
-                        <?php
-                        $db = open_connection();
-                        $query = "select role from user where email = '$_SESSION[email]' ";
-                        $result = mysqli_query($db, $query);
-                        $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
-                      if($role) {                                                           //depending on the role, a different page will appear
-                        echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a><br>";
-                      } else {
-                        echo "<a href=\"studentClassPage.php\">Consumer Informatics (Student)</a><br>";
-                        echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a><br>";
-                      }
-                      $_SESSION['isAdmin'] = $role;
-                      mysqli_close($db);
-                      ?>
-                      </div>
-                      <div class="tab-pane fade" id="profile">Content inside profile tab</div>
-                      <div class="tab-pane fade" id="forum">Content inside classes tab</div>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="classlist">
+                                <?php
+                                    $db = open_connection();
+                                    $query = "select role from user where email = '$_SESSION[email]' ";
+                                    $result = mysqli_query($db, $query);
+                                    $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
+                                    if($role) {                                                           //depending on the role, a different page will appear
+                                        echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a><br>";
+                                    } else {
+                                        echo "<a href=\"studentClassPage.php\">Consumer Informatics (Student)</a><br>";
+                                        echo "<a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a><br>";
+                                    }
+                                    $_SESSION['isAdmin'] = $role;
+                                    mysqli_close($db);
+                                ?>
+                            </div>
+                            <div class="tab-pane fade" id="profile">Content inside profile tab</div>
+                            <div class="tab-pane fade" id="forum">Content inside classes tab</div>
+                        </div>
                     </div>
-                  </div>
                 </div>
             </div>
         </div>
