@@ -32,7 +32,7 @@ if (!isset($_SESSION['email'])) {
     <?php
     if (!$_SESSION['isAdmin']) {
       $adminerror = "You do not have the privileges to view this page.";
-      echo "<div class=\"alert alert-danger\" role=\"alert\">$adminerror</div>";
+      echo "<div class=\"alert alert-danger\" role=\"alert\" style=\"padding:20px\">$adminerror</div>";
       header("refresh:4; url=studentClassPage.php");
       return;
     }
