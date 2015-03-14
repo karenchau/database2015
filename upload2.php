@@ -1,39 +1,4 @@
 <?php
-$file_name = $_FILES['file']['name'];
-$finfo = new finfo(FILEINFO_MIME_TYPE);
-$file_type = $finfo->file($_FILES['files']['tmp_name']);
-
-$target_directory = "upload/"; 
-$target_file = $target_directory . basename(fileName) ; 
-$ok=1;
-
-//This is our size condition
-if ($uploaded_size > 1000000)  {  
-	echo "File size limit exceeded.<br>";  $ok=0;  
-}   
-
-//This is our limit file type condition  
-if ($file_type !== 'text/plain')) {
-	echo "You may only upload .txt files.<br>"; $ok=0;
-}  
-
-//Here we check that $ok was not set to 0 by an error 
-if ($ok==0)  {
-	echo "Your file was not uploaded.";  
-}   
-//If everything is ok we try to upload it
-else  {
-	if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target))  {
-		echo "The file ". basename(file_name). " has been uploaded";
-	} else { 
-		echo "There was an error uploading your file.";
-	}  
-}
-?>
-
-
-
-<?php
 // Check if a file has been uploaded
 if(isset($_FILES['uploaded_file'])) {
     // Make sure the file was sent without errors
@@ -42,25 +7,45 @@ if(isset($_FILES['uploaded_file'])) {
         require('connect.php');
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
+        
         //group number
-        $query = "select group from user where email = '$email'";
+        $query = "select enrolled_list.group_num";
+        $query .= "from enrolled_list inner join user on enrolled_list.student_id = user.email";
+        $query .= "where user.email = '$email'";
         $result = mysqli_query($db, $query);
-        $group = mysqli_getresult($result, mysqli_num_rows($result), 0);
+        $group = mysqli_getresult($result, mysqli_num_rows($result), 0);;
+        
+        //check if the user doesn't belong to a group in this class (null)
+        
+        if($group = null)
+        {
+            echo 'Error! You are not in a group';
+            header('Location: index.php');
+            return;
+        }
+        if($group = 0)
+        {
+            echo 'Error! You are a lecturer, not a student';
+            header('Location:index.php');
+            return;
+        }
+        
         
         if(mysqli_connect_errno()) {
             die("MySQL connection failed: ". mysqli_connect_error());
         }
  
-        // Gather all required data
+        // Gather all required file data
         $name = $db->real_escape_string($_FILES['uploaded_file']['name']);
         $type = $db->real_escape_string($_FILES['uploaded_file']['type']);
         $data = $db->real_escape_string(file_get_contents($_FILES  ['uploaded_file']['tmp_name']));
         $size = intval($_FILES['uploaded_file']['size']);
+        $num =1;
  
         // Create the SQL query
         $query = "
-            INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`)
-            VALUES ('{$name}', '{$type}', {$size}, '{$data}','{$group}')";
+            INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, 'class')
+            VALUES ('{$name}', '{$type}', {$size}, '{$data}','{$group}', {'$class'})";
  
         // Execute the query
         $result = $db->query($query);
