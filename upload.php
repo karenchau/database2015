@@ -8,13 +8,31 @@ if (!isset($_SESSION['email'])) {
 echo 'hi';
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
+	/*
+	if ($_FILES['file'][['error']] == 0) {
+		//Connect to database
+		require('connect.php');
+		$db = open_connection();
+		$email = mysqli_real_escape_string($db, $_SESSION['email']);
+        $query = "select group from user where email = '$email' ";
+        $result = mysqli_query($db, $query);
+        require('functions.php');
+        if (mysqli_num_rows($result) > 0) {
+          $fname_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+        } else {
+          $fname_entry = "User";
+        }
+	}
+	*/
 
-	$file_name = $db->mysql_real_escape_string($_FILES['file']['name']);
-	$file_type = $db->mysql_real_escape_string($_FILES['file']['type']);
-	$content = $db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
-	$file_size = intval($_FILES['file']['size']);
+	$file_name = "test" //$db->mysql_real_escape_string($_FILES['file']['name']);
+	$file_type = "text/plain" $db->mysql_real_escape_string($_FILES['file']['type']);
+	$content = NULL; //$db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
+	$file_size = 1; //intval($_FILES['file']['size']);
+	$group = 2;
+	$datetime = NOW();
 
-	$query = "INSERT INTO 'report' ('name', 'type', 'size', 'data', 'group', 'uploadtime') VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '1', NOW())";
+	$query = "INSERT INTO 'report' ('name', 'type', 'size', 'data', 'group', 'uploadtime') VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '{group}', '{datetime}'";
 	//$query = "INSERT INTO 'report'('name', 'type', 'size', 'data', 'group', 'uploadtime') VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '1', NOW())";
 
 	$result = $db->query($query);
