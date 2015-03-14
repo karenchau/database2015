@@ -30,13 +30,13 @@ if (isset($_FILES['file'])){
 	$content = NULL; //$db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
 	$file_size = 1; //intval($_FILES['file']['size']);
 	$group = 2;
-	$datetime = NOW();
+	$datetime = NULL;
 
 	$query = "INSERT INTO 'report' ('name', 'type', 'size', 'data', 'group', 'uploadtime') VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '{group}', '{datetime}'";
 	//$query = "INSERT INTO 'report'('name', 'type', 'size', 'data', 'group', 'uploadtime') VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '1', NOW())";
 
 	$result = $db->query($query);
-
+/*
 	if ($result) {
 		echo "Your file was successfully uploaded.";
 	} else {
@@ -50,9 +50,10 @@ if (isset($_FILES['file'])){
 else {
 	echo 'Error: A file was not sent';
 }
+*/
 
 //link to go back
-echo '<p>Click <a href = "index.php">here</a> to go back </p>';
+//echo '<p>Click <a href = "index.php">here</a> to go back </p>';
 
 
 ?>
