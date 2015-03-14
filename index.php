@@ -95,8 +95,6 @@ if (!isset($_SESSION['email'])) {
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department </strong></span> 
                                   <!-- Checks if the field is NULL for the columns that can be NULL to prevent layout discrepancies -->
                                   <?php echo ($row['department'] == NULL) ? "N/A" : $row['department']; ?></li> 
-                                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Group </strong></span> 
-                                  <?php echo ($row['group'] == NULL) ? "N/A" : $row['group']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Class Year </strong></span> 
                                   <?php echo ($row['year'] == NULL) ? "N/A" : $row['year']; ?></li>
                                 <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role </strong></span>
