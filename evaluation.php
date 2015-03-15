@@ -32,7 +32,7 @@
   }
   
   //Get user's group number
-  $query = "SELECT group_id from group where email = '$_SESSION[email]' ";
+  $query = "SELECT group_id from group where email = '$_SESSION[email]' AND class= '$_SESSION[class]'";
   $result = mysqli_query($db, $query);
   if (mysqli_num_rows($result) > 0) {
     $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
@@ -43,7 +43,7 @@
 
   // Query for a list of all assigned evaluations
 
-  $query = "SELECT `id_report_group` FROM `evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
+  $query = "SELECT `id_report_group` FROM `evaluation WHERE class = '$_SESSION[class]' AND id_eval_group = '$group_entry'";
   $result = $db->query($query);
 
   
