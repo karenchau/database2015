@@ -41,10 +41,12 @@ if(isset($_FILES['uploaded_file'])) {
         $data = $db->real_escape_string(file_get_contents($_FILES  ['uploaded_file']['tmp_name']));
         $size = intval($_FILES['uploaded_file']['size']);
         $date = date('Y/m/d H:i:s');
+        $id = '1';
+        $class = 'COMP1004';
  
         // Create the SQL query
         $query = " INSERT INTO report (id, name, type, size, data, group, uploadtime, class) 
-                    VALUES ('1', '{$name}', '{$type}', {$size}, '{$data}', '{$group}', '{$date}' ,'COMP1004')";
+                    VALUES ('{$id}', '{$name}', '{$type}', {$size}, '{$data}', '{$group}', '{$date}' ,'{$class}')";
  
         // Execute the query
         $result = mysqli_query($db, $query);
