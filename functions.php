@@ -18,7 +18,7 @@ function print_table($result) {
 		$data[] = $row;
 	}
 	$colNames = array_keys(reset($data));
-	echo "<table border=\"1\">";
+	echo "<table class=\"table table-hover\">";
 	echo "<tr>";
 		foreach($colNames as $colName)
 		{
