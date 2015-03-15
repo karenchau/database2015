@@ -27,9 +27,9 @@ if (isset($_FILES['file'])){
         echo $group;
 	}
 
-	$file_name = "test"; //$db->mysql_real_escape_string($_FILES['file']['name']);
-	$file_type = "text/plain"; //$db->mysql_real_escape_string($_FILES['file']['type']);
-	$content =  NULL; //$db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
+	$file_name = mysqli_real_escape_string($db, $_FILES['file']['name']);
+	$file_type = mysqli_real_escape_string($db, $_FILES['file']['type']);
+	$content =  mysqli_real_escape_string($db, file_get_contents(($_FILES['file']['tmp_name'])));
 	$file_size = intval($_FILES['file']['size']);
 	$datetime = NULL;
 	$module = "consumerinformatics";
