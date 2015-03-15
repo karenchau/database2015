@@ -20,13 +20,16 @@ if(isset($_FILES['uploaded_file'])) {
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         
         //more than one member in the group 
-        $query = "SELECT * FROM group g WHERE g.class ='$class' AND (g.member1 = '$email' OR g.member2 = '$email' OR g.member3 = '$email'";
+        $query = " SELECT * FROM group g ";
+        $query .= " WHERE g.class ='$class' "; 
+        $query .= " AND (g.member1 = '$email' OR g.member2 = '$email' OR g.member3 = '$email'";
         
         $result = $db->query($query);
         
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group = $row["group_id"];
+        printf("GROUP ID: %s", $group);
         
         //check if the user doesn't belong to a group in this class (null)
         
