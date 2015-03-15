@@ -18,7 +18,7 @@
 	<div class="input-group">
 		<input type="text" class="form-control" placeholder="Enter email address">
 		<span class="input-group-btn">
-			<button class="btn btn-default" type="button">Go!</button>
+			<button id="btn-enroll" name="enroll" class="btn btn-primary" type="submit">Go!</button>
 		</span>
 	</div>
 	
