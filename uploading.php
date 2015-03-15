@@ -19,7 +19,7 @@ if(isset($_FILES['uploaded_file'])) {
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
-        printf("%s is the class", $class);
+        printf("\n %s is the class", $class);
         //group number
         $query = "select *";
         $query .= "from enrolled_list inner join user on enrolled_list.student_id = user.email";
@@ -29,7 +29,7 @@ if(isset($_FILES['uploaded_file'])) {
         //get the row, then group number
         $row = mysql_fetch_assoc($result);
         $group = $row['group_num'];
-        printf("%d group number.\n", $group);
+        printf("\n %d group number.\n", $group);
         //check if the user doesn't belong to a group in this class (null)
         if($group = null)
         {
@@ -37,7 +37,7 @@ if(isset($_FILES['uploaded_file'])) {
             header('Location: index.php');
             return;
         }
-        if($group = 0)
+        if($group = '0')
         {
             echo 'Error! You are a lecturer, not a student';
             header('Location:index.php');
