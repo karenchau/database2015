@@ -9,6 +9,7 @@ echo 'hello ';
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
 	echo 'world';
+	/*
 	if ($_FILES['file'][['error']] == 0) {
 		//Connect to database
 		require('connect.php');
@@ -25,6 +26,9 @@ if (isset($_FILES['file'])){
         }
         echo $group;
 	}
+	*/
+	require ('connect.php');
+	$db = open_connection();
 
 	$file_name = $db->mysql_real_escape_string($_FILES['file']['name']);
 	$file_type = $db->mysql_real_escape_string($_FILES['file']['type']);
@@ -32,6 +36,7 @@ if (isset($_FILES['file'])){
 	$file_size = intval($_FILES['file']['size']);
 	$datetime = NULL;
 	$module = "consumerinformatics";
+	$group = 2;
 
 	echo $module;
 	echo $group;
