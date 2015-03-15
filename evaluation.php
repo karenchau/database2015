@@ -32,6 +32,7 @@
   }
   
   //Get user's group number
+  $echo '$_SESSION[class]' . " " . '$_SESSION[email]';
   $query = "SELECT group_id from group where (class= '$_SESSION[class]') AND  (member1 = '$_SESSION[email]' OR member2 = '$_SESSION[email]') ";
   $result = mysqli_query($db, $query);
   if (mysqli_num_rows($result) > 0) {
