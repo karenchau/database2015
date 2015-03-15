@@ -5,9 +5,10 @@ if (!isset($_SESSION['email'])) {
   return;
 }
 
+echo 'hello ';
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
-
+	echo 'world';
 	if ($_FILES['file'][['error']] == 0) {
 		//Connect to database
 		require('connect.php');
