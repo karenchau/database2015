@@ -20,9 +20,9 @@ if(isset($_FILES['uploaded_file'])) {
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         
         //more than one member in the group 
-        $query = " SELECT * FROM group g ";
-        $query .= " WHERE g.class ='$class' "; 
-        $query .= " AND ((g.member1 = '$email' OR g.member2 = '$email') OR (g.member3 = '$email')";
+        $query = " SELECT * FROM group";
+        $query .= " WHERE group.class ='$class' "; 
+        $query .= " AND ((group.member1 = '$email' OR group.member2 = '$email') OR (group.member3 = '$email')";
         
         $result = $db->query($query);
         
