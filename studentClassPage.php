@@ -4,6 +4,8 @@ if (!isset($_SESSION['email'])) {
   header('Location: login.php');
   return;
 }
+
+$_SESSION['class'] = $_GET['classid'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
