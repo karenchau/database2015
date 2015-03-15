@@ -16,15 +16,17 @@
 	<br>
 	<h3>Enroll a student</h3>
 	<div class="input-group">
-		<input type="text" class="form-control" placeholder="Enter email address">
+		<input type="text" name="studentemail" class="form-control" placeholder="Enter email address">
 		<span class="input-group-btn">
-			<button id="btn-enroll" name="enroll" class="btn btn-primary" type="submit">Go!</button>
+			<button id="btn-enroll" name="enroll" class="btn btn-primary" type="submit">Enroll</button>
 		</span>
 	</div>
-	
-
 	<?php
-		echo $_POST['search_type'];
+		if (isset($_POST['enroll'])) {
+			if (empty($_POST['studentemail']) {
+
+			}
+		}
 		mysqli_close($db);
 	?>
 	<br>
