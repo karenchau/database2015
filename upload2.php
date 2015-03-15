@@ -62,7 +62,7 @@ if(isset($_FILES['uploaded_file'])) {
         }
         else {
             echo 'Error! Failed to insert the file'
-               . $query ."<br" . mysqli_error($db);
+               . "<pre>{$db->error}</pre>";
         }
     }
     else {
