@@ -53,4 +53,18 @@ function find_class() {
 		return "No class found";
 	}
 }
+
+function find_group() {
+	if(isset($_SESSION['group'])) {
+		$db = open_connection();
+		$group = mysqli_real_escape_string($db, $_SESSION['group']);
+		$query = "SELECT group_num from enrolled_list where id = '$group'";
+		$result = mysqli_query($db, $query);
+		$group_num_entry = mysqli_getresult($result,mysqli_num_rows($result),0);
+		mysql_close($db);
+		return $group_num_entry;
+	} else {
+		return "No group found";
+	}
+
 ?>
