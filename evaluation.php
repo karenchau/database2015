@@ -24,28 +24,39 @@
   <!--get array(?) of groups to assess-->
 
   <?php
-  /*
+  
   // Connect to the database
   $db = open_connection();
   if(mysqli_connect_errno()) {
       die("MySQL connection failed: ". mysqli_connect_error());
   }
-   
+  
+  //Get user's group number
+  $query = "SELECT group_id from group where email = '$_SESSION[email]' ";
+  $result = mysqli_query($db, $query);
+  if (mysqli_num_rows($result) > 0) {
+    $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+    echo "You are in group " . $group_entry;
+    } else {
+      echo "You are not in a group.";
+  }
+
   // Query for a list of all assigned evaluations
 
-  $query = "SELECT `name`, `type`, `size` FROM `report`";
-  $query .= "WHERE class = '$class' AND group%20 = '$group'%20 AND group != '$group'";
+  $query = "SELECT `id_report_group` FROM `evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
+  $result = $db->query($query);
 
-  $sql = 'SELECT `id`, `name`, `mime`, `size`, `created` FROM `file`';
-  $result = $dbLink->query($sql);
-   
-  // Check if it was successfull
+  
+  // Check if query was successful
   if($result) {
       // Make sure there are some files in there
       if($result->num_rows == 0) {
           echo '<p>There are no files in the database</p>';
       }
       else {
+        require('functions.php');
+        print_table($result);
+        /*
           // Print the top of a table
           echo '<table width="100%">
                   <tr>
@@ -70,6 +81,7 @@
    
           // Close table
           echo '</table>';
+          */
       }
    
       // Free the result
@@ -83,7 +95,7 @@
    
   // Close the mysql connection
   $dbLink->close();
-  */
+  
   ?>
 
   <!--display group reports + evaluation forms-->
