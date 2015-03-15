@@ -17,7 +17,7 @@ if(isset($_FILES['uploaded_file'])) {
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
-        printf("%s is the class   ", $class);
+        printf("%s is the class ", $class);
         
         //group number
         $query = "SELECT * FROM enrolled_list";
@@ -35,18 +35,20 @@ if(isset($_FILES['uploaded_file'])) {
         $group = $row['group_num'];
         printf("\n %d group number: ", $group);
         //check if the user doesn't belong to a group in this class (null)
+        
         if($group = null)
         {
             echo 'Error! You are not in a group';
             header('Location: index.php');
             return;
         }
-        if($group = '0')
-        {
-            echo 'Error! You are a lecturer, not a student';
-            header('Location:index.php');
-            return;
-        }
+        
+        //if($group = '0')
+        //{
+        //    echo 'Error! You are a lecturer, not a student';
+        //    header('Location:index.php');
+        //   return;
+        //}
         
         
         if(mysqli_connect_errno()) {
