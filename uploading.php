@@ -4,6 +4,10 @@ if (!isset($_SESSION['email'])) {
     header('Location: login.php');
     return;
 }
+if(!isset($_SESSION['class'])) {
+    header('Location: index.php');
+    return;
+}
 ?>
 <?php
 // Check if a file has been uploaded
@@ -14,11 +18,10 @@ if(isset($_FILES['uploaded_file'])) {
         require('connect.php');
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
-        //$class = mysqli_real_escape_string($db, $_SESSION['class']);
-        $class = "COMP1004"
+        $class = mysqli_real_escape_string($db, $_SESSION['class']);
         
         //group number
-        $query = "select enrolled_list.group_num";
+        $query = "select *";
         $query .= "from enrolled_list inner join user on enrolled_list.student_id = user.email";
         $query .= "where user.email = '$email' and enrolled_list.class = $class";
         $result = mysqli_query($db, $query);
@@ -54,7 +57,7 @@ if(isset($_FILES['uploaded_file'])) {
         $date = date('Y/m/d H:i:s');
         
         // Create the SQL query
-        $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', 1, '$date' ,'$class')";
+        $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', '$group', '$date' ,'$class')";
  
         // Execute the query
         $result = mysqli_query($db, $query);
