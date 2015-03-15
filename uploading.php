@@ -22,7 +22,7 @@ if(isset($_FILES['uploaded_file'])) {
         //more than one member in the group 
         $query = " SELECT group_id FROM group WHERE (group.class ='$class') AND ((group.member1 = '$email' OR group.member2 = '$email') OR (group.member3 = '$email'))";
         
-        $result = $db->query($query);
+        $result = mysqli_query($db, $query);
         
         if (!$result)
         {
