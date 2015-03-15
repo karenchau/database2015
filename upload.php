@@ -24,7 +24,6 @@ if (isset($_FILES['file'])){
         } else {
           $group = "no group";
         }
-        echo $group;
 	}
 
 	$file_name = mysqli_real_escape_string($db, $_FILES['file']['name']);
@@ -36,7 +35,7 @@ if (isset($_FILES['file'])){
 
 	$query = "INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, `uploadtime`, `class`) VALUES('{$file_name}', '${file_type}', '{$file_size}', '{$content}', '{$group}', '{$datetime}', '{$module}')";
 
-	$result = $db->query($query);
+	$result = mysqli_query($db,$query);
 
 	if ($result) {
 		echo "Your file was successfully uploaded.";
