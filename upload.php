@@ -7,6 +7,7 @@ if (!isset($_SESSION['email'])) {
 
 echo 'hi';
 if (isset($_FILES['file'])){
+	echo 'filefound';
 	//make sure file was uploaded without errors
 	/*
 	if ($_FILES['file'][['error']] == 0) {
