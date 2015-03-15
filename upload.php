@@ -7,10 +7,10 @@ if (!isset($_SESSION['email'])) {
 
 echo 'hi';
 if (isset($_FILES['file'])){
-	echo 'filefound';
 	//make sure file was uploaded without errors
-	/*
+
 	if ($_FILES['file'][['error']] == 0) {
+		echo 'connect to db now';
 		//Connect to database
 		require('connect.php');
 		$db = open_connection();
@@ -19,12 +19,13 @@ if (isset($_FILES['file'])){
         $result = mysqli_query($db, $query);
         require('functions.php');
         if (mysqli_num_rows($result) > 0) {
-          $fname_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+          $group = mysqli_getresult($result, mysqli_num_rows($result), 0);
         } else {
-          $fname_entry = "User";
+          $group = "no group";
         }
+        echo $group;
 	}
-	*/
+	
 
 	require('connect.php');
 	$db = open_connection();
