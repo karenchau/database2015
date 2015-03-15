@@ -20,7 +20,7 @@ if(isset($_FILES['uploaded_file'])) {
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         
         //more than one member in the group 
-        $query = " SELECT * FROM group";
+        $query = " SELECT group_id FROM group";
         $query .= " WHERE group.class ='$class' "; 
         $query .= " AND ((group.member1 = '$email' OR group.member2 = '$email') OR (group.member3 = '$email'))";
         
@@ -28,8 +28,8 @@ if(isset($_FILES['uploaded_file'])) {
         
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
-        $group = $row["group_id"];
-        printf("GROUP ID: %d", $group);
+        $group_id = $row["group_id"];
+        printf("GROUP ID: %d", $group_id);
         
         //check if the user doesn't belong to a group in this class (null)
         
@@ -66,7 +66,7 @@ if(isset($_FILES['uploaded_file'])) {
         }
         
         // Create the SQL query
-        $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', '$group', '$date' ,'$class')";
+        $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', '$group_id', '$date' ,'$class')";
  
         // Execute the query
         $result = mysqli_query($db, $query);
