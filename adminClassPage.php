@@ -25,6 +25,7 @@ $_SESSION['class'] = $_GET['classid'];
     
     <!-- Latest compiled and minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
@@ -63,7 +64,7 @@ $_SESSION['class'] = $_GET['classid'];
     </nav>
     <div class="container">
       <div class="page-header">
-        <h1>Consumer Informatics</h1>
+        <h1><?php echo $class_name_entry?> Class</h1>
       </div>
       <!-- Prevents students who type in the admin url to access the admin page -->
       <?php
@@ -86,7 +87,6 @@ $_SESSION['class'] = $_GET['classid'];
         <div class="tab-content">
           <div id="announcements" class="tab-pane fade in active">
             <p>announcements and forum here</p>
-            <?php echo $_SESSION['class'] ?>
           </div>
 
           <div id="students" class="tab-pane fade">
