@@ -5,16 +5,15 @@ if (!isset($_SESSION['email'])) {
   return;
 }
 
-echo 'hi';
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
 
 	if ($_FILES['file'][['error']] == 0) {
-		echo 'connect to db now';
 		//Connect to database
 		require('connect.php');
 		$db = open_connection();
 		$email = mysqli_real_escape_string($db, $_SESSION['email']);
+		echo $email;
         $query = "select group_num from enrolled_list where email = '$email' ";
         $result = mysqli_query($db, $query);
         require('functions.php');
