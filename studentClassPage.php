@@ -77,6 +77,8 @@ $_SESSION['class'] = $_GET['classid'];
 
           <div id="upload" class="tab-pane fade">
             <p>insert blurb about project. provide coursework briefing file download link. put upload report button here. indicate whether report has been uploaded</p>
+            <p></p>
+            <p>Please note that this is your final submission. No re-uploads are allowed</p>
             <form action="uploading.php" method="post" enctype="multipart/form-data">
               Select a file to upload:<br>
               <input type="file" name="uploaded_file" size = "50"><br>
