@@ -25,6 +25,8 @@ if (isset($_FILES['file'])){
 	}
 	*/
 
+	require('connect.php');
+	$db = open_connection();
 	$file_name = "test"; //$db->mysql_real_escape_string($_FILES['file']['name']);
 	$file_type = "text/plain"; //$db->mysql_real_escape_string($_FILES['file']['type']);
 	$content = NULL; //$db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
