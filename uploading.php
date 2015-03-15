@@ -20,14 +20,21 @@ if(isset($_FILES['uploaded_file'])) {
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         printf("\n %s is the class", $class);
+        
         //group number
-        $query = "select *";
-        $query .= "from enrolled_list inner join user on enrolled_list.student_id = user.email";
-        $query .= "where user.email = '$email' and enrolled_list.class = $class";
+        $query = "SELECT *";
+        $query .= "FROM enrolled_list INNER JOIN user ON enrolled_list.student_id = user.email";
+        $query .= "WHERE user.email = '$email' and enrolled_list.class = $class";
         $result = mysqli_query($db, $query);
+        if (!$result) {
+            echo 'Could not run query: ' . mysql_error();
+            header('Location: studentClassPage.php?classid='.$class);
+            return;
+        }
         
         //get the row, then group number
         $row = mysql_fetch_assoc($result);
+        printf("\n %d group number.\n", $row);
         $group = $row['group_num'];
         printf("\n %d group number.\n", $group);
         //check if the user doesn't belong to a group in this class (null)
