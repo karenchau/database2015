@@ -43,6 +43,7 @@ if(isset($_FILES['uploaded_file'])) {
         //    return;
         //}
         
+        printf("          Repeat Group: %s", $group);
         if(mysqli_connect_errno()) {
             die("MySQL connection failed: ". mysqli_connect_error());
         }
