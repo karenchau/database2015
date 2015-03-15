@@ -7,7 +7,7 @@ if (!isset($_SESSION['email'])) {
 
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
-/*
+
 	if ($_FILES['file'][['error']] == 0) {
 		//Connect to database
 		require('connect.php');
@@ -24,20 +24,18 @@ if (isset($_FILES['file'])){
         }
         echo $group;
 	}
-	*/
+	
 	
 
-	require('connect.php');
-	$db = open_connection();
 	$file_name = $db->mysql_real_escape_string($_FILES['file']['name']);
 	$file_type = $db->mysql_real_escape_string($_FILES['file']['type']);
 	$content = $db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
 	$file_size = intval($_FILES['file']['size']);
-	$group = 2;
 	$datetime = NULL;
 	$module = "consumerinformatics";
 
 	echo $module;
+	echo $group;
 /*
 	$query = "INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, `uploadtime`, `class`) VALUES('{$file_name}', '${file_type}', '{$file_size}', '{$content}', '{$group}', '{$datetime}', '{$module}')";
 
