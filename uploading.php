@@ -27,13 +27,13 @@ if(isset($_FILES['uploaded_file'])) {
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group = $row["group_num"];
-        printf("Group: %s",$row["group_num"]);
+        //printf("Group: %s",$row["group_num"]);
         //check if the user doesn't belong to a group in this class (null)
         $group_num = $group;
         if($group = null)
         {
             echo 'Error! You are not in a group';
-            //header('Location: index.php');
+            header('Location: index.php');
             return;
         }
         
