@@ -37,12 +37,12 @@ if(isset($_FILES['uploaded_file'])) {
             return;
         }
         
-        if($group = '0')
-        {
-            printf"Error! You are a lecturer, not a student";
+        //if($group = '0')
+        //{
+        //    printf"Error! You are a lecturer, not a student";
             //header('Location:index.php');
-            return;
-        }
+        //    return;
+        //}
         
         if(mysqli_connect_errno()) {
             die("MySQL connection failed: ". mysqli_connect_error());
