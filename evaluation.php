@@ -34,6 +34,8 @@
   //Get user's group number
   $query = "SELECT group_id FROM group WHERE class = '$_SESSION[class]' AND '$_SESSION[email]' IN (member1, member2, member3)";
   $result = mysqli_query($db, $query);
+  $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+  echo $group_entry;
   if (mysqli_num_rows($result) > 0) {
     $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
     echo "You are in group " . $group_entry;
