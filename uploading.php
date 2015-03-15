@@ -18,14 +18,9 @@ if(isset($_FILES['uploaded_file'])) {
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
-                
-        //group number edit it to take it from the group_list table
-        // "SELECT * FROM group_list g INNER JOIN ON g.student_id = enrollement_list.student_id
-        // WHERE g.student_id = '$email' AND enrollement_list.class = '$class'
-        //$query = "SELECT * FROM enrolled_list WHERE student_id = '$email' AND class = '$class'";
-        //more than one member in the group 
         
-        $query = "SELECT * FROM group g WHERE g.class ='$class' AND (g.member1 = '$email' OR g.member2 = '$email' OR g.member3 = '$email";
+        //more than one member in the group 
+        $query = "SELECT * FROM group g WHERE g.class ='$class' AND (g.member1 = '$email' OR g.member2 = '$email' OR g.member3 = '$email'";
         
         $result = $db->query($query);
         
