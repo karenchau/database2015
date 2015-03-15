@@ -30,7 +30,8 @@ function print_table($result) {
 			echo "<tr>";
 			foreach($colNames as $colName)
 			{
-				echo "<td>".($row[$colName] == NULL) ? "N/A" : $row[$colName]."</td>";
+				$temp = ($row[$colName] == NULL) ? "N/A" : $row[$colName];
+				echo "<td>".$temp."</td>";
 			}
 			echo "</tr>";
 		}
