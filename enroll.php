@@ -20,7 +20,7 @@
 			<input class="span2" id="appendedInputButton" name="search_term" type="text">
 			<input class="span2" id="search_type" name="search_type" type="hidden">
 			<div class="btn-group">
-				<button class="btn dropdown-toggle" data-toggle="dropdown">
+				<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					Action
 					<span class="caret"></span>
 				</button>
