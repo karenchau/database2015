@@ -26,9 +26,9 @@ if(isset($_FILES['uploaded_file'])) {
         
         if (!$result)
         {
-            printf("Could not process the query");
+            echo 'Query failed : '.mysqli_error();
             $db->close();
-            return;
+            exit(0);
         }
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
