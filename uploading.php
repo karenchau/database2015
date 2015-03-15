@@ -73,6 +73,8 @@ if(isset($_FILES['uploaded_file'])) {
         // Check if it was successfull
         if($result) {
             echo '<p>Success! Your file was successfully added!</p>';
+            header('Location: studentClassPage.php?classid='.$class);
+            return;
         }
         else {
             echo '<p>Error! Failed to insert the file</p> '
