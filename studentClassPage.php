@@ -25,12 +25,21 @@ $_SESSION['class'] = $_GET['classid'];
 
     <!-- Latest compiled and minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-    <title>Consumer Informatics (Admin)</title>
-    <!-- Prevents students who type in the admin url to access the admin page -->
-
+    <!-- Creating a personalized tab greeting-->
+    <?php
+      require('connect.php');
+      $db = open_connection();
+      $class = mysqli_real_escape_string($db, $_SESSION['class']);
+      $query = "SELECT subject from class_list where id = '$class' ";
+      $result = mysqli_query($db, $query);
+      require('functions.php');
+      $class_name_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+      mysqli_close($db);
+    ?>
     <title>Consumer Informatics</title>
   </head>
 
