@@ -25,8 +25,10 @@
 
 						var id = $row.find("td:first").text();
 						var id2 = $row.find("td:nth-child(2)").text();
+						var id3 = $row.find("td:nth-child(3)").text();
+						var id4 = $row.find("td:nth-child(4)").text();
 
-						if (id.toLowerCase().indexOf(value) !== 0 && id2.toLowerCase().indexOf(value) !== 0) {
+						if (id.toLowerCase().indexOf(value) !== 0 && id2.toLowerCase().indexOf(value) !== 0 && id3.toLowerCase().indexOf(value) !== 0 && id4.toLowerCase().indexOf(value) !== 0) {
 							$row.hide();
 						}
 						else {
