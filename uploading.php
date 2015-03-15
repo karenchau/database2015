@@ -18,8 +18,7 @@ if(isset($_FILES['uploaded_file'])) {
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
-        printf("%s is the class ", $class);
-        
+                
         //group number
         $query = "SELECT * FROM enrolled_list WHERE student_id = '$email' AND class = '$class'";
         $result = $db->query($query);
@@ -27,9 +26,10 @@ if(isset($_FILES['uploaded_file'])) {
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group = $row["group_num"];
-        printf("Group: %s", $row["group_num"]);
+        
         //check if the user doesn't belong to a group in this class (null)
         
+        //GO BACK AND DO THE CONDITIONS CORRECTLY
         //if($group == null)
         //{
         //    echo 'Error! You are not in a group';
@@ -43,7 +43,6 @@ if(isset($_FILES['uploaded_file'])) {
             //return;
         //}
         
-        printf("/n /r Repeat Group: %s", $group);
         if(mysqli_connect_errno()) {
             die("MySQL connection failed: ". mysqli_connect_error());
         }
