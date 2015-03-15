@@ -1,7 +1,6 @@
 <p>Hi</p>
 
 <?php
-	require('connect.php');
 	$db = open_connection();
 	$query = "select * from user";
 	$result = mysqli_query($db, $query);
