@@ -45,7 +45,7 @@ if(isset($_FILES['uploaded_file'])) {
         $class = 'COMP1004';
  
         // Create the SQL query
-        $query = " INSERT INTO report (1, '$name', '$type', '$size', '$data', '$group', '$date' ,'$class')";
+        $query = " INSERT INTO report VALUES (1, '$name', '$type', '$size', '$data', 1, '$date' ,'$class')";
  
         // Execute the query
         $result = mysqli_query($db, $query);
