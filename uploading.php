@@ -14,12 +14,10 @@ if(!isset($_SESSION['class'])) {
 if(isset($_FILES['uploaded_file'])) {
     // Make sure the file was sent without errors
     if($_FILES['uploaded_file']['error'] == 0) {
-        // Connect to the database
-        require('connect.php');
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
-        printf("\n %s is the class", $class);
+        printf("%s is the class   ", $class);
         
         //group number
         $query = "SELECT * FROM enrolled_list";
@@ -27,16 +25,15 @@ if(isset($_FILES['uploaded_file'])) {
         $result = mysqli_query($db, $query);
         
         if (!$result) {
-            printf('Could not run query: '+ mysql_error());
+            printf("Could not run query:  result =false");
             //header('Location: studentClassPage.php?classid='.$class);
             //return;
         }
         
         //get the row, then group number
         $row = mysql_fetch_assoc($result);
-        printf("\n %d group number.\n", $row);
         $group = $row['group_num'];
-        printf("\n %d group number.\n", $group);
+        printf("\n %d group number: ", $group);
         //check if the user doesn't belong to a group in this class (null)
         if($group = null)
         {
