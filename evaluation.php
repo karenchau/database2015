@@ -38,7 +38,7 @@
   echo $email;
   
   //Get user's group number
-  $query = "SELECT group_id FROM group WHERE '$email' IN (member1, member2, member3) AND class = '$class'";
+  $query = "SELECT group_id FROM group WHERE member2 = '$email' AND class = '$class'";
   $result = mysqli_query($db, $query);
   
   if (mysqli_num_rows($result) > 0) {
