@@ -7,11 +7,10 @@ if(isset($_FILES['uploaded_file'])) {
         require('connect.php');
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
-        
         //group number
         $query = "select enrolled_list.group_num";
         $query .= "from enrolled_list inner join user on enrolled_list.student_id = user.email";
-        $query .= "where user.email = '$email'";
+        $query .= "where user.email = '$email' and enrolled_list.class = COMP1004";
         $result = mysqli_query($db, $query);
         $group = mysqli_getresult($result, mysqli_num_rows($result), 0);;
         
@@ -40,12 +39,11 @@ if(isset($_FILES['uploaded_file'])) {
         $type = $db->real_escape_string($_FILES['uploaded_file']['type']);
         $data = $db->real_escape_string(file_get_contents($_FILES  ['uploaded_file']['tmp_name']));
         $size = intval($_FILES['uploaded_file']['size']);
-        $num =1;
  
         // Create the SQL query
         $query = "
             INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, 'class')
-            VALUES ('{$name}', '{$type}', {$size}, '{$data}','{$group}', {'$class'})";
+            VALUES ('{$name}', '{$type}', {$size}, '{$data}','{$group}', {'COMP1004'})";
  
         // Execute the query
         $result = $db->query($query);
