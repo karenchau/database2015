@@ -20,14 +20,14 @@ if(isset($_FILES['uploaded_file'])) {
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         
         //more than one member in the group 
-        $query = " SELECT group_id FROM group";
-        $query .= " WHERE group.class ='$class' "; 
-        $query .= " AND ((group.member1 = '$email' OR group.member2 = '$email') OR (group.member3 = '$email'))";
+        $query = " SELECT group_id FROM group WHERE group.class ='$class' AND ((group.member1 = '$email' OR group.member2 = '$email') OR (group.member3 = '$email'))";
         
         $result = $db->query($query);
+        
         if (!$result)
         {
             printf("Could not process the query");
+            return;
         }
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
