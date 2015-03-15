@@ -14,6 +14,7 @@
 		print_table($result2);
 		mysqli_close($db);
 		echo "here";
+		echo "$_SESSION[class]";
 	?>
 	<br>
 </html>
