@@ -50,19 +50,19 @@ if(isset($_FILES['uploaded_file'])) {
         $size = intval($_FILES['uploaded_file']['size']);
  
         // Create the SQL query
-        $query = " INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, 'class')";
-        $query .=" VALUES ('{$name}', '{$type}', {$size}, '{$data}', 1, COMP1004)";
+        $query = " INSERT INTO report (name, type, size, data, group, class) ";
+        $query .=" VALUES ('{$name}', '{$type}', {$size}, '{$data}', '1', 'COMP1004')";
  
         // Execute the query
-        $result = $db->query($query);
+        //$result = $db->query($query);
  
         // Check if it was successfull
-        if($result) {
+        if(mysqli_query($db, $query) {
             echo 'Success! Your file was successfully added!';
         }
         else {
             echo 'Error! Failed to insert the file'
-               . "<pre>{$db->error}</pre>";
+               . $query ."<br" . mysqli_error($db);
         }
     }
     else {
