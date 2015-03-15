@@ -29,7 +29,68 @@
   </head>
 
   <body>
-  <!--get array? of groups to assess-->
+  <!--get array(?) of groups to assess-->
+
+  <?php
+  // Connect to the database
+  $db = open_connection();
+  if(mysqli_connect_errno()) {
+      die("MySQL connection failed: ". mysqli_connect_error());
+  }
+   
+  // Query for a list of all assigned evaluations
+
+  $query = "SELECT `name`, `type`, `size` FROM `report`";
+  $query .= "WHERE class = '$class' AND group%20 = '$group'%20 AND group != '$group'";
+
+  $sql = 'SELECT `id`, `name`, `mime`, `size`, `created` FROM `file`';
+  $result = $dbLink->query($sql);
+   
+  // Check if it was successfull
+  if($result) {
+      // Make sure there are some files in there
+      if($result->num_rows == 0) {
+          echo '<p>There are no files in the database</p>';
+      }
+      else {
+          // Print the top of a table
+          echo '<table width="100%">
+                  <tr>
+                      <td><b>Name</b></td>
+                      <td><b>Mime</b></td>
+                      <td><b>Size (bytes)</b></td>
+                      <td><b>Created</b></td>
+                      <td><b>&nbsp;</b></td>
+                  </tr>';
+   
+          // Print each file
+          while($row = $result->fetch_assoc()) {
+              echo "
+                  <tr>
+                      <td>{$row['name']}</td>
+                      <td>{$row['mime']}</td>
+                      <td>{$row['size']}</td>
+                      <td>{$row['created']}</td>
+                      <td><a href='get_file.php?id={$row['id']}'>Download</a></td>
+                  </tr>";
+          }
+   
+          // Close table
+          echo '</table>';
+      }
+   
+      // Free the result
+      $result->free();
+  }
+  else
+  {
+      echo 'Error! SQL query failed:';
+      echo "<pre>{$dbLink->error}</pre>";
+  }
+   
+  // Close the mysql connection
+  $dbLink->close();
+  ?>
 
   <!--display group reports + evaluation forms-->
 
@@ -38,12 +99,15 @@
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+          <?php echo 'Assessment 1'; ?>
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
+        <!-- provide download link for report -->
+
+        <!-- provide evaluation form for corresponding report -->
         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
@@ -54,7 +118,7 @@
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+          <?php echo 'Assessment 2'; ?>
         </a>
       </h4>
     </div>
@@ -70,7 +134,7 @@
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
+          <?php echo 'Assessment 3'; ?>
         </a>
       </h4>
     </div>
@@ -85,7 +149,7 @@
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #4
+          <?php echo 'Assessment 4'; ?>
         </a>
       </h4>
     </div>
@@ -97,20 +161,5 @@
   </div>
 </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #5
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
   </body>
 </html>
