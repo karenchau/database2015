@@ -43,7 +43,8 @@ if(isset($_FILES['uploaded_file'])) {
         $date = date('Y/m/d H:i:s');
  
         // Create the SQL query
-        $query = " INSERT INTO report (id, name, type, size, data, group, uploadtime, class) VALUES ('1', '{$name}', '{$type}', {$size}, '{$data}', '1', '{$date}' ,'COMP1004')";
+        $query = " INSERT INTO report (id, name, type, size, data, group, uploadtime, class) 
+                    VALUES ('1', '{$name}', '{$type}', {$size}, '{$data}', '{$group}', '{$date}' ,'COMP1004')";
  
         // Execute the query
         $result = mysqli_query($db, $query);
