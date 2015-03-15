@@ -25,8 +25,6 @@ if (isset($_FILES['file'])){
         }
         echo $group;
 	}
-	
-	
 
 	$file_name = $db->mysql_real_escape_string($_FILES['file']['name']);
 	$file_type = $db->mysql_real_escape_string($_FILES['file']['type']);
@@ -50,8 +48,9 @@ if (isset($_FILES['file'])){
 	else {
 		echo 'An error occurred while the file was being uploaded.' . 'Error code: ' . intval($_FILES[file]['error']);
 	}
-	mysql_close($db);
 	*/
+	mysql_close($db);
+	
 }
 else {
 	echo 'Error: A file was not sent';
