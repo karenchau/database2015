@@ -28,8 +28,8 @@ if(isset($_FILES['uploaded_file'])) {
         
         if (!$result) {
             printf('Could not run query: '+ mysql_error());
-            header('Location: studentClassPage.php?classid='.$class);
-            return;
+            //header('Location: studentClassPage.php?classid='.$class);
+            //return;
         }
         
         //get the row, then group number
