@@ -14,7 +14,7 @@
 		?>
 		<input type="text" id="searchbar" placeholder="Type in a student's first name."></input>
 		<script> 
-			$("#search").on("keyup", function() {
+			$("#searchbar").on("keyup", function() {
 				var value = $(this).val().toLowerCase();
 
 				$("table tr").each(function(index) {
