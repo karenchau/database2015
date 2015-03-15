@@ -21,8 +21,7 @@ if(isset($_FILES['uploaded_file'])) {
         printf("%s is the class ", $class);
         
         //group number
-        $query = "SELECT * FROM enrolled_list";
-        $query .= "WHERE student_id = '$email' AND class = '$class'";
+        $query = "SELECT * FROM enrolled_list WHERE student_id = '$email' AND class = '$class'";
         $result = $db->query($query);
         
         if (!$result) {
