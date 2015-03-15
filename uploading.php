@@ -27,6 +27,7 @@ if(isset($_FILES['uploaded_file'])) {
         if (!$result)
         {
             printf("Could not process the query");
+            $db->close();
             return;
         }
         //get the row, then group number
@@ -65,6 +66,7 @@ if(isset($_FILES['uploaded_file'])) {
         if(($type != 'text/plain') && ($type != 'application/xml'))
         {
             echo '<p>Wrong File Type!</p>';
+            $db->close();
             return;
         }
         
@@ -78,7 +80,6 @@ if(isset($_FILES['uploaded_file'])) {
         // Check if it was successfull
         if($result) {
             echo '<p>Success! Your file was successfully added!</p>';
-            //return;
         }
         else {
             echo '<p>Error! Failed to insert the file</p> '
