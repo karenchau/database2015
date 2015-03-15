@@ -27,7 +27,7 @@ if(isset($_FILES['uploaded_file'])) {
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group = $row["group_num"];
-        printf("\n THE EMAIL: %d  \n THE CLASS: %d group number: %d", $row["student_id"], $row["class"];$row["group_num"]);
+        printf("\n THE EMAIL: %d  \n THE CLASS: %d group number: %d", $row["student_id"], $row["class"],$row["group_num"]);
         //check if the user doesn't belong to a group in this class (null)
         $group_num = $group;
         if($group = null)
