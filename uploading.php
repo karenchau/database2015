@@ -33,14 +33,14 @@ if(isset($_FILES['uploaded_file'])) {
         if($group == null)
         {
             echo 'Error! You are not in a group';
-            return;
+            //return;
         }
         
         if($group == '0')
         {
             printf"Error! You are a lecturer, not a student";
             //header('Location:index.php');
-        //    return;
+            //return;
         }
         
         printf("/n /r Repeat Group: %s", $group);
@@ -72,7 +72,7 @@ if(isset($_FILES['uploaded_file'])) {
         // Check if it was successfull
         if($result) {
             echo '<p>Success! Your file was successfully added!</p>';
-            return;
+            //return;
         }
         else {
             echo '<p>Error! Failed to insert the file</p> '
