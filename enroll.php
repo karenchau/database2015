@@ -8,7 +8,8 @@
 		print_table($result);
 	echo "<br>";
 	echo "<h3>All students registered for this class</h3>";
-		$query2 = "SELECT student_id from enrolled_list where class = 'MATH2001' ";
+	echo "<br>";
+		$query2 = "SELECT student_id from enrolled_list where class = '$_SESSION[class]' ";
 		$result2 = mysqli_query($db, $query2);
 		print_table($result2);
 		mysqli_close($db);
