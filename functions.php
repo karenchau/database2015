@@ -22,7 +22,7 @@ function print_table($result) {
 	echo "<tr>";
 		foreach($colNames as $colName)
 		{
-			$newcolName = $colName.str_replace('_', 'a');
+			$newcolName = ucfirst($colName.str_replace('_', 'a'));
 			echo "<th>$newcolName</th>";
 		}
 	echo "</tr>";
