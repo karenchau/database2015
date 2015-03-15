@@ -31,16 +31,10 @@ $_SESSION['class'] = $_GET['classid'];
 
     <!-- Creating a personalized tab greeting-->
     <?php
-      require('connect.php');
-      $db = open_connection();
-      $class = mysqli_real_escape_string($db, $_SESSION['class']);
-      $query = "SELECT subject from class_list where id = '$class' ";
-      $result = mysqli_query($db, $query);
       require('functions.php');
-      $class_name_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-      mysqli_close($db);
+      $class_name_entry = find_class();
     ?>
-    <title>Consumer Informatics</title>
+    <title><?php echo $class_name_entry?> Class</title>
   </head>
 
   <body>
@@ -64,7 +58,7 @@ $_SESSION['class'] = $_GET['classid'];
     </nav>
     <div class="container">
       <div class="page-header">
-        <h1>Consumer Informatics</h1>
+        <h1><?php echo $class_name_entry?> Class</h1>
       </div>
       <div class="col-sm-12">
         <ul class = "nav nav-tabs">
