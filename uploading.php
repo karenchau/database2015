@@ -37,7 +37,7 @@ if(isset($_FILES['uploaded_file'])) {
             return;
         }
         
-        if($group = "0")
+        if($group = '0')
         {
             printf"Error! You are a lecturer, not a student";
             //header('Location:index.php');
