@@ -22,8 +22,8 @@ function print_table($result) {
 	echo "<tr>";
 		foreach($colNames as $colName)
 		{
-			$colName = $colName.str_replace('_', 'a');
-			echo "<th>$colName</th>";
+			$newcolName = $colName.str_replace('_', 'a');
+			echo "<th>$newcolName</th>";
 		}
 	echo "</tr>";
 		foreach($data as $row)
