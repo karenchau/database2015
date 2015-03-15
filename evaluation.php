@@ -31,8 +31,8 @@
       die("MySQL connection failed: ". mysqli_connect_error());
   }
 
-  $class = '$_SESSION[class]';
-  $email = '$_SESSION[email]'; 
+  $class = "$_SESSION[class]";
+  $email = "$_SESSION[email]"; 
 
   echo $class;
   echo $email;
