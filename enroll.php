@@ -8,7 +8,7 @@
 		print_table($result);
 		mysqli_close($db);
 	?>
-	<br><br>
+	<br>
 	<h3>All students registered for this class</h3>
 	<?php
 		$db = open_connection();
@@ -17,5 +17,5 @@
 		print_table($result);
 		mysqli_close($db);
 	?>
-	<br><br>
+	<br>
 </html>
