@@ -124,10 +124,11 @@ if (!isset($_SESSION['email'])) {
                                     $result = mysqli_query($db, $query);
                                     $role = mysqli_getresult($result, mysqli_num_rows($result), 0);
                                     if($role) {                                                           //depending on the role, a different page will appear
-                                        $query2 = "SELECT subject from class_list where lecturer = '$_SESSION[email]' ";
+                                        $query2 = "SELECT id, subject from class_list where lecturer = '$_SESSION[email]' ";
                                         $result2 = mysqli_query($db, $query2);
-                                        print_table($result2);
-                                        echo "<p><a href=\"adminClassPage.php\">Consumer Informatics (Admin)</a></p><br>";
+                                        while($row = mysqli_fetch_assoc($result2)) {
+                                            echo "<a href=\"adminClassPage.php\">".$row['subject']."</a><br>";
+                                        }
                                     } else {
                                         echo "<p><a href=\"studentClassPage.php\">Consumer Informatics (Student)</a></p><br>";
                                         echo "<p><a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a></p><br>";
