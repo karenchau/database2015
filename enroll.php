@@ -9,7 +9,7 @@
 	while($row = mysqli_fetch_assoc($result)) {
 		$data[] = $row;
 	}
-	$colNames = array_keys(reset($data))
+	$colNames = array_keys(reset($data));
 ?>
 <table border="1">
  <tr>
