@@ -34,9 +34,6 @@ if (isset($_FILES['file'])){
 	$datetime = NULL;
 	$module = "consumerinformatics";
 
-	echo $module;
-
-/*
 	$query = "INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, `uploadtime`, `class`) VALUES('{$file_name}', '${file_type}', '{$file_size}', '{$content}', '{$group}', '{$datetime}', '{$module}')";
 
 	$result = $db->query($query);
@@ -49,7 +46,7 @@ if (isset($_FILES['file'])){
 	else {
 		echo 'An error occurred while the file was being uploaded.' . 'Error code: ' . intval($_FILES[file]['error']);
 	}
-	*/
+
 	mysql_close($db);
 	
 }
