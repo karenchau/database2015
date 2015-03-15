@@ -52,7 +52,7 @@ if(isset($_FILES['uploaded_file'])) {
         // Create the SQL query
         $query = "
             INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, 'class')
-            VALUES ('{$name}', '{$type}', {$size}, '{$data}','{$group}', {'COMP1004'})";
+            VALUES ('{$name}', '{$type}', {$size}, '{$data}', 1, COMP1004)";
  
         // Execute the query
         $result = $db->query($query);
@@ -79,5 +79,5 @@ else {
 }
  
 // Echo a link back to the main page
-echo '<p>Click <a href="index.html">here</a> to go back</p>';
+echo '<p>Click <a href="index.php">here</a> to go back</p>';
 ?>
