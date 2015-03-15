@@ -25,7 +25,10 @@ if(isset($_FILES['uploaded_file'])) {
         $query .= " AND ((group.member1 = '$email' OR group.member2 = '$email') OR (group.member3 = '$email'))";
         
         $result = $db->query($query);
-        
+        if (!$result)
+        {
+            printf("Could not process the query");
+        }
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group_id = $row["group_id"];
