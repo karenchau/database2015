@@ -23,8 +23,8 @@
 	</div>
 	<?php
 		if (isset($_POST['enroll'])) {
-			if (empty($_POST['studentemail']) {
-
+			if (isset($_POST['studentemail']) || empty($_POST['studentemail']) {
+				$enroll_errors = 'Error!: Please enter an email address';
 			}
 		}
 		mysqli_close($db);
