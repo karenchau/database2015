@@ -32,7 +32,7 @@ if(isset($_FILES['uploaded_file'])) {
         }
         
         //get the row, then group number
-        $row = mysql_fetch_assoc($result);
+        $row = mysqli_fetch_assoc($result);
         $group = $row['group_num'];
         printf("\n %d group number: ", $group);
         //check if the user doesn't belong to a group in this class (null)
@@ -51,7 +51,6 @@ if(isset($_FILES['uploaded_file'])) {
         //   return;
         //}
         
-        
         if(mysqli_connect_errno()) {
             die("MySQL connection failed: ". mysqli_connect_error());
         }
@@ -62,6 +61,14 @@ if(isset($_FILES['uploaded_file'])) {
         $data = $db->real_escape_string(file_get_contents($_FILES  ['uploaded_file']['tmp_name']));
         $size = intval($_FILES['uploaded_file']['size']);
         $date = date('Y/m/d H:i:s');
+        
+        //type checking (check the code works)
+        if(($type != 'text/plain') && ($type != 'XML'))
+        {
+            echo '<p>Wrong File Type!</p>';
+            header('Location: studentClassPage.php?classid='.$class);
+            return;
+        }
         
         // Create the SQL query
         $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', '$group', '$date' ,'$class')";
