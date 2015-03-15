@@ -29,16 +29,16 @@ if (isset($_FILES['file'])){
 
 	require('connect.php');
 	$db = open_connection();
-	$file_name = "test"; //$db->mysql_real_escape_string($_FILES['file']['name']);
-	$file_type = "text/plain"; //$db->mysql_real_escape_string($_FILES['file']['type']);
-	$content = NULL; //$db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
-	$file_size = 1; //intval($_FILES['file']['size']);
+	$file_name = $db->mysql_real_escape_string($_FILES['file']['name']);
+	$file_type = $db->mysql_real_escape_string($_FILES['file']['type']);
+	$content = $db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
+	$file_size = intval($_FILES['file']['size']);
 	$group = 2;
 	$datetime = NULL;
 	$module = "consumerinformatics";
 
 	echo $module;
-
+/*
 	$query = "INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, `uploadtime`, `class`) VALUES('{$file_name}', '${file_type}', '{$file_size}', '{$content}', '{$group}', '{$datetime}', '{$module}')";
 
 	$result = $db->query($query);
@@ -52,6 +52,7 @@ if (isset($_FILES['file'])){
 		echo 'An error occurred while the file was being uploaded.' . 'Error code: ' . intval($_FILES[file]['error']);
 	}
 	mysql_close($db);
+	*/
 }
 else {
 	echo 'Error: A file was not sent';
