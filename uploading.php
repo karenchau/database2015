@@ -27,9 +27,9 @@ if(isset($_FILES['uploaded_file'])) {
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group = $row["group_num"];
-        printf("\n %d group number: ", $group);
+        printf("\n THE EMAIL: %d  \n THE CLASS: %d group number: %d", $row["student_id"], $row["class"];$row["group_num"]);
         //check if the user doesn't belong to a group in this class (null)
-        
+        $group_num = $group;
         if($group = null)
         {
             echo 'Error! You are not in a group';
@@ -64,7 +64,7 @@ if(isset($_FILES['uploaded_file'])) {
         }
         
         // Create the SQL query
-        $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', '$group', '$date' ,'$class')";
+        $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', '$group_num', '$date' ,'$class')";
  
         // Execute the query
         $result = mysqli_query($db, $query);
