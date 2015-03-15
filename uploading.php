@@ -22,12 +22,12 @@ if(isset($_FILES['uploaded_file'])) {
         printf("\n %s is the class", $class);
         
         //group number
-        $query = "SELECT *";
-        $query .= "FROM enrolled_list INNER JOIN user ON enrolled_list.student_id = user.email";
-        $query .= "WHERE user.email = '$email' and enrolled_list.class = $class";
+        $query = "SELECT * FROM enrolled_list";
+        $query .= "WHERE student_id = '$email' AND class = $class";
         $result = mysqli_query($db, $query);
+        
         if (!$result) {
-            echo 'Could not run query: ' . mysql_error();
+            printf('Could not run query: '+ mysql_error());
             header('Location: studentClassPage.php?classid='.$class);
             return;
         }
