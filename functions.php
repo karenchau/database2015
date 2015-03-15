@@ -11,4 +11,29 @@ function mysqli_getresult($res, $row, $field) { //takes the row (expects only on
 		}
 	}
 }
+
+function print_table($result) {
+	$data = array();
+	while($row = mysqli_fetch_assoc($result)) {
+		$data[] = $row;
+	}
+	$colNames = array_keys(reset($data));
+	echo "<table border=\"1\">";
+	echo "<tr>";
+		foreach($colNames as $colName)
+		{
+			echo "<th>$colName</th>";
+		}
+	echo "</tr>";
+		foreach($data as $row)
+		{
+			echo "<tr>";
+			foreach($colNames as $colName)
+			{
+				echo "<td>".$row[$colName]."</td>";
+			}
+			echo "</tr>";
+		}
+	echo "</table>";
+}
 ?>
