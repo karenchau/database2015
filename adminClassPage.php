@@ -75,6 +75,7 @@ $_SESSION['class'] = $_GET['classid'];
           <li class="nav"><a href ="#students" data-toggle="tab">Enrolled Students</a></li>
           <li class="nav"><a href ="#groups" data-toggle="tab">Manage Project Groups</a></li>
           <li class="nav"><a href ="#grades" data-toggle="tab">View Grades and Rankings</a></li>
+          <li class="nav"><a href ="#allusers" data-toggle="tab">View All Users</a></li>
         </ul>
 
 
@@ -93,6 +94,10 @@ $_SESSION['class'] = $_GET['classid'];
 
           <div id="grades" class="tab-pane fade">
             <p>view grades and aggregate rankings of group reports</p>
+          </div>
+
+          <div id="allusers" class="tab-pane fade">
+            <p>view all users</p>
           </div>
         </div>
       </div>

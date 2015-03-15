@@ -12,7 +12,7 @@
 			echo "<div class=\"alert alert-danger\" role=\"alert\">$no_studentuser_error</div>";
 		}
 	?>
-	<input type="text" id="searchbar" placeholder="  live search"></input>
+	<input type="text" id="searchbar" placeholder="Type in a student's first name."></input>
 	<script> 
 		$("#searchbar").on("keyup", function() {
 			var value = $(this).val();
