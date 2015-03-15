@@ -31,12 +31,12 @@ if(isset($_FILES['uploaded_file'])) {
             header('Location: index.php');
             return;
         }
-        if($group = 0)
-        {
-            echo 'Error! You are a lecturer, not a student';
-            header('Location:index.php');
-            return;
-        }
+        //if($group = 0)
+        //{
+          //  echo 'Error! You are a lecturer, not a student';
+            //header('Location:index.php');
+            //return;
+        //}
         
         
         if(mysqli_connect_errno()) {
@@ -54,10 +54,11 @@ if(isset($_FILES['uploaded_file'])) {
         $query .=" VALUES ('{$name}', '{$type}', {$size}, '{$data}', '1', 'COMP1004')";
  
         // Execute the query
-        //$result = $db->query($query);
+        $result = mysqli_query($db, $query);
+        echo 'got result, again';
  
         // Check if it was successfull
-        if(mysqli_query($db, $query) {
+        if($result) {
             echo 'Success! Your file was successfully added!';
         }
         else {
