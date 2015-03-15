@@ -54,15 +54,15 @@ if(isset($_FILES['uploaded_file'])) {
  
         // Check if it was successfull
         if($result) {
-            echo 'Success! Your file was successfully added!';
+            echo '<p>Success! Your file was successfully added!</p>';
         }
         else {
-            echo 'Error! Failed to insert the file'
+            echo '<p>Error! Failed to insert the file</p> '
                . "<pre>{$db->error}</pre>";
         }
     }
     else {
-        echo 'An error accured while the file was being uploaded. '
+        echo '<p> An error accured while the file was being uploaded. </p> '
            . 'Error code: '. intval($_FILES['uploaded_file']['error']);
     }
  
@@ -70,7 +70,7 @@ if(isset($_FILES['uploaded_file'])) {
     $db->close();
 }
 else {
-    echo 'Error! A file was not sent!';
+    echo '<p>Error! A file was not sent!</p>';
 }
  
 // Echo a link back to the main page
