@@ -33,7 +33,6 @@ if(isset($_FILES['uploaded_file'])) {
         if($group = null)
         {
             echo 'Error! You are not in a group';
-            header('Location: index.php');
             return;
         }
         
@@ -59,7 +58,6 @@ if(isset($_FILES['uploaded_file'])) {
         if(($type != 'text/plain') && ($type != 'application/xml'))
         {
             echo '<p>Wrong File Type!</p>';
-            //header('Location: studentClassPage.php?classid='.$class);
             return;
         }
         
@@ -73,7 +71,6 @@ if(isset($_FILES['uploaded_file'])) {
         // Check if it was successfull
         if($result) {
             echo '<p>Success! Your file was successfully added!</p>';
-            header('Location: studentClassPage.php?classid='.$class);
             return;
         }
         else {
