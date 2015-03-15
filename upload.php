@@ -15,7 +15,7 @@ if (isset($_FILES['file'])){
 		require('connect.php');
 		$db = open_connection();
 		$email = mysqli_real_escape_string($db, $_SESSION['email']);
-        $query = "select group from user where email = '$email' ";
+        $query = "select group_num from enrolled_list where email = '$email' ";
         $result = mysqli_query($db, $query);
         require('functions.php');
         if (mysqli_num_rows($result) > 0) {
