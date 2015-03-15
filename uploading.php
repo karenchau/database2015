@@ -20,7 +20,9 @@ if(isset($_FILES['uploaded_file'])) {
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         
         //more than one member in the group 
-        $query = "SELECT * FROM group_list WHERE ((class = '$class') AND ((member1 = '$email' OR member2 = '$email') OR (member3 = '$email')))";
+        $query = "SELECT * FROM group_list "; 
+        $query .= "WHERE ((class = '$class') "; 
+        $query .= "AND ((member1 = '$email' OR member2 = '$email') OR (member3 = '$email')))";
         
         $result = mysqli_query($db, $query);
         
@@ -30,10 +32,10 @@ if(isset($_FILES['uploaded_file'])) {
             $db->close();
             exit(0);
         }
+        
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group_id = $row["group_id"];
-        printf("GROUP ID: %d", $group_id);
         
         //check if the user doesn't belong to a group in this class (null)
         
