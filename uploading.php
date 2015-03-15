@@ -33,15 +33,15 @@ if(isset($_FILES['uploaded_file'])) {
         if($group = null)
         {
             echo 'Error! You are not in a group';
-            header('Location: index.php');
+            //header('Location: index.php');
             return;
         }
         
-        if($group = '0')
+        if($group = "0")
         {
-            echo 'Error! You are a lecturer, not a student';
-            header('Location:index.php');
-           return;
+            printf"Error! You are a lecturer, not a student";
+            //header('Location:index.php');
+            return;
         }
         
         if(mysqli_connect_errno()) {
@@ -55,11 +55,10 @@ if(isset($_FILES['uploaded_file'])) {
         $size = intval($_FILES['uploaded_file']['size']);
         $date = date('Y/m/d H:i:s');
         
-        //type checking (check the code works)
-        if(($type != 'text/plain') && ($type != 'XML'))
+        //type checking
+        if(($type != 'text/plain') && ($type != 'application/xml'))
         {
             echo '<p>Wrong File Type!</p>';
-            printf("   Wrong file type   ");
             //header('Location: studentClassPage.php?classid='.$class);
             return;
         }
