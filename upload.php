@@ -27,7 +27,6 @@ if (isset($_FILES['file'])){
         echo $group;
 	}
 
-
 	$file_name = $db->mysql_real_escape_string($_FILES['file']['name']);
 	$file_type = $db->mysql_real_escape_string($_FILES['file']['type']);
 	$content = $db->mysql_real_escape_string(file_get_contents(($_FILES['file']['tmp_name'])));
@@ -36,7 +35,7 @@ if (isset($_FILES['file'])){
 	$module = "consumerinformatics";
 
 	echo $module;
-	echo $group;
+
 /*
 	$query = "INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, `uploadtime`, `class`) VALUES('{$file_name}', '${file_type}', '{$file_size}', '{$content}', '{$group}', '{$datetime}', '{$module}')";
 
