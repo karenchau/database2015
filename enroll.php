@@ -14,25 +14,16 @@
 		}
 	?>
 	<br>
-	<h3>Manage Registration</h3>
-	<form name="searchForm" id="searchForm" method="POST" />
-		<div class="input-append">
-			<input class="span2" id="appendedInputButton" name="search_term" type="text">
-			<input class="span2" id="search_type" name="search_type" type="hidden">
-			<div class="btn-group">
-				<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-					Action
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" role="menu">
-					<li onclick="$('#search_type').val('UPDATE'); $('#searchForm').submit()">Enroll a student</li>
-					<li onclick="$('#search_type').val('Remove student'); $('#searchForm').submit()">Unenroll a student</li>
-					<li onclick="$('#search_type').val('state'); $('#searchForm').submit()">Search State</li>
-					<li onclick="$('#search_type').val('zip'); $('#searchForm').submit()">Search Zip Code</li>
-				</ul>
-			</div>
+	<h3>Enroll a student</h3>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Enter email address">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">Go!</button>
+			</span>
 		</div>
-	</form>
+	</div>
+	
 
 	<?php
 		echo $_POST['search_type'];
