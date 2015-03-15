@@ -1,5 +1,3 @@
-<p>Hi</p>
-
 <?php
 	$db = open_connection();
 	$query = "SELECT first_name, last_name, email, department, year from user where role = '0' ";
@@ -7,5 +5,3 @@
 	print_table($result);
 	mysqli_close($db);
 ?>
-
-<p>changed function</p>
