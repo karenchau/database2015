@@ -130,6 +130,11 @@ if (!isset($_SESSION['email'])) {
                                             echo "<a href=\"adminClassPage.php?classid=".$row['id']."\">".$row['subject']."</a><br>";
                                         }
                                     } else {
+                                        $query3 = "SELECT class from enrolled_list where student_id = '$_SESSION[email]' ";
+                                        $result3 = mysqli_query($db, $query3);
+                                        while($row = mysqli_fetch_assoc($result3)) {
+                                            echo "<a href=\"studentClassPage.php?classid=".$row['class']."\">".$row['class']."</a><br>";
+                                        }
                                         echo "<p><a href=\"studentClassPage.php\">Consumer Informatics (Student)</a></p><br>";
                                         echo "<p><a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a></p><br>";
                                     }
