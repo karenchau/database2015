@@ -30,11 +30,11 @@ if(isset($_FILES['uploaded_file'])) {
         printf("Group: %s", $row["group_num"]);
         //check if the user doesn't belong to a group in this class (null)
         
-        if($group = null)
-        {
-            echo 'Error! You are not in a group';
-            return;
-        }
+        //if($group = null)
+        //{
+        //    echo 'Error! You are not in a group';
+        //    return;
+        //}
         
         //if($group = '0')
         //{
@@ -43,7 +43,7 @@ if(isset($_FILES['uploaded_file'])) {
         //    return;
         //}
         
-        printf("          Repeat Group: %s", $group);
+        printf("/n /r Repeat Group: %s", $group);
         if(mysqli_connect_errno()) {
             die("MySQL connection failed: ". mysqli_connect_error());
         }
