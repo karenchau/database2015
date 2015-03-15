@@ -33,17 +33,20 @@ if (isset($_FILES['file'])){
 	$datetime = NULL;
 	$module = "consumerinformatics";
 
-	$query = "INSERT INTO report (`name`, `type`, `size`, `data`, `group`, `uploadtime`, `class`) VALUES('{$file_name}', '${file_type}', {$file_size}, '{$content}', {$group}, {$datetime}, '{$module}')";
+	$query = "INSERT INTO report (name, type, size, data, group, uploadtime, class) VALUES('{$file_name}', '${file_type}', {$file_size}, '{$content}', {$group}, {$datetime}, '{$module}')";
 
 	$result = mysqli_query($db,$query);
 
-
+/*
 	if ($result) {
 		echo "Your file was successfully uploaded.";
+	} else {
+		echo 'ERROR: failed to insert file.' . "<pre>{$db->error}</pre>";
+	}
 	else {
 		echo 'An error occurred while the file was being uploaded.' . 'Error code: ' . intval($_FILES[file]['error']);
 	}
-	
+	*/
 
 	mysql_close($db);
 	
