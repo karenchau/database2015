@@ -33,9 +33,6 @@
 
   $class = mysqli_real_escape_string($db, $_SESSION['class']);;
   $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
-
-  echo $class;
-  echo $email;
   
   //Get user's group number
   $query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
@@ -43,7 +40,6 @@
   
   if (mysqli_num_rows($result) > 0) {
     $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-    echo "You are in group " . $group_entry;
     } else {
       echo "You are not in a group.";
   }
@@ -51,7 +47,7 @@
   // Query for a list of all assigned evaluations
 
   $query = "SELECT `id_report_group` FROM `evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
-  $result = $db->query($query);
+  $result = mysqli_query($db,$query);
 
   
   // Check if query was successful
