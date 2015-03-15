@@ -15,7 +15,7 @@
 	?>
 	<br>
 	<h4>Search bar  </h4>
-	<input type="text" id="searchbar" placeholder="Enter text here."></input>
+	<input type="text" id="searchbar" placeholder="Enter text here"></input>
 	<script> 
 		$("#searchbar").on("keyup", function() {
 			var value = $(this).val().toLowerCase();

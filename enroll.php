@@ -12,6 +12,30 @@
 			$reg_none_error = "No one is registered for this class yet.";
 			echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
 		}
+	?>
+	<br>
+	<h3>Manage Registration</h3>
+	<form name="searchForm" id="searchForm" method="POST" />
+	<div class="input-append">
+		<input class="span2" id="appendedInputButton" name="search_term" type="text">
+		<input class="span2" id="search_type" name="search_type" type="hidden">
+		<div class="btn-group">
+			<button class="btn dropdown-toggle" data-toggle="dropdown">
+				Action
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li onclick="$('#search_type').val('UPDATE'); $('#searchForm').submit()">Search Store Names</li>
+				<li onclick="$('#search_type').val('Remove student'); $('#searchForm').submit()">Search City</li>
+				<li onclick="$('#search_type').val('state'); $('#searchForm').submit()">Search State</li>
+				<li onclick="$('#search_type').val('zip'); $('#searchForm').submit()">Search Zip Code</li>
+			</ul>
+		</div>
+	</div>
+</form>
+
+	<?php
+		echo $_POST['search_type']
 		mysqli_close($db);
 	?>
 	<br>
