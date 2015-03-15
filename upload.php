@@ -57,6 +57,6 @@ else {
 
 //link to go back
 //echo '<p>Click <a href = "index.php">here</a> to go back </p>';
-
+}
 
 ?>
