@@ -16,6 +16,7 @@
 		$result = mysqli_query($db, $query);
 		print_table($result);
 		mysqli_close($db);
+		echo "here";
 	?>
 	<br>
 </html>
