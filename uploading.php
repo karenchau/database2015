@@ -34,7 +34,7 @@ if(isset($_FILES['uploaded_file'])) {
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group = $row["group_num"];
-        printf("\n %d group number: ", $group);
+        printf("\n %s group number: ", $group);
         //check if the user doesn't belong to a group in this class (null)
         
         if($group = null)
@@ -66,7 +66,8 @@ if(isset($_FILES['uploaded_file'])) {
         if(($type != 'text/plain') && ($type != 'XML'))
         {
             echo '<p>Wrong File Type!</p>';
-            header('Location: studentClassPage.php?classid='.$class);
+            printf("   Wrong file type   ");
+            //header('Location: studentClassPage.php?classid='.$class);
             return;
         }
         
