@@ -24,7 +24,7 @@
 					Action
 					<span class="caret"></span>
 				</button>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu" role="menu">
 					<li onclick="$('#search_type').val('UPDATE'); $('#searchForm').submit()">Enroll a student</li>
 					<li onclick="$('#search_type').val('Remove student'); $('#searchForm').submit()">Unenroll a student</li>
 					<li onclick="$('#search_type').val('state'); $('#searchForm').submit()">Search State</li>
