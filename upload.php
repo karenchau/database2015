@@ -7,7 +7,7 @@ if (!isset($_SESSION['email'])) {
 
 if (isset($_FILES['file'])){
 	//make sure file was uploaded without errors
-
+/*
 	if ($_FILES['file'][['error']] == 0) {
 		//Connect to database
 		require('connect.php');
@@ -24,6 +24,7 @@ if (isset($_FILES['file'])){
         }
         echo $group;
 	}
+	*/
 	
 
 	require('connect.php');
@@ -36,7 +37,7 @@ if (isset($_FILES['file'])){
 	$datetime = NULL;
 	$module = "consumerinformatics";
 
-	$query = "INSERT INTO 'report' ('name', 'type', 'size', 'data', 'group', 'uploadtime', 'class') VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '{group}', '{datetime}', '{module}'";
+	$query = "INSERT INTO 'report' ('name', 'type', 'size', 'data', 'group', 'uploadtime', 'class') VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '{group}', '{datetime}', '{module}')";
 
 	$result = $db->query($query);
 	mysql_close($db);
