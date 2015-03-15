@@ -24,12 +24,6 @@ if(isset($_FILES['uploaded_file'])) {
         $query = "SELECT * FROM enrolled_list WHERE student_id = '$email' AND class = '$class'";
         $result = $db->query($query);
         
-        if (!$result) {
-            printf("Could not run query:  result =false");
-            //header('Location: studentClassPage.php?classid='.$class);
-            //return;
-        }
-        
         //get the row, then group number
         $row = mysqli_fetch_assoc($result);
         $group = $row["group_num"];
@@ -43,12 +37,12 @@ if(isset($_FILES['uploaded_file'])) {
             return;
         }
         
-        //if($group = '0')
-        //{
-        //    echo 'Error! You are a lecturer, not a student';
-        //    header('Location:index.php');
-        //   return;
-        //}
+        if($group = '0')
+        {
+            echo 'Error! You are a lecturer, not a student';
+            header('Location:index.php');
+           return;
+        }
         
         if(mysqli_connect_errno()) {
             die("MySQL connection failed: ". mysqli_connect_error());
@@ -71,7 +65,7 @@ if(isset($_FILES['uploaded_file'])) {
         }
         
         // Create the SQL query
-        $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', '$group', '$date' ,'$class')";
+        $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', $group, '$date' ,'$class')";
  
         // Execute the query
         $result = mysqli_query($db, $query);
