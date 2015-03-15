@@ -7,13 +7,18 @@ if(isset($_FILES['uploaded_file'])) {
         require('connect.php');
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
+        echo $email;
+        echo '<p>got the email</p>';
         //group number
-        
         $query = "select enrolled_list.group_num";
         $query .= "from enrolled_list inner join user on enrolled_list.student_id = user.email";
-        $query .= "where user.email = '$email' and enrolled_list.class = 'COMP1004'";
+        $query .= "where user.email = '$email' and enrolled_list.class = COMP1004";
         $result = mysqli_query($db, $query);
-        $group = mysqli_getresult($result, mysqli_num_rows($result), 0);;
+        echo $result;
+        echo '<p>got the result</p>';
+        
+        $group = mysqli_getresult($result, mysqli_num_rows($result), 0);
+        echo '<p>go the group number:</p>' + $group;
         
         //check if the user doesn't belong to a group in this class (null)
         
