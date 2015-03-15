@@ -32,6 +32,7 @@
   <!--get array(?) of groups to assess-->
 
   <?php
+  /*
   // Connect to the database
   $db = open_connection();
   if(mysqli_connect_errno()) {
@@ -90,6 +91,7 @@
    
   // Close the mysql connection
   $dbLink->close();
+  */
   ?>
 
   <!--display group reports + evaluation forms-->
