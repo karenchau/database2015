@@ -11,7 +11,8 @@
 			$no_studentuser_error = "No one is registered as a student user on Platform yet.";
 			echo "<div class=\"alert alert-danger\" role=\"alert\">$no_studentuser_error</div>";
 		}
-		?>
+		mysqli_close($db);
+	?>
 		<input type="text" id="searchbar" placeholder="Type in a student's first name."></input>
 		<script> 
 			$("#searchbar").on("keyup", function() {
