@@ -72,9 +72,9 @@ if (!isset($_SESSION['email'])) {
 
           <div id="upload" class="tab-pane fade">
             <p>insert blurb about project. provide coursework briefing file download link. put upload report button here. indicate whether report has been uploaded</p>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
+            <form action="uploading.php" method="post" enctype="multipart/form-data">
               Select a file to upload:<br>
-              <input type="file" name="file" size = "50"><br>
+              <input type="file" name="uploaded_file" size = "50"><br>
               <input type="submit" value="Upload File" name="submit">
             </form>
           </div>
