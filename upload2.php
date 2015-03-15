@@ -8,9 +8,10 @@ if(isset($_FILES['uploaded_file'])) {
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         //group number
+        
         $query = "select enrolled_list.group_num";
         $query .= "from enrolled_list inner join user on enrolled_list.student_id = user.email";
-        $query .= "where user.email = '$email' and enrolled_list.class = COMP1004";
+        $query .= "where user.email = '$email' and enrolled_list.class = 'COMP1004'";
         $result = mysqli_query($db, $query);
         $group = mysqli_getresult($result, mysqli_num_rows($result), 0);;
         
