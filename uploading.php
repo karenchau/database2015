@@ -23,7 +23,7 @@ if(isset($_FILES['uploaded_file'])) {
         //group number
         $query = "SELECT * FROM enrolled_list";
         $query .= "WHERE student_id = '$email' AND class = '$class'";
-        $result = mysqli_query($db, $query);
+        $result = $db->query($query);
         
         if (!$result) {
             printf("Could not run query:  result =false");
