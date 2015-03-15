@@ -18,7 +18,8 @@ if(isset($_FILES['uploaded_file'])) {
         echo '<p>got the result</p>';
         
         $group = mysqli_getresult($result, mysqli_num_rows($result), 0);
-        echo '<p>go the group number:</p>' + $group;
+        echo $group;
+        echo '<p>go the group number:</p>';
         
         //check if the user doesn't belong to a group in this class (null)
         
