@@ -36,4 +36,19 @@ function print_table($result) {
 		}
 	echo "</table>";
 }
+
+function find_class() {
+	if(isset($_SESSION['class'])) {
+		require('connect.php');
+		$db = open_connection();
+		$class = mysqli_real_escape_string($db, $_SESSION['class']);
+		$query = "SELECT subject from class_list where id = '$class' ";
+		$result = mysqli_query($db, $query);
+		$class_name_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+		mysqli_close($db);
+		return $class_name_entry;
+	} else {
+		return "No class found";
+	}
+}
 ?>

@@ -31,14 +31,8 @@ $_SESSION['class'] = $_GET['classid'];
 
     <!-- Creating a personalized tab greeting-->
     <?php
-      require('connect.php');
-      $db = open_connection();
-      $class = mysqli_real_escape_string($db, $_SESSION['class']);
-      $query = "SELECT subject from class_list where id = '$class' ";
-      $result = mysqli_query($db, $query);
       require('functions.php');
-      $class_name_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-      mysqli_close($db);
+      $class_name_entry = find_class();
     ?>
     <title><?php echo $class_name_entry?> Class</title>
   </head>
