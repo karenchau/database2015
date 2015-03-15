@@ -31,8 +31,8 @@
       die("MySQL connection failed: ". mysqli_connect_error());
   }
 
-  $class = "$_SESSION[class]";
-  $email = "$_SESSION[email]"; 
+  $class = mysqli_real_escape_string($db, $_SESSION['class']);;
+  $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
 
   echo $class;
   echo $email;
@@ -50,7 +50,7 @@
 
   // Query for a list of all assigned evaluations
 
-  $query = "SELECT `id_report_group` FROM `evaluation WHERE class = '$_SESSION[class]' AND id_eval_group = '$group_entry'";
+  $query = "SELECT `id_report_group` FROM `evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
   $result = $db->query($query);
 
   
