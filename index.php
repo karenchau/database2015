@@ -127,7 +127,7 @@ if (!isset($_SESSION['email'])) {
                                         $query2 = "SELECT id, subject from class_list where lecturer = '$_SESSION[email]' ";
                                         $result2 = mysqli_query($db, $query2);
                                         while($row = mysqli_fetch_assoc($result2)) {
-                                            echo "<a href=\"adminClassPage.php?id=".$row['id']."\">".$row['subject']."</a><br>";
+                                            echo "<a href=\"adminClassPage.php?classid=".$row['id']."\">".$row['subject']."</a><br>";
                                         }
                                     } else {
                                         echo "<p><a href=\"studentClassPage.php\">Consumer Informatics (Student)</a></p><br>";

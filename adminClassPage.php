@@ -4,6 +4,8 @@ if (!isset($_SESSION['email'])) {
   header('Location: login.php');
   return;
 }
+
+$_SESSION['class'] = $_GET['classid'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,6 +75,7 @@ if (!isset($_SESSION['email'])) {
         <div class="tab-content">
           <div id="announcements" class="tab-pane fade in active">
             <p>announcements and forum here</p>
+            <?php echo $_SESSION['class'] ?>
           </div>
 
           <div id="students" class="tab-pane fade">
