@@ -39,7 +39,7 @@ if (isset($_FILES['file'])){
 
 	echo $module;
 
-	$query = "INSERT INTO report (name, type, size, data, group, uploadtime, class) VALUES('$file_name', '$file_type', '$file_size', '$content', '$group', '$datetime', '$module')";
+	$query = "INSERT INTO `report` (`name`, `type`, `size`, `data`, `group`, `uploadtime`, `class`) VALUES('{$file_name}', '${file_type}', '{$file_size}', '{$content}', '{$group}', '{$datetime}', '{$module}')";
 
 	$result = $db->query($query);
 
