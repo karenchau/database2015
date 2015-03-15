@@ -84,7 +84,6 @@ $_SESSION['class'] = $_GET['classid'];
           </div>
 
           <div id="students" class="tab-pane fade">
-            <p>enroll students in class, search and browse information of enrolled students</p>
             <?php include("enroll.php") ?>
           </div>
 
