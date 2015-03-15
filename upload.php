@@ -14,7 +14,7 @@ if (isset($_FILES['file'])){
 		$db = open_connection();
 		$email = mysqli_real_escape_string($db, $_SESSION['email']);
 		echo $email;
-        $query = "select group_num from enrolled_list where email = '$email' ";
+        $query = "select group_num from enrolled_list where student_id = '$email' ";
         $result = mysqli_query($db, $query);
         require('functions.php');
         if (mysqli_num_rows($result) > 0) {
