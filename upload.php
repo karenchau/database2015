@@ -37,13 +37,12 @@ if (isset($_FILES['file'])){
 	$datetime = NULL;
 	$module = "consumerinformatics";
 
-	echo $file_size;
 
 	$query = "INSERT INTO 'report' ('name', 'type', 'size', 'data', 'group', 'uploadtime', 'class') VALUES('{$file_name}', '{$file_type}', '{$file_size}', '{content}', '{group}', '{datetime}', '{module}')";
 
 	$result = $db->query($query);
 	mysql_close($db);
-/*
+
 	if ($result) {
 		echo "Your file was successfully uploaded.";
 	} else {
@@ -57,7 +56,7 @@ if (isset($_FILES['file'])){
 else {
 	echo 'Error: A file was not sent';
 }
-*/
+
 
 //link to go back
 //echo '<p>Click <a href = "index.php">here</a> to go back </p>';
