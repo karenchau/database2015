@@ -26,7 +26,7 @@ if(isset($_FILES['uploaded_file'])) {
         
         if (!$result)
         {
-            echo 'Query failed : '.mysqli_error();
+            echo 'Query failed : '.mysqli_error($db);
             $db->close();
             exit(0);
         }
