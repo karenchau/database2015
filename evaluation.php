@@ -57,7 +57,6 @@
           echo '<p>There are no files in the database</p>';
       }
       else {
-        require('functions.php');
         print_table($result);
         /*
           // Print the top of a table
