@@ -41,7 +41,6 @@
 			echo "$enroll_errors";
 			unset($enroll_errors); */
 		}
-		echo "$errortest";
 		mysqli_close($db);
 	?>
 	<br>
