@@ -46,7 +46,7 @@
 
   // Query for a list of all assigned evaluations
 
-  $query = "SELECT `id_report_group` FROM `evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
+  $query = "SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
   $result = mysqli_query($db,$query);
 
   
