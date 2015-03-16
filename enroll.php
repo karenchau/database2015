@@ -44,5 +44,5 @@
 		mysqli_close($db);
 	?>
 	<br>
-	<p><?php echo "$testing"; ?>
+	<p><?php echo "$testing"; ?></p>
 </html>
