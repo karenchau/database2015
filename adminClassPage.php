@@ -85,7 +85,7 @@ $_SESSION['class'] = $_GET['classid'];
           </div>
 
           <div id="students" class="tab-pane fade">
-            <?php include("enroll.php");?>
+            <?php include_once("enroll.php");?>
           </div>
 
           <div id="groups" class="tab-pane fade">
@@ -97,7 +97,7 @@ $_SESSION['class'] = $_GET['classid'];
           </div>
 
           <div id="allusers" class="tab-pane fade">
-            <?php include("users.php");?>
+            <?php include_once("users.php");?>
           </div>
         </div>
       </div>
