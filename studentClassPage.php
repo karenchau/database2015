@@ -78,10 +78,12 @@ $_SESSION['class'] = $_GET['classid'];
             
 
             <form action="uploading.php" method="post" enctype="multipart/form-data">
+              <div class ="form-group">
                 <label for="exampleInputFile">Report upload</label>
                 <p class="help-block">Please note that this is your final submission. No re-uploads are allowed</p>
                 <input type="file" id="exampleInputFile">
-              <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
             </form>
             
 <!--
@@ -92,6 +94,7 @@ $_SESSION['class'] = $_GET['classid'];
             </form>
             -->
           </div>
+
 
           <div id="submit-assessments" class="tab-pane fade">
             <p>see reports you have to assess here. assessment form for each report. make it so group can't assess a report more than once</p>
