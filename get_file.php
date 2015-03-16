@@ -2,13 +2,13 @@
 // Make sure an ID was passed
 if(isset($_GET['id'])) {
 // Get the ID
-    $id = mysqli_real_escape_string($_GET['id']);
+    $id = $_GET['id'];
  
     // Connect to the database
 
     $db = open_connection();
 	$id = mysqli_real_escape_string($_GET['id']);
-	$query = "SELECT type, name, size, data FROM report where group_id = '{$id}'";
+	$query = "SELECT * FROM report where group_id = '{$id}'";
 	$result = mysqli_query($db,$query);
 
     if($result) {
@@ -16,11 +16,14 @@ if(isset($_GET['id'])) {
         if($result->num_rows == 1) {
         // Get the row
             $row = mysqli_fetch_assoc($result);
+            $type = $row['type'];
+            $size = $row['size'];
+            $name = $row['name'];
 
             // Print headers
-            header("Content-Type: ". $row['type']);
-            header("Content-Length: ". $row['size']);
-            header("Content-Disposition: attachment; filename=". $row['name']);
+            header("Content-Type: $type");
+            header("Content-Length: $size");
+            header("Content-Disposition: attachment; filename=$name");
 
             // Print data
             echo $row['data'];
@@ -30,12 +33,12 @@ if(isset($_GET['id'])) {
         }
 
         // Free the mysqli resources
-        @mysqli_free_result($result);
+        mysqli_free_result($result);
     }
     else {
         echo "Error! Query failed: <pre>{$db->error}</pre>";
     }
-    @mysqli_close($db);
+    mysqli_close($db);
 
 }
 else {
