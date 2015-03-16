@@ -47,7 +47,7 @@
 
   // Query for all assigned reports
   $evalgroups = "SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
-  $query = "SELECT name, type, size, uploadtime from user where group in ($evalgroups)";
+  $query = "SELECT name, type, size, uploadtime from report where group in ($evalgroups)";
   $result = mysqli_query($db,$query);
 
   
