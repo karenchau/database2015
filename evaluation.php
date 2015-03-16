@@ -84,7 +84,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <?php
-          echo 'Group' . $data[0];
+          echo 'Group' . $data[1];
           ?>
         </a>
       </h4>
