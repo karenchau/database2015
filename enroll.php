@@ -23,7 +23,7 @@
 	</div>
 	<?php
 		if (isset($_POST['enroll'])) {
-			if (empty($_POST['studentemail']) {
+			if (empty($_POST['studentemail'])) {
 
 			}
 		}

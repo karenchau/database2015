@@ -14,7 +14,7 @@
 		mysqli_close($db);
 	?>
 	<br>
-	<h4>Search bar  </h4>
+	<h5>Search bar  </h5>
 	<input type="text" id="searchbar" placeholder="Enter text here"></input>
 	<script> 
 		$("#searchbar").on("keyup", function() {
