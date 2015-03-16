@@ -75,7 +75,7 @@
             echo "
                 <tr>
                     <td>{$row['group_id']}</td>
-                    <td><a href = 'get_file.php?id={$row['name']}'>{row['name']}</a></td>
+                    <td><a href = 'get_file.php?id={$row['name']}'>{$row['name']}</a></td>
                     <td>{$row['type']}</td>
                     <td>{$row['size']}</td>
                     <td>{$row['uploadtime']}</td>
