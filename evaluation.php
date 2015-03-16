@@ -42,7 +42,8 @@
     $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
     } else {
       echo "You are not in a group.";
-  }
+    }
+  
 
   // Query for a list of all assigned evaluations
 
@@ -58,12 +59,11 @@
       }
       else {
         $data = array();
-        while(($row =  mysql_fetch_assoc($result))) {
-            $data[] = $row[];
+        while($row = mysqli_fetch_assoc($result)) {
+          $data[] = $row;
         }
         print_r($data);
       }
-
    
       // Free the result
       $result->free();
