@@ -24,7 +24,7 @@
 	<?php
 		//If the admin chooses the enroll option, then it would initiate this if statement
 		if (isset($_POST['enrolled'])) {
-			header('Location: index.php');
+			$testing = "zzz";
 			/*
 			if (isset($_POST['studentemail']) || empty($_POST['studentemail'])) {
 				$enroll_errors = 'Error!: Please enter an email.';
@@ -44,4 +44,5 @@
 		mysqli_close($db);
 	?>
 	<br>
+	<p><?php echo "$testing"; ?>
 </html>
