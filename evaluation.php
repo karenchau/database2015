@@ -57,13 +57,6 @@
           echo '<p>There are no files in the database</p>';
       }
       else {
-        /*
-        $data = array();
-        while($row = mysqli_fetch_assoc($result)) {
-          $data[] = $row;
-        }
-        print_r($data);
-        */
         $data = array();
         while(($row =  mysql_fetch_assoc($result))) {
             $data[] = $row[];
