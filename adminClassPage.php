@@ -71,16 +71,16 @@ $_SESSION['class'] = $_GET['classid'];
       ?>
       <div class="col-sm-12">
         <ul class = "nav nav-tabs">
-          <li class = "nav active"><a href ="#announcements" data-toggle="tab">Announcements and Forum</a></li>
+          <li class = "nav"><a href ="#announcements" data-toggle="tab">Announcements and Forum</a></li>
           <li class="nav"><a href ="#students" data-toggle="tab">Enrolled Students</a></li>
           <li class="nav"><a href ="#groups" data-toggle="tab">Manage Project Groups</a></li>
           <li class="nav"><a href ="#grades" data-toggle="tab">View Grades and Rankings</a></li>
-          <li class="nav"><a href ="#allusers" data-toggle="tab">View All Users</a></li>
+          <li class="nav active"><a href ="#allusers" data-toggle="tab">View All Users</a></li>
         </ul>
 
 
         <div class="tab-content">
-          <div id="announcements" class="tab-pane fade in active">
+          <div id="announcements" class="tab-pane fade">
             <p>announcements and forum here</p>
           </div>
 
@@ -96,7 +96,7 @@ $_SESSION['class'] = $_GET['classid'];
             <p>view grades and aggregate rankings of group reports</p>
           </div>
 
-          <div id="allusers" class="tab-pane fade">
+          <div id="allusers" class="tab-pane fade in active">
             <?php include("users.php") ?>
           </div>
         </div>
