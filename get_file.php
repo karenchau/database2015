@@ -1,24 +1,44 @@
 <?php
-	if (isset($_GET['id'])){
-		$db = open_connection();
-		$id = mysqli_real_escape_string($_GET['id']);
-		$query = "SELECT type, name, size, data FROM report where group_id = {$id}";
-		$result = mysqli_query($db,$query);
+// Make sure an ID was passed
+if(isset($_GET['id'])) {
+// Get the ID
+    $id = mysqli_real_escape_string($_GET['id']);
+ 
+    // Connect to the database
 
-		if ($result) {
-			if($result->num_rows == 1) {
-				$row = mysqli_fetch_assoc($result);
-				header("Content-Type: " . $row['type']);
-				header("Content-Length: ") . $row['size']);
-				header("Content-Disposition: attachment; filename=") . $row['name'];
+    //$db = open_connection();
+	$id = mysqli_real_escape_string($_GET['id']);
+	$query = "SELECT type, name, size, data FROM report where group_id = {$id}";
+	$result = mysqli_query($db,$query);
 
-				echo $row['data'];
-			}
-		} else {
-			echo 'Error! No file for that group exists.';
-		}
-		mysqli_close($db);
-	} else {
-		echo 'Error! No group ID was passed.';
-	}
+    if($result) {
+        // Make sure the result is valid
+        if($result->num_rows == 1) {
+        // Get the row
+            $row = mysqli_fetch_assoc($result);
+
+            // Print headers
+            header("Content-Type: ". $row['type']);
+            header("Content-Length: ". $row['size']);
+            header("Content-Disposition: attachment; filename=". $row['name']);
+
+            // Print data
+            echo $row['data'];
+        }
+        else {
+            echo 'Error! No file exists with that ID.';
+        }
+
+        // Free the mysqli resources
+        @mysqli_free_result($result);
+    }
+    else {
+        echo "Error! Query failed: <pre>{$db->error}</pre>";
+    }
+    //@mysqli_close($db);
+
+}
+else {
+    echo 'Error! No ID was passed.';
+}
 ?>
