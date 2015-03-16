@@ -66,7 +66,7 @@
         */
         $data = array();
         while(($row =  mysql_fetch_assoc($result))) {
-            $data[] = $row['type'];
+            $data[] = $row['id_report_group'];
         }
         print_r($data);
       }
