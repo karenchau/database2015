@@ -57,11 +57,13 @@
           echo '<p>There are no files in the database</p>';
       }
       else {
+        /*
         $groups = array();
         while (($row = mysql_fetch_array($result,MYSQL_ASSOC)) !== false){
           $data[] = $row;
         }
         print_r($data);
+        */
         print_table($result);
         
       }
