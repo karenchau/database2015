@@ -18,13 +18,12 @@
 	<div class="input-group">
 		<input type="text" name="studentemail" class="form-control" placeholder="Enter email address">
 		<span class="input-group-btn">
-			<button id="btn-enroll" name="enrolled" class="btn btn-primary" type="submit">Enroll</button>
+			<button id="btn-signup" name="enrolled" type="submit" class="btn btn-danger">Enroll</button>
 		</span>
 	</div>
 	<?php
 		//If the admin chooses the enroll option, then it would initiate this if statement
-	$errortest = "here";
-		if (isset($_POST["enrolled"])) {
+		if (isset($_POST['enrolled'])) {
 			header('Location: index.php');
 			/*
 			if (isset($_POST['studentemail']) || empty($_POST['studentemail'])) {
