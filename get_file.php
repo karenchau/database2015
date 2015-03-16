@@ -2,7 +2,7 @@
 // Make sure an ID was passed
 if(isset($_GET['id'])) {
 // Get the ID
-    $id = mysqli_real_escape_string($_GET['id']);
+    $id = $_GET['id'];
  
     // Connect to the database
 
