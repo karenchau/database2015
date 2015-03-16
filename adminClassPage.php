@@ -97,7 +97,7 @@ $_SESSION['class'] = $_GET['classid'];
           </div>
 
           <div id="allusers" class="tab-pane fade in active">
-            <p>here</p>
+            <?php include("users.php");?>
           </div>
         </div>
       </div>
