@@ -6,7 +6,7 @@ if(isset($_GET['id'])) {
  
     // Connect to the database
 
-    //$db = open_connection();
+    $db = open_connection();
 	$id = mysqli_real_escape_string($_GET['id']);
 	$query = "SELECT * FROM report where group_id = '{$id}'";
 	$result = mysqli_query($db,$query);
@@ -38,7 +38,7 @@ if(isset($_GET['id'])) {
     else {
         echo "Error! Query failed: <pre>{$db->error}</pre>";
     }
-    //mysqli_close($db);
+    mysqli_close($db);
 
 }
 else {

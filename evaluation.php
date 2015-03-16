@@ -51,6 +51,7 @@
   
   $query = "SELECT group_id, name, type, size, uploadtime from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
   $result = mysqli_query($db,$query);
+  mysql_close($db);
 
   
   // Check if query was successful
@@ -103,7 +104,7 @@
   }
    
   // Close the mysql connection
-  mysql_close($db);
+  //mysql_close($db);
   ?>
 
 
