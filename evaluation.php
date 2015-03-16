@@ -23,6 +23,7 @@
   <body>
   <!--get array(?) of groups to assess-->
 
+  <p> Click the name of the file to start downloading the group's report. When you have finished reading the report, submit an evaluation using the form below for the corresponding group.</p>
   <?php
   
   // Connect to the database
@@ -67,7 +68,6 @@
                     <td><b>Type</b></td>
                     <td><b>Size (bytes)</b></td>
                     <td><b>Date Submitted</b></td>
-                    <td><b>&nbsp;</b></td>
                 </tr>';
  
         // Print each file
@@ -75,11 +75,10 @@
             echo "
                 <tr>
                     <td>{$row['group_id']}</td>
-                    <td>{$row['name']}</td>
+                    <td><a href = 'get_file.php?id={$row['name']}'>{row['name']</a></td>
                     <td>{$row['type']}</td>
                     <td>{$row['size']}</td>
                     <td>{$row['uploadtime']}</td>
-                    <td><a href='get_file.php?id={$row['id']}'>Download</a></td>
                 </tr>";
         }
  
