@@ -61,6 +61,7 @@
         while($row = mysqli_fetch_assoc($result)) {
           $data[] = $row;
         }
+        print_r($data);
       }
    
       // Free the result
