@@ -57,15 +57,10 @@
           echo '<p>There are no files in the database</p>';
       }
       else {
-        /*
-        $groups = array();
-        while (($row = mysql_fetch_array($result,MYSQL_ASSOC)) !== false){
+        $data = array();
+        while($row = mysqli_fetch_assoc($result)) {
           $data[] = $row;
         }
-        print_r($data);
-        */
-        print_table($result);
-        
       }
    
       // Free the result
@@ -78,7 +73,7 @@
   }
    
   // Close the mysql connection
-mysql_close($db);  
+  mysql_close($db);  
   ?>
 
   <!--display group reports + evaluation forms-->
@@ -89,7 +84,7 @@ mysql_close($db);
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <?php
-          echo 'Assessment 1'
+          echo 'Group' . $data[0];
           ?>
         </a>
       </h4>
