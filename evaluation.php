@@ -74,7 +74,7 @@
         while($row = $result->fetch_assoc()) {
             echo "
                 <tr>
-                    <td>{$row['id_eval_group']}</td>
+                    <td>{$row['group_id']}</td>
                     <td>{$row['name']}</td>
                     <td>{$row['type']}</td>
                     <td>{$row['size']}</td>
