@@ -60,7 +60,7 @@
       else {
         $data = array();
         while($row = mysqli_fetch_assoc($result)) {
-          $data[] = $row;
+          $data[] = $row['id_report_group'];
         }
         print_r($data);
       }
