@@ -41,7 +41,7 @@ function print_table($result) {
 
 function find_class() {
 	if(isset($_SESSION['class'])) {
-		require('connect.php');
+		require_once('connect.php');
 		$db = open_connection();
 		$class = mysqli_real_escape_string($db, $_SESSION['class']);
 		$query = "SELECT subject from class_list where id = '$class' ";

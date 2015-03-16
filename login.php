@@ -11,7 +11,7 @@ if (isset($_POST['signin'])) {
         if (empty($_POST['email']) || empty($_POST['password'])) {
             $signin_errors = 'Error!: Please fill all fields';
 		} else {
-            require('connect.php');
+            require_once('connect.php');
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -36,7 +36,7 @@ if (isset($_POST['signin'])) {
         if (empty($_POST['email']) || empty($_POST['password'])) {
             $signup_errors = 'Please fill all fields.';
 		} else {
-            require('connect.php');
+            require_once('connect.php');
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);

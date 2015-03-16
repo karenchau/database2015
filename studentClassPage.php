@@ -28,7 +28,7 @@ $_SESSION['class'] = $_GET['classid'];
 
     <!-- Creating a personalized tab greeting-->
     <?php
-      require('functions.php');
+      require_once('functions.php');
       $class_name_entry = find_class();
     ?>
     <title><?php echo $class_name_entry?> Class</title>
