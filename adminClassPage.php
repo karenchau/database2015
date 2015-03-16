@@ -63,7 +63,7 @@ $_SESSION['class'] = $_GET['classid'];
       <!-- Prevents students who type in the admin url to access the admin page -->
       <?php
         if (!$_SESSION['isAdmin']) {
-          $adminerror = "You do not have the privileges to view this page. <br>Redirecting to student class page . . .";
+          $adminerror = "Error!: You do not have the privileges to view this page. <br>Redirecting to student class page . . .";
           echo "<div class=\"alert alert-danger\" role=\"alert\">$adminerror</div>";
           header("refresh:4; url=studentClassPage.php");
           return;
