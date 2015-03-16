@@ -98,7 +98,7 @@ $_SESSION['class'] = $_GET['classid'];
 
           <div id="submit-assessments" class="tab-pane fade">
             <p>see reports you have to assess here. assessment form for each report. make it so group can't assess a report more than once</p>
-            <?php include("evaluation.php");?>
+            <?php include_once("evaluation.php");?>
           </div>
 
           <div id="your-projects-assessments" class="tab-pane fade">
