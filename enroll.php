@@ -42,6 +42,7 @@
 			unset($enroll_errors); */
 		}
 		mysqli_close($db);
+		echo "here";
 	?>
 	<br>
 </html>
