@@ -48,7 +48,7 @@
   // Query for all assigned reports
   $evalgroups = "SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
   
-  $query = "SELECT id_eval_group, name, type, size, uploadtime from report where group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')";
+  $query = "SELECT group_id, name, type, size, uploadtime from report where group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')";
   $result = mysqli_query($db,$query);
 
   
@@ -104,12 +104,9 @@
   }
    
   // Close the mysql connection
-  mysql_close($db);  
+  mysql_close($db);
   ?>
 
 
-  <form>
-    
-  </form>
 
   </html>
