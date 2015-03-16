@@ -85,7 +85,7 @@ $_SESSION['class'] = $_GET['classid'];
           </div>
 
           <div id="students" class="tab-pane fade">
-            <p>enrolled</p>
+            <?php include("enroll.php");?>
           </div>
 
           <div id="groups" class="tab-pane fade">
