@@ -11,7 +11,7 @@ if(isset($_FILES['uploaded_file'])) {
     // Make sure the file was sent without errors
     if($_FILES['uploaded_file']['error'] == 0) {
         // Connect to the database
-        require('connect.php');
+        require_once('connect.php');
         $db = open_connection();
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         //$class = mysqli_real_escape_string($db, $_SESSION['class']);

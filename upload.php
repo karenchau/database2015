@@ -12,13 +12,13 @@ if (isset($_FILES['file'])){
 	
 	if ($_FILES['file'][['error']] == 0) {
 		//Connect to database
-		require('connect.php');
+		require_once('connect.php');
 		$db = open_connection();
 		$email = mysqli_real_escape_string($db, $_SESSION['email']);
 		echo $email;
         $query = "select group_num from enrolled_list where student_id = '$email' ";
         $result = mysqli_query($db, $query);
-        require('functions.php');
+        require_once('functions.php');
         if (mysqli_num_rows($result) > 0) {
           $group = mysqli_getresult($result, mysqli_num_rows($result), 0);
         } else {

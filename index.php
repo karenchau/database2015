@@ -18,12 +18,12 @@ if (!isset($_SESSION['email'])) {
         
         <!-- Creating a personalized tab greeting-->
         <?php
-          require('connect.php');
+          require_once('connect.php');
           $db = open_connection();
           $email = mysqli_real_escape_string($db, $_SESSION['email']);
           $query = "SELECT first_name from user where email = '$email' ";
           $result = mysqli_query($db, $query);
-          require('functions.php');
+          require_once('functions.php');
           if (mysqli_num_rows($result) > 0) {
             $fname_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
           } else {
