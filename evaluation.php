@@ -45,9 +45,9 @@
     }
   
 
-  // Query for a list of all assigned evaluations
-
-  $query = "SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
+  // Query for all assigned reports
+  $evalgroups = "SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
+  $query = "SELECT name, type, size, uploadtime from user where group in ($evalgroups)";
   $result = mysqli_query($db,$query);
 
   
@@ -58,15 +58,41 @@
           echo '<p>There are no files in the database</p>';
       }
       else {
+        // Print the top of a table
+        echo '<table width="100%">
+                <tr>
+                    <td><b>Name</b></td>
+                    <td><b>Type</b></td>
+                    <td><b>Size (bytes)</b></td>
+                    <td><b>Date Submitted</b></td>
+                    <td><b>&nbsp;</b></td>
+                </tr>';
+ 
+        // Print each file
+        while($row = $result->fetch_assoc()) {
+            echo "
+                <tr>
+                    <td>{$row['name']}</td>
+                    <td>{$row['type']}</td>
+                    <td>{$row['size']}</td>
+                    <td>{$row['uploadtime']}</td>
+                    <td><a href='get_file.php?id={$row['id']}'>Download</a></td>
+                </tr>";
+        }
+ 
+        // Close table
+        echo '</table>';
+        /*
         $data = array();
         while($row = mysqli_fetch_assoc($result)) {
           $data[] = $row['id_report_group'];
         }
         print_r($data);
+        */
       }
    
       // Free the result
-      $result->free();
+      mysqli_free_result($result);
   }
   else
   {
@@ -86,7 +112,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <?php
-          echo 'Group' . $data[1];
+          echo 'Group' . $data[0];
           ?>
         </a>
       </h4>
@@ -106,7 +132,7 @@
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Assessment 2
+          echo 'Group ' . $data[1];
         </a>
       </h4>
     </div>
