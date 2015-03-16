@@ -25,7 +25,7 @@
 		//If the admin chooses the enroll option, then it would initiate this if statement
 	$errortest = "here";
 		if (isset($_POST["enrolled"])) {
-			$errortest = "Hi this is inside";
+			header('Location: index.php');
 			/*
 			if (isset($_POST['studentemail']) || empty($_POST['studentemail'])) {
 				$enroll_errors = 'Error!: Please enter an email.';
