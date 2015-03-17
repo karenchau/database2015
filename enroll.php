@@ -17,11 +17,11 @@
 
 	<div class="container">
 		<h3>Enroll Student</h3>
-		<form class="form-horizontal" role="form">
+		<form>
 			<div class="form-group">
 				<label class="control-label col-sm-2">Email:</label>
 				<div class="col-sm-10">          
-					<input type="text" class="form-control" id="studentemail" placeholder="Enter student's email">
+					<input type="email" class="form-control" id="studentemail" placeholder="Enter student's email">
 				</div>
 			</div>
 			<div class="form-group">        
