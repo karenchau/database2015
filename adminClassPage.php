@@ -70,7 +70,7 @@ if ($_GET['classid'] == NULL) {
         <!-- Prevents invalid input of classes into the url manually -->
         <?php
           if (is_null(find_class())) {
-            $classerror = "This class does not exist. <br>Redirecting to homepage . . .";
+            $classerror = "Error!: This class does not exist. <br>Redirecting to homepage . . .";
             print_error($classerror, "index.php");
           }
         ?>
@@ -79,7 +79,7 @@ if ($_GET['classid'] == NULL) {
       <!-- Prevents students who type in the admin url to access the admin page -->
       <?php
         if (!$_SESSION['isAdmin']) {
-          $adminerror = "You do not have the privileges to view this page. <br>Redirecting to student class page . . .";
+          $adminerror = "Error!: You do not have the privileges to view this page. <br>Redirecting to student class page . . .";
           print_error($adminerror, "studentClassPage.php");
         }
       ?>
