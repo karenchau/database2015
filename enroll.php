@@ -15,19 +15,37 @@
 		mysqli_close($db);
 	?>
 	<?php
+		$(document).ready(function(){
+			$('#enrollform').on('submit',function(e) {
+				$.ajax({
+					url:'register.php',
+					data:$(this).serialize(),
+					type:'POST',
+					success:function(data){
+						console.log(data);
+						$("#success").show().fadeOut(5000); //=== Show Success Message==
+					},
+					error:function(data){
+						$("#error").show().fadeOut(5000); //===Show Error Message====
+					}
+				});
+				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
+			});
+		});
 		if (isset($_POST['enroll'])) {
 			echo "here";
 		}
 	?>
 	<div class="container">
 		<h3>Enroll a student</h3>
-		<form>
+		<form method="POST" name="enrollform" id="enrollform">
 			<div class="form-group">
 				<label class="control-label col-sm-1">Email:</label>
 				<div class="col-sm-5">          
 					<input type="email" class="form-control" id="studentemail" placeholder="Enter student's email">
 				</div>
 				<div class="col-sm-2">
+					<span id="error" style="display:none; color:#F00">Some Error!Please Fill form Properly </span> <span id="success" style="display:none; color:#0C0">All the records are submitted!</span>
 					<button type="submit" class="btn btn-primary" name="enroll">Submit</button>
 				</div>
 			</div>
