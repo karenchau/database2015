@@ -15,14 +15,26 @@
 	?>
 	<br>
 	<h3>Enroll a student</h3>
-	<div class="input-group">
-		<input type="text" name="studentemail" class="form-control" placeholder="Enter email address">
-		<span class="input-group-btn">
-			<input type="submit" name="enrolled" type="submit" class="btn btn-danger" value="Enroll">
-		</span>
-	</div>
-	<?php
-		//If the admin chooses the enroll option, then it would initiate this if statement
+	<Form name ="form1" Method ="POST" Action ="basicForm.php">
+<Input Type = "text" Value ="username" Name ="username">
+<Input Type = "Submit" Name = "Submit1" Value = "Login">
+</FORM>
+
+<?PHP
+if (isset($_POST['Submit1'])) {
+$username = $_POST['username'];
+
+if ($username = = "letmein") {
+print ("Welcome back, friend!");
+}
+else {
+print ("You're not a member of this site");
+}
+}
+	mysqli_close($db);
+?>
+	<!--<?php
+		/*If the admin chooses the enroll option, then it would initiate this if statement
 		if (isset($_POST['enrolled'])) {
 			$testing = "zzz";
 			/*
@@ -41,8 +53,8 @@
 			echo "$enroll_errors";
 			unset($enroll_errors); */
 		}
-		mysqli_close($db);
+		
 	?>
+-->
 	<br>
-	<p><?php echo "$testing"; ?></p>
 </html>
