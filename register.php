@@ -4,6 +4,7 @@
 		$hasErr = TRUE;
 	} else {
 		$student_email = mysqli_real_escape_string($db, $_POST['studentemail']);
+		echo "$student_email";
 		$query = "SELECT * from user where email = '$student_email' limit 1";
 		$result = mysqli_query($db, $query);
 		if (mysqli_num_rows($result) == 0) {
