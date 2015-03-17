@@ -7,7 +7,7 @@ if(isset($_GET['id'])) {
     echo $id;
  
     // Connect to the database
-
+    require_once('connect.php');
     $db = open_connection();
     echo 'after connection';
 	$id_num = mysqli_real_escape_string($db, $id);
