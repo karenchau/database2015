@@ -14,7 +14,6 @@
 		}
 		mysqli_close($db);
 	?>
-	<br>
 
 	<!--<?php
 		/*If the admin chooses the enroll option, then it would initiate this if statement
@@ -39,5 +38,4 @@
 		
 	?>
 -->
-	<br>
 </html>
