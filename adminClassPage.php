@@ -38,9 +38,10 @@ if ($_GET['classid'] == NULL) {
     <?php
       require_once('functions.php');
       if (is_null(find_class())) {
-        header('Location: index.php');
         $classerror = "Error!: This class does not exist.";
         echo "<div class=\"alert alert-danger\" role=\"alert\">$classerror</div>";
+        header("refresh:4; url=index.php");
+        return;
       } else {
         $class_name_entry = find_class();
       }
