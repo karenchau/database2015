@@ -41,6 +41,7 @@
 			});
 		});
 	</script>
+	<br>
 	<h3>Enroll a student</h3>
 	<div class="alert alert-danger" role="alert" id="error" style="display: none;">Please enter a valid student's email.</div>
 	<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
