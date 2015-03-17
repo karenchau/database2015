@@ -13,6 +13,8 @@ if(isset($_GET['id'])) {
 	$query = "SELECT * FROM report where group_id = '{$id}'";
 	$result = mysqli_query($db,$query);
 
+    echo "here";
+
     if($result) {
     	echo "there is a result";
         // Make sure the result is valid
@@ -45,6 +47,7 @@ if(isset($_GET['id'])) {
     }
     mysqli_close($db);
 
+    echo "there";
 } else {
     echo 'Error! No ID was passed.';
 }
