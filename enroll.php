@@ -39,8 +39,8 @@ e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
 </script>
 	<div class="container">
 		<h3>Enroll a student</h3>
-		<span id="error" style="display:none; color:#F00">Some Error!Please Fill form Properly </span>
-		<div class="alert alert-danger" role="alert" id="success" style="display: none;">Success!</div>
+		<div class="alert alert-danger" role="alert" id="error" style="display: none;">Some Error!Please Fill form Properly.</div>
+		<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
 		<form name="enrollform" id="enrollform">
 			<div class="form-group">
 				<label class="control-label col-sm-1">Email:</label>
