@@ -82,7 +82,7 @@ $_SESSION['class'] = $_GET['classid'];
                 <label for="uploaded_file">Report upload</label>
                 <p class="help-block">Please note that this is your final submission. No re-uploads are allowed</p>
                 <input type="file" id="uploaded_file" name="uploaded_file"><br>
-                <input type="submit" value ="Upload File" name="submit">
+                <input type="submit" class ="btn btn-default" value ="Upload File" name="submit">
                 <!--<button type="submit" class="btn btn-default">Submit</button> -->
               </div>
             </form>
