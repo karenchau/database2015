@@ -37,7 +37,13 @@ if ($_GET['classid'] == NULL) {
     <!-- Creating a personalized tab greeting-->
     <?php
       require_once('functions.php');
-      $class_name_entry = find_class();
+      if (is_null(find_class())) {
+        header('Location: index.php');
+        $classerror = "Error!: This class does not exist.";
+        echo "<div class=\"alert alert-danger\" role=\"alert\">$classerror</div>";
+      } else {
+        $class_name_entry = find_class();
+      }
     ?>
     <title><?php echo $class_name_entry?> Class</title>
   </head>

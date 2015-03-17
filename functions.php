@@ -46,11 +46,15 @@ function find_class() {
 		$class = mysqli_real_escape_string($db, $_SESSION['class']);
 		$query = "SELECT subject from class_list where id = '$class' ";
 		$result = mysqli_query($db, $query);
-		$class_name_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+		if (mysqli_num_rows($result) > 0) {
+			$class_name_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+			return $class_name_entry;
+		} else {
+			return NULL;
+		}
 		mysqli_close($db);
-		return $class_name_entry;
 	} else {
-		return "No class found";
+		return NULL;
 	}
 }
 ?>
