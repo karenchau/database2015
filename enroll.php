@@ -26,8 +26,8 @@
 					type:'POST',
 					success:function(data){
 						console.log(data);
-						var rsp = $.parseJSON (data)
-						if(rsp["success"] == true) {
+						var option = $.parseJSON (data)
+						if(option["success"] == true) {
 							$("#success").show().fadeOut(5000); //=== Show Success Message==
 						} else {
 							$("#error").show().fadeOut(5000); //===Show Error Message====
@@ -43,7 +43,7 @@
 	</script>
 	<div class="container">
 		<h3>Enroll a student</h3>
-		<div class="alert alert-danger" role="alert" id="error" style="display: none;">Some Error!Please Fill form Properly.</div>
+		<div class="alert alert-danger" role="alert" id="error" style="display: none;">Please enter a valid student's email.</div>
 		<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
 		<form name="enrollform" id="enrollform">
 			<div class="form-group">
