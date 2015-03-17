@@ -62,6 +62,7 @@ function print_error($message, $redirect_page) {
 	echo "<div class=\"alert alert-danger\" role=\"alert\">$message</div>";
 	if (!is_null($redirect_page)) {
         header("refresh:3; url=$redirect_page");
+        return;
     }
     return;
 }
