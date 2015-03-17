@@ -19,11 +19,11 @@
 		<h3>Enroll Student</h3>
 		<form>
 			<div class="form-group">
-				<label class="control-label col-sm-2">Email:</label>
-				<div class="col-sm-6">          
+				<label class="control-label col-sm-1">Email:</label>
+				<div class="col-sm-9">          
 					<input type="email" class="form-control" id="studentemail" placeholder="Enter student's email">
 				</div>
-				<div class="col-sm-offset-2 col-sm-2">
+				<div class="col-sm-2">
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
 			</div>
