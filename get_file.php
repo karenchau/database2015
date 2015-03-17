@@ -10,7 +10,7 @@ if(isset($_GET['id'])) {
 
     $db = open_connection();
 	$id = mysqli_real_escape_string($db, $_GET['id']);
-	$query = "SELECT * FROM report where group_id = '{$id}'";
+	$query = "SELECT * FROM report where group_id = '$id'";
 	$result = mysqli_query($db, $query);
 
     echo "here";
