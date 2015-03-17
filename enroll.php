@@ -20,12 +20,10 @@
 		<form>
 			<div class="form-group">
 				<label class="control-label col-sm-2">Email:</label>
-				<div class="col-sm-10">          
+				<div class="col-sm-6">          
 					<input type="email" class="form-control" id="studentemail" placeholder="Enter student's email">
 				</div>
-			</div>
-			<div class="form-group">        
-				<div class="col-sm-offset-2 col-sm-10">
+				<div class="col-sm-offset-2 col-sm-2">
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
 			</div>
