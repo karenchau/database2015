@@ -1,4 +1,7 @@
 <html>
+<!-- Latest compiled and minified JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
 	<h3>All students registered for this class</h3>
 	<br>
 	<?php
@@ -32,9 +35,6 @@
 				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
 			});
 		});
-		if (isset($_POST['enroll'])) {
-			echo "here";
-		}
 	?>
 	<div class="container">
 		<h3>Enroll a student</h3>
