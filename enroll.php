@@ -20,7 +20,7 @@
 		<span class="input-group-btn">
 			<button id="btn-signup" name="enrolled" type="submit" class="btn btn-danger">Enroll</button>
 		</span>
-	</div>
+	
 	<?php
 		//If the admin chooses the enroll option, then it would initiate this if statement
 		echo (isset($_POST['enrolled']));
@@ -44,6 +44,7 @@
 		}
 		mysqli_close($db);
 	?>
+	</div>
 	<br>
 	<p><?php echo "$testing"; ?></p>
 </html>
