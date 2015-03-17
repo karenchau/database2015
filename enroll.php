@@ -23,6 +23,7 @@
 	</div>
 	<?php
 		//If the admin chooses the enroll option, then it would initiate this if statement
+		echo (isset($_POST['enrolled']));
 		if (isset($_POST['enrolled'])) {
 			$testing = "zzz";
 			/*
