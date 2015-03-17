@@ -9,9 +9,13 @@ if(isset($_GET['id'])) {
     // Connect to the database
 
     $db = open_connection();
-	$id = mysqli_real_escape_string($db, $_GET['id']);
-	$query = "SELECT * FROM report where group_id = '$id'";
+    echo 'after connection';
+	$id_num = mysqli_real_escape_string($db, $id);
+    echo 'after id';
+	$query = "SELECT * FROM report where group_id = '$id_num'";
+    echo 'after query';
 	$result = mysqli_query($db, $query);
+    echo 'after result';
 
     echo "here";
 
