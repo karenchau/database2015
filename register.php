@@ -8,7 +8,7 @@
 		if (mysqli_num_rows($result) == 0) {
 			$enroll_errors = 'Error!: This student is not registered as a user on Platform yet.';
 		} else {
-			$query2 = "SELECT * from user where email = '$student_email' limit 1";
+			unset($enroll_errors);
 		}
 	}
 	if ($enroll_errors) {
