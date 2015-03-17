@@ -3,6 +3,7 @@
 if(isset($_GET['id'])) {
 // Get the ID
     $id = $_GET['id'];
+    echo $id;
  
     // Connect to the database
 
@@ -12,8 +13,10 @@ if(isset($_GET['id'])) {
 	$result = mysqli_query($db,$query);
 
     if($result) {
+    	echo 'there is a result';
         // Make sure the result is valid
         if($result->num_rows == 1) {
+        	echo 'getting the result row';
         // Get the row
             $row = mysqli_fetch_assoc($result);
             $type = $row['type'];
