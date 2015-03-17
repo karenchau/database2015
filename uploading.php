@@ -21,8 +21,8 @@ if(isset($_FILES['uploaded_file'])) {
         
         //more than one member in the group 
         $query = "SELECT * FROM group_list "; 
-        $query .= "WHERE ((class = '$class') "; 
-        $query .= "AND ((member1 = '$email' OR member2 = '$email') OR (member3 = '$email')))";
+        $query .= "WHERE class = '$class') "; 
+        $query .= "AND '$email' IN (member1, member2, member3)";
         
         $result = mysqli_query($db, $query);
         

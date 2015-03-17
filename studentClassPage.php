@@ -73,14 +73,11 @@ $_SESSION['class'] = $_GET['classid'];
           </div>
 
           <div id="upload" class="tab-pane fade">
-            <p>insert blurb about project. provide coursework briefing file download link. put upload report button here. indicate whether report has been uploaded</p>
-            <p></p>
-            
 
             <form action="uploading.php" method="post" enctype="multipart/form-data">
               <div class ="form-group">
                 <label for="uploaded_file">Report upload</label>
-                <p class="help-block">Please note that this is your final submission. No re-uploads are allowed</p>
+                <p class="help-block">Please note that this is your final submission. No re-uploads are allowed.</p>
                 <input type="file" id="uploaded_file" name="uploaded_file"><br>
                 <input type="submit" class ="btn btn-default" value ="Upload File" name="submit">
               </div>
