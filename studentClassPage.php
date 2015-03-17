@@ -5,7 +5,12 @@ if (!isset($_SESSION['email'])) {
   return;
 }
 
-$_SESSION['class'] = $_GET['classid'];
+if ($_GET['classid'] == NULL) {
+  header('Location: index.php');
+  return;
+} else {
+  $_SESSION['class'] = $_GET['classid'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +34,11 @@ $_SESSION['class'] = $_GET['classid'];
     <!-- Creating a personalized tab greeting-->
     <?php
       require_once('functions.php');
-      $class_name_entry = find_class();
+      if (!is_null(find_class())) {
+        $class_name_entry = find_class();
+      } else {
+        $class_name_entry = "Non-existent";
+      }
     ?>
     <title><?php echo $class_name_entry?> Class</title>
   </head>
@@ -55,6 +64,15 @@ $_SESSION['class'] = $_GET['classid'];
     </nav>
     <div class="container">
       <div class="page-header">
+        <!-- Prevents invalid input of classes into the url manually -->
+        <?php
+          if (is_null(find_class())) {
+            $classerror = "Error!: This class does not exist. <br>Redirecting to homepage . . .";
+            echo "<div class=\"alert alert-danger\" role=\"alert\">$classerror</div>";
+            header("refresh:3; url=index.php");
+            return;
+          }
+        ?>
         <h1><?php echo $class_name_entry?> Class</h1>
       </div>
       <div class="col-sm-12">

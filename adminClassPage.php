@@ -70,10 +70,8 @@ if ($_GET['classid'] == NULL) {
         <!-- Prevents invalid input of classes into the url manually -->
         <?php
           if (is_null(find_class())) {
-            $classerror = "Error!: This class does not exist.";
-            echo "<div class=\"alert alert-danger\" role=\"alert\">$classerror</div>";
-            header("refresh:4; url=index.php");
-            return;
+            $classerror = "Error!: This class does not exist. <br>Redirecting to homepage . . .";
+            print_error($classerror, "index.php");
           }
         ?>
         <h1><?php echo $class_name_entry?> Class</h1>
@@ -82,9 +80,7 @@ if ($_GET['classid'] == NULL) {
       <?php
         if (!$_SESSION['isAdmin']) {
           $adminerror = "Error!: You do not have the privileges to view this page. <br>Redirecting to student class page . . .";
-          echo "<div class=\"alert alert-danger\" role=\"alert\">$adminerror</div>";
-          header("refresh:4; url=studentClassPage.php");
-          return;
+          print_error($adminerror, "studentClassPage.php");
         }
       ?>
       <div class="col-sm-12">
