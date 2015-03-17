@@ -14,7 +14,7 @@ if(isset($_GET['id'])) {
 	$result = mysqli_query($db,$query);
 
     if($result) {
-    	echo 'there is a result';
+    	echo "there is a result";
         // Make sure the result is valid
         if($result->num_rows == 1) {
         	echo 'getting the result row';
@@ -40,6 +40,7 @@ if(isset($_GET['id'])) {
         mysqli_free_result($result);
     }
     else {
+        echo "bye";
         echo "Error! Query failed: <pre>{$db->error}</pre>";
     }
     mysqli_close($db);
