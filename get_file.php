@@ -3,6 +3,7 @@
 if(isset($_GET['id'])) {
 // Get the ID
     $id = $_GET['id'];
+    echo "hi";
     echo $id;
  
     // Connect to the database
