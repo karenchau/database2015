@@ -135,7 +135,6 @@ if (!isset($_SESSION['email'])) {
                                         while($row = mysqli_fetch_assoc($result3)) {
                                             echo "<a href=\"studentClassPage.php?classid=".$row['class']."\">".$row['class']."</a><br>";
                                         }
-                                        echo "<p><a href=\"adminClassPage.php\">Consumer Informatics (Admin try but doesn't work)</a></p><br>";
                                     }
                                     $_SESSION['isAdmin'] = $role;
                                     mysqli_close($db);
