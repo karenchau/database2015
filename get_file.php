@@ -12,6 +12,8 @@ if(isset($_GET['id'])) {
 	$id = mysqli_real_escape_string($_GET['id']);
 	$query = "SELECT * FROM report where group_id = '{$id}'";
 	$result = mysqli_query($db,$query);
+    echo "query: " .$query;
+    echo "result: " .$result;
 
     if($result) {
     	echo "there is a result";
@@ -31,22 +33,19 @@ if(isset($_GET['id'])) {
 
             // Print data
             echo $row['data'];
-        }
-        else {
+        } else {
             echo 'Error! No file exists with that ID.';
         }
 
         // Free the mysqli resources
         mysqli_free_result($result);
-    }
-    else {
+    } else {
         echo "bye";
         echo "Error! Query failed: <pre>{$db->error}</pre>";
     }
     mysqli_close($db);
 
-}
-else {
+} else {
     echo 'Error! No ID was passed.';
 }
 ?>
