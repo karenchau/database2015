@@ -14,9 +14,13 @@
 		}
 		mysqli_close($db);
 	?>
-
+	<?php
+		if (isset($_POST['enroll'])) {
+			echo "here";
+		}
+	?>
 	<div class="container">
-		<h3>Enroll Student</h3>
+		<h3>Enroll a student</h3>
 		<form>
 			<div class="form-group">
 				<label class="control-label col-sm-1">Email:</label>
@@ -24,7 +28,7 @@
 					<input type="email" class="form-control" id="studentemail" placeholder="Enter student's email">
 				</div>
 				<div class="col-sm-2">
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary" name="enroll">Submit</button>
 				</div>
 			</div>
 		</form>
