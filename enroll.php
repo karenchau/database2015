@@ -41,20 +41,18 @@
 			});
 		});
 	</script>
-	<div class="container">
-		<h3>Enroll a student</h3>
-		<div class="alert alert-danger" role="alert" id="error" style="display: none;">Please enter a valid student's email.</div>
-		<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
-		<form name="enrollform" id="enrollform">
-			<div class="form-group">
-				<label class="control-label col-sm-1">Email:</label>
-				<div class="col-sm-5">          
-					<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
-				</div>
-				<div class="col-sm-2">
-					<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
-				</div>
+	<h3>Enroll a student</h3>
+	<div class="alert alert-danger" role="alert" id="error" style="display: none;">Please enter a valid student's email.</div>
+	<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
+	<form name="enrollform" id="enrollform">
+		<div class="form-group">
+			<label class="control-label col-sm-1">Email:</label>
+			<div class="col-sm-5">          
+				<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
 			</div>
-		</form>
-	</div>
+			<div class="col-sm-2">
+				<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
+			</div>
+		</div>
+	</form>
 </html>
