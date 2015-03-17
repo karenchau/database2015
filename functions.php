@@ -59,7 +59,7 @@ function find_class() {
 }
 
 function print_error($message, $redirect_page) {
-	echo "<div class=\"alert alert-danger\" role=\"alert\">$message</div>";
+	echo "<div class=\"alert alert-danger\" role=\"alert\"><span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>$message</div>";
 	if (!is_null($redirect_page)) {
         header("refresh:3; url=$redirect_page");
         return;
