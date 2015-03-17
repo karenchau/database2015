@@ -68,7 +68,7 @@ if(isset($_FILES['uploaded_file'])) {
         if(($type != 'text/plain') && ($type != 'application/xml'))
         {
             echo '<p>Wrong File Type!</p>';
-            $db->close();
+            mysqli_close($db);
             return;
         }
         
@@ -94,7 +94,7 @@ if(isset($_FILES['uploaded_file'])) {
     }
  
     // Close the mysql connection
-    $db->close();
+    mysqli_close($db);
 }
 else {
     echo '<p>Error! A file was not sent!</p>';
