@@ -95,18 +95,47 @@
       }
    
       // Free the result
-      mysqli_free_result($result);
+      //mysqli_free_result($result);
   }
   else
   {
       echo 'Error! SQL query failed:';
       echo "<pre>{$db->error}</pre>";
   }
-   
-  // Close the mysql connection
-  //mysql_close($db);
   ?>
+  <form>
+    <div class = "form-group">
+      <!-- Use $result to get group numbers to populate dropdown -->
+      <?php
+        $options = "";
+        while ($row=mysqli_fetch_array($result)) { 
+          $group_id=$row['group_id']; 
+          $options.="<OPTION VALUE=\"Group \">" . $group_id; 
+        } 
+      ?>
+      <select class="form-control" name = "group_id">
+        <option>Choose a group to evaluate</option>
+        <?php=$options?>
+      </select>
 
-
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3"> 4
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option3"> 5
+      </label>
+      <!-- Text area to submit comments -->
+      <textarea class="form-control" rows="3" placeholder="Comments"></textarea>
+    </div>
+  </form>
 
   </html>
