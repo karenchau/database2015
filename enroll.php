@@ -1,7 +1,7 @@
 <html>
 <!-- Latest compiled and minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    
+
 	<h3>All students registered for this class</h3>
 	<br>
 	<?php
@@ -18,27 +18,26 @@
 		mysqli_close($db);
 	?>
 	<?php
-		$(document).ready(function(){
-			$('#enrollform').on('submit',function(e) {
-				$.ajax({
-					url:'register.php',
-					data:$(this).serialize(),
-					type:'POST',
-					success:function(data){
-						console.log(data);
-						$("#success").show().fadeOut(5000); //=== Show Success Message==
-					},
-					error:function(data){
-						$("#error").show().fadeOut(5000); //===Show Error Message====
-					}
+	$(document).ready(function() {
+		$("#enroll").click(function() {
+			var email = $("#studentemail").val();
+			if (email == '') {
+				alert("Insertion Failed Some Fields are Blank....!!");
+			} else {
+			// Returns successful data submission message when the entered information is stored in database.
+				$.post("register.php", {
+					email1: email
+				}, function(data) {
+					alert(data);
+					$('#enrollform')[0].reset(); // To reset form fields
 				});
-				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
-			});
+			}
 		});
+	});
 	?>
 	<div class="container">
 		<h3>Enroll a student</h3>
-		<form method="POST" name="enrollform" id="enrollform">
+		<form name="enrollform" id="enrollform">
 			<div class="form-group">
 				<label class="control-label col-sm-1">Email:</label>
 				<div class="col-sm-5">          
@@ -46,7 +45,7 @@
 				</div>
 				<div class="col-sm-2">
 					<span id="error" style="display:none; color:#F00">Some Error!Please Fill form Properly </span> <span id="success" style="display:none; color:#0C0">All the records are submitted!</span>
-					<button type="submit" class="btn btn-primary" name="enroll">Submit</button>
+					<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
 				</div>
 			</div>
 		</form>
