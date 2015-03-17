@@ -18,22 +18,24 @@
 		mysqli_close($db);
 	?>
 <script>
-	$(document).ready(function() {
-		$("#enroll").click(function() {
-			var email = $("#studentemail").val();
-			if (email == '') {
-				alert("Insertion Failed Some Fields are Blank....!!");
-			} else {
-			// Returns successful data submission message when the entered information is stored in database.
-				$.post("register.php", {
-					email1: email
-				}, function(data) {
-					alert(data);
-					$('#enrollform')[0].reset(); // To reset form fields
-				});
-			}
-		});
-	});
+	$(document).ready(function(){
+$('#enrollform').on('submit',function(e) {
+
+$.ajax({
+url:'register.php',
+data:$(this).serialize(),
+type:'POST',
+success:function(data){
+console.log(data);
+$("#success").show().fadeOut(5000); //=== Show Success Message==
+},
+error:function(data){
+$("#error").show().fadeOut(5000); //===Show Error Message====
+}
+});
+e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
+});
+});
 </script>
 	<div class="container">
 		<h3>Enroll a student</h3>
