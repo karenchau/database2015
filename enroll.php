@@ -17,7 +17,7 @@
 		}
 		mysqli_close($db);
 	?>
-	<?php
+<script>
 	$(document).ready(function() {
 		$("#enroll").click(function() {
 			var email = $("#studentemail").val();
@@ -34,7 +34,7 @@
 			}
 		});
 	});
-	?>
+</script>
 	<div class="container">
 		<h3>Enroll a student</h3>
 		<form name="enrollform" id="enrollform">
