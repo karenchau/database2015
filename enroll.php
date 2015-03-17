@@ -17,26 +17,30 @@
 		}
 		mysqli_close($db);
 	?>
-<script>
-	$(document).ready(function(){
-$('#enrollform').on('submit',function(e) {
-
-$.ajax({
-url:'register.php',
-data:$(this).serialize(),
-type:'POST',
-success:function(data){
-console.log(data);
-$("#success").show().fadeOut(5000); //=== Show Success Message==
-},
-error:function(data){
-$("#error").show().fadeOut(5000); //===Show Error Message====
-}
-});
-e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
-});
-});
-</script>
+	<script>
+		$(document).ready(function(){
+			$('#enrollform').on('submit',function(e) {
+				$.ajax({
+					url:'register.php',
+					data:$(this).serialize(),
+					type:'POST',
+					success:function(data){
+						console.log(data);
+						var rsp = $.parseJSON (data)
+						if(rsp["success"] == true) {
+							$("#success").show().fadeOut(5000); //=== Show Success Message==
+						} else {
+							$("#error").show().fadeOut(5000); //===Show Error Message====
+						}
+					},
+					error:function(data){
+						$("#error").show().fadeOut(5000); //===Show Error Message====
+					}
+				});
+				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
+			});
+		});
+	</script>
 	<div class="container">
 		<h3>Enroll a student</h3>
 		<div class="alert alert-danger" role="alert" id="error" style="display: none;">Some Error!Please Fill form Properly.</div>
@@ -45,7 +49,7 @@ e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
 			<div class="form-group">
 				<label class="control-label col-sm-1">Email:</label>
 				<div class="col-sm-5">          
-					<input type="email" class="form-control" id="studentemail" placeholder="Enter student's email">
+					<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
 				</div>
 				<div class="col-sm-2">
 					<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
