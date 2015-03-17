@@ -3,8 +3,6 @@
 if(isset($_GET['id'])) {
 // Get the ID
     $id = $_GET['id'];
-    echo "hello";
-    echo $id;
  
     // Connect to the database
     require_once('connect.php');
@@ -13,13 +11,10 @@ if(isset($_GET['id'])) {
 	$query = "SELECT * FROM report where group_id = '$id_num'";
 	$result = mysqli_query($db, $query);
 
-    echo "here";
 
     if($result) {
-    	echo "there is a result";
         // Make sure the result is valid
         if($result->num_rows == 1) {
-        	echo 'getting the result row';
         // Get the row
             $row = mysqli_fetch_assoc($result);
             $type = $row['type'];
