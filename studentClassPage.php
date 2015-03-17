@@ -68,9 +68,7 @@ if ($_GET['classid'] == NULL) {
         <?php
           if (is_null(find_class())) {
             $classerror = "Error!: This class does not exist. <br>Redirecting to homepage . . .";
-            echo "<div class=\"alert alert-danger\" role=\"alert\">$classerror</div>";
-            header("refresh:3; url=index.php");
-            return;
+            print_error($classerror, "index.php");
           }
         ?>
         <h1><?php echo $class_name_entry?> Class</h1>
