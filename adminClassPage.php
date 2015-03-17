@@ -37,13 +37,10 @@ if ($_GET['classid'] == NULL) {
     <!-- Creating a personalized tab greeting-->
     <?php
       require_once('functions.php');
-      if (is_null(find_class())) {
-        $classerror = "Error!: This class does not exist.";
-        echo "<div class=\"alert alert-danger\" role=\"alert\">$classerror</div>";
-        header("refresh:4; url=index.php");
-        return;
-      } else {
+      if (!is_null(find_class())) {
         $class_name_entry = find_class();
+      } else {
+        $class_name_entry = "Non-existent";
       }
     ?>
     <title><?php echo $class_name_entry?> Class</title>
@@ -70,6 +67,15 @@ if ($_GET['classid'] == NULL) {
     </nav>
     <div class="container">
       <div class="page-header">
+        <!-- Prevents invalid input of classes into the url manually -->
+        <?php
+          if (is_null(find_class())) {
+            $classerror = "Error!: This class does not exist.";
+            echo "<div class=\"alert alert-danger\" role=\"alert\">$classerror</div>";
+            header("refresh:4; url=index.php");
+            return;
+          }
+        ?>
         <h1><?php echo $class_name_entry?> Class</h1>
       </div>
       <!-- Prevents students who type in the admin url to access the admin page -->
