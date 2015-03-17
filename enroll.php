@@ -39,6 +39,8 @@ e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
 </script>
 	<div class="container">
 		<h3>Enroll a student</h3>
+		<span id="error" style="display:none; color:#F00">Some Error!Please Fill form Properly </span>
+		<div class="alert alert-danger" role="alert" id="success" style="display: none;">Success!</div>
 		<form name="enrollform" id="enrollform">
 			<div class="form-group">
 				<label class="control-label col-sm-1">Email:</label>
@@ -46,7 +48,6 @@ e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
 					<input type="email" class="form-control" id="studentemail" placeholder="Enter student's email">
 				</div>
 				<div class="col-sm-2">
-					<span id="error" style="display:none; color:#F00">Some Error!Please Fill form Properly </span> <span id="success" style="display:none; color:#0C0">All the records are submitted!</span>
 					<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
 				</div>
 			</div>
