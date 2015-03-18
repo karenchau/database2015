@@ -45,7 +45,11 @@
 									if (option["message_num"] == "3") {
 										$("#error3").show().fadeOut(5000); //===Show Error Message 3====
 									} else {
-										$("#error").show().fadeOut(5000); //===Show General Error Message====
+										if (option["message_num"] == "4") {
+											$("#error4").show().fadeOut(5000); //===Show Error Message 4====
+										} else {
+											$("#error").show().fadeOut(5000); //===Show General Error Message====
+										}
 									}
 								}
 							}
@@ -65,6 +69,7 @@
 	<div class="alert alert-danger" role="alert" id="error1" style="display: none;">Error!: Please enter an email.</div>
 	<div class="alert alert-danger" role="alert" id="error2" style="display: none;">Error!: This student is not registered as a user on Platform yet.</div>
 	<div class="alert alert-danger" role="alert" id="error3" style="display: none;">Error!: This student is already registered for this class.</div>
+	<div class="alert alert-danger" role="alert" id="error4" style="display: none;">Error!: You cannot add another admin to this class.</div>
 	<div class="alert alert-danger" role="alert" id="error" style="display: none;">Error!: There is an error with your request.</div>
 	<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
 	<form name="enrollform" id="enrollform">
@@ -79,4 +84,5 @@
 		</div>
 		<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
 	</form>
+
 </html>
