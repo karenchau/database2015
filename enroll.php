@@ -33,16 +33,27 @@
 					success:function(data){
 						console.log(data);
 						var option = $.parseJSON (data);
-						//document.write(option["message"]);
-						var errors = option["message"];
 						if(option["success"] == true) {
 							$("#success").show().fadeOut(5000); //=== Show Success Message==
 						} else {
-							$("#error").show().fadeOut(5000); //===Show Error Message====
+							if (option["message_num"] == "1") {
+								$("#error1").show().fadeOut(5000); //===Show Error Message 1====
+							} else {
+								if (option["message_num"] == "2") {
+									$("#error2").show().fadeOut(5000); //===Show Error Message 2====
+								} else {
+									if (option["message_num"] == "3") {
+										$("#error3").show().fadeOut(5000); //===Show Error Message 3====
+									} else {
+										$("#error").show().fadeOut(5000); //===Show General Error Message====
+									}
+								}
+							}
+							
 						}
 					},
 					error:function(data){
-						$("#error").show().fadeOut(5000); //===Show Error Message====
+						$("#error").show().fadeOut(5000); //===Show General Error Message====
 					}
 				});
 				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
@@ -51,7 +62,10 @@
 	</script>
 	<br>
 	<h3>Enroll a student</h3>
-	<div class="alert alert-danger" role="alert" id="error" style="display: none;"><script type="text/javascript">document.write(errors);</script></div>
+	<div class="alert alert-danger" role="alert" id="error1" style="display: none;">Error!: Please enter an email.</div>
+	<div class="alert alert-danger" role="alert" id="error2" style="display: none;">Error!: This student is not registered as a user on Platform yet.</div>
+	<div class="alert alert-danger" role="alert" id="error3" style="display: none;">Error!: This student is already registered for this class.</div>
+	<div class="alert alert-danger" role="alert" id="error" style="display: none;">Error!: There is an error with your request.</div>
 	<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
 	<form name="enrollform" id="enrollform">
 		<div class="form-group">
