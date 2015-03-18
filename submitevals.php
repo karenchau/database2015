@@ -1,8 +1,4 @@
 <?php
-require_once('functions.php');
-$group_entry = find_group();
-echo $group_entry;
-echo $_POST['input_group'];
 if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
     echo "Error. Select a group to evaluate.";
 } else{
@@ -14,6 +10,8 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
       $submit_errors = "Please provide comments to elaborate on your evaluations.";
       echo $submit_errors;
     } else {
+        require_once('functions.php');
+        $group_entry = find_group();
         require_once('connect.php');
         $db = open_connection();
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
