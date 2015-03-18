@@ -47,6 +47,7 @@ if(!isset($_SESSION['class'])) {
   $class = mysqli_real_escape_string($db, $_SESSION['class']);;
   $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
 
+  require_once('functions.php');
   $group_entry = get_group($class,$email);
   echo "group" . $group_entry;
   /*
