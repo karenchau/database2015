@@ -85,13 +85,6 @@
  
         // Close table
         echo '</table>';
-        /*
-        $data = array();
-        while($row = mysqli_fetch_assoc($result)) {
-          $data[] = $row['id_report_group'];
-        }
-        print_r($data);
-        */
       }
    
       // Free the result
@@ -103,23 +96,28 @@
       echo "<pre>{$db->error}</pre>";
   }
   ?>
+  <br>
   <form>
     <div class = "form-group">
-      <!-- Use $result to get group numbers to populate dropdown -->
-      <?php
-      /*
-        $options = "";
-        while ($row=mysqli_fetch_array($result)) { 
-          $group_id=$row['group_id']; 
-          $options.="<OPTION VALUE=\"Group \">" . $group_id; 
-        } 
-        */
-      ?>
-      <select class="form-control" name = "group_id">
-        <option>Choose a group to evaluate</option>
-        <?php /*=$options */?>
-      </select>
+      <label for="input_group" class = "col-sm-2 control-label">Select a group to evaluate</label>
+      <div class = "col-sm-4">
+        <select class="form-control" name = "group_id">
+          <!-- Use $result to get group numbers to populate dropdown -->
+          <?php
+          
+            $options = "";
+            while (list($category)=mysqli_fetch_array($result)) { 
+              $option = '<option value="'.$category.'">'.$category.'</option>';
+              echo ($option);
+              /*
+              $group_id=$row['group_id']; 
+              $options.="<OPTION VALUE=\"Group \">" . $group_id; 
+              */
+            }
+          ?>
+        </select>
 
+      </div>
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
       </label>
