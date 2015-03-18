@@ -78,7 +78,7 @@ function find_group(){
   
  	if (mysqli_num_rows($result) > 0) {
     $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-    return $group_entry
+    return $group_entry;
     } else {
       echo "You are not in a group.";
       return NULL;
