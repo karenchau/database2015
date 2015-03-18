@@ -11,10 +11,31 @@
 	<h3>All students registered for this class</h3>
 	<br>
 	<?php 
-	require_once('functions.php');
-	registration_table(); // calls a function in functions.php to print out a table with the roster of students in the class
+		require_once('connect.php');
+		$db = open_connection();
+		// This nested query first finds all the students enrolled in the class and then uses those results to find their names.
+		$query = "SELECT first_name, last_name, email from user where email in (SELECT student_id from enrolled_list where class = '$_SESSION[class]')";
+		$result = mysqli_query($db, $query);
+		if (mysqli_num_rows($result) > 0) {
+			print_table($result);
+		} else {
+			$reg_none_error = "No one is registered for this class yet.";
+			echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
+		}
+		mysqli_close($db);
 	?>
 	<script>
+		// Javascript to enable link to tab
+var hash = document.location.hash;
+var prefix = "tab_";
+if (hash) {
+    $('.nav-tabs a[href='+hash.replace(prefix,"")+']').tab('show');
+} 
+
+// Change hash for page-reload
+$('.nav-tabs a').on('shown', function (e) {
+    window.location.hash = e.target.hash.replace("#", "#" + prefix);
+});
 		$(document).ready(function(){
 			$('#enrollform').on('submit',function(e) {
 				$.ajax({
@@ -44,12 +65,8 @@
 									}
 								}
 							}
-							
+							<?php header("Location: adminClassPage.php?classid=$_SESSION[class]#tab_students"); ?>
 						}
-						<?php 
-						require_once('functions.php');
-						registration_table(); // refreshes the table with the roster of students in the class
-						?>
 					},
 					error:function(data){
 						$("#error").show().fadeOut(5000); // shows general error message
