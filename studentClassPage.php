@@ -88,11 +88,11 @@ if ($_GET['classid'] == NULL) {
           <div id="announcements" class="tab-pane fade in active">
             <p>announcements and forum here</p>
           </div>
-          <header>
-            <h3>Report Upload</h3>
-          </header>
-          <div id="upload" class="tab-pane fade">
 
+          <div id="upload" class="tab-pane fade">
+            <header>
+              <h3>Report Upload</h3>
+            </header>
             <form action="uploading.php" method="post" enctype="multipart/form-data">
               <div class ="form-group">
                 <!-- <label for="uploaded_file">Report upload</label> -->
