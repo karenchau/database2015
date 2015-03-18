@@ -57,9 +57,10 @@ function find_class() {
 		return NULL;
 	}
 }
-
+/*
 function find_group(){
-	  $class = mysqli_real_escape_string($db, find_class());;
+	if(isset($_SESSION['class']) AND isset($_SESSION['email'])) {
+	  $class = mysqli_real_escape_string($db, $_SESSION['class']);;
 	  $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
 	  
 	  //Get user's group number
@@ -77,7 +78,7 @@ function find_group(){
 		return NULL;
 	}
 }
-
+*/
 function print_error($message, $redirect_page) {
 	echo "<div class=\"alert alert-danger\" role=\"alert\">$message</div>";
 	if (!is_null($redirect_page)) {
