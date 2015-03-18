@@ -102,8 +102,8 @@
             </td>
         </tr>
     </table>
-
-    <br>
+  </body>
+</html>
     <!--
     <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
         <tr>
@@ -131,7 +131,7 @@
                 </td>
             </form>
         </tr>
-    </table> -->
+    </table>
     <br>
   </body>
 </html>
