@@ -19,6 +19,7 @@
 				$enroll_errors = "3"; //Error!: This student is already registered for this class.
 			} else {
 				$query3 = "INSERT into enrolled_list(student_id, class) values ('$student_email', '$class')";
+				$result3 = mysqli_query($db, $query3);
 			}
 		}
 		mysqli_close($db);
