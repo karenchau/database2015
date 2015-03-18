@@ -16,7 +16,7 @@
 	}
 	if ($hasErr == 1) {
 		echo json_encode(array('success' => false)); 
-		echo json_encode(array('emailz' => $student_email));
+		echo json_encode(array('emailz' => false));
 	} else {
 		echo json_encode(array('success' => true)); 
 	}
