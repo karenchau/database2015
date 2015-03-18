@@ -41,7 +41,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
         $comments = mysqli_real_escape_string($db, $_POST['comments']);
         echo $comments;
         
-        $query = "UPDATE evaluation SET comment='$comments',criteria1=$criteria1,criteria2=$criteria2,criteria3=criteria3,criteria4=$criteria4,criteria5=$criteria5,grade=$overall) WHERE (id_report_group='$report_group' AND id_eval_group='$group_entry') AND class='$class'";
+        $query = "UPDATE evaluation SET comment='$comments',criteria1=$criteria1,criteria2=$criteria2,criteria3=$criteria3,criteria4=$criteria4,criteria5=$criteria5,grade=$overall) WHERE (id_report_group='$report_group' AND id_eval_group='$group_entry') AND class='$class'";
         $result = mysqli_query($db, $query);
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
