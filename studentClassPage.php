@@ -62,6 +62,7 @@ if ($_GET['classid'] == NULL) {
         </div>
       </div>
     </nav>
+    
     <div class="container">
       <div class="page-header">
         <!-- Prevents invalid input of classes into the url manually -->
@@ -74,6 +75,7 @@ if ($_GET['classid'] == NULL) {
         ?>
         <h1><?php echo $class_name_entry?> Class</h1>
       </div>
+      
       <div class="col-sm-12">
         <ul class = "nav nav-tabs">
           <li class = "nav active"><a href ="#announcements" data-toggle="tab">Announcements and Forum</a></li>
@@ -82,13 +84,17 @@ if ($_GET['classid'] == NULL) {
           <li class="nav"><a href ="#your-projects-assessments" data-toggle="tab">Assessments of Your Report</a></li>
           <li class="nav"><a href ="#grades" data-toggle="tab">Your Grades</a></li>
         </ul>
-
-
+        
         <div class="tab-content">
           <div id="announcements" class="tab-pane fade in active">
             <p>announcements and forum here</p>
+              <form action="mainForum.php" method="post" enctype="multipart/form-data">
+                <div class ="form-group">
+                  <input type="submit" class ="btn btn-default" value ="Access Forum" name="submit">
+                </div>
+              </form>
           </div>
-
+          
           <div id="upload" class="tab-pane fade">
             <header>
               <h3>Report Upload</h3>
@@ -100,29 +106,21 @@ if ($_GET['classid'] == NULL) {
                 <input type="file" id="uploaded_file" name="uploaded_file"><br>
                 <input type="submit" class ="btn btn-default" value ="Upload File" name="submit">
               </div>
-            </form>
-            
+            </form> 
           </div>
-
-
+          
           <div id="submit-assessments" class="tab-pane fade">
             <p>see reports you have to assess here. assessment form for each report. make it so group can't assess a report more than once</p>
             <?php include_once("evaluation.php");?>
           </div>
-
+          
           <div id="your-projects-assessments" class="tab-pane fade">
             <p>view assessments of your reports</p>
           </div>
-
+          
           <div id="grades" class="tab-pane fade">
             <p>view your group's grades and ranking</p>
           </div>
-          <form action="mainForum.php" method="post" enctype="multipart/form-data">
-              <div class ="form-group">
-                <input type="submit" class ="btn btn-default" value ="Access Forum" name="submit">
-              </div>
-          </form>
-
         </div>
       </div>
     </div>

@@ -43,8 +43,6 @@
         <tr>
             <td width="6%" align="center" bgcolor="#E6E6E6"><strong>#</strong></td>
             <td width="53%" align="center" bgcolor="#E6E6E6"><strong>Topic</strong></td>
-            <!--<td width="15%" align="center" bgcolor="#E6E6E6"><strong>Views</strong></td>
-            <td width="13%" align="center" bgcolor="#E6E6E6"><strong>Replies</strong></td>-->
             <td width="53%" align="center" bgcolor="#E6E6E6"><strong>Asked by</strong></td>
             <td width="13%" align="center" bgcolor="#E6E6E6"><strong>Date/Time</strong></td>
         </tr> 
@@ -66,7 +64,7 @@
             mysql_close();
         ?>
         <tr>
-           <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="create_topic.php"><strong>Create New Topic</strong> </a></td>
+           <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="createThread.php"><strong>Create New Thread</strong> </a></td>
         </tr>
     </table>
   </body>
