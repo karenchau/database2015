@@ -47,13 +47,13 @@
             <td>
                 <table width="100%" border="0" cellpadding="3" cellspacing="1" bordercolor="1" bgcolor="#FFFFFF">
                     <tr>
-                        <td bgcolor="#F8F7F1"><strong><? echo $rows['title']; ?></strong></td>
+                        <td bgcolor="#F8F7F1"><strong>Title: <p><? echo $rows['title']; ?></p></strong></td>
                     </tr>
                     <tr>
-                        <td bgcolor="#F8F7F1"><? echo $rows['description']; ?></td>
+                        <td bgcolor="#F8F7F1">Description: <p><? echo $rows['description']; ?></p></td>
                     </tr>
                     <tr>
-                        <td bgcolor="#F8F7F1"><strong>By: </strong><? echo $rows['email'];?></td>
+                        <td bgcolor="#F8F7F1"><strong>By: </strong><p><? echo $rows['email'];?></p></td>
                     </tr>
                     <tr>
                         <td bgcolor="#F8F7F1"><strong>Date/time : </strong><? echo $rows['datetime']; ?></td>
@@ -104,7 +104,7 @@
     </table>
 
     <br>
-
+    <!--
     <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
         <tr>
             <form name="form1" method="post" action="addPost.php">
@@ -131,7 +131,7 @@
                 </td>
             </form>
         </tr>
-    </table>
+    </table> -->
     <br>
   </body>
 </html>
