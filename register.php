@@ -18,6 +18,7 @@
 				//
 			}
 		}
+		mysqli_close($db);
 	}
 	if ($enroll_errors) {
 		echo json_encode(array('success' => false)); 
