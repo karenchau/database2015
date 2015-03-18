@@ -98,7 +98,9 @@
   <br>
   <br>
   <br>
-  <header>Evaluation Submissions</header>
+  <header>
+    <h3>Evaluation Submissions</h3>
+  </header>
   <p>Please evaluate each group's report based on the following criteria.</p>
   <form>
     <div class = "form-group">
@@ -215,6 +217,7 @@
       <label for="comments">Please provide constructive criticism elaborating on your evaluation of this report.</label>
       <textarea class="form-control" rows="3" name="comments" placeholder="Comments"></textarea>
     </div>
+    <button type="submit" class="btn btn-default">Submit</button>
   </form>
 
   </html>
