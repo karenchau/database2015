@@ -74,7 +74,7 @@
     </nav>
     <div class="container">
       <div class="page-header">
-        <h1> Group <?php echo $group_id ?>Forum</h1>
+        <h1> Group <?php echo $group_id ?> Forum</h1>
       </div>
       
         <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
@@ -90,9 +90,7 @@
             ?>
             <tr>
                 <td bgcolor="#FFFFFF"><? echo $rows['id']; ?></td>
-                <td bgcolor="#FFFFFF"><a href="view_topic.php?id=<? echo $rows['id']; ?>"><? echo $rows['title']; ?></a><BR></td>
-                <!--<td align="center" bgcolor="#FFFFFF"><? echo $rows['view']; ?></td>
-                <td align="center" bgcolor="#FFFFFF"><? echo $rows['reply']; ?></td>-->
+                <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $rows['id']; ?>"><? echo $rows['title']; ?></a><BR></td>
                 <td align="center" bgcolor="#FFFFFF"><? echo $rows['email']; ?></td>
                 <td align="center" bgcolor="#FFFFFF"><? echo $rows['datetime']; ?></td>
             </tr>

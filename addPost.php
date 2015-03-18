@@ -22,15 +22,16 @@
     $title = $_POST['title'];
     $description=$_POST['description']; 
     
-    $datetime=date("d/m/y H:i:s"); // create date and time
+    $datetime=date("y/m/d H:i:s"); // create date and time
     
     // Insert answer 
-    $query="INSERT INTO post_table (id_thread, title, description, datetime, id_user) VALUES('$id', '$title', '$description', '$datetime', '$email')";
+    $query = "INSERT INTO post_table (id_thread, title, description, datetime, id_user)";
+    $query .="VALUES('$id', '$title', '$description', '$datetime', '$email')";
     $result=mysqli_query($db, $query);
     
     if($result){
         echo "Successful<BR>";
-        echo "<a href='view_topic.php?id=".$id."'>View your answer</a>";
+        echo "<a href='viewThread.php?id=".$id."'>View your answer</a>";
     }
     else {
         echo "ERROR";

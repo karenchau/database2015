@@ -20,7 +20,7 @@
     $thread_title = $_POST['thread_title'];
     $thread_desc=$_POST['thread_desc'];
     //create date time
-    $datetime=date("d/m/y h:i:s");
+    $datetime=date("y/m/d h:i:s");
     
     //get user's group_id
     $query = "SELECT * FROM group_list "; 
