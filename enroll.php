@@ -67,7 +67,7 @@
 	<br>
 	<h3>Enroll a student</h3>
 	<div class="alert alert-danger" role="alert" id="error1" style="display: none;">Error!: Please enter an email.</div>
-	<div class="alert alert-danger" role="alert" id="error2" style="display: none;">Error!: This student is not registered as a user on Platform yet.</div>
+	<div class="alert alert-danger" role="alert" id="error2" style="display: none;">Error!: This is not a registered user on Platform yet.</div>
 	<div class="alert alert-danger" role="alert" id="error3" style="display: none;">Error!: This student is already registered for this class.</div>
 	<div class="alert alert-danger" role="alert" id="error4" style="display: none;">Error!: You cannot add another admin to this class.</div>
 	<div class="alert alert-danger" role="alert" id="error" style="display: none;">Error!: There is an error with your request.</div>
