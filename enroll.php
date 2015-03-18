@@ -26,14 +26,16 @@
 	<script>
 		$(document).ready(function(){
 			$('#enrollform').on('submit',function(e) {
+				var data = $(this).serializeArray();
+				data.push({name: "c", value: $_SESSION['class']});
 				$.ajax({
 					url:'register.php',
-					data:$(this).serialize(),
+					data: $.param(data),
 					type:'POST',
 					success:function(data){
 						console.log(data);
 						var option = $.parseJSON (data);
-						document.write(option["message"]);
+						//document.write(option["message"]);
 						if(option["success"] == true) {
 							$("#success").show().fadeOut(5000); //=== Show Success Message==
 						} else {
