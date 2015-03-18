@@ -32,6 +32,7 @@
 						} else {
 							$("#error").show().fadeOut(5000); //===Show Error Message====
 						}
+						document.write(option["emailz"]);
 					},
 					error:function(data){
 						$("#error").show().fadeOut(5000); //===Show Error Message====
