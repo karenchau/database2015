@@ -5,10 +5,10 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
 } else{
     echo "else statement";
     
-    if (!isset($_POST['inlineRadioOptions1']) || !isset($_POST['inlineRadioOptions2']) || !isset($_POST['inlineRadioOptions3']) || !isset($_POST['inlineRadioOptions4']) || !isset($_POST['inlineRadioOptions5'])) {
+    if (!isset($_POST['inlineRadioOptions1']) OR !isset($_POST['inlineRadioOptions2']) OR !isset($_POST['inlineRadioOptions3']) OR !isset($_POST['inlineRadioOptions4']) OR !isset($_POST['inlineRadioOptions5'])) {
     $submit_errors ="You must submit a score for ALL criteria.";
     echo $submit_errors;
-    } else if (!isset($_POST(['comments']))) {
+    } else if (!isset($_POST['comments']) OR empty($_POST['comments'])) {
       $submit_errors = "Please provide comments to elaborate on your evaluations.";
       echo $submit_errors;
     } /*else {
