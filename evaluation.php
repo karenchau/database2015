@@ -106,14 +106,14 @@
           <?php
           
             $options = "";
-            while(list($category) = mysqli_fetch_row($result)){
-              $option = '<option value="'.$category.'">'.$category.'</option>';
+            while($row = mysqli_fetch_row($result)){
+              $option = '<option value="$row">'.$row'</option>';
               echo ($option);
             }
           ?>
         </select>
-
       </div>
+      <br>
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
       </label>
