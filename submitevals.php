@@ -23,14 +23,16 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
       echo $submit_errors;
     } else {
         require_once('functions.php');
-        $group_entry = find_group();
+        $class = mysqli_real_escape_string($db, $_SESSION['class']);
+        $email = mysqli_real_escape_string($db, $_SESSION['email']);
+        $group_entry = find_group($class, $email);
         echo " group number: ". $group_entry;
         require_once('connect.php');
         $db = open_connection();
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
-        echo " class: ". $class;
+        //echo " class: ". $class;
         $report_group = mysqli_real_escape_string($db, $_POST['input_group']);
-        echo $report_group;
+        //echo $report_group;
         $criteria1 = (int) $_POST['inlineRadioOptions1'];
         //echo $criteria1;
         $criteria2 = (int) $_POST['inlineRadioOptions2'];
