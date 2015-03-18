@@ -56,7 +56,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
                     echo "Error: could not submit evaluation.";
                 }
             } else {
-                echo "You have already submitted an evaluation for this group's report."
+                echo "You have already submitted an evaluation for this group's report.";
             }
         }
     }
