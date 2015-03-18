@@ -10,18 +10,9 @@
 
 	<h3>All students registered for this class</h3>
 	<br>
-	<?php
-		$db = open_connection();
-		// This nested query first finds all the students enrolled in the class and then uses those results to find their names.
-		$query = "SELECT first_name, last_name, email from user where email in (SELECT student_id from enrolled_list where class = '$_SESSION[class]')";
-		$result = mysqli_query($db, $query);
-		if (mysqli_num_rows($result) > 0) {
-			print_table($result);
-		} else {
-			$reg_none_error = "No one is registered for this class yet.";
-			echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
-		}
-		mysqli_close($db);
+	<?php 
+	require_once('functions.php');
+	registration_table(); // calls a function in functions.php to print out a table with the roster of students in the class
 	?>
 	<script>
 		$(document).ready(function(){
@@ -34,30 +25,34 @@
 						console.log(data);
 						var option = $.parseJSON (data);
 						if(option["success"] == true) {
-							$("#success").show().fadeOut(5000); //=== Show Success Message==
+							$("#success").show().fadeOut(5000); // shows success message
 						} else {
 							if (option["message_num"] == "1") {
-								$("#error1").show().fadeOut(5000); //===Show Error Message 1====
+								$("#error1").show().fadeOut(5000); // shows error message # 1
 							} else {
 								if (option["message_num"] == "2") {
-									$("#error2").show().fadeOut(5000); //===Show Error Message 2====
+									$("#error2").show().fadeOut(5000); // shows error message # 2
 								} else {
 									if (option["message_num"] == "3") {
-										$("#error3").show().fadeOut(5000); //===Show Error Message 3====
+										$("#error3").show().fadeOut(5000); // shows error message # 3
 									} else {
 										if (option["message_num"] == "4") {
-											$("#error4").show().fadeOut(5000); //===Show Error Message 4====
+											$("#error4").show().fadeOut(5000); // shows error message # 4
 										} else {
-											$("#error").show().fadeOut(5000); //===Show General Error Message====
+											$("#error").show().fadeOut(5000); // shows general error message
 										}
 									}
 								}
 							}
 							
 						}
+						<?php 
+						require_once('functions.php');
+						registration_table(); // refreshes the table with the roster of students in the class
+						?>
 					},
 					error:function(data){
-						$("#error").show().fadeOut(5000); //===Show General Error Message====
+						$("#error").show().fadeOut(5000); // shows general error message
 					}
 				});
 				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
@@ -84,5 +79,4 @@
 		</div>
 		<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
 	</form>
-	<?php header("Location: adminClassPage.php?classid=$_SESSION[class]#students"); ?>
 </html>
