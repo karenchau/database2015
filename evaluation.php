@@ -22,7 +22,9 @@
   
   <body>
   <!--get array(?) of groups to assess-->
-
+  <header>
+    <h3>Report Download</h3>
+  </header>
   <p> Click the name of the file to start downloading the group's report. When you have finished reading the report, submit an evaluation using the form below for the corresponding group.</p>
   <?php
   
@@ -95,7 +97,6 @@
   }
   mysqli_close($db);
   ?>
-  <br>
   <br>
   <br>
   <header>

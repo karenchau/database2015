@@ -88,12 +88,14 @@ if ($_GET['classid'] == NULL) {
           <div id="announcements" class="tab-pane fade in active">
             <p>announcements and forum here</p>
           </div>
-
+          <header>
+            <h3>Report Upload</h3>
+          </header>
           <div id="upload" class="tab-pane fade">
 
             <form action="uploading.php" method="post" enctype="multipart/form-data">
               <div class ="form-group">
-                <label for="uploaded_file">Report upload</label>
+                <!-- <label for="uploaded_file">Report upload</label> -->
                 <p class="help-block">Please note that this is your final submission. No re-uploads are allowed.</p>
                 <input type="file" id="uploaded_file" name="uploaded_file"><br>
                 <input type="submit" class ="btn btn-default" value ="Upload File" name="submit">
