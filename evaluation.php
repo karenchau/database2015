@@ -133,7 +133,7 @@
       </label>
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option3"> 5
-      </label>
+      </label><br>
 
       <b>Focus</b>
       <p>The report has a clear argument and stays on topic.</p>
@@ -151,7 +151,7 @@
       </label>
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="option3"> 5
-      </label>
+      </label><br>
 
       <b>Organization</b>
       <p>The report is well structured and organized.</p>
@@ -169,7 +169,7 @@
       </label>
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="option3"> 5
-      </label>
+      </label><br>
 
       <b>Analysis</b>
       <p>The report supports its argument with strong valid evidence.</p>
@@ -187,7 +187,7 @@
       </label>
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions4" id="inlineRadio5" value="option3"> 5
-      </label>
+      </label><br>
 
       <b>Detail</b>
       <p>The report shows careful attention to detail.</p>
@@ -205,7 +205,7 @@
       </label>
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions5" id="inlineRadio5" value="option3"> 5
-      </label>
+      </label><br>
 
       <!-- Text area to submit comments -->
       <label for="comments">Please provide constructive criticism elaborating on your evaluation of this report.</label>
