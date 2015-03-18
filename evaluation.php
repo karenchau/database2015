@@ -106,13 +106,9 @@
           <?php
           
             $options = "";
-            while (list($category)=mysqli_fetch_array($result)) { 
+            while(list($category) = mysqli_fetch_row($result)){
               $option = '<option value="'.$category.'">'.$category.'</option>';
               echo ($option);
-              /*
-              $group_id=$row['group_id']; 
-              $options.="<OPTION VALUE=\"Group \">" . $group_id; 
-              */
             }
           ?>
         </select>
