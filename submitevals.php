@@ -1,6 +1,6 @@
 <?php
 echo "hello";
-if (!isset($_POST['input_group']) || $_POST['input_group'] = '0') {
+if (!isset($_POST['input_group']) OR $_POST['input_group'] = '0') {
     echo "Error. Select a group to evaluate.";
 } else{
     echo "else statement";
