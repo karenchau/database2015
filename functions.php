@@ -60,7 +60,8 @@ function find_class() {
 
 function find_group(){
 	if(!isset($_SESSION['class']) {
-		find_class();
+		header('Location: index.php');
+		return;
 	}
 	if (!isset($_SESSION['email'])) {
 	  header('Location: login.php');
