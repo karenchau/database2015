@@ -21,9 +21,9 @@
 		mysqli_close($db);
 	}
 	if ($enroll_errors) {
-		echo json_encode(array('success' => false, 'message' => "1234")); 
+		echo json_encode(array('success' => false, 'message' => "$_SESSION[class]")); 
 	} else {
-		echo json_encode(array('success' => true, 'message' => "1234")); 
+		echo json_encode(array('success' => true, 'message' => "$_SESSION[class]")); 
 	}
 	unset($enroll_errors);
 ?>
