@@ -1,11 +1,8 @@
 <?php
 echo "hello";
 if (isset($_POST['input_group'])) {
-	echo "input group is set";
-    if (empty($_POST['input_group'])) {
-        $submit_errors = "You must select a group to evaluate.";
-    } else if (!isset($_POST['inlineRadioOptions1']) || !isset($_POST['inlineRadioOptions2']) || !isset($_POST['inlineRadioOptions3']) || !isset($_POST['inlineRadioOptions4']) || !isset($_POST['inlineRadioOptions5'])) {
-        $submit_errors ="\nYou must submit a score for ALL criteria.";
+    if (!isset($_POST['inlineRadioOptions1']) || !isset($_POST['inlineRadioOptions2']) || !isset($_POST['inlineRadioOptions3']) || !isset($_POST['inlineRadioOptions4']) || !isset($_POST['inlineRadioOptions5'])) {
+        $submit_errors ="You must submit a score for ALL criteria.";
     } else if (!isset($_POST(['comments']))) {
       $submit_errors = "Please provide comments to elaborate on your evaluations.";
     } else {
