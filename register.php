@@ -10,7 +10,7 @@
 		if (mysqli_num_rows($result) == 0) {
 			$enroll_errors = 'Error!: This student is not registered as a user on Platform yet.';
 		} else {
-			$query2 = "SELECT * from enrolled_list where student_id = '$student_email' limit 1";
+			$query2 = "SELECT * from enrolled_list where student_id = '$student_email' and class = 'HIS1009' limit 1";
 			$result2 = mysqli_query($db, $query2);
 			if (mysqli_num_rows($result2) > 0) {
 				$enroll_errors = 'Error!: This student is already registered for this class.';
