@@ -1,5 +1,14 @@
 <?php
-echo "hello";
+//Get user's group number
+  $query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
+  $result = mysqli_query($db, $query);
+  
+  if (mysqli_num_rows($result) > 0) {
+    $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+    } else {
+      echo "You are not in a group.";
+    }
+
 if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
     echo "Error. Select a group to evaluate.";
 } else{
@@ -11,7 +20,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
     } else if (!isset($_POST['comments']) OR empty($_POST['comments'])) {
       $submit_errors = "Please provide comments to elaborate on your evaluations.";
       echo $submit_errors;
-    } /*else {
+    } else {
         require_once('connect.php');
         $db = open_connection();
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
@@ -33,7 +42,6 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
                 echo "Error: your evaluation was not submitted."
             }
         }
-        */
 }
 	
 ?>
