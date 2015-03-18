@@ -25,10 +25,10 @@
         exit(0);
     }
     $row = mysqli_fetch_assoc($result);
-    $group_id = $row["group_id"];
+    $group_id = $row['group_id'];
     
     
-    $query="SELECT * FROM thread ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
+    $query="SELECT * FROM thread WHERE class ='$class' AND group_id ='$group_id' ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
     $result=mysqli_query($db, $query);
 
 ?>
