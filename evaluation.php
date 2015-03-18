@@ -50,17 +50,6 @@ if(!isset($_SESSION['class'])) {
   require_once('functions.php');
   $group_entry = find_group($class,$email);
   echo "group" . $group_entry;
-  /*
-  //Get user's group number
-  $query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
-  $result = mysqli_query($db, $query);
-  
-  if (mysqli_num_rows($result) > 0) {
-    $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-    } else {
-      echo "You are not in a group.";
-    }
-  */
 
   // Query for all assigned reports  
   $query = "SELECT group_id, name, type, size, uploadtime from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
@@ -100,9 +89,6 @@ if(!isset($_SESSION['class'])) {
         // Close table
         echo '</table>';
       }
-   
-      // Free the result
-      //mysqli_free_result($result);
   }
   else
   {
@@ -150,26 +136,6 @@ if(!isset($_SESSION['class'])) {
 
       <b>Clarity</b>
       <p>The report is written in a clear and concise manner.</p>
-<!--
-      <div class="btn-group" id="clarity" data-toggle="buttons">
-        <label class="btn btn-default blue">
-          <input type="radio" class="toggle" value="1">1
-        </label>
-        <label class="btn btn-default blue">
-          <input type="radio" class="toggle" value="2"> 2
-        </label>
-        <label class="btn btn-default blue">
-          <input type="radio" class="toggle" value="3"> 3
-        </label>
-        <label class="btn btn-default blue">
-          <input type="radio" class="toggle" value="4"> 4
-        </label>
-        <label class="btn btn-default blue">
-          <input type="radio" class="toggle" value="5"> 5
-        </label>
-      </div>
-      -->
-
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="1"> 1
       </label>
