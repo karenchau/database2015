@@ -55,19 +55,21 @@
 	<form name="enrollform" id="enrollform">
 		<div class="form-group">
 			<label class="control-label col-sm-1">Email:</label>
-			<div class="col-sm-5">          
+         
 				<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
-			</div>
 
-
-      
-        <div class="col-sm-4">
-          <input type="text" id="c" name="c" class="form-control" placeholder="<?php echo $_SESSION['class']?>" value="<?php echo $_SESSION['class']?>">
-        </div>
-
-			<div class="col-sm-2">
-				<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
-			</div>
 		</div>
+
+
+      	<div class="form-group">
+
+          <input type="text" id="c" name="c" class="form-control" placeholder="<?php echo $_SESSION['class']?>">
+
+    </div>
+
+
+				<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
+
+
 	</form>
 </html>
