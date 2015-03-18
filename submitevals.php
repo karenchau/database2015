@@ -14,6 +14,8 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
         require_once('connect.php');
         $db = open_connection();
         //Get user's group number
+          $class = mysqli_real_escape_string($db, $_SESSION['class']);;
+          $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
           $query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
           $result = mysqli_query($db, $query);
           
