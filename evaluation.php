@@ -48,7 +48,7 @@ if(!isset($_SESSION['class'])) {
   $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
 
   $group_entry = get_group($class,$email);
-  
+  echo $group_entry;
   /*
   //Get user's group number
   $query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
