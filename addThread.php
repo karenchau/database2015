@@ -23,17 +23,17 @@
     $datetime=date("d/m/y h:i:s");
     
     //get user's group_id
-    $query = "SELECT group_id FROM group_list";
-    $query .="WHERE class = '$class' ";
-    $query .="AND (member1 = '$email' OR member2 = '$email' OR member3 = '$email')";
+    $query = "SELECT * FROM group_list "; 
+    $query .= "WHERE class = '$class' "; 
+    $query .= "AND (member1 = '$email' OR member2 = '$email' OR member3 = '$email')";
     $result = mysqli_query($db, $query);
-    
-    if (mysqli_num_rows($result) > 0) {
-        $group_id = mysqli_getresult($result, mysqli_num_rows($result), 0);
-    } else {
-      echo "You are not in a group.";
-      return;
+    if (!$result){
+        echo 'Query failed : '.mysqli_error($db);
+        $db->close();
+        exit(0);
     }
+    $row = mysqli_fetch_assoc($result);
+    $group_id = $row["group_id"];
     
     //create and execute insertion query
     $query="INSERT INTO $thread(id_group, title, description, datetime, email)";
