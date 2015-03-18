@@ -57,7 +57,7 @@ function find_class() {
 		return NULL;
 	}
 }
-
+/*
 function find_group(){
 	if(isset($_SESSION['class']) AND isset($_SESSION['email'])) {
 	  $class = mysqli_real_escape_string($db, $_SESSION['class']);;
@@ -78,7 +78,7 @@ function find_group(){
 		return NULL;
 	}
 }
-
+*/
 function print_error($message, $redirect_page) {
 	echo "<div class=\"alert alert-danger\" role=\"alert\">$message</div>";
 	if (!is_null($redirect_page)) {
