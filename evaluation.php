@@ -263,7 +263,7 @@ if(!isset($_SESSION['class'])) {
       <textarea class="form-control" rows="3" name="comments" placeholder="Comments"></textarea>
     </div>
     <p class="help-block">Please check that all evaluations are accurate, as all submissions are final. No re-submissions are allowed.</p>
-    <input type="submit" name="submit" value = "Submit Evaluation" class="btn btn-default">
+    <input type="submit" name="submit" value = "Submit Evaluation" class="btn btn-primary">
   </form>
 
   </html>
