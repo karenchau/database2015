@@ -22,6 +22,9 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
       $submit_errors = "Please provide comments to elaborate on your evaluations.";
       echo $submit_errors;
     } else {
+        require_once('connect.php');
+        $db = open_connection();
+
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         echo $class;
@@ -30,9 +33,8 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         $group_entry = find_group($class,$email);
 
         echo " group number: ". $group_entry;
-        require_once('connect.php');
-        $db = open_connection();
-        $class = mysqli_real_escape_string($db, $_SESSION['class']);
+
+        //$class = mysqli_real_escape_string($db, $_SESSION['class']);
         //echo " class: ". $class;
         $report_group = mysqli_real_escape_string($db, $_POST['input_group']);
         //echo $report_group;
