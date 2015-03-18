@@ -104,10 +104,8 @@
         <select class="form-control" name = "group_id">
           <!-- Use $result to get group numbers to populate dropdown -->
           <?php
-          
-            $options = "";
             while($row = mysqli_fetch_row($result)){
-              $option = '<option value="$row">'.$row'</option>';
+              $option = '<option value="'$row['group_id']'">'$row['group_id']'</option>';
               echo ($option);
             }
           ?>
