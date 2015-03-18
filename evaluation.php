@@ -1,3 +1,51 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header('Location: login.php');
+    return;
+}
+if(!isset($_SESSION['class'])) {
+    header('Location: index.php');
+    return;
+}
+
+//If the user submits the form, then this would initiate this if statement
+if (isset($_POST['submit'])) {
+    if (isset($_POST['input_group']) {
+        if (empty($_POST['input_group']) {
+            $submit_errors = "You must select a group to evaluate.";
+        } else if (!isset($_POST['inlineRadioOptions1']) || !isset($_POST['inlineRadioOptions2'] || !isset($_POST['inlineRadioOptions3'] || !isset($_POST['inlineRadioOptions4'] || !isset($_POST['inlineRadioOptions5']))))) {
+            $submit_errors ="\nYou must submit a score for ALL criteria.";
+        } else if (!isset($_POST(['comments']))) {
+          $submit_errors = "Please provide comments to elaborate on your evaluations.";
+        } else {
+            require_once('connect.php');
+            $db = open_connection();
+            $class = mysqli_real_escape_string($db, $_SESSION['class']);
+            $report_group = mysqli_real_escape_string($db, $_POST['submit']);
+            $criteria1 = (int) $_POST['inlineRadioOptions1'];
+            $criteria2 = (int) $_POST['inlineRadioOptions2'];
+            $criteria3 = (int) $_POST['inlineRadioOptions3'];
+            $criteria4 = (int) $_POST['inlineRadioOptions4'];
+            $criteria5 = (int) $_POST['inlineRadioOptions5'];
+            $overall = (int) ($criteria1 + $criteria2 + $criteria3 + $criteria4 + $criteria5);
+            $comments = mysqli_real_escape_string($db, $_POST['comments']);
+            $query = "INSERT into evaluation (id_report_group,id_eval_group,class,comment,criteria1,criteria2,criteria3,criteria4,criteria5,grade) VALUES ('$report_group','$group_entry',$class,$comments,$criteria1,$criteria2,$criteria3,$criteria4,$criteria5,$overall)";
+            $result = mysqli_query($db, $query);
+            
+            if (mysqli_num_rows($result) > 0) {
+                    echo "Your evaluation has been successfully submitted."
+                } else {
+                    mysql_close($db);
+                    echo "Error: your evaluation was not submitted."
+                }
+            }
+  } else {
+    unset($submit_errors);
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,6 +66,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("input[type='button']").click(function(){
+            var radioValue = $("input[name='gender']:checked").val();
+            if(radioValue){
+                alert("Your are a - " + radioValue);
+            }
+        });
+        
+    });
+</script>
   </head>
   
   <body>
@@ -25,7 +85,7 @@
   <header>
     <h3>Report Download</h3>
   </header>
-  <p> Click the name of the file to start downloading the group's report. When you have finished reading the report, submit an evaluation using the form below for the corresponding group.</p>
+  <p> These are the groups whose reports you have been assigned to evaluate. Click the name of the file to start downloading the group's report. When you have finished reading the report, submit an evaluation using the form below for the corresponding group.</p>
   <?php
   
   // Connect to the database
@@ -103,7 +163,16 @@
     <h3>Evaluation Submissions</h3>
   </header>
   <p>Please evaluate each group's report based on the following criteria.</p>
-  <form>
+  <p>Marks should be given as follows:
+    <ol>
+      <li> Strongly disagree </li>
+      <li> Somewhat disagree </li>
+      <li> Neither agree nor disagree </li>
+      <li> Somewhat agree </li>
+      <li> Strongly agree </li>
+    </ol>
+  </p>
+  <form action="" method="post">
     <div class = "form-group">
       <label for="input_group">Select a group to evaluate:</label>
         <select class="form-control" name = "input_group">
@@ -126,99 +195,120 @@
 
       <b>Clarity</b>
       <p>The report is written in a clear and concise manner.</p>
+<!--
+      <div class="btn-group" id="clarity" data-toggle="buttons">
+        <label class="btn btn-default blue">
+          <input type="radio" class="toggle" value="1">1
+        </label>
+        <label class="btn btn-default blue">
+          <input type="radio" class="toggle" value="2"> 2
+        </label>
+        <label class="btn btn-default blue">
+          <input type="radio" class="toggle" value="3"> 3
+        </label>
+        <label class="btn btn-default blue">
+          <input type="radio" class="toggle" value="4"> 4
+        </label>
+        <label class="btn btn-default blue">
+          <input type="radio" class="toggle" value="5"> 5
+        </label>
+      </div>
+      -->
+
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> 1
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> 2
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3"> 3
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option3"> 4
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="4"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option3"> 5
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="5"> 5
       </label><br><br>
 
       <b>Focus</b>
       <p>The report has a clear argument and stays on topic.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1"> 1
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> 2
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3"> 3
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option3"> 4
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="4"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="option3"> 5
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="5"> 5
       </label><br><br>
 
       <b>Organization</b>
       <p>The report is well structured and organized.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1"> 1
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> 2
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="option3"> 3
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio4" value="option3"> 4
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio4" value="4"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="option3"> 5
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="5"> 5
       </label><br><br>
 
       <b>Analysis</b>
       <p>The report supports its argument with strong valid evidence.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio1" value="option1"> 1
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio1" value="1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio2" value="option2"> 2
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio2" value="2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio3" value="option3"> 3
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio3" value="3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio4" value="option3"> 4
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio4" value="4"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio5" value="option3"> 5
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio5" value="5"> 5
       </label><br><br>
 
       <b>Detail</b>
       <p>The report shows careful attention to detail.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="option1"> 1
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio2" value="option2"> 2
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio2" value="2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio3" value="option3"> 3
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio3" value="3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio4" value="option3"> 4
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio4" value="4"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio5" value="option3"> 5
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio5" value="5"> 5
       </label><br><br>
 
       <!-- Text area to submit comments -->
       <label for="comments">Please provide constructive criticism elaborating on your evaluation of this report.</label>
       <textarea class="form-control" rows="3" name="comments" placeholder="Comments"></textarea>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <p class="help-block">Please check that all evaluations are accurate, as all submissions are final. No re-submissions are allowed.</p>
+    <input type="submit" name="submit" value = "Submit Evaluation" class="btn btn-default">
   </form>
 
   </html>
