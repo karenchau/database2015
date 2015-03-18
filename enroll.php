@@ -1,3 +1,9 @@
+<?php
+	if(!isset($_SESSION['class'])) {
+	    header('Location: index.php');
+	    return;
+	}
+?>
 <html>
 <!-- Latest compiled and minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -20,11 +26,9 @@
 	<script>
 		$(document).ready(function(){
 			$('#enrollform').on('submit',function(e) {
-				var data = $(this).serializeArray();
-				data.push({name: "c", value: $_SESSION['class']});
 				$.ajax({
 					url:'register.php',
-					data: $.param(data),
+					data:$(this).serialize(),
 					type:'POST',
 					success:function(data){
 						console.log(data);
@@ -54,6 +58,13 @@
 			<div class="col-sm-5">          
 				<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
 			</div>
+
+
+      
+        <div class="col-sm-4">
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="$_SESSION['class'])">
+        </div>
+
 			<div class="col-sm-2">
 				<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
 			</div>
