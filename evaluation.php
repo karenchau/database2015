@@ -110,7 +110,7 @@ if(!isset($_SESSION['class'])) {
       <li> Strongly agree </li>
     </ol>
   </p>
-  <form action="'submitevals.php?id='$group_entry'" method="GET">
+  <form action="submitevals.php" method="GET">
     <div class = "form-group">
       <label for="input_group">Select a group to evaluate:</label>
         <select class="form-control" name = "input_group">
