@@ -27,7 +27,7 @@
 					success:function(data){
 						console.log(data);
 						var option = $.parseJSON (data);
-						//document.write(option["message"]);
+						document.write(option["message"]);
 						if(option["success"] == true) {
 							$("#success").show().fadeOut(5000); //=== Show Success Message==
 						} else {
