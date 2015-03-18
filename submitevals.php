@@ -1,8 +1,9 @@
 <?php
 echo "hello";
 if (!isset($_POST['input_group']) && $_POST['input_group'] = 0) {
-    echo "Error. Select a group to evaluate."
+    echo "Error. Select a group to evaluate.";
 } else{
+    echo "else statement";
     if (!isset($_POST['inlineRadioOptions1']) || !isset($_POST['inlineRadioOptions2']) || !isset($_POST['inlineRadioOptions3']) || !isset($_POST['inlineRadioOptions4']) || !isset($_POST['inlineRadioOptions5'])) {
         $submit_errors ="You must submit a score for ALL criteria.";
     } else if (!isset($_POST(['comments']))) {
