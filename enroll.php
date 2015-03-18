@@ -34,7 +34,7 @@
 						console.log(data);
 						var option = $.parseJSON (data);
 						//document.write(option["message"]);
-						<?php $errors = option["message"]; ?>
+						var errors = option["message"];
 						if(option["success"] == true) {
 							$("#success").show().fadeOut(5000); //=== Show Success Message==
 						} else {
@@ -51,7 +51,7 @@
 	</script>
 	<br>
 	<h3>Enroll a student</h3>
-	<div class="alert alert-danger" role="alert" id="error" style="display: none;"><?php echo "$errors"; ?></div>
+	<div class="alert alert-danger" role="alert" id="error" style="display: none;"><script type="text/javascript">document.write(errors);</script></div>
 	<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
 	<form name="enrollform" id="enrollform">
 		<div class="form-group">
