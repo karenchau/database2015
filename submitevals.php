@@ -43,15 +43,17 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
         
         $query = "UPDATE evaluation SET comment='$comments',criteria1=$criteria1,criteria2=$criteria2,criteria3=criteria3,criteria4=$criteria4,criteria5=$criteria5,grade=$overall) WHERE (id_report_group='$report_group' AND id_eval_group='$group_entry') AND class='$class'";
         $result = mysqli_query($db, $query);
-        /*
-        if (mysqli_num_rows($result) > 0) {
-                echo "Your evaluation has been successfully submitted."
-            } else {
-                mysql_close($db);
-                echo "Error: your evaluation was not submitted."
-            }
-            */
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                    echo "Your evaluation has been successfully submitted.";
+                } else {
+                    mysql_close($db);
+                    echo "Error: your evaluation was not submitted.";
+                }
+        } else {
+            echo "Could not submit evaluation.";
         }
+    }
 }
 	
 ?>
