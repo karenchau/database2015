@@ -76,15 +76,14 @@ function find_group($class,$email){
   
   	//Get user's group number
   	$query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
-  	$result = mysqli_query($db, $query);
-  
- 	if (mysqli_num_rows($result) > 0) {
-    $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-    return $group_entry;
-    } else {
-      echo "You are not in a group.";
-      return NULL;
-    }
+	$result = mysqli_query($db, $query);
+
+	if (mysqli_num_rows($result) > 0) {
+		$group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+		return $group_entry;
+	} else {
+		return NULL;
+	}
     mysqli_close($db);
 }
 
