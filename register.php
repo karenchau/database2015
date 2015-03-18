@@ -1,4 +1,9 @@
 <?php
+
+if (!isset($_SESSION['class'])) {
+  header('Location: login.php');
+  return;
+}
 	if (empty($_POST['studentemail'])) {
 		$enroll_errors = 'Error!: Please enter an email.';
 	} else {
@@ -11,7 +16,7 @@
 			$enroll_errors = 'Error!: This student is not registered as a user on Platform yet.';
 		} else {
 			$class2 = mysqli_real_escape_string($db, $_SESSION['class']);
-			$query2 = "SELECT * from enrolled_list where class = '$class2' ";
+			$query2 = "SELECT * from enrolled_list where student_id = '$student_email' and class = '$class2' ";
 			$result2 = mysqli_query($db, $query2);
 			if (mysqli_num_rows($result2) > 0) {
 				$enroll_errors = 'Error!: This student is already registered for this class.';
