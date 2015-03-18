@@ -98,9 +98,8 @@
   <br>
   <form>
     <div class = "form-group">
-      <label for="input_group" class = "col-sm-2 control-label">Select a group to evaluate</label>
-      <div class = "col-sm-4">
-        <select class="form-control" name = "group_id">
+      <label for="input_group">Select a group to evaluate</label>
+        <select class="form-control" name = "input_group">
           <!-- Use $result to get group numbers to populate dropdown -->
           <?php
             $db = open_connection();
@@ -115,25 +114,102 @@
             mysqli_close($db);
           ?>
         </select>
-      </div>
       <br>
+
+
+      <b>Clarity</b>
+      <p>The report is written in a clear and concise manner.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3"> 4
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option3"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option3"> 5
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option3"> 5
       </label>
+
+      <b>Focus</b>
+      <p>The report has a clear argument and stays on topic.</p>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1"> 1
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> 2
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3"> 3
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option3"> 4
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="option3"> 5
+      </label>
+
+      <b>Organization</b>
+      <p>The report is well structured and organized.</p>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1"> 1
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> 2
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="option3"> 3
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio4" value="option3"> 4
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="option3"> 5
+      </label>
+
+      <b>Analysis</b>
+      <p>The report supports its argument with strong valid evidence.</p>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio1" value="option1"> 1
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio2" value="option2"> 2
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio3" value="option3"> 3
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio4" value="option3"> 4
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio5" value="option3"> 5
+      </label>
+
+      <b>Detail</b>
+      <p>The report shows careful attention to detail.</p>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="option1"> 1
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio2" value="option2"> 2
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio3" value="option3"> 3
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio4" value="option3"> 4
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio5" value="option3"> 5
+      </label>
+
       <!-- Text area to submit comments -->
-      <textarea class="form-control" rows="3" placeholder="Comments"></textarea>
+      <label for="comments">Please provide constructive criticism elaborating on your evaluation of this report.</label>
+      <textarea class="form-control" rows="3" name="comments" placeholder="Comments"></textarea>
     </div>
   </form>
 
