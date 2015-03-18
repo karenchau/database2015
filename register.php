@@ -24,7 +24,7 @@
 	if ($enroll_errors) {
 		echo json_encode(array('success' => false, 'message' => "$enroll_errors")); 
 	} else {
-		echo json_encode(array('success' => true, 'message' => "$class2")); 
+		echo json_encode(array('success' => true, 'message' => '$class2')); 
 	}
 	unset($enroll_errors);
 ?>
