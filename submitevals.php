@@ -27,13 +27,8 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
 
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
-        echo $class;
-        echo $email; 
         require_once('functions.php');
         $group_entry = find_group($class,$email);
-
-        echo " group number: ". $group_entry;
-
         //$class = mysqli_real_escape_string($db, $_SESSION['class']);
         //echo " class: ". $class;
         $report_group = mysqli_real_escape_string($db, $_POST['input_group']);
@@ -53,7 +48,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         $comments = mysqli_real_escape_string($db, $_POST['comments']);
         //echo $comments;
         
-        $query = "UPDATE evaluation SET comment='$comments',criteria1=$criteria1,criteria2=$criteria2,criteria3=$criteria3,criteria4=$criteria4,criteria5=$criteria5,grade=$overall) WHERE (id_report_group='$report_group' AND id_eval_group='$group_entry') AND class='$class'";
+        $query = "UPDATE evaluation SET comment='$comments', criteria1=$criteria1, criteria2=$criteria2, criteria3=$criteria3, criteria4=$criteria4, criteria5=$criteria5, grade=$overall WHERE id_report_group='$report_group' AND id_eval_group='$group_entry' AND class='$class'";
         $result = mysqli_query($db, $query);
         if ($result) {
             if (mysqli_num_rows($result) > 0) {
