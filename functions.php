@@ -57,28 +57,32 @@ function find_class() {
 		return NULL;
 	}
 }
-/*
+
 function find_group(){
-	if(isset($_SESSION['class']) AND isset($_SESSION['email'])) {
-	  $class = mysqli_real_escape_string($db, $_SESSION['class']);;
-	  $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
-	  
-	  //Get user's group number
-	  $query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
-	  $result = mysqli_query($db, $query);
-	  
-	  if (mysqli_num_rows($result) > 0) {
-	    $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-	    return $group_entry
-	    } else {
-	      echo "You are not in a group.";
-	      return NULL;
-	    }
-	} else {
-		return NULL;
+	if(!isset($_SESSION['class']) {
+		find_class();
 	}
+	if (!isset($_SESSION['email'])) {
+	  header('Location: login.php');
+	  return;
+	}
+  	$class = mysqli_real_escape_string($db, $_SESSION['class']);;
+  	$email = mysqli_real_escape_string($db, $_SESSION['email']);; 
+  
+  	//Get user's group number
+  	$query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
+  	$result = mysqli_query($db, $query);
+  
+ 	if (mysqli_num_rows($result) > 0) {
+    $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
+    return $group_entry
+    } else {
+      echo "You are not in a group.";
+      return NULL;
+    }
 }
-*/
+
+
 function print_error($message, $redirect_page) {
 	echo "<div class=\"alert alert-danger\" role=\"alert\">$message</div>";
 	if (!is_null($redirect_page)) {
