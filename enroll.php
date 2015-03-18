@@ -51,7 +51,7 @@
 	</script>
 	<br>
 	<h3>Enroll a student</h3>
-	<div class="alert alert-danger" role="alert" id="error" style="display: none;"><?php echo "$errors" ?></div>
+	<div class="alert alert-danger" role="alert" id="error" style="display: none;"><?php echo "$errors"; ?></div>
 	<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
 	<form name="enrollform" id="enrollform">
 		<div class="form-group">
