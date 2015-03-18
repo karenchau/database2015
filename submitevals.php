@@ -38,7 +38,8 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
             echo "You do not have the permissions to submit an evaluation for this group's report."; 
         } else {
             $row = mysqli_fetch_row($result);
-            if is_null($row) {
+            $grade = $row['grade'];
+            if is_null($grade) {
                 $criteria1 = (int) $_POST['inlineRadioOptions1'];
                 $criteria2 = (int) $_POST['inlineRadioOptions2'];
                 $criteria3 = (int) $_POST['inlineRadioOptions3'];
