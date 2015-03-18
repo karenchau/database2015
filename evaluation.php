@@ -46,9 +46,7 @@
     }
   
 
-  // Query for all assigned reports
-  $evalgroups = "SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
-  
+  // Query for all assigned reports  
   $query = "SELECT group_id, name, type, size, uploadtime from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
   $result = mysqli_query($db,$query);
   mysqli_close($db);
@@ -95,6 +93,7 @@
       echo 'Error! SQL query failed:';
       echo "<pre>{$db->error}</pre>";
   }
+  mysqli_close($db);
   ?>
   <br>
   <form>
@@ -104,10 +103,16 @@
         <select class="form-control" name = "group_id">
           <!-- Use $result to get group numbers to populate dropdown -->
           <?php
-            while($row = mysqli_fetch_row($result)){
-              $option = '<option value="'$row['group_id']'">'$row['group_id']'</option>';
+            $db = open_connection();
+            $query = "SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
+            $result = mysqli_query($db,$query);
+
+            while(list($category) = mysqli_fetch_row($result)){
+              $option = '<option value="'.$category.'">'.$category.'</option>';
               echo ($option);
             }
+
+            mysqli_close($db);
           ?>
         </select>
       </div>
