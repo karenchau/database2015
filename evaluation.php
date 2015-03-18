@@ -130,7 +130,7 @@ if(!isset($_SESSION['class'])) {
     <div class = "form-group">
       <label for="input_group">Select a group to evaluate:</label>
         <select class="form-control" name = "input_group">
-          <option value='0'>Select a group</option>
+          <option value='default'>Select a group</option>
           <!-- Use $result to get group numbers to populate dropdown -->
           <?php
             $db = open_connection();

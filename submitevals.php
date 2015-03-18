@@ -1,8 +1,9 @@
 <?php
 require_once('functions.php');
-$group_entry = get_class();
+$group_entry = find_group();
 echo $group_entry;
-if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
+echo $_POST['input_group'];
+if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
     echo "Error. Select a group to evaluate.";
 } else{
     echo "else statement";
