@@ -44,8 +44,8 @@ if(!isset($_SESSION['class'])) {
   // Connect to the database
   $db = open_connection();
 
-  $class = mysqli_real_escape_string($db, $_SESSION['class']);;
-  $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
+  $class = mysqli_real_escape_string($db, $_SESSION['class']);
+  $email = mysqli_real_escape_string($db, $_SESSION['email']);
 
   require_once('functions.php');
   $group_entry = find_group($class,$email);
