@@ -84,5 +84,5 @@
 		</div>
 		<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
 	</form>
-
+	<?php header("Location: adminClassPage.php?classid=$_SESSION[class]#students"); ?>
 </html>
