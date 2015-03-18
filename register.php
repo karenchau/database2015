@@ -15,7 +15,7 @@
 			if (mysqli_num_rows($result2) > 0) {
 				$enroll_errors = 'Error!: This student is already registered for this class.';
 			} else {
-				//
+				$zzz = "successful";
 			}
 		}
 		mysqli_close($db);
@@ -23,7 +23,7 @@
 	if ($enroll_errors) {
 		echo json_encode(array('success' => false, 'message' => "$enroll_errors")); 
 	} else {
-		echo json_encode(array('success' => true, 'message' => 'successful')); 
+		echo json_encode(array('success' => true, 'message' => "$zzz")); 
 	}
 	unset($enroll_errors);
 ?>
