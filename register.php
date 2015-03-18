@@ -11,7 +11,7 @@
 			$enroll_errors = 'Error!: This student is not registered as a user on Platform yet.';
 		} else {
 			if (isset($_POST['c'])) {
-				$class = $_POST['c'];
+				$class = mysqli_real_escape_string($db, $_POST['c']);
 			}
 			$query2 = "SELECT * from enrolled_list where student_id = '$student_email' and class = '$class' ";
 			$result2 = mysqli_query($db, $query2);

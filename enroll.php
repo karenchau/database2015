@@ -63,7 +63,7 @@
 
       	<div class="form-group">
 
-          <input type="text" id="c" name="c" class="form-control" placeholder="<?php echo $_SESSION['class']?>">
+          <input type="text" id="c" name="c" class="form-control" readonly="readonly" placeholder="<?php echo $_SESSION['class']?>" value="<?php echo $_SESSION['class']?>">
 
     </div>
 
