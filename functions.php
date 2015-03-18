@@ -69,8 +69,8 @@ function find_group(){
 	}
 	require_once('connect.php');
 	$db = open_connection();
-  	$class = mysqli_real_escape_string($db, $_SESSION['class']);;
-  	$email = mysqli_real_escape_string($db, $_SESSION['email']);; 
+  	$class = mysqli_real_escape_string($db, $_SESSION['class']);
+  	$email = mysqli_real_escape_string($db, $_SESSION['email']);
   
   	//Get user's group number
   	$query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
@@ -83,6 +83,7 @@ function find_group(){
       echo "You are not in a group.";
       return NULL;
     }
+    mysqli_close($db);
 }
 
 
