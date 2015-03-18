@@ -58,7 +58,8 @@ function find_class() {
 	}
 }
 
-function find_group(){
+function find_group($class,$email){
+	/*
 	if(!isset($_SESSION['class']) {
 		header('Location: index.php');
 		return;
@@ -67,10 +68,11 @@ function find_group(){
 	  header('Location: login.php');
 	  return;
 	}
+	*/
 	require_once('connect.php');
 	$db = open_connection();
-  	$class = mysqli_real_escape_string($db, $_SESSION['class']);
-  	$email = mysqli_real_escape_string($db, $_SESSION['email']);
+  	//$class = mysqli_real_escape_string($db, $_SESSION['class']);
+  	//$email = mysqli_real_escape_string($db, $_SESSION['email']);
   
   	//Get user's group number
   	$query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
