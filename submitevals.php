@@ -28,37 +28,35 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         $email = mysqli_real_escape_string($db, $_SESSION['email']);
         require_once('functions.php');
+        //Get assessing and assessed groups and check that an evaluation has not already been submitted.
         $group_entry = find_group($class,$email);
-        //$class = mysqli_real_escape_string($db, $_SESSION['class']);
-        //echo " class: ". $class;
         $report_group = mysqli_real_escape_string($db, $_POST['input_group']);
-        //echo $report_group;
-        $criteria1 = (int) $_POST['inlineRadioOptions1'];
-        //echo $criteria1;
-        $criteria2 = (int) $_POST['inlineRadioOptions2'];
-        //echo $criteria2;
-        $criteria3 = (int) $_POST['inlineRadioOptions3'];
-        //echo $criteria3;
-        $criteria4 = (int) $_POST['inlineRadioOptions4'];
-        //echo $criteria4;
-        $criteria5 = (int) $_POST['inlineRadioOptions5'];
-        //echo $criteria5;
-        $overall = (int) ($criteria1 + $criteria2 + $criteria3 + $criteria4 + $criteria5);
-        //echo $overall;
-        $comments = mysqli_real_escape_string($db, $_POST['comments']);
-        //echo $comments;
-        
-        $query = "UPDATE evaluation SET comment='$comments', criteria1=$criteria1, criteria2=$criteria2, criteria3=$criteria3, criteria4=$criteria4, criteria5=$criteria5, grade=$overall WHERE id_report_group='$report_group' AND id_eval_group='$group_entry' AND class='$class'";
-        $result = mysqli_query($db, $query);
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
+
+        $query = "SELECT grade FROM evaluation WHERE id_report_group='$report_group' AND id_eval_group='$group_entry'";
+        $result = mysqli_query($db,$query);
+        if (!$result OR mysqli_num_rows($result) == 0) {
+            echo "You do not have the permissions to submit an evaluation for this group's report."; 
+        } else {
+            $row = mysqli_fetch_row($result);
+            if is_null($row) {
+                $criteria1 = (int) $_POST['inlineRadioOptions1'];
+                $criteria2 = (int) $_POST['inlineRadioOptions2'];
+                $criteria3 = (int) $_POST['inlineRadioOptions3'];
+                $criteria4 = (int) $_POST['inlineRadioOptions4'];
+                $criteria5 = (int) $_POST['inlineRadioOptions5'];
+                $overall = (int) ($criteria1 + $criteria2 + $criteria3 + $criteria4 + $criteria5);
+                $comments = mysqli_real_escape_string($db, $_POST['comments']);
+                
+                $query = "UPDATE evaluation SET comment='$comments', criteria1=$criteria1, criteria2=$criteria2, criteria3=$criteria3, criteria4=$criteria4, criteria5=$criteria5, grade=$overall WHERE id_report_group='$report_group' AND id_eval_group='$group_entry' AND class='$class'";
+                $result = mysqli_query($db, $query);
+                if ($result) {
                     echo "Your evaluation has been successfully submitted.";
                 } else {
-                    mysql_close($db);
-                    echo "Error: your evaluation was not submitted.";
+                    echo "Error: could not submit evaluation.";
                 }
-        } else {
-            echo "Could not submit evaluation.";
+            } else {
+                echo "You have already submitted an evaluation for this group's report."
+            }
         }
     }
 }
