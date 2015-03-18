@@ -117,6 +117,11 @@ if ($_GET['classid'] == NULL) {
           <div id="grades" class="tab-pane fade">
             <p>view your group's grades and ranking</p>
           </div>
+          <form action="mainForum.php" method="post" enctype="multipart/form-data">
+              <div class ="form-group">
+                <input type="submit" class ="btn btn-default" value ="Access Forum" name="submit">
+              </div>
+          </form>
 
         </div>
       </div>
