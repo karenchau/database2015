@@ -62,7 +62,7 @@
 
       
         <div class="col-sm-4">
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="<?php echo $_SESSION['class']?>">
+          <input type="text" id="c" name="c" class="form-control" placeholder="<?php echo $_SESSION['class']?>" value="<?php echo $_SESSION['class']?>">
         </div>
 
 			<div class="col-sm-2">
