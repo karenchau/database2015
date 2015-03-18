@@ -99,7 +99,7 @@
   <br>
   <br>
   <header>Evaluation Submissions</header>
-  <p>Please evaluate each group's report based on the following criteria.
+  <p>Please evaluate each group's report based on the following criteria.</p>
   <form>
     <div class = "form-group">
       <label for="input_group">Select a group to evaluate:</label>
@@ -124,91 +124,91 @@
       <b>Clarity</b>
       <p>The report is written in a clear and concise manner.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> Strongly<br>disagree<br>1
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> Somewhat<br>disagree<br>2
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3"> Neither agree<br>nor disagree<br>3
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="option3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option3"> Somewhat<br>agree<br>4
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio4" value="option3"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option3"> Strongly<br>agree<br>5
+        <input type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="option3"> 5
       </label><br><br>
 
       <b>Focus</b>
       <p>The report has a clear argument and stays on topic.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1"> Strongly<br>disagree<br>1
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> Somewhat<br>disagree<br>2
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3"> Neither agree<br>nor disagree<br>3
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option3"> Somewhat<br>agree<br>4
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option3"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="option3"> Strongly<br>agree<br>5
+        <input type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="option3"> 5
       </label><br><br>
 
       <b>Organization</b>
       <p>The report is well structured and organized.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1"> Strongly<br>disagree<br>1
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> Somewhat<br>disagree<br>2
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="option3"> Neither agree<br>nor disagree<br>3
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="option3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio4" value="option3"> Somewhat<br>agree<br>4
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio4" value="option3"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="option3"> Strongly<br>agree<br>5
+        <input type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="option3"> 5
       </label><br><br>
 
       <b>Analysis</b>
       <p>The report supports its argument with strong valid evidence.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio1" value="option1"> Strongly<br>disagree<br>1
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio1" value="option1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio2" value="option2"> Somewhat<br>disagree<br>2
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio2" value="option2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio3" value="option3"> Neither agree<br>nor disagree<br>3
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio3" value="option3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio4" value="option3"> Somewhat<br>agree<br>4
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio4" value="option3"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions4" id="inlineRadio5" value="option3"> Strongly<br>agree<br>5
+        <input type="radio" name="inlineRadioOptions4" id="inlineRadio5" value="option3"> 5
       </label><br><br>
 
       <b>Detail</b>
       <p>The report shows careful attention to detail.</p>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="option1"> Strongly<br>disagree<br>1
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio1" value="option1"> 1
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio2" value="option2"> Somewhat<br>disagree<br>2
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio2" value="option2"> 2
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio3" value="option3"> Neither agree<br>nor disagree<br>3
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio3" value="option3"> 3
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio4" value="option3"> Somewhat<br>agree<br>4
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio4" value="option3"> 4
       </label>
       <label class="radio-inline">
-        <input type="radio" name="inlineRadioOptions5" id="inlineRadio5" value="option3"> Strongly<br>agree<br>5
+        <input type="radio" name="inlineRadioOptions5" id="inlineRadio5" value="option3"> 5
       </label><br><br>
 
       <!-- Text area to submit comments -->
