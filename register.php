@@ -12,7 +12,7 @@
 		} else {
 			$query2 = "SELECT * from enrolled_list where class = '$_SESSION[class]' ";
 			$result2 = mysqli_query($db, $query2);
-			if (mysqli_num_rows($result2) > 0) {
+			if ($result2) {
 				$enroll_errors = 'Error!: This student is already registered for this class.';
 			} else {
 				//
