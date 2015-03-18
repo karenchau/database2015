@@ -30,8 +30,6 @@ if (!isset($_POST['input_group']) && $_POST['input_group'] = 0) {
                 echo "Error: your evaluation was not submitted."
             }
         }
-} else {
-unset($submit_errors);
 }
 	
 ?>
