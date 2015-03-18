@@ -15,14 +15,16 @@
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
     //get user's group_id
-    $query = "SELECT group_id FROM group_list";
+    $query = "SELECT * FROM group_list";
     $query .="WHERE class = '$class' ";
-    $query .="AND (member1 = '$email' OR member2 = '$email' OR member3 = '$email')";
+    $query .="AND (member1 = '$email' OR (member2 = '$email' OR member3 = '$email'))";
     $result = mysqli_query($db, $query);
+    if (!$result){ echo "<p> Result is false... </p>" ;}
+    printf("number of rows found: %d", mysqli_num_rows($result) );
     if (mysqli_num_rows($result) > 0) {
         $group_id = mysqli_getresult($result, mysqli_num_rows($result), 0);
     } else {
-        echo "You are not in a group.";
+        echo "<p>You are not in a group. </p>";
         return;
     }
     
