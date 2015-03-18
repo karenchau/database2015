@@ -26,8 +26,8 @@
 					type:'POST',
 					success:function(data){
 						console.log(data);
-						var option = $.parseJSON (data)
-						alert(option.result);
+						var option = $.parseJSON (data);
+						document.write(option["message"]);
 						if(option["success"] == true) {
 							$("#success").show().fadeOut(5000); //=== Show Success Message==
 						} else {
