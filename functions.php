@@ -57,7 +57,7 @@ function find_class() {
 		return NULL;
 	}
 }
-
+/*
 function find_group(){
 	if(!isset($_SESSION['class']) {
 		find_class();
@@ -81,7 +81,7 @@ function find_group(){
       return NULL;
     }
 }
-
+*/
 
 function print_error($message, $redirect_page) {
 	echo "<div class=\"alert alert-danger\" role=\"alert\">$message</div>";
