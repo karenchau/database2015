@@ -107,15 +107,17 @@
     <div class = "form-group">
       <!-- Use $result to get group numbers to populate dropdown -->
       <?php
+      /*
         $options = "";
         while ($row=mysqli_fetch_array($result)) { 
           $group_id=$row['group_id']; 
           $options.="<OPTION VALUE=\"Group \">" . $group_id; 
         } 
+        */
       ?>
       <select class="form-control" name = "group_id">
         <option>Choose a group to evaluate</option>
-        <?php=$options?>
+        <?php /*=$options */?>
       </select>
 
       <label class="radio-inline">
