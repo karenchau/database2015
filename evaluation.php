@@ -11,10 +11,10 @@ if(!isset($_SESSION['class'])) {
 
 //If the user submits the form, then this would initiate this if statement
 if (isset($_POST['submit'])) {
-    if (isset($_POST['input_group']) {
-        if (empty($_POST['input_group']) {
+    if (isset($_POST['input_group'])) {
+        if (empty($_POST['input_group'])) {
             $submit_errors = "You must select a group to evaluate.";
-        } else if (!isset($_POST['inlineRadioOptions1']) || !isset($_POST['inlineRadioOptions2'] || !isset($_POST['inlineRadioOptions3'] || !isset($_POST['inlineRadioOptions4'] || !isset($_POST['inlineRadioOptions5']))))) {
+        } else if (!isset($_POST['inlineRadioOptions1']) || !isset($_POST['inlineRadioOptions2']) || !isset($_POST['inlineRadioOptions3']) || !isset($_POST['inlineRadioOptions4']) || !isset($_POST['inlineRadioOptions5'])) {
             $submit_errors ="\nYou must submit a score for ALL criteria.";
         } else if (!isset($_POST(['comments']))) {
           $submit_errors = "Please provide comments to elaborate on your evaluations.";
