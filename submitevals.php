@@ -12,6 +12,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
     } else {
         require_once('functions.php');
         $group_entry = find_group();
+        echo " group number: ". $group_entry;
         require_once('connect.php');
         $db = open_connection();
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
