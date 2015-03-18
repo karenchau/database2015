@@ -1,5 +1,7 @@
 <?php
-
+require_once('functions.php');
+$group_entry = get_class();
+echo $group_entry;
 if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
     echo "Error. Select a group to evaluate.";
 } else{
@@ -13,17 +15,6 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == '0') {
     } else {
         require_once('connect.php');
         $db = open_connection();
-        //Get user's group number
-          $class = mysqli_real_escape_string($db, $_SESSION['class']);;
-          $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
-          $query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
-          $result = mysqli_query($db, $query);
-          
-          if (mysqli_num_rows($result) > 0) {
-            $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-            } else {
-              echo "You are not in a group.";
-            }
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         echo $class;
         $report_group = mysqli_real_escape_string($db, $_POST['submit']);

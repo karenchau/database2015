@@ -39,27 +39,12 @@ if(!isset($_SESSION['class'])) {
     <h3>Report Download</h3>
   </header>
   <p> These are the groups whose reports you have been assigned to evaluate. Click the name of the file to start downloading the group's report. When you have finished reading the report, submit an evaluation using the form below for the corresponding group.</p>
-  <?php
   
+  <?php
   // Connect to the database
   $db = open_connection();
-  if(mysqli_connect_errno()) {
-      die("MySQL connection failed: ". mysqli_connect_error());
-  }
-
-  $class = mysqli_real_escape_string($db, $_SESSION['class']);;
-  $email = mysqli_real_escape_string($db, $_SESSION['email']);; 
-  
-  //Get user's group number
-  $query = "SELECT group_id FROM group_list WHERE '$email' IN(member1, member2, member3) AND class = '$class'";
-  $result = mysqli_query($db, $query);
-  
-  if (mysqli_num_rows($result) > 0) {
-    $group_entry = mysqli_getresult($result, mysqli_num_rows($result), 0);
-    } else {
-      echo "You are not in a group.";
-    }
-  
+  require_once('functions.php');
+  $group_entry = find_group();
 
   // Query for all assigned reports  
   $query = "SELECT group_id, name, type, size, uploadtime from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
