@@ -8,7 +8,7 @@
 <!-- Latest compiled and minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-	<h3>All students registered for this class <?php echo $_SESSION['class']?></h3>
+	<h3>All students registered for this class</h3>
 	<br>
 	<?php
 		$db = open_connection();
