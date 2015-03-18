@@ -59,7 +59,7 @@ if(!isset($_SESSION['class'])) {
 			<div class="form-group">
 			    <label for="thread_desc" class="col-md-1 control-label">Description</label>
 			    <div class="col-md-9">
-				<input type="password" class="form-control" name="thread_desc" placeholder="Please Enter Your Question">
+				<input type="text" class="form-control" name="thread_desc" placeholder="Please Enter Your Question">
 			    </div>
 			</div>
 			<div class="form-group">

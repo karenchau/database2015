@@ -27,6 +27,7 @@
     $query .="WHERE class = '$class' ";
     $query .="AND (member1 = '$email' OR member2 = '$email' OR member3 = '$email')";
     $result = mysqli_query($db, $query);
+    
     if (mysqli_num_rows($result) > 0) {
         $group_id = mysqli_getresult($result, mysqli_num_rows($result), 0);
     } else {
