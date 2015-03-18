@@ -21,6 +21,7 @@
     $result=mysqli_query($db, $query);
     $rows=mysqli_fetch_assoc($result);
 ?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -41,97 +42,96 @@
   </head>
 
   <body>
-    <!-- Displays the Thread(Question) currently selected-->
-    <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-        <tr>
-            <td>
-                <table width="100%" border="0" cellpadding="3" cellspacing="1" bordercolor="1" bgcolor="#FFFFFF">
-                    <tr>
-                        <td bgcolor="#F8F7F1"><strong>Title: <p><? echo $rows['title']; ?></p></strong></td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F8F7F1">Description: <p><? echo $rows['description']; ?></p></td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F8F7F1"><strong>By: </strong><p><? echo $rows['email'];?></p></td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F8F7F1"><strong>Date/time : </strong><? echo $rows['datetime']; ?></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <br>
-    <?php
-        $query="SELECT * FROM post_table WHERE id_thread='$id'";
-        $result =mysqli_query($db, $query);
-        while($rows = mysqli_fetch_assoc($result)){
-    ?>
-    <!-- Displays all posts for this thread-->    
-    <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-        <tr>
-            <td>
-                <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-                    <tr>
-                        <td bgcolor="#F8F7F1"><strong>Post ID</strong></td>
-                        <td bgcolor="#F8F7F1">:</td>
-                        <td bgcolor="#F8F7F1"><? echo $rows['id']; ?></td>
-                    </tr>
-                    <tr>
-                        <td width="18%" bgcolor="#F8F7F1"><strong>Title</strong></td>
-                        <td width="5%" bgcolor="#F8F7F1">:</td>
-                        <td width="77%" bgcolor="#F8F7F1"><? echo $rows['title']; ?></td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F8F7F1"><strong>User's Email</strong></td>
-                        <td bgcolor="#F8F7F1">:</td>
-                        <td bgcolor="#F8F7F1"><? echo $rows['id_user']; ?></td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F8F7F1"><strong>Answer</strong></td>
-                        <td bgcolor="#F8F7F1">:</td>
-                        <td bgcolor="#F8F7F1"><? echo $rows['description']; ?></td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#F8F7F1"><strong>Date/Time</strong></td>
-                        <td bgcolor="#F8F7F1">:</td>
-                        <td bgcolor="#F8F7F1"><? echo $rows['datetime']; ?></td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+    <div class="container">
+        
+        <div class="page-header">
+            <!-- Welcome the user-->
+        </div>
+        
+        <div id="read_thread" class="mainbox col-sm-12">
+            <div class="panel panel-info">
+                    <div class="panel-heading">
+                            <div class="panel-title">Posted Thread</div>
+                    </div>  
+                    <div class="panel-body">
+                        
+                    </div>
+    </div>
+        
+    </div>
   </body>
 </html>
-    <!--
-    <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-        <tr>
-            <form name="form1" method="post" action="addPost.php">
-                <td>
-                    <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-                        <tr>
-                            <td width="18%"><strong>Title</strong></td>
-                            <td width="3%">:</td>
-                            <td width="79%"><input name="title" type="text" id="title" size="45"></td>
-                        </tr>
-                        <tr>
-                            <td valign="top"><strong>Answer</strong></td>
-                            <td valign="top">:</td>
-                            <td><textarea name="description" cols="45" rows="3" id="description"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td><input name="id" type="hidden" value="<? echo $id; ?>"></td>
-                            <td><input type="submit" name="Submit" value="Submit">
-                                <input type="reset" name="Submit2" value="Reset">
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </form>
-        </tr>
-    </table>
-    <br>
-  </body>
-</html>
+
+
+
+			
+			<div id="signupbox" class="mainbox col-sm-6">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<div class="panel-title">Sign Up</div>
+					</div>  
+					<div class="panel-body">
+						<form id="signupform" class="form-horizontal" role="form" method="post" action="login.php">
+							<?php if (isset($signup_errors)) { ?>
+								<div id="signupalert" class="alert alert-danger">
+									<p><?php echo $signup_errors; ?></p>
+									<span></span>
+								</div>
+							<?php } ?>
+							
+							<!-- Email Field-->
+							<div class="form-group">
+								<label for="email" class="col-md-3 control-label">Email</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" name="email" placeholder="Please Enter Email">
+								</div>
+							</div>
+							
+							<!-- Password Field-->
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">Password</label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" name="password" placeholder="Password">
+								</div>
+							</div>
+							
+							<!-- First Name Field-->
+							<div class="form-group">
+								<label for="first_name" class="col-md-3 control-label">First Name</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
+								</div>
+							</div>
+							
+							<!-- Last Name Field-->
+							<div class="form-group">
+								<label for="last_name" class="col-md-3 control-label">Last Name</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
+								</div>
+							</div>
+							
+							<!-- Role Field-->
+							<div class="form-group">
+								<label for="role" class="col-md-3 control-label">Role</label>
+								<div class="col-md-9">
+									<input type="number" class="form-control" name="role" placeholder="Please Enter 1 (admin) or 0 (stdn)">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<!-- Button -->                                        
+								<div class="col-md-offset-3 col-md-9">
+									<button id="btn-signup" name="signup" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i>Sign Up</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div> 
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
