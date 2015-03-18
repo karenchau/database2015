@@ -104,7 +104,7 @@
           <!-- Use $result to get group numbers to populate dropdown -->
           <?php
             $db = open_connection();
-            $query = "SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry'";
+            $query = "SELECT group_id from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
             $result = mysqli_query($db,$query);
 
             while(list($category) = mysqli_fetch_row($result)){
