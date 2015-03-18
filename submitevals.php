@@ -29,7 +29,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         $db = open_connection();
         $class = mysqli_real_escape_string($db, $_SESSION['class']);
         echo " class: ". $class;
-        $report_group = mysqli_real_escape_string($db, $_POST['submit']);
+        $report_group = mysqli_real_escape_string($db, $_POST['input_group']);
         echo $report_group;
         $criteria1 = (int) $_POST['inlineRadioOptions1'];
         //echo $criteria1;
