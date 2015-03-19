@@ -53,7 +53,7 @@
     <body>
         <!--get all of the group's evals (done by others)-->
         <header>
-            <h3>Avaiable Evaluation Forms</h3>
+            <h3>Available Evaluation Forms</h3>
         </header>
         <p>These are the evaluation forms received by groups that graded your work.</p>
         <br>
@@ -90,12 +90,12 @@
         <?php while($row2 = mysqli_fetch_assoc($result2)) { ?>
         
             <!-- creating the eval criteria listing -->
-            <div id="EvalForm" class="mainbox col-xs-12"> 
+            <div id="EvalForm" class="mainbox col-lg-12"> 
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <!-- get the groupid of the group who did this eval -->
                         <?php
-                            $eval_group =$row2['id_eval_group'];
+                            $eval_group =$row2["id_eval_group"];
                         ?>
                         <h3>Group <?php echo $eval_group ?>'s Evaluation</h3>
                     </div>
