@@ -14,7 +14,6 @@ if(!isset($_SESSION['class'])) {
 if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
     echo "Error. Select a group to evaluate.";
 } else{
-    echo "else statement";
     if (!isset($_POST['inlineRadioOptions1']) OR !isset($_POST['inlineRadioOptions2']) OR !isset($_POST['inlineRadioOptions3']) OR !isset($_POST['inlineRadioOptions4']) OR !isset($_POST['inlineRadioOptions5'])) {
     $submit_errors ="You must submit a score for ALL criteria.";
     echo $submit_errors;
@@ -38,7 +37,6 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
             $row = mysqli_fetch_assoc($result);
             print_r($row);
             $grade = $row['comment'];
-            echo "grade" . $grade;
             if (is_null($grade)) {
                 $criteria1 = (int) $_POST['inlineRadioOptions1'];
                 $criteria2 = (int) $_POST['inlineRadioOptions2'];
@@ -48,6 +46,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
                 $overall = (int) ($criteria1 + $criteria2 + $criteria3 + $criteria4 + $criteria5);
                 $comments = mysqli_real_escape_string($db, $_POST['comments']);
                 
+                //Submit criteria and comments to evaluation table, overall grade to group_list table
                 $query = "UPDATE evaluation SET comment='$comments', criteria1=$criteria1, criteria2=$criteria2, criteria3=$criteria3, criteria4=$criteria4, criteria5=$criteria5 WHERE id_report_group='$report_group' AND id_eval_group='$group_entry' AND class='$class'";
                 $result = mysqli_query($db, $query);
                 $query2 = "UPDATE group_list SET grade=grade+$overall, num_groups=num_groups+1 WHERE group_id='$report_group' AND class='$class'";
