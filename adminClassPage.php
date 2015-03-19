@@ -106,6 +106,10 @@ if ($_GET['classid'] == NULL) {
 
           <div id="groups" class="tab-pane fade">
             <p>create groups, add students to groups, remove students from groups</p>
+            <header>
+              <h3>Manage Groups</h3>
+            </header>
+            <?php include_once("managegroups.php");?>
           </div>
 
           <div id="grades" class="tab-pane fade">
