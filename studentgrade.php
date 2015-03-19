@@ -10,6 +10,7 @@
     } else {
       $reg_none_error = "No one is registered for this class yet.";
       echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
+      echo "hereseessionwith find group2";
     }
     mysqli_close($db);
 ?>
