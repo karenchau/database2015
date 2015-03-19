@@ -26,11 +26,13 @@
     }
     $row = mysqli_fetch_assoc($result);
     $group_id = $row['group_id'];
+    printf("Group Result %d", $group_id);
+    printf("Class Result %s: ", $class);
     
     //Find the group's threads in that class
-    $query="SELECT * FROM thread_table";
+    $query = "SELECT * FROM thread_table";
     $query .="WHERE class = '$class' ";
-    $query .= "AND group_id ='$group_id' ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
+    $query .="AND group_id ='$group_id' ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
     
     $result=mysqli_query($db, $query);
     if (!$result){
