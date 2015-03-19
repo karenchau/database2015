@@ -51,8 +51,8 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
                 
                 $query1 = "UPDATE evaluation SET comment='$comments', criteria1=$criteria1, criteria2=$criteria2, criteria3=$criteria3, criteria4=$criteria4, criteria5=$criteria5 WHERE id_report_group='$report_group' AND id_eval_group='$group_entry' AND class='$class'";
                 $result1 = mysqli_query($db, $query1);
-                $query2 = "UPDATE group_list SET grade=grade+$overall, num_groups=num_groups+1 WHERE group_id='$report_group' AND class='$class'";
-                $result2 = mysqli_query($db,$query2);
+                //$query2 = "UPDATE group_list SET grade=grade+$overall, num_groups=num_groups+1 WHERE group_id='$report_group' AND class='$class'";
+                //$result2 = mysqli_query($db,$query2);
                 if ($result1) {
                     echo "Your evaluation has been successfully submitted.";
                 } else {
