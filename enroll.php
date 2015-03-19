@@ -24,17 +24,6 @@
 		mysqli_close($db);
 	?>
 	<script>
-		// Javascript to enable link to tab
-var hash = document.location.hash;
-var prefix = "tab_";
-if (hash) {
-    $('.nav-tabs a[href='+hash.replace(prefix,"")+']').tab('show');
-} 
-
-// Change hash for page-reload
-$('.nav-tabs a').on('shown', function (e) {
-    window.location.hash = e.target.hash.replace("#", "#" + prefix);
-});
 		$(document).ready(function(){
 			$('#enrollform').on('submit',function(e) {
 				$.ajax({
@@ -71,22 +60,21 @@ $('.nav-tabs a').on('shown', function (e) {
 					}
 				});
 				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
-				<?php header("Location: adminClassPage.php?classid=<?php $_SESSION[class];?>#students"); ?>
 			});
 		});
 	</script>
-	<br>
-	<h3>Enroll a student</h3>
 	<div class="alert alert-danger" role="alert" id="error1" style="display: none;">Error!: Please enter an email.</div>
 	<div class="alert alert-danger" role="alert" id="error2" style="display: none;">Error!: This is not a registered user on Platform yet.</div>
 	<div class="alert alert-danger" role="alert" id="error3" style="display: none;">Error!: This student is already registered for this class.</div>
 	<div class="alert alert-danger" role="alert" id="error4" style="display: none;">Error!: You cannot add another admin to this class.</div>
+	<div class="alert alert-danger" role="alert" id="error5" style="display: none;">Error!: This user is not on the roster.</div>
 	<div class="alert alert-danger" role="alert" id="error" style="display: none;">Error!: There is an error with your request.</div>
 	<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
+	<br>
+	<h3>Enroll a student</h3>
 	<form name="enrollform" id="enrollform">
 		<div class="form-group">
 			<label class="control-label col-sm-1">Email:</label>
-
 			<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
 		</div>
 		<div class="form-group">
@@ -96,16 +84,47 @@ $('.nav-tabs a').on('shown', function (e) {
 		<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Enroll</button>
 	</form>
 	<br>
+	<script>
+		$(document).ready(function(){
+			$('#removeform').on('submit',function(e) {
+				$.ajax({
+					url:'remove.php',
+					data:$(this).serialize(),
+					type:'POST',
+					success:function(data){
+						console.log(data);
+						var option = $.parseJSON (data);
+						if(option["success"] == true) {
+							$("#success").show().fadeOut(5000); // shows success message
+						} else {
+							if (option["message_num"] == "1") {
+								$("#error1").show().fadeOut(5000); // shows error message # 1
+							} else {
+								if (option["message_num"] == "5") {
+									$("#error5").show().fadeOut(5000); // shows error message # 5
+								} else {
+									$("#error").show().fadeOut(5000); // shows general error message
+								}
+							}
+						}
+					},
+					error:function(data){
+						$("#error").show().fadeOut(5000); // shows general error message
+					}
+				});
+				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
+			});
+		});
+	</script>
 	<h3>Remove a student</h3>
 	<form name="removeform" id="removeform">
 		<div class="form-group">
 			<label class="control-label col-sm-1">Email:</label>
-
-			<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
+			<input type="email" class="form-control" id="studentemail2" name="studentemail2" placeholder="Enter student's email">
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-1">Class:</label>
-			<input type="text" id="c" name="c" class="form-control" readonly="readonly" placeholder="<?php echo $_SESSION['class']?>" value="<?php echo $_SESSION['class']?>">
+			<input type="text" id="c2" name="c2" class="form-control" readonly="readonly" placeholder="<?php echo $_SESSION['class']?>" value="<?php echo $_SESSION['class']?>">
 		</div>
 		<button type="submit" class="btn btn-danger" name="remove" id="remove">Remove</button>
 	</form>

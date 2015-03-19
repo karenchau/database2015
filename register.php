@@ -5,14 +5,12 @@
 		require_once('connect.php');
 		$db = open_connection();
 		$student_email = mysqli_real_escape_string($db, $_POST['studentemail']);
+		$class = mysqli_real_escape_string($db, $_POST['c']);
 		$query = "SELECT role from user where email = '$student_email' limit 1";
 		$result = mysqli_query($db, $query);
 		if (mysqli_num_rows($result) == 0) {
 			$enroll_errors = "2"; //Error!: This is not a registered user on Platform yet.
 		} else {
-			if (isset($_POST['c'])) {
-				$class = mysqli_real_escape_string($db, $_POST['c']);
-			}
 			$query2 = "SELECT * from enrolled_list where student_id = '$student_email' and class = '$class' ";
 			$result2 = mysqli_query($db, $query2);
 			if (mysqli_num_rows($result2) > 0) {
