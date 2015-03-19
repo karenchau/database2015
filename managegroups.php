@@ -62,7 +62,7 @@
 	?>
 
 	<header><h3>Groups</h3></header>
-	print_table($all_groups);
+	<?php print_table($all_groups); ?>
 
 	<form action="update_groups.php" method="POST">
     <div class = "form-group">
