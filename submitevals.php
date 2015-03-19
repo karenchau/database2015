@@ -35,7 +35,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         if (!$result OR mysqli_num_rows($result) == 0) {
             echo "You do not have the permissions to submit an evaluation for this group's report."; 
         } else {
-            $row = mysqli_fetch_row($result);
+            $row = mysqli_fetch_assoc($result);
             print_r($row);
             $grade = $row['comment'];
             echo "grade" . $grade;
