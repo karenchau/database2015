@@ -1,0 +1,105 @@
+<!-- connect to the db-->
+<!-- get the group number and the classid -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="3333.png">
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="css/main.css" rel="stylesheet">
+        <!-- Latest compiled and minified JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    </head>
+    
+    <body>
+        <!--get all of the group's evals (done by others)-->
+        <header>
+            <h3>Avaiable Evaluation Forms</h3>
+        </header>
+        <p>These are the evaluation forms received by groups that graded your work.</p>
+        <br>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Submitted Evaluation Forms</div>
+                <div class="panel-body">
+                    <p>Your group's report was evaluated based on the following criteria.</p>
+                    <p>Marks were given as follows:
+                        <ol>
+                            <li> Strongly disagree </li>
+                            <li> Somewhat disagree </li>
+                            <li> Neither agree nor disagree </li>
+                            <li> Somewhat agree </li>
+                            <li> Strongly agree </li>
+                        </ol>
+                    </p>
+                </div>
+        
+                <!-- List group -->
+                <ul class="list-group">
+                    <a href="#clarity" class="list-group-item active">
+                        <h4 class="list-group-item-heading"><strong>Clarity</strong></h4>
+                        <p class="list-group-item-text"><p>The report is written in a clear and concise manner.</p></p>
+                    </a>
+                    <a href="#focus" class="list-group-item ">
+                        <h4 class="list-group-item-heading"><strong>Focus</strong></h4>
+                        <p class="list-group-item-text"><p>The report has a clear argument and stays on topic.</p></p>
+                    </a>
+                    <a href="#organization" class="list-group-item ">
+                        <h4 class="list-group-item-heading"><strong>Organization </strong></h4>
+                        <p class="list-group-item-text"><p>The report has a clear argument and stays on topic.</p></p>
+                    </a>
+                    <a href="#analysis" class="list-group-item ">
+                        <h4 class="list-group-item-heading"><strong>Analysis</strong></h4>
+                        <p class="list-group-item-text"><p>The report supports its argument with strong valid evidence.</p></p>
+                    </a>
+                    <a href="#comment" class="list-group-item ">
+                        <h4 class="list-group-item-heading"><strong>Comment</strong></h4>
+                        <p class="list-group-item-text"><p>The report shows careful attention to detail.</p></p>
+                    </a>
+
+                </ul>
+        </div>
+    <!--
+    <p>The report is written in a clear and concise manner.</p>
+    <p>The report has a clear argument and stays on topic.</p>
+    <p>The report has a clear argument and stays on topic.</p>
+    <p>The report supports its argument with strong valid evidence.</p>
+    <p>The report shows careful attention to detail.</p>
+    
+    <a href="#" class="list-group-item active">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">...</p>
+    </a>
+        
+        
+  <div>
+    <ul class="list-group">
+        <!-- start loop for the number of available evals for this groupid in this classid-->
+            <!-- get the groupid of the group who did this eval -->
+            <!-- creating the eval criteria listing -->
+            <!--
+        <ul class="list-group">
+        <li class="list-group-item " contenteditable="false">Evaluation Form Submitted by Group</li>
+        <!--a while loop to display all the information from the db for this particular eval
+           <li class="list-group-item text-right"><span class="pull-left"><strong>Clarity</strong></span>  </li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Focus</strong></span>  </li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Organization </strong></span>  </li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Analysis</strong></span> </li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Detail</strong> </span> </li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Comment</strong></span> </li> 
+        </ul>
+    </ul>
+    
+    
+    -->
+  </div>
+  </html>
