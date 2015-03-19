@@ -43,56 +43,50 @@
 	  $all_groups = mysqli_query($db,$query);
 
 	  //Get a list of all students in the class and insert into temporary table.
-	  $make_temp = "CREATE TEMPORARY TABLE t_students (student_id VARCHAR(40) NOT NULL, PRIMARY KEY(student_id))";
-	  mysqli_query($db,$make_temp);
-	  $insert_temp = "INSERT INTO t_students (student_id) SELECT student_id FROM enrolled_list WHERE class = '$class'";
-	  mysqli_query($db,$insert_temp);
+	  //$make_temp_students = "CREATE TEMPORARY TABLE t_students (student_id VARCHAR(40) NOT NULL, PRIMARY KEY(student_id))";
+	  //mysqli_query($db,$make_temp);
+	  //$insert_temp = "INSERT INTO t_students (student_id) SELECT student_id FROM enrolled_list WHERE class = '$class'";
+	  //mysqli_query($db,$insert_temp);
 
-	  //Get all students who aren't in a group.
-	  $query = "SELECT student_id FROM t_students WHERE student_id NOT IN (SELECT member1, member2, member3 FROM group_list WHERE class= '$class')";
+	  //Select names of students that are not in a group for this class.
+	  //get names from(list of enrolled students(not in a group)) 
+	  $query = "SELECT name FROM user WHERE email IN (SELECT student_id FROM enrolled_list WHERE class ='$class' AND student_id NOT IN (SELECT member1, member2, member3 FROM group_list WHERE class= '$class')";
 	  $no_group = mysqli_query($db, $query);
 
-	  //Get all students who are already in a group.
-	  $query = "SELECT student_id FROM enrolled_list WHERE student_id IN (SELECT member1, member2, member3 FROM group_list WHERE class=$'class')";
+	  //Get names of all students who are already in a group.
+	  //get names from(list of enrolled students(in a group))
+	  $query = "SELECT name FROM user WHERE email IN (SELECT student_id FROM enrolled_list WHERE student_id IN (SELECT member1, member2, member3 FROM group_list WHERE class=$'class'))";
 	  $in_group = mysqli_query($db, $query);
 
 	  //Get all the groups with one or more empty slots
 	  $query = "SELECT group_id FROM group_list WHERE NULL IN (member2, member3)"; 
 	  $free_groups = mysqli_query($db, $query);
 
-	  mysqli_close($db);
-	?>
+	  //Get all the groups that are full
+	  $query = "SELECT group_id FROM group_list WHERE member2 != NULL AND member3 "
 
-	<?php
-		if (mysqli_num_rows($all_groups) > 0) {
-			print_table($all_groups);
-		} else {
-			$reg_none_error = "There are no groups in this class yet.";
-			echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
-		}
+	  mysqli_close($db);
+
+	if (mysqli_num_rows($all_groups) > 0) {
+		print_table($all_groups);
+	} else {
+		$reg_none_error = "There are no groups in this class yet.";
+		echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
+	}
 	?>
 
 	<form action="update_groups.php" method="POST">
     <div class = "form-group">
-      <label for="input_group">Select a group to evaluate:</label>
-        <select class="form-control" name = "input_group">
-          <option value='default'>Select a group</option>
-          <!-- Use $result to get group numbers to populate dropdown -->
-          <?php
-            $db = open_connection();
-            $query = "SELECT group_id from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
-            $result = mysqli_query($db,$query);
-
-            while(list($category) = mysqli_fetch_row($result)){
-              $option = '<option value="'.$category.'">'.$category.'</option>';
-              echo ($option);
-            }
-
-            mysqli_close($db);
-          ?>
+      <label for="add_remove">Add or remove a student from a group:</label>
+        <select class="form-control" name="add_remove" id="add_remove">
+          <option value='default'>Select an action</option>
+          <option value='add'>Add a student to a group</option>
+          <option value='remove'>Remove a student from a group</option>
         </select>
-      <br>
-
+    	<br>
+   		<select class="form-control" name="select_student" id="select_student">
+   		</select>
+   	</div>
   </body>
 </html>
 
