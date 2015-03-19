@@ -57,6 +57,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
                 echo "You have already submitted an evaluation for this group's report.";
             }
         }
+    mysqli_close($db);
     }
 }
     
