@@ -27,9 +27,17 @@
     $row = mysqli_fetch_assoc($result);
     $group_id = $row['group_id'];
     
+    //Find the group's threads in that class
+    $query="SELECT * FROM thread";
+    $query .="WHERE class ='$class' ";
+    $query .= "AND group_id ='$group_id' ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
     
-    $query="SELECT * FROM thread WHERE class ='$class' AND group_id ='$group_id' ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
     $result=mysqli_query($db, $query);
+    if (!$result){
+        echo 'Query To find the the threads failed : '.mysqli_error($db);
+        $db->close();
+        exit(0);
+    }    
 
 ?>
 <!DOCTYPE html>
