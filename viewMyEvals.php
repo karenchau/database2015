@@ -102,7 +102,7 @@
                                 echo $eval_group;
                                 printf("%d", $eval_group);
                             ?>
-                            <h3>Group <?php echo $eval_group ?>'s Evaluation</h3>
+                            <h3>Group <?php echo $eval_group; ?>'s Evaluation</h3>
                         </div>
                         <div class="panel-body">
                             <ul class="list-group">
@@ -143,7 +143,7 @@
                                     </p>
                                 </a>
                             </ul>
-                            <p>View Group <?php echo $eval_group ?>'s Grades</p>
+                            <p>View Group <?php echo $eval_group; ?>'s Grades</p>
                         </div>
                     </div>
                 </div>
