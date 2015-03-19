@@ -36,7 +36,7 @@
     
     $result=mysqli_query($db, $query);
     if (!$result){
-        echo 'Query To find the the threads failed : '.mysqli_error($db);
+        echo 'Query To find the threads failed : '.mysqli_error($db);
         $db->close();
         exit(0);
     }    

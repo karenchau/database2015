@@ -17,7 +17,7 @@
     
     // get value of id that sent from address bar 
     $id=$_GET['id'];
-    $query="SELECT * FROM thread WHERE id='$id'";
+    $query="SELECT * FROM thread_table WHERE id='$id'";
     $result=mysqli_query($db, $query);
     $rows=mysqli_fetch_assoc($result);
 ?>

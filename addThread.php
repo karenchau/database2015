@@ -36,7 +36,7 @@
     $group_id = $row["group_id"];
     
     //create and execute insertion query
-    $query="INSERT INTO thread (id_group, title, description, datetime, email)";
+    $query="INSERT INTO thread_table (id_group, title, description, datetime, email)";
     $query .="VALUES('$group_id', '$thread_title', '$thread_title', '$datetime', '$email')";
     $result = mysqli_query($db, $query);
     
