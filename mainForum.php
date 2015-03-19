@@ -28,8 +28,8 @@
     $group_id = $row['group_id'];
     
     //Find the group's threads in that class
-    $query="SELECT * FROM thread";
-    $query .="WHERE class ='$class' ";
+    $query="SELECT * FROM thread_table";
+    $query .="WHERE class = '$class' ";
     $query .= "AND group_id ='$group_id' ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
     
     $result=mysqli_query($db, $query);
