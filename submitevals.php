@@ -34,16 +34,16 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         $report_group = mysqli_real_escape_string($db, $_POST['input_group']);
 
         //Check if you are eligible to submit an evaluation (no duplicate evaluation submissions and evaluation assignments).
-        $query = "SELECT criteria1 FROM evaluation WHERE id_report_group='$report_group' AND id_eval_group='$group_entry' AND class = '$class'";
+        $query = "SELECT criteria1 FROM evaluation WHERE id_report_group='$report_group' AND id_eval_group='$group_entry'";
         $result = mysqli_query($db,$query);
         if (!$result OR mysqli_num_rows($result) == 0) {
             echo "You do not have the permissions to submit an evaluation for this group's report."; 
         } else {
             $row = mysqli_fetch_row($result);
-            $check = $row['criteria1'];
+            $grade = $row['criteria1'];
             echo "here";
-            echo $check;
-            if is_null($check) {
+            echo $grade;
+            if is_null($grade) {
                 echo "null. proceed to query";
                 $criteria1 = (int) $_POST['inlineRadioOptions1'];
                 $criteria2 = (int) $_POST['inlineRadioOptions2'];
