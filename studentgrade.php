@@ -1,7 +1,7 @@
 <?php
   require_once('connect.php');
     $db = open_connection();
-    $query = "SELECT group_id, class, 1+(SELECT count(*) from temp_table_1 a WHERE a.average > b.average) as rank, average FROM temp_table_1 b WHERE class = $_SESSION[class] AND group_id = find_group($_SESSION[class],$_SESSION[email]) ";
+    $query = "SELECT group_id, class, 1+(SELECT count(*) from temp_table_1 a WHERE a.average > b.average) as rank, average FROM temp_table_1 b WHERE class = 'MATH2001' ";
     $result = mysqli_query($db, $query);
     if (mysqli_num_rows($result) > 0) {
       print_table($result);
