@@ -33,7 +33,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         $report_group = mysqli_real_escape_string($db, $_POST['input_group']);
 
         //Check if you are eligible to submit an evaluation (no duplicate evaluation submissions and evaluation assignments).
-        $query = "SELECT criteria1 FROM evaluation WHERE id_report_group='$report_group' AND id_eval_group='$group_entry'";
+        $query = "SELECT criteria1 FROM evaluation WHERE id_report_group='$report_group' AND id_eval_group='$group_entry' AND class = '$class'";
         $result = mysqli_query($db,$query);
         if (!$result OR mysqli_num_rows($result) == 0) {
             echo "You do not have the permissions to submit an evaluation for this group's report."; 
