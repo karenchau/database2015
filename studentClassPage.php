@@ -115,6 +115,11 @@ if ($_GET['classid'] == NULL) {
           
           <div id="your-projects-assessments" class="tab-pane fade">
             <p>view assessments of your reports</p>
+            <form action="viewMyEvals.php" method="post" enctype="multipart/form-data">
+              <div class ="form-group">
+                <input type="submit" class ="btn btn-info" value ="Access Forum" name="submit">
+              </div>
+            </form>
           </div>
           
           <div id="grades" class="tab-pane fade">
