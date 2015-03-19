@@ -87,9 +87,8 @@
             
         ?>
         <?php if (mysqli_num_rows($result2) == 0) { ?>
-		<p>Your group has yet to be graded.</p>
-	
-        <?php } else { ?>
+		<p>Your group has not been graded yet.</p>
+	<?php } else { ?>
          <!-- start loop for the number of available evals for this groupid in this classid-->
             <?php while($row2 = mysqli_fetch_assoc($result2)) { ?>
             
@@ -147,8 +146,7 @@
                     </div>
                 </div>
                 <br>
-            <?php }?>
-        
+            <?php } ?>
         <?php } ?>
         
         <?php
