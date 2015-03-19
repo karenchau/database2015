@@ -95,6 +95,18 @@ $('.nav-tabs a').on('shown', function (e) {
 			<label class="control-label col-sm-1">Class:</label>
 			<input type="text" id="c" name="c" class="form-control" readonly="readonly" placeholder="<?php echo $_SESSION['class']?>" value="<?php echo $_SESSION['class']?>">
 		</div>
-		<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Submit</button>
+		<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Enroll</button>
+	</form>
+	<form name="removeform" id="removeform">
+		<div class="form-group">
+			<label class="control-label col-sm-1">Email:</label>
+
+			<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-1">Class:</label>
+			<input type="text" id="c" name="c" class="form-control" readonly="readonly" placeholder="<?php echo $_SESSION['class']?>" value="<?php echo $_SESSION['class']?>">
+		</div>
+		<button type="submit" class="btn btn-danger" name="remove" id="remove">Remove</button>
 	</form>
 </html>
