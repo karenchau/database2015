@@ -7,10 +7,12 @@
     if (mysqli_num_rows($result) > 0) {
       print_table($result);
       echo "hereseessionwith find group5";
+      echo find_group('MATH2001','ttai@mail.com');
     } else {
       $reg_none_error = "No one is registered for this class yet.";
       echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
       echo "hereseessionwith find group5";
+      echo find_group('MATH2001','ttai@mail.com');
     }
     mysqli_close($db);
 ?>
