@@ -140,6 +140,7 @@
                                 </p>
                             </a>
                         </ul>
+                        <p>View Group <?php echo $eval_group ?>'s Grades</p>
                     </div>
                 </div>
             </div>
