@@ -30,14 +30,14 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         //Get assessing and assessed groups and check that an evaluation has not already been submitted.
         $group_entry = find_group($class,$email);
         $report_group = mysqli_real_escape_string($db, $_POST['input_group']);
-        $query = "SELECT criteria1 FROM evaluation WHERE id_report_group='$report_group' AND id_eval_group='$group_entry'";
+        $query = "SELECT comment FROM evaluation WHERE id_report_group='$report_group' AND id_eval_group='$group_entry'";
         $result = mysqli_query($db,$query);
         if (!$result OR mysqli_num_rows($result) == 0) {
             echo "You do not have the permissions to submit an evaluation for this group's report."; 
         } else {
             $row = mysqli_fetch_row($result);
-            $grade = $row['criteria1'];
-            echo "grade" . "$grade";
+            $grade = $row['comment'];
+            echo "grade" . $grade;
             if (is_null($grade)) {
                 $criteria1 = (int) $_POST['inlineRadioOptions1'];
                 $criteria2 = (int) $_POST['inlineRadioOptions2'];
