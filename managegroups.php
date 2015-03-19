@@ -65,7 +65,7 @@
 
 	<?php
 		if (mysqli_num_rows($all_groups) > 0) {
-			print_table($result);
+			print_table($all_groups);
 		} else {
 			$reg_none_error = "There are no groups in this class yet.";
 			echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
