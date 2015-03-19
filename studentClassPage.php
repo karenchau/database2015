@@ -117,7 +117,7 @@ if ($_GET['classid'] == NULL) {
             <p>view assessments of your reports</p>
             <form action="viewMyEvals.php" method="post" enctype="multipart/form-data">
               <div class ="form-group">
-                <input type="submit" class ="btn btn-info" value ="Access Forum" name="submit">
+                <input type="submit" class ="btn btn-info" value ="Access Your Evaluations" name="submit">
               </div>
             </form>
           </div>
