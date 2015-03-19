@@ -37,6 +37,9 @@
 	  $class = mysqli_real_escape_string($db, $_SESSION['class']);
 	  $email = mysqli_real_escape_string($db, $_SESSION['email']);
 
+	  $query = "SELECT group_id, member1, member2 FROM group_list WHERE class = '$class'";
+	  $all_groups = mysqli_real_escape_string($db,$query);
+
 	  //Get a list of all students in the class and insert into temporary table.
 	  $make_temp = "CREATE TEMPORARY TABLE t_students (student_id VARCHAR(40) NOT NULL, PRIMARY KEY(student_id))";
 	  mysqli_query($db,$make_temp);
@@ -57,6 +60,31 @@
 
 	  mysqli_close($db);
 	?>
+
+	<header><h3>Groups</h3></header>
+	print_table($all_groups);
+
+	<form action="update_groups.php" method="POST">
+    <div class = "form-group">
+      <label for="input_group">Select a group to evaluate:</label>
+        <select class="form-control" name = "input_group">
+          <option value='default'>Select a group</option>
+          <!-- Use $result to get group numbers to populate dropdown -->
+          <?php
+            $db = open_connection();
+            $query = "SELECT group_id from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
+            $result = mysqli_query($db,$query);
+
+            while(list($category) = mysqli_fetch_row($result)){
+              $option = '<option value="'.$category.'">'.$category.'</option>';
+              echo ($option);
+            }
+
+            mysqli_close($db);
+          ?>
+        </select>
+      <br>
+
   </body>
 </html>
 
