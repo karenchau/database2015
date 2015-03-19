@@ -90,7 +90,7 @@ if ($_GET['classid'] == NULL) {
             <p>announcements and forum here</p>
               <form action="mainForum.php" method="post" enctype="multipart/form-data">
                 <div class ="form-group">
-                  <input type="submit" class ="btn btn-default" value ="Access Forum" name="submit">
+                  <input type="submit" class ="btn btn-info" value ="Access Forum" name="submit">
                 </div>
               </form>
           </div>
