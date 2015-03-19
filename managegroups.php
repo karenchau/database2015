@@ -63,7 +63,7 @@
 	  $free_groups = mysqli_query($db, $query);
 
 	  //Get all the groups that are full
-	  $query = "SELECT group_id FROM group_list WHERE member2 != NULL AND member3 "
+	  $query = "SELECT group_id FROM group_list WHERE member2 IS NOT NULL AND member3 IS NOT NULL";
 
 	  mysqli_close($db);
 
