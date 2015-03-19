@@ -26,8 +26,10 @@
     }
     $row = mysqli_fetch_assoc($result);
     $group_id = $row['group_id'];
-    printf("Group Result %d", $group_id);
+    printf("Group Result %d ", $group_id);
     printf("Class Result %s: ", $class);
+    echo '<p>group id: <p>' .$group_id;
+    echo '<p>class id: <p>' .$class;
     
     //Find the group's threads in that class
     $query = "SELECT * FROM thread_table";
