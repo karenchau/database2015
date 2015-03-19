@@ -73,9 +73,9 @@ $('.nav-tabs a').on('shown', function (e) {
 					}
 				});
 				e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
+				$("#regist").load("adminClassPage.php?classid=<?php $_SESSION['class'];?>#students #regist");
 			});
 		});
-	$("#regist").load("adminClassPage.php?classid=<?php $_SESSION['class'];?>#students #regist");
 	</script>
 	<br>
 	<h3>Enroll a student</h3>
