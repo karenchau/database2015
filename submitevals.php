@@ -37,6 +37,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
         } else {
             $row = mysqli_fetch_row($result);
             $grade = $row['criteria1'];
+            echo "grade" . $grade;
             if (is_null($grade)) {
                 $criteria1 = (int) $_POST['inlineRadioOptions1'];
                 $criteria2 = (int) $_POST['inlineRadioOptions2'];
