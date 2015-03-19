@@ -95,6 +95,8 @@ $('.nav-tabs a').on('shown', function (e) {
 		</div>
 		<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Enroll</button>
 	</form>
+	<br>
+	<h3>Remove a student</h3>
 	<form name="removeform" id="removeform">
 		<div class="form-group">
 			<label class="control-label col-sm-1">Email:</label>
