@@ -63,7 +63,14 @@
 	  mysqli_close($db);
 	?>
 
-	<?php print_table($all_groups); ?>
+	<?php
+		if (mysqli_num_rows($all_groups) > 0) {
+			print_table($result);
+		} else {
+			$reg_none_error = "There are no groups in this class yet.";
+			echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
+		}
+	?>
 
 	<form action="update_groups.php" method="POST">
     <div class = "form-group">
