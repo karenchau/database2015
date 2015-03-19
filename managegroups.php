@@ -35,9 +35,11 @@
 	  require_once('functions.php');
 	  $db = open_connection();
 	  $class = mysqli_real_escape_string($db, $_SESSION['class']);
+	  echo $class;
 	  $email = mysqli_real_escape_string($db, $_SESSION['email']);
+	  echo $email;
 
-	  $query = "SELECT group_id, member1, member2 FROM group_list WHERE class = '$class'";
+	  $query = "SELECT group_id, member1, member2, class FROM group_list WHERE class = '$class'";
 	  $all_groups = mysqli_real_escape_string($db,$query);
 
 	  //Get a list of all students in the class and insert into temporary table.
@@ -61,7 +63,6 @@
 	  mysqli_close($db);
 	?>
 
-	<header><h3>Groups</h3></header>
 	<?php print_table($all_groups); ?>
 
 	<form action="update_groups.php" method="POST">
