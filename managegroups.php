@@ -40,7 +40,7 @@
 	  echo $email;
 
 	  $query = "SELECT group_id, member1, member2, class FROM group_list WHERE class = '$class'";
-	  $all_groups = mysqli_real_escape_string($db,$query);
+	  $all_groups = mysqli_query($db,$query);
 
 	  //Get a list of all students in the class and insert into temporary table.
 	  $make_temp = "CREATE TEMPORARY TABLE t_students (student_id VARCHAR(40) NOT NULL, PRIMARY KEY(student_id))";
