@@ -95,7 +95,7 @@
                     <div class="panel-heading">
                         <!-- get the groupid of the group who did this eval -->
                         <?php
-                            $eval_group =$row2["id_eval_group"];
+                            $eval_group =$row2['id_eval_group'];
                         ?>
                         <h3>Group <?php echo $eval_group ?>'s Evaluation</h3>
                     </div>
@@ -105,28 +105,28 @@
                                 <h4 class="list-group-item-heading"><strong>Clarity</strong></h4>
                                 <p class="list-group-item-text">
                                         <p>The report is written in a clear and concise manner.</p>
-                                        <p>Grade: <?php $row2['criteria1']; ?></p>
+                                        <p>Grade: <?php echo $row2['criteria1']; ?></p>
                                 </p>
                             </a>
                             <a href="#focus" class="list-group-item  ">
                                 <h4 class="list-group-item-heading"><strong>Focus</strong></h4>
                                 <p class="list-group-item-text">
                                     <p>The report has a clear argument and stays on topic.</p>
-                                    <p>Grade: <?php $row2['criteria2']; ?></p>
+                                    <p>Grade: <?php echo $row2['criteria2']; ?></p>
                                 </p>
                             </a>
                             <a href="#organization" class="list-group-item ">
                                 <h4 class="list-group-item-heading"><strong>Organization </strong></h4>
                                 <p class="list-group-item-text">
                                     <p>The report has a clear argument and stays on topic.</p>
-                                    <p>Grade: <?php $row2['criteria3']; ?></p>
+                                    <p>Grade: <?php echo $row2['criteria3']; ?></p>
                                 </p>
                             </a>
                             <a href="#analysis" class="list-group-item ">
                                 <h4 class="list-group-item-heading"><strong>Analysis</strong></h4>
                                 <p class="list-group-item-text">
                                     <p>The report supports its argument with strong valid evidence.</p>
-                                    <p>Grade: <?php $row2['criteria4']; ?></p>
+                                    <p>Grade: <?php echo $row2['criteria4']; ?></p>
                                 </p>
                             </a>
                             <a href="#comment" class="list-group-item ">
@@ -134,7 +134,7 @@
                                 <p class="list-group-item-text">
                                     <p>The report shows careful attention to detail.</p>
                                     <p>Comment:</p>
-                                    <p><?php $row2['comment']; ?></p>
+                                    <p><?php echo $row2['comment']; ?></p>
                                 </p>
                             </a>
                         </ul>
