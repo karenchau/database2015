@@ -23,7 +23,7 @@
     $query1 .= "AND (member1 = '$email' OR member2 = '$email' OR member3 = '$email')";
     $result1 = mysqli_query($db, $query);
     if (!$result1){
-        echo 'Query failed : '.mysqli_error($db);
+        echo 'Query1 failed : '.mysqli_error($db);
         $db->close();
         exit(0);
     }
@@ -76,21 +76,19 @@
         <!-- Find all the evals for this group-->
         <?php
             $query2 ="SELECT * FROM evaluation";
-            $query2 .=" WHERE (class = '$class' ";
-            $query2 .=" AND id_report_group = '$report_group' )";
+            $query2 .=" WHERE (class = '$class') ";
+            $query2 .=" AND (id_report_group = '$report_group' )";
             $result2 = mysqli_query($db, $query);
             if (!$result2){
-                echo 'Query failed : '.mysqli_error($db);
+                echo 'Query2 failed : '.mysqli_error($db);
                 $db->close();
                 exit(0);
             }
             
         ?>
          <!-- start loop for the number of available evals for this groupid in this classid-->
-        <?php
-            while($row2 = mysqli_fetch_assoc($result2))
-                {
-        ?>
+        <?php while($row2 = mysqli_fetch_assoc($result2)) { ?>
+        
             <!-- creating the eval criteria listing -->
             <div id="EvalForm" class="mainbox col-xs-12"> 
                 <div class="panel panel-primary">
@@ -145,9 +143,7 @@
                 </div>
             </div>
             <br>
-        <?php
-                }
-        ?>
+        <?php } ?>
         
         <?php
             mysqli_close($db);

@@ -114,17 +114,13 @@ if ($_GET['classid'] == NULL) {
           </div>
           
           <div id="your-projects-assessments" class="tab-pane fade">
-            <p>view assessments of your reports</p>
-            <form action="viewMyEvals.php" method="post" enctype="multipart/form-data">
-              <div class ="form-group">
-                <input type="submit" class ="btn btn-info" value ="Access Your Evaluations" name="submit">
-              </div>
-            </form>
+            <?php include_once("viewMyEvals.php");?>
           </div>
           
           <div id="grades" class="tab-pane fade">
             <?php include_once("studentgrade.php");?>
           </div>
+          
         </div>
       </div>
     </div>
