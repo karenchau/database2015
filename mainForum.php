@@ -32,6 +32,7 @@
     $result=mysqli_query($db, $query);
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -76,33 +77,45 @@
       <div class="page-header">
         <h1> Group <?php echo $group_id ?> Forum</h1>
       </div>
-      
-        <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
-            <tr>
-                <td width="6%" align="center" bgcolor="#E6E6E6"><strong>#</strong></td>
-                <td width="53%" align="center" bgcolor="#E6E6E6"><strong>Topic</strong></td>
-                <td width="53%" align="center" bgcolor="#E6E6E6"><strong>Asked by</strong></td>
-                <td width="13%" align="center" bgcolor="#E6E6E6"><strong>Date/Time</strong></td>
-            </tr> 
-            <?php
-                // Start looping table row
-                while($rows= mysqli_fetch_assoc($result)){
-            ?>
-            <tr>
-                <td bgcolor="#FFFFFF"><? echo $rows['id']; ?></td>
-                <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $rows['id']; ?>"><? echo $rows['title']; ?></a><BR></td>
-                <td align="center" bgcolor="#FFFFFF"><? echo $rows['email']; ?></td>
-                <td align="center" bgcolor="#FFFFFF"><? echo $rows['datetime']; ?></td>
-            </tr>
-            <?php
-                // Exit looping and close connection 
-                }
-                mysql_close();
-            ?>
-            <tr>
-               <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="createThread.php"><strong>Create New Thread</strong> </a></td>
-            </tr>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Panel heading</div>
+        <!-- Table -->
+        <table class="table table-hover">
+            <thead>
+                    <tr>
+                            <th>#</th>
+                            <th>Topic</th>
+                            <th>Asked By</th>
+                            <th>Date/Time</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <tr>
+                        <th scope="row"><?php echo $row['id']; ?></th>
+                        <td><?php echo $row['title']; ?></td>
+                        <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $rows['id']; ?>"><? echo $rows['title']; ?></a><BR></td>
+                        <td align="center" bgcolor="#FFFFFF"><? echo $rows['email']; ?></td>
+                        <td align="center" bgcolor="#FFFFFF"><? echo $rows['datetime']; ?></td>
+                        <!--<form method="post" action="viewThread.php">
+                            <td>
+                                <input type="hidden" value="<?php echo $row['id']; ?>" name="id"/>
+                                <button type="submit" class="btn btn-danger" role="button">View Thread</button>
+                            </td>
+                        </form> -->
+                    </tr>
+                <?php } ?>
+             </tbody>
+            
         </table>
-    </div>
+        <tr>
+            <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="createThread.php"><strong>Create New Thread</strong> </a></td>
+        </tr>
+        <?php
+             mysqli_close($db);
+        ?>
+      </div>
   </body>
 </html>
+
