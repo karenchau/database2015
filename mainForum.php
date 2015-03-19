@@ -84,6 +84,11 @@
     <div class="container">
       <div class="page-header">
         <h1> Group <?php echo $group_id ?> Forum</h1>
+        <ol class="breadcrumb">
+            <li><a href="index.php">Main Page</a></li>
+            <li><a href="studentClassPage.php?classid='$class'"><?php echo $class?></a></li>
+            <li class="active">Forum</li>
+        </ol>
       </div>
       <div class="panel panel-default">
         <!-- Default panel contents -->
