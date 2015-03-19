@@ -99,6 +99,8 @@
                             <!-- get the groupid of the group who did this eval -->
                             <?php
                                 $eval_group =$row2['id_eval_group'];
+                                echo $eval_group;
+                                printf("%d", $eval_group);
                             ?>
                             <h3>Group <?php echo $eval_group ?>'s Evaluation</h3>
                         </div>
