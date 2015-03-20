@@ -98,7 +98,7 @@ if ($_GET['classid'] == NULL) {
         <div class="tab-content">
           <div id="announcements" class="tab-pane active">
               <p>announcements and forum here</p>
-              <form action="mainForum.php" method="post" enctype="multipart/form-data">
+              <form action="adminForum.php" method="post" enctype="multipart/form-data">
                 <div class ="form-group">
                   <input type="submit" class ="btn btn-info" value ="Access Forum" name="submit">
                 </div>
