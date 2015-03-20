@@ -119,6 +119,7 @@
              mysqli_close($db);
         ?>
       </div>
+  </div>
   </body>
 </html>
 
