@@ -30,12 +30,13 @@
     $result=mysqli_query($db, $query);
     
     if($result){
-        echo "Successful<BR>";
-        echo "<a href='viewThread.php?id=".$id."'>View your answer</a>";
+        echo "A New Post Was Successfully Added!<BR>";
+        echo "<a href='viewThread.php?id=".$id."'>View your post</a>";
     }
     else {
-        echo "ERROR";
+        echo 'Error! New Post could not be added: '.mysqli_error($db);
     }
+
     // Close connection
     mysql_close();
 ?>

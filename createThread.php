@@ -10,6 +10,15 @@ if(!isset($_SESSION['class'])) {
     return;
 }
 ?>
+<?php
+    require_once('connect.php');
+    $db = open_connection();
+    $email = mysqli_real_escape_string($db, $_SESSION['email']);
+    $class = mysqli_real_escape_string($db, $_SESSION['class']);
+    require_once('functions.php');
+    //get group id
+    $group_id = find_group($class, $email);
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -30,48 +39,72 @@ if(!isset($_SESSION['class'])) {
   </head>
 
   <body>
-    <!-- Here I would get the user's email and the current class's ID
-	 Once I have both, I will be able to extract the group's ID
-	 Should I add classID as a field in Thread?-->
-    <?php
-        
-    ?>
-    
-    <div class="container">
-	<div class="page-header">
-	    <h1>Welcome to your group forum <p><small>Please create a new thread</small></p></h1>
-	</div>
-	<div id="create_thread" class="mainbox col-md-12">
-	    <div class="panel panel-info">
-		<div class="panel-heading">
-		    <div class="panel-title">Create Thread</div>
-		</div>
-		<!--Registration Panel -->
-		<div class="panel-body">
-		    <form id="thread_form" class="form-horizontal" role="form" method="post" action="addThread.php">
-
-			<div class="form-group">
-			    <label for="thread_title" class="col-md-1 control-label">Thread Title</label>
-			    <div class="col-md-9">
-                                <input type="text" class="form-control" name="thread_title" placeholder="Please Enter a Title">
-			    </div>
-			</div>
-			<div class="form-group">
-			    <label for="thread_desc" class="col-md-1 control-label">Description</label>
-			    <div class="col-md-9">
-				<input type="text" class="form-control" name="thread_desc" placeholder="Please Enter Your Question">
-			    </div>
-			</div>
-			<div class="form-group">
-			    <!-- Button -->                                        
-			    <div class="col-md-offset-1 col-md-3">
-                                <button id="btn-creating_topic" name="creating_topic" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Creating Topic</button>
-			    </div>
-			</div>
-                    </form>
-		</div>
-	    </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.php"><img alt="Virtual Learning Environment" src="3333.png">latform</a>
+        </div>        
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-btn"><a href="logout.php" class="btn btn-danger">Sign out</a></p></li>
+          </ul>
         </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="page-header">
+        <h1> Create New Thread</h1>
+        <ol class="breadcrumb">
+            <li><a href="index.php">Main Page</a></li>
+            <li><a href="\studentClassPage.php?classid=".$class."\"> <?php echo $class?></a></li>
+            <li class="mainForum.php">Forum</li>
+            <li class="active">Create New Thread</li>
+            
+        </ol>
+      </div>
+      <div class="panel panel-default">
+        <div class="container">
+            <div class="page-header">
+                <h1>Please Ask a new Question</h1>
+            </div>
+            <div id="create_thread" class="mainbox col-md-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Create Thread</div>
+                    </div>
+                    <!s--New Thread Panel -->
+                    <div class="panel-body">
+                        <form id="thread_form" class="form-horizontal" role="form" method="post" action="addThread.php">
+                            <div class="form-group">
+                                <label for="thread_title" class="col-md-1 control-label">Thread Title</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="thread_title" placeholder="Please Enter a Title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="thread_desc" class="col-md-1 control-label">Description</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="thread_desc" placeholder="Please Enter Your Question">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Button -->                                        
+                                <div class="col-md-offset-1 col-md-3">
+                                    <button id="btn-creating_topic" name="creating_topic" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Creating Topic</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
   </body>  
 </html>

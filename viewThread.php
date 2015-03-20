@@ -14,12 +14,19 @@
     $db = open_connection();
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    
+    require_once('functions.php');
+    //get group id
+    $group_id = find_group($class, $email);
     // get value of id that sent from address bar 
     $id=$_GET['id'];
-    $query="SELECT * FROM thread_table WHERE id='$id'";
+    $query="SELECT * FROM thread_table WHERE id='$id' AND class = '$class' ";
     $result= mysqli_query($db, $query);
-    $rows= mysqli_fetch_assoc($result);
+    if(!result){
+        echo 'Error! We could not find this thread, it either has been deleted or is temporarily unavailable '.mysqli_error($db);
+        mysqli_close($db);
+        exit(0);
+    }
+    $row= mysqli_fetch_assoc($result);
 ?>
 
 <html lang="en">
@@ -45,18 +52,33 @@
     <div class="container">   
         <div class="page-header">
             <!-- Welcome the user-->
+            <div class="page-header">
+                <h1> Group <?php echo $group_id ?> Forum</h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.php">Main Page</a></li>
+                    <li><a href="\studentClassPage.php?classid=".$class."\"> <?php echo $class?></a></li>
+                    <li class="mainForum.php">Forum</li>
+                    <li class="active"><?php $row['title'];?></li>
+                </ol>
+            </div>
         </div>
-        <!-- -->
+        <!-- The current Thread Question -->
         <div id="read_thread" class="mainbox col-sm-12">
-            <div class="panel panel-info">
+            <div class="panel panel-primary">
                     <div class="panel-heading">
-                            <div class="panel-title">Posted Thread</div>
+                            <div class="panel-title"><?php $row['title'];?></div>
                     </div>  
                     <div class="panel-body">
-                        
+                        <?php $row['description'];?>
                     </div>
             </div>
         </div>
+        <br>
+        <!-- Loop to display all posts for this thread -->
+        
+        
+        <!-- Add New Post Box--->
+        
     </div>
   </body>
 </html>
