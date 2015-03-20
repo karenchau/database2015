@@ -2,7 +2,7 @@
 // Make sure an ID was passed
 if(isset($_GET['id'])) {
 // Get the ID
-    $id = $_GET['id'];
+    $id_num = $_GET['id'];
  
     // Connect to the database
     require_once('connect.php');
