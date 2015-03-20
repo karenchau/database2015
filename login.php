@@ -18,7 +18,9 @@ if (isset($_POST['signin'])) {
             $query = "select * from user where email = '$email' and password = '$password' limit 1";
             $result = mysqli_query($db, $query);
             $row = mysqli_fetch_assoc($result);
+            echo $row;
             $pass = $row['password'];
+            echo $pass;
             if (password_verify($_POST['password'],$pass)){
             	mysql_close($db);
                 $_SESSION['email'] = $email;
