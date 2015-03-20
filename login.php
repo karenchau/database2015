@@ -15,11 +15,21 @@ if (isset($_POST['signin'])) {
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);
-            $query = "select password from user where email = '$email' limit 1";
+            $query = "select * from user where email = '$email' and password = '$password' limit 1";
             $result = mysqli_query($db, $query);
             $row = mysqli_fetch_assoc($result);
-            
-            if (password_verify($password,$row['password'])) {
+            $pass = $row['password'];
+            if (password_verify($_POST['password'],$pass)){
+            	mysql_close($db);
+                $_SESSION['email'] = $email;
+                header('Location: index.php');
+                return;
+            } else {
+            	mysql($db);
+            	$signin_errors = 'Invalid credentials.';
+            }
+            /*
+            if (mysqli_num_rows($result) > 0) {
                     mysql_close($db);
                     $_SESSION['email'] = $email;
                     header('Location: index.php');
@@ -28,6 +38,7 @@ if (isset($_POST['signin'])) {
                     mysql_close($db);
                     $signin_errors = 'Invalid credentials.';
                 }
+                */
             }
 	} else {
 		unset($signin_errors);
@@ -41,7 +52,6 @@ if (isset($_POST['signin'])) {
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
             $password = mysqli_real_escape_string($db, $_POST['password']);
-            $hash = password_hash($password, PASSWORD_BCRYPT);
             $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
             $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
             $role = mysqli_real_escape_string($db, $_POST['role']);
@@ -51,7 +61,8 @@ if (isset($_POST['signin'])) {
 				mysqli_close($db);
 				$signup_errors = 'A user with this email already exists.';
 			} else {
-				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$hash', '$role')";
+				$password = password_hash($POST ['password'],PASSWORD_DEFAULT, ['cost'=>11]);
+				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$password', '$role')";
 				mysqli_query($db, $query);
 				$_SESSION['email'] = $email;
 				header('Location: index.php');
