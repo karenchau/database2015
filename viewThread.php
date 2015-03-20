@@ -152,11 +152,9 @@
                             <label for="post_description">Please provide a description of your answer</label>
                             <textarea class="form-control" rows="5" name="post_description" placeholder="Description"></textarea>
                         </div>
-                        <form method=post enctype="multipart/form-data">
-                            <input type="text" name="thread_id" value="<?PHP echo $id ?>">
-                            <input type=submit>
-                        </form>
+                        <input type="hidden" name="thread_id" value="<?PHP echo $id ?>">
                         <div class="form-group">
+                            
                             <!-- Button -->                                        
                             <div class="col-md-offset-1 col-md-3">
                                 <button id="btn-creating_post" name="creating_post" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i> Submit Post</button>
