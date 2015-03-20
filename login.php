@@ -18,9 +18,7 @@ if (isset($_POST['signin'])) {
             $query = "select * from user where email = '$email' and password = '$password' limit 1";
             $result = mysqli_query($db, $query);
             $row = mysqli_fetch_assoc($result);
-            echo $row;
             $pass = $row['password'];
-            echo $pass;
             if (password_verify($_POST['password'],$pass)){
             	mysql_close($db);
                 $_SESSION['email'] = $email;
@@ -28,8 +26,7 @@ if (isset($_POST['signin'])) {
                 return;
             } else {
             	mysql($db);
-            	$signin_errors = print_r($row);//'Invalid credentials. row ' . $row . ' pass ' . $pass;
-;
+            	$signin_errors = 'Invalid credentials.';
             }
             /*
             if (mysqli_num_rows($result) > 0) {
@@ -54,8 +51,7 @@ if (isset($_POST['signin'])) {
             require_once('connect.php');
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
-            $hash = password_hash($_POST['password'],PASSWORD_DEFAULT, ['cost'=>11]);
-            //$password = mysqli_real_escape_string($db, $_POST['password']);
+            $password = mysqli_real_escape_string($db, $_POST['password']);
             $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
             $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
             $role = mysqli_real_escape_string($db, $_POST['role']);
@@ -65,7 +61,8 @@ if (isset($_POST['signin'])) {
 				mysqli_close($db);
 				$signup_errors = 'A user with this email already exists.';
 			} else {
-				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$hash', '$role')";
+				$password = password_hash($POST ['password'],PASSWORD_DEFAULT, ['cost'=>11]);
+				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$password', '$role')";
 				mysqli_query($db, $query);
 				$_SESSION['email'] = $email;
 				header('Location: index.php');
@@ -82,7 +79,7 @@ if (isset($_POST['signin'])) {
 <!DOCTYPE html>
 <html lang="en">
         <head>
-		<title>Login Page</title>
+	   <title>Login Page</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -147,9 +144,8 @@ if (isset($_POST['signin'])) {
 									<button id="btn-signin" name="signin" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Sign In</button>
 								</div>
 							</div>
-						
-						</form>
-					</div>
+						</div>
+					</form>
 				</div>
 			</div>
 			<div id="signupbox" class="mainbox col-sm-6">
