@@ -78,6 +78,36 @@ if (isset($_POST['signin'])) {
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
 
+		<script>
+		$(document).ready(function() {
+		    $('#signupform').bootstrapValidator({
+		        feedbackIcons: {
+		            valid: 'glyphicon glyphicon-ok',
+		            invalid: 'glyphicon glyphicon-remove',
+		            validating: 'glyphicon glyphicon-refresh'
+		        },
+		        fields: {
+		            email: {
+		                validators: {
+		                    stringLength: {
+		                        min: 5,
+		                        message: 'The email must be at least 5 characters.'
+		                    }
+		                }
+		            },
+		            password: {
+		                validators: {
+		                    stringLength: {
+		                        min: 8,
+		                        message: 'The password must be at least 8 characters.'
+		                    }
+		                }
+		            }
+		        }
+		    });
+		});
+		</script>
+
 	</head>
 	
 	<body>
