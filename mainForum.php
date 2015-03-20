@@ -25,7 +25,7 @@
     $query = "SELECT * FROM thread_table ";
     $query .="WHERE (class = '$class' ";
     $query .="AND id_group ='$group_id') ";
-    $query .="ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
+    $query .="ORDER BY id DESC";
     $result = mysqli_query($db, $query);
     if (!$result){
         echo 'Query To find the threads failed : '.mysqli_error($db);
@@ -86,12 +86,12 @@
       </div>
       <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading">Panel heading</div>
+        <div class="panel-heading">Asked Questions</div>
         <!-- Table -->
         <table class="table table-hover">
             <thead>
                     <tr>
-                            <th>#</th>
+                            <th>ID</th>
                             <th>Topic</th>
                             <th>Asked By</th>
                             <th>Date/Time</th>
@@ -105,17 +105,12 @@
                         <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $row['id']; ?>"><? echo $row['title']; ?></a><BR></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['email']; ?></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['datetime']; ?></td>
-                        <!--<form method="post" action="viewThread.php">
-                            <td>
-                                <input type="hidden" value="<?php echo $row['id']; ?>" name="id"/>
-                                <button type="submit" class="btn btn-danger" role="button">View Thread</button>
-                            </td>
-                        </form> -->
                     </tr>
                 <?php } ?>
              </tbody>
             
         </table>
+        <br>
         <tr>
             <form action="createThread.php" method="post" enctype="multipart/form-data">
               <div class ="form-group">
