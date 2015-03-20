@@ -19,8 +19,8 @@
     $id=$_POST['id'];
     
     // get values that sent from form
-    $title = $_POST['title'];
-    $description=$_POST['description']; 
+    $title = $_POST['post_title'];
+    $description=$_POST['post_description']; 
     
     $datetime=date("y/m/d H:i:s"); // create date and time
     

@@ -133,11 +133,35 @@
                 <br>
             <?php } ?>
         <?php } ?>
-        
-        <!-- Add New Post Box--->
-            
-            
-            
+        <!--New Post Panel -->
+        <div id="create_post" class="mainbox col-md-9">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Post</div>
+                </div>
+                <div class="panel-body">
+                    <form id="post_form" class="form-horizontal" role="form" method="post" action="addPost.php">
+                        <div class="form-group">
+                            <label for="post_title" class="col-md-1 control-label">Post Title</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="post_title" placeholder="Please Enter a Title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Text area to use for desc -->
+                            <label for="post_description">Please provide a description of your answer</label>
+                            <textarea class="form-control" rows="5" name="post_description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <!-- Button -->                                        
+                            <div class="col-md-offset-1 col-md-3">
+                                <button id="btn-creating_post" name="creating_post" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i> Submit Post</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <?php
             mysqli_close($db);
         ?> 

@@ -58,52 +58,48 @@ if(!isset($_SESSION['class'])) {
       </div>
     </nav>
     <div class="container">
-      <div class="page-header">
-        <h1> Create New Thread</h1>
-        <ol class="breadcrumb">
-            <li><a href="index.php">Main Page</a></li>
-            <li><a href="\studentClassPage.php?classid=".$class."\"> <?php echo $class?></a></li>
-            <li class="mainForum.php">Forum</li>
-            <li class="active">Create New Thread</li>
-            
-        </ol>
-      </div>
-      <div class="panel panel-default">
-        <div class="container">
-            <div class="page-header">
-                <h1>Please Ask a new Question</h1>
-            </div>
-            <div id="create_thread" class="mainbox col-md-11">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="panel-title">Create Thread</div>
-                    </div>
-                    <!s--New Thread Panel -->
-                    <div class="panel-body">
-                        <form id="thread_form" class="form-horizontal" role="form" method="post" action="addThread.php">
-                            <div class="form-group">
-                                <label for="thread_title" class="col-md-1 control-label">Thread Title</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="thread_title" placeholder="Please Enter a Title">
-                                </div>
+        <div class="page-header">
+          <h1> Create New Thread</h1>
+          <ol class="breadcrumb">
+              <li><a href="index.php">Main Page</a></li>
+              <li><a href="\studentClassPage.php?classid=".$class."\"> <?php echo $class?></a></li>
+              <li class="mainForum.php">Forum</li>
+              <li class="active">Create New Thread</li>
+          </ol>
+        </div>
+        <br>
+        <h4>Please Ask a new Question</h4>
+        <br>
+        <div id="create_thread" class="mainbox col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Create Thread</div>
+                </div>
+                <!--New Thread Panel -->
+                <div class="panel-body">
+                    <form id="thread_form" class="form-horizontal" role="form" method="post" action="addThread.php">
+                        <div class="form-group">
+                            <label for="thread_title" class="col-md-1 control-label">Thread Title</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="thread_title" placeholder="Please Enter a Title">
                             </div>
-                            <div class="form-group">
-                                <!-- Text area to use for desc -->
-                                <label for="thread_desc">Please provide a description of your issue</label>
-                                <textarea class="form-control" rows="5" name="thread_desc" placeholder="Description"></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <!-- Text area to use for desc -->
+                            <label for="thread_desc">Please provide a description of your issue</label>
+                            <textarea class="form-control" rows="5" name="thread_desc" placeholder="Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <!-- Button --> 
+                            <div class="col-md-offset-1 col-md-3">
+                                <button id="btn-creating_topic" name="creating_topic" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Creating Topic</button>
                             </div>
-                            <div class="form-group">
-                                <!-- Button -->                                        
-                                <div class="col-md-offset-1 col-md-3">
-                                    <button id="btn-creating_topic" name="creating_topic" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Creating Topic</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-      </div>
     </div>
   </body>  
 </html>
