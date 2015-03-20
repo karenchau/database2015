@@ -14,11 +14,14 @@
 
 <?php
     require_once('connect.php');
+    require_once('functions.php');
     $db = open_connection();
+    //current user's email and class
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    require_once('functions.php');
-    $report_group = find_group($class,$email);
+    
+    //the report group's id (not necessarily is the user's group as they can look at other group's reports)
+    $report_group = $_POST('group_id');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +78,7 @@
             }  
         ?>
         <?php if (mysqli_num_rows($result) == 0) { ?>
-		<p>Your group has not been graded yet.</p>
+		<p>This group has not been graded yet.</p>
 	<?php } else { ?>
          <!-- start loop for the number of available evals for this groupid in this classid-->
             <?php while($row = mysqli_fetch_assoc($result)) { ?>
@@ -129,7 +132,11 @@
                                     </p>
                                 </a>
                             </ul>
-                            <p>View Group <?php echo $eval_group; ?>'s Grades</p>
+                            <form action="mainForum.php" method="post" enctype="multipart/form-data">
+                                <div class ="form-group">
+                                    <input type="submit" class ="btn btn-info" value ="View Group <?php echo $eval_group; ?>'s Grades" name="submit">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

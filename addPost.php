@@ -31,7 +31,7 @@
     
     if($result){
         echo "A New Post Was Successfully Added!<BR>";
-        echo "<a href='viewThread.php?id=".$id."'>View your post</a>";
+        echo "<a href='viewThread.php?id=".$id_thread."'>View your post</a>";
     }
     else {
         echo 'Error! New Post could not be added: '.mysqli_error($db);
