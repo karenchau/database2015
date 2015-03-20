@@ -77,6 +77,21 @@
 	   </div>
 	</form>
     </div>
+    
+    <div class="row">
+	<form id="add_remove_form" action="update_groups.php" method="POST">
+	   <div class = "form-group">
+	      <label for="add_remove">Add or remove a student from a group:</label>
+	         <select class="form-control" name="add_remove" id="add_remove">
+		    <option value='default'><a href="updateGroups.php?id=0">Select an action</option>
+		    <option value='add'> <a href="updateGroups.php?id=1">Add a student to a group</option>
+		    <option value='remove'><a href="updateGroups.php?id=2"> Remove a student from a group</option>
+		 </select>
+		 <br/>
+	   </div>
+	</form>
+    </div>
+
     <!-- Latest compiled and minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->

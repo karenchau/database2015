@@ -2,13 +2,13 @@
 // Make sure an ID was passed
 if(isset($_GET['id'])) {
 // Get the ID
-    $id_num = $_GET['id'];
+    $id = $_GET['id'];
  
     // Connect to the database
     require_once('connect.php');
     $db = open_connection();
 	$id_num = mysqli_real_escape_string($db, $id);
-	$query = "SELECT * FROM report where group_id = '$id_num'";
+	$query = "SELECT * FROM report where group_id = '$id_num' AND class = '$_SESSION[class]'";
 	$result = mysqli_query($db, $query);
 
 
