@@ -29,6 +29,7 @@
     }
     $row1 = mysqli_fetch_assoc($result);
     $report_group = $row['group_id'];
+    printf("%s", $report_group);
 
 ?>
 <!DOCTYPE html>
