@@ -65,7 +65,7 @@
     }
 ?>
     <div class="row">
-	<form action="update_groups.php" method="POST">
+	<form id="add_remove_form" action="update_groups.php" method="POST">
 	   <div class = "form-group">
 	      <label for="add_remove">Add or remove a student from a group:</label>
 	         <select class="form-control" name="add_remove" id="add_remove">
@@ -86,13 +86,28 @@
     <script src="http://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
     
     <script type="text/javascript">
-    $(document).ready(function(e) {
-	$('.add_remove').selectpicker({
-		style: 'btn-info',
-		size: 4
+	$(document).ready(function() {
+		$('#add_remove_form')
+		    .find('[name="add_remove"]')
+			.selectpicker()
+			.change(function(e) {
+			    // either add or delete
+			    $('#bootstrapSelectForm').add()
+			})
+			.end()
+		    .add({
+			framework: 'bootstrap',
+			excluded: ':disabled',
+			    add_remove: {
+				validators: {
+				    notEmpty: {
+					message: 'Please select an action.'
+				    }
+				}
+			    }
+			})
 		});
-	});
-	</script>
+    </script>
   </body>
 </html>
 
