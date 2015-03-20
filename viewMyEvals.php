@@ -53,7 +53,7 @@
     <body>
         <!--get all of the group's evals (done by others)-->
         <header>
-            <h3>Available Evaluation Forms for group <?php echo $report_group; ?></h3>
+            <h3>Available Evaluation Forms for group <?php printf("%d", $report_group); ?></h3>
         </header>
         <p>These are the evaluation forms received by groups that graded your work.</p>
         <br>
