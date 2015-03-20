@@ -97,7 +97,6 @@ if (!isset($_SESSION['class'])) {
                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
                         <th scope="row"><?php echo $row['id']; ?></th>
-                        <td><?php echo $row['title']; ?></td>
                         <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $row['id']; ?>"><? echo $row['title']; ?></a><BR></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['email']; ?></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['id_group']; ?></td>
@@ -112,6 +111,7 @@ if (!isset($_SESSION['class'])) {
              mysqli_close($db);
         ?>
       </div>
+    </div>
   </body>
 </html>
 
