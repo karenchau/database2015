@@ -12,7 +12,7 @@
 <?php
     //Select names of students that are not in a group for this class.
     //get names from(list of enrolled students(not in a group))
-    $query = "SELECT name FROM user WHERE email IN (SELECT student_id FROM enrolled_list WHERE class ='$class' AND student_id NOT IN (SELECT member1, member2, member3 FROM group_list WHERE class= '$class')";
+    $query = "SELECT * FROM user WHERE email IN (SELECT student_id FROM enrolled_list WHERE class ='$class' AND student_id NOT IN (SELECT member1, member2, member3 FROM group_list WHERE class= '$class')";
     $no_group = mysqli_query($db, $query);
     if(!$no_group)
     {
@@ -48,7 +48,7 @@
         while($row= mysqli_fetch_assoc($no_group))
         {
     ?>
-    <p> Student:<?php echo $row['name']; ?></p>
+    <p> Student:<?php echo $row['email']; ?></p>
     
     <?php
         }
