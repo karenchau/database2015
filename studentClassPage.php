@@ -120,15 +120,15 @@ if ($_GET['classid'] == NULL) {
           </div>
           
           <div id="submit-assessments" class="tab-pane fade">
-            <?php include_once("evaluation.php");?>
+            <?php include_once("evaluation.php"); ?>
           </div>
           
           <div id="your-projects-assessments" class="tab-pane fade">
-            <?php include_once("viewMyEvals.php/id=" .$group_id); ?>
+            <?php include_once("viewMyEvals.php/"); ?>
           </div>
           
           <div id="grades" class="tab-pane fade">
-            <?php include_once("studentgrade.php");?>
+            <?php include_once("studentgrade.php"); ?>
           </div>
           
         </div>

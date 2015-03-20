@@ -16,12 +16,9 @@
     require_once('connect.php');
     require_once('functions.php');
     $db = open_connection();
-    //current user's email and class
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    
-    //the report group's id (not necessarily is the user's group as they can look at other group's reports)
-    $report_group = mysqli_real_escape_string($db, $_GET('id'));
+    $report_group = find_group($class,$email);
 ?>
 <!DOCTYPE html>
 <html lang="en">
