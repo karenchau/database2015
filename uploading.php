@@ -32,24 +32,17 @@ if(isset($_FILES['uploaded_file'])) {
             exit(0);
         }
         
-        $row = mysqli_fetch_assoc($result);
-        $group_id = $row["group_id"];
         
-        //check if the user doesn't belong to a group in this class (null)
-        
-        //GO BACK AND DO THE CONDITIONS CORRECTLY
-        //if($group == null)
-        //{
-        //    echo 'Error! You are not in a group';
-            //return;
-        //}
-        
-        //if($group == '0')
-        //{
-        //    printf"Error! You are a lecturer, not a student";
-            //header('Location:index.php');
-            //return;
-        //}
+        if (mysqli_num_rows($result) > 0)
+        {
+            $row = mysqli_fetch_assoc($result);
+            $group_id = $row["group_id"];
+        }
+        else{
+            echo 'You are not currently in a group';
+            mysqli_close($db);
+            return;
+        }
         
         if(mysqli_connect_errno()) {
             die("MySQL connection failed: ". mysqli_connect_error());
@@ -69,14 +62,11 @@ if(isset($_FILES['uploaded_file'])) {
             mysqli_close($db);
             return;
         }
-        
         // Create the SQL query
         $query = " INSERT INTO report VALUES ('$name', '$type', '$size', '$data', '$group_id', '$date' ,'$class')";
- 
         // Execute the query
         $result = mysqli_query($db, $query);
-
- 
+        
         // Check if it was successfull
         if($result) {
             echo '<p>Success! Your file was successfully added!</p>';
