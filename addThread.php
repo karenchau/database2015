@@ -16,7 +16,7 @@
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
     require_once('functions.php');
     //get group id
-    $group_id = find_group($class,$email);
+    $group_id = find_group($class, $email);
 ?>
 
 <?php
@@ -27,8 +27,8 @@
     $datetime=date("y/m/d h:i:s");
     
     //create and execute insertion query
-    $query = "INSERT INTO thread_table (id_group, title, description, datetime, email) ";
-    $query .="VALUES('$group_id', '$thread_title', '$thread_desc', '$datetime', '$email') ";
+    $query = "INSERT INTO thread_table (id_group, title, description, datetime, email, class) ";
+    $query .="VALUES('$group_id', '$thread_title', '$thread_desc', '$datetime', '$email', '$class') ";
     $result = mysqli_query($db, $query);
     
     if($result){
