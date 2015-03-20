@@ -133,7 +133,7 @@
                                 <div class ="form-group">
                                     <input type="submit" class ="btn btn-info" value ="View Group <?php echo $eval_group; ?>'s Grades" name="submit">
                                 </div>
-                                <input type="hidden" name="other_group" value="<?PHP echo $eval_group ?>">
+                                <input type="hidden" name="other_group" value="<?PHP echo $eval_group; ?>">
                             </form>
                         </div>
                     </div>
