@@ -80,7 +80,6 @@ if (!isset($_SESSION['class'])) {
         </ol>
       </div>
       <div class="panel panel-default">
-        
         <!-- Default panel contents -->
         <div class="panel-heading">Asked Questions by group </div>
         <!-- Table -->
@@ -90,7 +89,7 @@ if (!isset($_SESSION['class'])) {
                         <th>ID</th>
                         <th>Topic</th>
                         <th>Asked By</th>
-                        <th>Group</th>
+                        <th>Group #</th>
                         <th>Date/Time</th>
                     </tr>
             </thead>
@@ -109,7 +108,6 @@ if (!isset($_SESSION['class'])) {
             
         </table>
         <br>
-
         <?php
              mysqli_close($db);
         ?>
