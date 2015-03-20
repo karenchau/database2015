@@ -16,6 +16,6 @@
       echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
     }
     $query4 = "DROP TABLE `temptable`";
-    mysqli_query($db, $query4);
+    //mysqli_query($db, $query4);
     mysqli_close($db);
 ?>
