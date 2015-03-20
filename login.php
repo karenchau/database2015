@@ -153,7 +153,7 @@ if (isset($_POST['signin'])) {
 								<label for="email" class="col-md-3 control-label">Email</label>
 								<div class="col-md-9">
 								<div class="controls">
-									<input type="text" class="form-control" name="email" placeholder="Please Enter Email">
+									<input type="text" class="input-xlarge" name="email" placeholder="Please Enter Email">
 								</div>
 								</div>
 							</div>
@@ -163,17 +163,17 @@ if (isset($_POST['signin'])) {
 								<label for="password" class="col-md-3 control-label">Password</label>
 								<div class="col-md-9">
 								<div class="controls">
-									<input type="password" class="form-control" name="password" placeholder="Password">
+									<input type="password" class="input-xlarge" name="password" placeholder="Password">
 								</div>
 								</div>
 							</div>
 
-							<!-- ConfirmPassword Field-->
+							<!-- Confirm Password Field-->
 							<div class="form-control-group">
 								<label for="confirm_password" class="col-md-3 control-label">Confirm Password</label>
 								<div class="col-md-9">
 								<div class="controls">
-									<input type="password" class="form-control" name="confirm_password" placeholder="Password">
+									<input type="password" class="input-xlarge" name="confirm_password" placeholder="Password">
 								</div>
 								</div>
 							</div>
@@ -183,7 +183,7 @@ if (isset($_POST['signin'])) {
 								<label for="first_name" class="col-md-3 control-label">First Name</label>
 								<div class="col-md-9">
 								<div class="controls">
-									<input type="text" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
+									<input type="text" class="input-xlarge" name="first_name" placeholder="Please Enter Your First Name">
 								</div>
 								</div>
 							</div>
@@ -193,7 +193,7 @@ if (isset($_POST['signin'])) {
 								<label for="last_name" class="col-md-3 control-label">Last Name</label>
 								<div class="col-md-9">
 								<div class="controls">
-									<input type="text" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
+									<input type="text" class="input-xlarge" name="last_name" placeholder="Please Enter Your Last Name">
 								</div>
 								</div>
 							</div>
