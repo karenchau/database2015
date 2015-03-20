@@ -18,8 +18,8 @@
     // get value of id that sent from address bar 
     $id=$_GET['id'];
     $query="SELECT * FROM thread_table WHERE id='$id'";
-    $result=mysqli_query($db, $query);
-    $rows=mysqli_fetch_assoc($result);
+    $result= mysqli_query($db, $query);
+    $rows= mysqli_fetch_assoc($result);
 ?>
 
 <html lang="en">
@@ -42,12 +42,11 @@
   </head>
 
   <body>
-    <div class="container">
-        
+    <div class="container">   
         <div class="page-header">
             <!-- Welcome the user-->
         </div>
-        
+        <!-- -->
         <div id="read_thread" class="mainbox col-sm-12">
             <div class="panel panel-info">
                     <div class="panel-heading">
@@ -56,82 +55,8 @@
                     <div class="panel-body">
                         
                     </div>
-    </div>
-        
+            </div>
+        </div>
     </div>
   </body>
 </html>
-
-
-
-			
-			<div id="signupbox" class="mainbox col-sm-6">
-				<div class="panel panel-danger">
-					<div class="panel-heading">
-						<div class="panel-title">Sign Up</div>
-					</div>  
-					<div class="panel-body">
-						<form id="signupform" class="form-horizontal" role="form" method="post" action="login.php">
-							<?php if (isset($signup_errors)) { ?>
-								<div id="signupalert" class="alert alert-danger">
-									<p><?php echo $signup_errors; ?></p>
-									<span></span>
-								</div>
-							<?php } ?>
-							
-							<!-- Email Field-->
-							<div class="form-group">
-								<label for="email" class="col-md-3 control-label">Email</label>
-								<div class="col-md-9">
-									<input type="text" class="form-control" name="email" placeholder="Please Enter Email">
-								</div>
-							</div>
-							
-							<!-- Password Field-->
-							<div class="form-group">
-								<label for="password" class="col-md-3 control-label">Password</label>
-								<div class="col-md-9">
-									<input type="password" class="form-control" name="password" placeholder="Password">
-								</div>
-							</div>
-							
-							<!-- First Name Field-->
-							<div class="form-group">
-								<label for="first_name" class="col-md-3 control-label">First Name</label>
-								<div class="col-md-9">
-									<input type="text" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
-								</div>
-							</div>
-							
-							<!-- Last Name Field-->
-							<div class="form-group">
-								<label for="last_name" class="col-md-3 control-label">Last Name</label>
-								<div class="col-md-9">
-									<input type="text" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
-								</div>
-							</div>
-							
-							<!-- Role Field-->
-							<div class="form-group">
-								<label for="role" class="col-md-3 control-label">Role</label>
-								<div class="col-md-9">
-									<input type="number" class="form-control" name="role" placeholder="Please Enter 1 (admin) or 0 (stdn)">
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<!-- Button -->                                        
-								<div class="col-md-offset-3 col-md-9">
-									<button id="btn-signup" name="signup" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i>Sign Up</button>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div> 
-		<!-- Bootstrap core JavaScript
-		================================================== -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-	</body>
