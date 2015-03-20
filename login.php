@@ -91,10 +91,9 @@ if (isset($_POST['signin'])) {
         <link rel="icon" href="3333.png">
         
         <!-- Bootstrap core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-
-		<!-- Custom styles for this template -->
-		<link href="css/main.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="css/main.css" rel="stylesheet">
 
 	</head>
 	
@@ -148,8 +147,9 @@ if (isset($_POST['signin'])) {
 									<button id="btn-signin" name="signin" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Sign In</button>
 								</div>
 							</div>
-						</div>
-					</form>
+						
+						</form>
+					</div>
 				</div>
 			</div>
 			<div id="signupbox" class="mainbox col-sm-6">
