@@ -78,36 +78,6 @@ if (isset($_POST['signin'])) {
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
 
-		<script>
-		$(document).ready(function() {
-		    $('#signupform').bootstrapValidator({
-		        feedbackIcons: {
-		            valid: 'glyphicon glyphicon-ok',
-		            invalid: 'glyphicon glyphicon-remove',
-		            validating: 'glyphicon glyphicon-refresh'
-		        },
-		        fields: {
-		            email: {
-		                validators: {
-		                    stringLength: {
-		                        min: 5,
-		                        message: 'The email must be at least 5 characters.'
-		                    }
-		                }
-		            },
-		            password: {
-		                validators: {
-		                    stringLength: {
-		                        min: 8,
-		                        message: 'The password must be at least 8 characters.'
-		                    }
-		                }
-		            }
-		        }
-		    });
-		});
-		</script>
-
 	</head>
 	
 	<body>
@@ -182,7 +152,7 @@ if (isset($_POST['signin'])) {
 							<div class="form-group">
 								<label for="email" class="col-md-3 control-label">Email</label>
 								<div class="col-md-9">
-									<input type="text" class="form-control" name="email" placeholder="Please Enter Email">
+									<input type="email" class="form-control" name="email" placeholder="Please Enter Email">
 								</div>
 							</div>
 							
