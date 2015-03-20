@@ -28,7 +28,8 @@ if (isset($_POST['signin'])) {
                 return;
             } else {
             	mysql($db);
-            	$signin_errors = 'Invalid credentials.';
+            	$signin_errors = 'Invalid credentials. row ' . $row . ' pass ' . $pass;
+;
             }
             /*
             if (mysqli_num_rows($result) > 0) {
