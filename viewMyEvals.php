@@ -22,7 +22,7 @@
     $query .= "WHERE class = '$class' "; 
     $query .= "AND (member1 = '$email' OR (member2 = '$email' OR member3 = '$email'))";
     $result1 = mysqli_query($db, $query);
-    if (!$result1){
+    if (!$result){
         echo 'Query1 failed : '.mysqli_error($db);
         $db->close();
         exit(0);
