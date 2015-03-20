@@ -16,7 +16,7 @@
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
     
     // Get value of thread id
-    $id_thread= $_POST['id'];
+    $id_thread= $_POST['thread_id'];
     
     // get values that sent from form
     $title = $_POST['post_title'];
