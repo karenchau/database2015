@@ -106,10 +106,8 @@
             });
 	</script>
 	<div class="alert alert-danger" role="alert" id="error1" style="display: none;">Error!: Please enter an email.</div>
-	<div class="alert alert-danger" role="alert" id="error2" style="display: none;">Error!: This is not a registered user on Platform yet.</div>
-	<div class="alert alert-danger" role="alert" id="error3" style="display: none;">Error!: This student is already registered for this class.</div>
-	<div class="alert alert-danger" role="alert" id="error4" style="display: none;">Error!: You cannot add another admin to this class.</div>
-	<div class="alert alert-danger" role="alert" id="error5" style="display: none;">Error!: This user is not on the roster.</div>
+	<div class="alert alert-danger" role="alert" id="error2" style="display: none;">Error!: This group is full!</div>
+	<div class="alert alert-danger" role="alert" id="error3" style="display: none;">Error!: This student is already in the group you selected!</div>
 	<div class="alert alert-danger" role="alert" id="error" style="display: none;">Error!: There is an error with your request.</div>
 	<div class="alert alert-success" role="alert" id="success" style="display: none;">Success!</div>
 	<br>

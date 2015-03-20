@@ -11,9 +11,6 @@
 ?>
 
 <?php
-    //get the student id
-    //get the group id
-    // remove from the group
     if (empty($_POST['studentemail2'])) {
 	    $group_management_errors = "1"; //Error!: Please enter an email.
     } else {
@@ -23,13 +20,23 @@
 	$group_id = mysqli_real_escape_string($db, $_POST['groupNum2']);
         $class = mysqli_real_escape_string($db, $_POST['c2']);
         $query = "SELECT * FROM group_list WHERE class ='$class' AND id ='$group_id' ";
+        $result = mysqli_query($db, $query);
+        if(!result)
+        {
+            echo 'Error, we could not fetch the infromation from the Database ' .mysqli_error($db);
+        }
         //get other members in the group
+        $row = mysqli_fetch_assoc($result);
         $member1 = $row['member1'];
         $member2 = $row['member2'];
         $member3 = $row['member3'];
         //delete group
         $query2 = "DELETE from group_list where id = '$group_id' and class = '$class' ";
         mysqli_query($db, $query2);
+        if(!result)
+        {
+            echo 'Error, we could not delete the table ' .mysqli_error($db);
+        }
         //reinsert group
         if($member1 == $student_email)
         {
