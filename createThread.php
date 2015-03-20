@@ -68,7 +68,7 @@ if(!isset($_SESSION['class'])) {
           </ol>
         </div>
         <br>
-        <h4>Please Ask a new Question</h4>
+        <h4>Please Ask a New Question</h4>
         <br>
         <div id="create_thread" class="mainbox col-md-12">
             <div class="panel panel-info">
@@ -92,8 +92,8 @@ if(!isset($_SESSION['class'])) {
                         </div>
                         <div class="form-group">
                             <!-- Button --> 
-                            <div class="col-md-offset-1 col-md-3">
-                                <button id="btn-creating_topic" name="creating_topic" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Creating Topic</button>
+                            <div class="col-md-1">
+                                <button id="btn-creating_topic" name="creating_topic" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i> Creating Topic</button>
                             </div>
                         </div>
                     </form>
