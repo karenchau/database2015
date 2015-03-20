@@ -130,8 +130,12 @@ if (!isset($_SESSION['email'])) {
                                     } else {
                                         $query3 = "SELECT class from enrolled_list where student_id = '$_SESSION[email]' ";
                                         $result3 = mysqli_query($db, $query3);
+
                                         while($row = mysqli_fetch_assoc($result3)) {
-                                            echo "<a href=\"studentClassPage.php?classid=".$row['class']."\">".$row['class']."</a><br>";
+                                            $query4 = "SELECT subject from class_list where id = '$row['class']'";
+                                            $result4 = mysqli_query($db,$query4);
+                                            $row4 = mysqli_fetch_assoc($result4);
+                                            echo "<a href=\"studentClassPage.php?classid=".$row['class']."\">".$row4['subject']."</a><br>";
                                         }
                                     }
                                     $_SESSION['isAdmin'] = $role;
