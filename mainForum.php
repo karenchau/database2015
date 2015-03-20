@@ -25,12 +25,11 @@
     $query = "SELECT * FROM thread_table";
     $query .="WHERE (class = '$class' ";
     $query .="AND id_group ='$group_id') ";
-    $query .="ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
-    
+    //$query .="ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
     $result=mysqli_query($db, $query);
     if (!$result){
         echo 'Query To find the threads failed : '.mysqli_error($db);
-        $db->close();
+        mysqli_close($db);
         exit(0);
     }    
 

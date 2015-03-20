@@ -71,7 +71,7 @@
             $result = mysqli_query($db, $query);
             if (!$result){
                 echo 'Query2 failed : '.mysqli_error($db);
-                $db->close();
+                mysqli_close($db);
                 exit(0);
             }
             
