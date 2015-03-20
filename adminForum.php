@@ -75,7 +75,7 @@ if (!isset($_SESSION['class'])) {
         <h1> Groups Forum</h1>
         <ol class="breadcrumb">
             <li><a href="index.php">Main Page</a></li>
-            <li><a href="\studentClassPage.php?classid=".$class."\"> <?php echo $class?></a></li>
+            <li><a href="\admonClassPage.php?classid=".$class."\"> <?php echo $class?></a></li>
             <li class="active">Forum</li>
         </ol>
       </div>
@@ -98,7 +98,7 @@ if (!isset($_SESSION['class'])) {
                     <tr>
                         <th scope="row"><?php echo $row['id']; ?></th>
                         <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $row['id']; ?>"><? echo $row['title']; ?></a><BR></td>
-                        <td bgcolor="#FFFFFF"><? echo $row['email']; ?></td>
+                        <td align="center" bgcolor="#FFFFFF"><? echo $row['email']; ?></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['id_group']; ?></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['datetime']; ?></td>
                     </tr>
