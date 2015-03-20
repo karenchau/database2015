@@ -86,7 +86,7 @@ if ($_GET['classid'] == NULL) {
         </ul>
         
         <div class="tab-content">
-          <div id="announcements" class="tab-pane fade in active">
+          <div id="announcements" class="tab-pane active">
             <?php include_once("mainForum.php");?>
           </div>
           

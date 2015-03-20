@@ -19,7 +19,6 @@
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
     require_once('functions.php');
     $report_group = find_group($class,$email);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,8 +72,7 @@
                 echo 'Query2 failed : '.mysqli_error($db);
                 mysqli_close($db);
                 exit(0);
-            }
-            
+            }  
         ?>
         <?php if (mysqli_num_rows($result) == 0) { ?>
 		<p>Your group has not been graded yet.</p>
@@ -89,7 +87,6 @@
                             <!-- get the groupid of the group who did this eval -->
                             <?php
                                 $eval_group =$row['id_eval_group'];
-                                
                             ?>
                             <h3>Group <?php printf("%d", $eval_group); ?>'s Evaluation</h3>
                         </div>
