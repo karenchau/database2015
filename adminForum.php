@@ -5,11 +5,9 @@ if (!isset($_SESSION['email'])) {
   return;
 }
 
-if ($_GET['classid'] == NULL) {
+if (!isset($_SESSION['class'])) {
   header('Location: index.php');
   return;
-} else {
-  $_SESSION['class'] = $_GET['classid'];
 }
 ?>
 <?php
