@@ -1,29 +1,29 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['email'])) {
-        header('Location: login.php');
-        return;
-    }
-    if(!isset($_SESSION['class'])) {
-        header('Location: index.php');
-        return;
-    }
-?>
+session_start();
+if (!isset($_SESSION['email'])) {
+  header('Location: login.php');
+  return;
+}
 
+if ($_GET['classid'] == NULL) {
+  header('Location: index.php');
+  return;
+} else {
+  $_SESSION['class'] = $_GET['classid'];
+}
+?>
 <?php
     require_once('connect.php');
+    require_once('functions.php');
     $db = open_connection();
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    require_once('functions.php');
-    $group_id = find_group($class,$email);
 ?>
 <?php
-    //Find the group's threads in that class
+    //Find all group forums for this class
     $query = "SELECT * FROM thread_table ";
-    $query .="WHERE (class = '$class' ";
-    $query .="AND id_group ='$group_id') ";
-    $query .="ORDER BY id DESC";
+    $query .="WHERE class = '$class' ";
+    
     $result = mysqli_query($db, $query);
     if (!$result){
         echo 'Query To find the threads failed : '.mysqli_error($db);
@@ -74,7 +74,7 @@
     </nav>
     <div class="container">
       <div class="page-header">
-        <h1> Group <?php echo $group_id ?> Forum</h1>
+        <h1> Groups Forum</h1>
         <ol class="breadcrumb">
             <li><a href="index.php">Main Page</a></li>
             <li><a href="\studentClassPage.php?classid=".$class."\"> <?php echo $class?></a></li>
@@ -82,8 +82,9 @@
         </ol>
       </div>
       <div class="panel panel-default">
+        
         <!-- Default panel contents -->
-        <div class="panel-heading">Asked Questions</div>
+        <div class="panel-heading">Asked Questions by group </div>
         <!-- Table -->
         <table class="table table-hover">
             <thead>
@@ -91,6 +92,7 @@
                         <th>ID</th>
                         <th>Topic</th>
                         <th>Asked By</th>
+                        <th>Group</th>
                         <th>Date/Time</th>
                     </tr>
             </thead>
@@ -101,6 +103,7 @@
                         <td><?php echo $row['title']; ?></td>
                         <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $row['id']; ?>"><? echo $row['title']; ?></a><BR></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['email']; ?></td>
+                        <td align="center" bgcolor="#FFFFFF"><? echo $row['id_group']; ?></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['datetime']; ?></td>
                     </tr>
                 <?php } ?>
@@ -108,17 +111,12 @@
             
         </table>
         <br>
-        <tr>
-            <form action="createThread.php" method="post" enctype="multipart/form-data">
-              <div class ="form-group">
-                <input type="submit" class ="btn btn-info" value ="Create a New Thread" name="submit">
-              </div>
-            </form>
-        </tr>
+
         <?php
              mysqli_close($db);
         ?>
       </div>
   </body>
 </html>
+
 

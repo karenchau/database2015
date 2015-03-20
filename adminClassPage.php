@@ -96,8 +96,15 @@ if ($_GET['classid'] == NULL) {
 
 
         <div class="tab-content">
-          <div id="announcements" class="tab-pane fade in active">
-            <p>announcements and forum here</p>
+          <div id="announcements" class="tab-pane active">
+              <p>announcements and forum here</p>
+              <form action="mainForum.php" method="post" enctype="multipart/form-data">
+                <div class ="form-group">
+                  <input type="submit" class ="btn btn-info" value ="Access Forum" name="submit">
+                </div>
+              </form>
+              <!--If we were to show it within the tab, doesn't look good though -->
+            <?php //include_once("mainForum.php");?>
           </div>
 
           <div id="students" class="tab-pane fade">
