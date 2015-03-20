@@ -140,7 +140,7 @@
                     <div class="panel-title">Post</div>
                 </div>
                 <div class="panel-body">
-                    <form id="post_form" class="form-horizontal" role="form" method="post" action="addPost.php">
+                    <form id="post_form" class="form-horizontal" role="form" method="post" action="addPost.php/">
                         <div class="form-group">
                             <label for="post_title" class="col-md-1 control-label">Post Title</label>
                             <div class="col-md-9">
@@ -152,6 +152,10 @@
                             <label for="post_description">Please provide a description of your answer</label>
                             <textarea class="form-control" rows="5" name="post_description" placeholder="Description"></textarea>
                         </div>
+                        <form method=post enctype="multipart/form-data">
+                            <input type="text" name="thread_id" value="<?PHP echo $id ?>">
+                            <input type=submit>
+                        </form>
                         <div class="form-group">
                             <!-- Button -->                                        
                             <div class="col-md-offset-1 col-md-3">

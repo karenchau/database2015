@@ -18,7 +18,6 @@
     //get group id
     $group_id = find_group($class, $email);
 ?>
-
 <?php
     //getting data from the form
     $thread_title = $_POST['thread_title'];

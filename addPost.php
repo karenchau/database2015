@@ -15,8 +15,8 @@
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
     
-    // Get value of id that sent from hidden field 
-    $id=$_POST['id'];
+    // Get value of thread id
+    $id_thread= $_POST['id'];
     
     // get values that sent from form
     $title = $_POST['post_title'];
@@ -26,7 +26,7 @@
     
     // Insert answer 
     $query = "INSERT INTO post_table (id_thread, title, description, datetime, id_user)";
-    $query .="VALUES('$id', '$title', '$description', '$datetime', '$email')";
+    $query .="VALUES('$id_thread', '$title', '$description', '$datetime', '$email')";
     $result=mysqli_query($db, $query);
     
     if($result){

@@ -15,9 +15,6 @@ if(!isset($_SESSION['class'])) {
     $db = open_connection();
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    require_once('functions.php');
-    //get group id
-    $group_id = find_group($class, $email);
 ?>
 <html lang="en">
   <head>
@@ -93,7 +90,7 @@ if(!isset($_SESSION['class'])) {
                         <div class="form-group">
                             <!-- Button --> 
                             <div class="col-md-1">
-                                <button id="btn-creating_topic" name="creating_topic" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i> Creating Topic</button>
+                                <button id="btn-creating_topic" name="creating_topic" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i>Create New Thread</button>
                             </div>
                         </div>
                     </form>
