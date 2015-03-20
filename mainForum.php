@@ -102,9 +102,9 @@
                     <tr>
                         <th scope="row"><?php echo $row['id']; ?></th>
                         <td><?php echo $row['title']; ?></td>
-                        <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $rows['id']; ?>"><? echo $rows['title']; ?></a><BR></td>
-                        <td align="center" bgcolor="#FFFFFF"><? echo $rows['email']; ?></td>
-                        <td align="center" bgcolor="#FFFFFF"><? echo $rows['datetime']; ?></td>
+                        <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $row['id']; ?>"><? echo $row['title']; ?></a><BR></td>
+                        <td align="center" bgcolor="#FFFFFF"><? echo $row['email']; ?></td>
+                        <td align="center" bgcolor="#FFFFFF"><? echo $row['datetime']; ?></td>
                         <!--<form method="post" action="viewThread.php">
                             <td>
                                 <input type="hidden" value="<?php echo $row['id']; ?>" name="id"/>
@@ -117,7 +117,11 @@
             
         </table>
         <tr>
-            <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="createThread.php"><strong>Create New Thread</strong> </a></td>
+            <form action="addThread.php" method="post" enctype="multipart/form-data">
+              <div class ="form-group">
+                <input type="submit" class ="btn btn-info" value ="Create a New Thread" name="submit">
+              </div>
+            </form>
         </tr>
         <?php
              mysqli_close($db);
