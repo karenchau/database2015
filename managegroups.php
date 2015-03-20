@@ -63,6 +63,7 @@
 <head>
 	<h3>Manage Groups</h3>
 </head>
+<body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<br>
 	<script>
@@ -111,7 +112,7 @@
 	<h3>Add a student to a Group</h3>
 	<form name="addToGroup" id="addToGroup">
 		<div class="form-group">
-			<label class="control-label col-sm-1">Email:</label>
+			<label class="control-label col-sm-1">Email: </label>
 			<input type="email" class="form-control" id="studentemail" name="studentemail" placeholder="Enter student's email">
 		</div>
                 <div class="form-group">
@@ -173,5 +174,6 @@
 		</div>
 		<button type="submit" class="btn btn-danger" name="remove" id="remove">Remove</button>
 	</form>
+</body>
 </html>
 
