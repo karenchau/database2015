@@ -117,7 +117,7 @@
             
         </table>
         <tr>
-            <form action="addThread.php" method="post" enctype="multipart/form-data">
+            <form action="createThread.php" method="post" enctype="multipart/form-data">
               <div class ="form-group">
                 <input type="submit" class ="btn btn-info" value ="Create a New Thread" name="submit">
               </div>
