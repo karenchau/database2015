@@ -201,13 +201,11 @@ if (isset($_POST['signin'])) {
 							<!-- Role Field-->
 							<div class="form-group">
 								<label for="role" class="col-md-3 control-label">Role</label>
-								<div class="col-md-9">
-							        <select class="form-control" name="role" id="role">
-							          <option value='default'>Select a role</option>
-							          <option value='0'>Student</option>
-							          <option value='1'>Admin</option>
-							        </select>
-							    </div>
+						        <select class="col-md-9" name="role" id="role">
+						          <option value='default'>Select a role</option>
+						          <option value='0'>Student</option>
+						          <option value='1'>Admin</option>
+						        </select>
 							</div>
 							
 							<div class="form-group">
