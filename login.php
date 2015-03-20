@@ -77,7 +77,7 @@ if (isset($_POST['signin'])) {
 
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
-		
+
 	</head>
 	
 	<body>
@@ -149,70 +149,50 @@ if (isset($_POST['signin'])) {
 							<?php } ?>
 							
 							<!-- Email Field-->
-							<div class="form-control-group">
+							<div class="form-group">
 								<label for="email" class="col-md-3 control-label">Email</label>
 								<div class="col-md-9">
-								<div class="controls">
-									<input type="text" class="input-xlarge" name="email" placeholder="Please Enter Email">
-								</div>
+									<input type="text" class="form-control" name="email" placeholder="Please Enter Email">
 								</div>
 							</div>
 							
 							<!-- Password Field-->
-							<div class="form-control-group">
+							<div class="form-group">
 								<label for="password" class="col-md-3 control-label">Password</label>
 								<div class="col-md-9">
-								<div class="controls">
-									<input type="password" class="input-xlarge" name="password" placeholder="Password">
-								</div>
-								</div>
-							</div>
-
-							<!-- Confirm Password Field-->
-							<div class="form-control-group">
-								<label for="confirm_password" class="col-md-3 control-label">Confirm Password</label>
-								<div class="col-md-9">
-								<div class="controls">
-									<input type="password" class="input-xlarge" name="confirm_password" placeholder="Password">
-								</div>
+									<input type="password" class="form-control" name="password" placeholder="Password">
 								</div>
 							</div>
 							
 							<!-- First Name Field-->
-							<div class="form-control-group">
+							<div class="form-group">
 								<label for="first_name" class="col-md-3 control-label">First Name</label>
 								<div class="col-md-9">
-								<div class="controls">
-									<input type="text" class="input-xlarge" name="first_name" placeholder="Please Enter Your First Name">
-								</div>
+									<input type="text" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
 								</div>
 							</div>
 							
 							<!-- Last Name Field-->
-							<div class="form-control-group">
+							<div class="form-group">
 								<label for="last_name" class="col-md-3 control-label">Last Name</label>
 								<div class="col-md-9">
-								<div class="controls">
-									<input type="text" class="input-xlarge" name="last_name" placeholder="Please Enter Your Last Name">
-								</div>
+									<input type="text" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
 								</div>
 							</div>
 							
 							<!-- Role Field-->
-							<div class="form-control-group">
+							<div class="form-group">
 								<label for="role" class="col-md-3 control-label">Role</label>
 								<div class="col-md-9">
-								<div class="controls">
 							        <select class="form-control" name="role" id="role">
 							          <option value='default'>Select a role</option>
 							          <option value='0'>Student</option>
 							          <option value='1'>Admin</option>
 							        </select>
 							    </div>
-							    </div>
 							</div>
 							
-							<div class="form-control-group">
+							<div class="form-group">
 								<!-- Button -->                                        
 								<div class="col-md-offset-3 col-md-9">
 									<button id="btn-signup" name="signup" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i>Sign Up</button>
@@ -227,19 +207,7 @@ if (isset($_POST['signin'])) {
 		================================================== -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script src="assets/js/jquery-1.7.1.min.js"></script> 
+	</body>
 
-		<script src="assets/js/jquery.validate.js"></script> 
-
-		<script src="script.js"></script> 
-		<script>
-			addEventListener('load', prettyPrint, false);
-			$(document).ready(function(){
-			$('pre').addClass('prettyprint linenums');
-				});
-		</script> 
-
-</body>
-</html>
-
+	
 </html>
