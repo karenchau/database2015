@@ -87,12 +87,9 @@
 					    if (option["message_num"] == "3") {
 						$("#error3").show().fadeOut(5000); // shows error message # 3
                                             } else {
-						if (option["message_num"] == "4") {
-						    $("#error4").show().fadeOut(5000); // shows error message # 4
-						} else {
 						    $("#error").show().fadeOut(5000); // shows general error message
-						    }
 						}
+						
 					    }
 				    }
 				}
