@@ -19,8 +19,6 @@
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
     require_once('functions.php');
     $report_group = find_group($class,$email);
-    echo "group" . $report_group;
-    printf("%d", $report_group);
 
 ?>
 <!DOCTYPE html>

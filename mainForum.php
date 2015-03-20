@@ -9,32 +9,23 @@
         return;
     }
 ?>
+
 <?php
     require_once('connect.php');
     $db = open_connection();
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    //get user's group_id
-    $query = "SELECT * FROM group_list "; 
-    $query .= "WHERE class = '$class' "; 
-    $query .= "AND (member1 = '$email' OR member2 = '$email' OR member3 = '$email')";
-    $result = mysqli_query($db, $query);
-    if (!$result){
-        echo 'Query failed : '.mysqli_error($db);
-        $db->close();
-        exit(0);
-    }
-    $row = mysqli_fetch_assoc($result);
-    $group_id = $row['group_id'];
-    printf("Group Result %d ", $group_id);
-    printf("Class Result %s: ", $class);
-    echo '<p>group id: <p>' .$group_id;
-    echo '<p>class id: <p>' .$class;
+    require_once('functions.php');
+    //get group id
+    $group_id = find_group($class,$email);
+?>
+<?php
     
     //Find the group's threads in that class
     $query = "SELECT * FROM thread_table";
-    $query .="WHERE class = '$class' ";
-    $query .="AND group_id ='$group_id' ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
+    $query .="WHERE (class = '$class' ";
+    $query .="AND id_group ='$group_id') ";
+    $query .="ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
     
     $result=mysqli_query($db, $query);
     if (!$result){
