@@ -77,7 +77,44 @@ if (isset($_POST['signin'])) {
 
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
+		<script>
+            $(document).ready(function(){
 
+             $('#signupform').validate(
+             {
+              rules: {
+                email: {
+                  minlength: 5,
+                  required: true,
+                  email:true
+                },
+                password: {
+                  required: true,
+                  minlength: 8
+                },
+                first_name: {
+                  minlength: 2,
+                  required: true
+                }
+                last_name: {
+                  minlength:2,
+                  required:true
+                }
+                role: {
+                  required:true
+                }
+              },
+              highlight: function(element) {
+                $(element).closest('.control-group').removeClass('success').addClass('error');
+              },
+              success: function(element) {
+                element
+                .text('OK').addClass('valid')
+                .closest('.control-group').removeClass('error').addClass('success');
+              }
+             });
+            }); // end document.ready
+		</script>
 	</head>
 	
 	<body>
