@@ -17,18 +17,9 @@
     $db = open_connection();
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    //get user's group_id (report_group)
-    $query = "SELECT * FROM group_list "; 
-    $query .= "WHERE class = '$class' "; 
-    $query .= "AND (member1 = '$email' OR (member2 = '$email' OR member3 = '$email'))";
-    $result1 = mysqli_query($db, $query);
-    if (!$result){
-        echo 'Query1 failed : '.mysqli_error($db);
-        $db->close();
-        exit(0);
-    }
-    $row = mysqli_fetch_assoc($result);
-    $report_group = $row['group_id'];
+    require_once('functions.php');
+    $report_group = find_group($class,$email);
+    echo "group" . $report_group;
     printf("%d", $report_group);
 
 ?>
@@ -77,8 +68,8 @@
         <!-- Find all the evals for this group-->
         <?php
             $query ="SELECT * FROM evaluation";
-            $query .=" WHERE (class = '$class') ";
-            $query .=" AND (id_report_group = '$report_group' )";
+            $query .=" WHERE ((class = '$class') ";
+            $query .=" AND (id_report_group = '$report_group' ))";
             $result = mysqli_query($db, $query);
             if (!$result){
                 echo 'Query2 failed : '.mysqli_error($db);
