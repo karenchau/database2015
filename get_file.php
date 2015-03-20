@@ -25,7 +25,6 @@ if(isset($_GET['id'])) {
 
     if($result) {
         // Make sure the result is valid
-        echo mysqli_num_rows($result);
         if(mysqli_num_rows($result) == 1) {
         // Get the row
             $row = mysqli_fetch_assoc($result);
