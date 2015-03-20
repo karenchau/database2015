@@ -16,9 +16,8 @@
     require_once('connect.php');
     require_once('functions.php');
     $db = open_connection();
-    $email = mysqli_real_escape_string($db, $_SESSION['email']);
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    $report_group = find_group($class,$email);
+    $report_group = $_POST['other_group'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -129,12 +128,6 @@
                                     </p>
                                 </a>
                             </ul>
-                            <form action="otherEvals.php" method="post" enctype="multipart/form-data">
-                                <div class ="form-group">
-                                    <input type="submit" class ="btn btn-info" value ="View Group <?php echo $eval_group; ?>'s Grades" name="submit">
-                                </div>
-                                <input type="hidden" name="other_group" value="<?PHP echo $eval_group ?>">
-                            </form>
                         </div>
                     </div>
                 </div>
