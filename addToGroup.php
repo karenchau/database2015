@@ -48,7 +48,8 @@
         while($row= mysqli_fetch_assoc($no_group))
         {
     ?>
-    <p> Student:<?php echo $row['email']; ?></p>
+    <p> Student:<?php echo $row['name']; ?></p>
+    
     <?php
         }
         ?>
