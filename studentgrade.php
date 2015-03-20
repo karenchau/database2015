@@ -11,7 +11,7 @@
       $query3 = "INSERT INTO temptable (group_id, class, average) VALUES ('$row[group_id]', '$row[class]', $row[avg]) ";
       $result3 = mysqli_query($db, $query3);
     }
-    $query4 = "SELECT group_id, class, 1+(SELECT count(*) from temptable a WHERE a.average > b.average) as rank, average FROM temptable b WHERE b.group_id = '$group' ";
+    $query4 = "SELECT group_id, class, 1+(SELECT count(*) from temptable a WHERE a.average > b.average) as rank, average FROM temptable b WHERE b.class = '$_SESSION[class]' AND b.group_id = '$group' ";
     $result4 = mysqli_query($db, $query4);
     if (mysqli_num_rows($result4) > 0) {
       print_table($result4);
