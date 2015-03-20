@@ -111,8 +111,6 @@ if (!isset($_SESSION['email'])) {
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">
                             <li class="nav active"><a href="#classlist" data-toggle="tab">Classes</a></li>
-                            <li class="nav"><a href="#profile" data-toggle="tab">Profile</a></li>
-                            <li class="nav"><a href="#other" data-toggle="tab">Other</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -140,8 +138,6 @@ if (!isset($_SESSION['email'])) {
                                     mysqli_close($db);
                                 ?>
                             </div>
-                            <div class="tab-pane fade" id="profile"><p>Content inside profile tab</p></div>
-                            <div class="tab-pane fade" id="other"><p>Content inside some other tab</p></div>
                         </div>
                     </div>
                 </div>
