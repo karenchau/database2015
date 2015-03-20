@@ -66,8 +66,7 @@
         <ol class="breadcrumb">
             <li><a href="index.php">Main Page</a></li>
             <li><a href="/studentClassPage.php?classid=".$class."/"> <?php echo $class ?></a></li>
-            <li class="mainForum.php">Forum</li>
-            <li class="active"><?php $row['title']; ?></li>
+            <li><a class="active"><?php echo $report_group ?>'s Evaluation </a></li>
         </ol>
         <div class="panel panel-default">
             <!-- Default panel contents -->
