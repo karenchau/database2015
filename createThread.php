@@ -71,9 +71,9 @@ if(!isset($_SESSION['class'])) {
       <div class="panel panel-default">
         <div class="container">
             <div class="page-header">
-                <h1>Please Ask a new Question</h1>
+                <h1>Please Ask a New Question</h1>
             </div>
-            <div id="create_thread" class="mainbox col-md-12">
+            <div id="create_thread" class="mainbox col-md-10">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="panel-title">Create Thread</div>
