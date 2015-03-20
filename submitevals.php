@@ -38,6 +38,7 @@ if (!isset($_POST['input_group']) OR $_POST['input_group'] == 'default') {
             $grade = $row['comment'];
             if (is_null($grade)) {
                 $criteria1 = (int) $_POST['inlineRadioOptions1'];
+                echo $criteria1;
                 $criteria2 = (int) $_POST['inlineRadioOptions2'];
                 $criteria3 = (int) $_POST['inlineRadioOptions3'];
                 $criteria4 = (int) $_POST['inlineRadioOptions4'];
