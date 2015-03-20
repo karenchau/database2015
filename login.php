@@ -4,7 +4,6 @@ if (isset($_SESSION['email'])) {
 	header('Location: index.php');
 	return;
 }
-
 //If the user chooses to signin, then this would initiate this if statement
 if (isset($_POST['signin'])) {
     if (isset($_POST['email']) || isset($_POST['password'])) {
@@ -17,21 +16,7 @@ if (isset($_POST['signin'])) {
             $password = mysqli_real_escape_string($db, $_POST['password']);
             $query = "select * from user where email = '$email' and password = '$password' limit 1";
             $result = mysqli_query($db, $query);
-            $row = mysqli_fetch_assoc($result);
-            echo $row;
-            $pass = $row['password'];
-            echo $pass;
-            if (password_verify($_POST['password'],$pass)){
-            	mysql_close($db);
-                $_SESSION['email'] = $email;
-                header('Location: index.php');
-                return;
-            } else {
-            	mysql($db);
-            	$signin_errors = print_r($row);//'Invalid credentials. row ' . $row . ' pass ' . $pass;
-;
-            }
-            /*
+            
             if (mysqli_num_rows($result) > 0) {
                     mysql_close($db);
                     $_SESSION['email'] = $email;
@@ -41,7 +26,6 @@ if (isset($_POST['signin'])) {
                     mysql_close($db);
                     $signin_errors = 'Invalid credentials.';
                 }
-                */
             }
 	} else {
 		unset($signin_errors);
@@ -54,8 +38,7 @@ if (isset($_POST['signin'])) {
             require_once('connect.php');
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
-            $hash = password_hash($_POST['password'],PASSWORD_DEFAULT, ['cost'=>11]);
-            //$password = mysqli_real_escape_string($db, $_POST['password']);
+            $password = mysqli_real_escape_string($db, $_POST['password']);
             $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
             $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
             $role = mysqli_real_escape_string($db, $_POST['role']);
@@ -65,7 +48,7 @@ if (isset($_POST['signin'])) {
 				mysqli_close($db);
 				$signup_errors = 'A user with this email already exists.';
 			} else {
-				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$hash', '$role')";
+				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$password', '$role')";
 				mysqli_query($db, $query);
 				$_SESSION['email'] = $email;
 				header('Location: index.php');
@@ -77,7 +60,6 @@ if (isset($_POST['signin'])) {
 		unset($signup_errors);
 	}
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -201,11 +183,13 @@ if (isset($_POST['signin'])) {
 							<!-- Role Field-->
 							<div class="form-group">
 								<label for="role" class="col-md-3 control-label">Role</label>
-						        <select class="col-md-9" name="role" id="role">
-						          <option value='default'>Select a role</option>
-						          <option value='0'>Student</option>
-						          <option value='1'>Admin</option>
-						        </select>
+								<div class="col-md-9">
+							        <select class="form-control" name="role" id="role">
+							          <option value='default'>Select a role</option>
+							          <option value='0'>Student</option>
+							          <option value='1'>Admin</option>
+							        </select>
+							    </div>
 							</div>
 							
 							<div class="form-group">
