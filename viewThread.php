@@ -29,9 +29,6 @@
         exit(0);
     }
     $row= mysqli_fetch_assoc($result);
-    echo 'Title: ' .$row['title'];
-    echo '<br>';
-    echo 'Desc: ' .$row['description'];
 ?>
 
 <html lang="en">
@@ -89,10 +86,10 @@
         <div id="read_thread" class="mainbox col-sm-12">
             <div class="panel panel-primary">
                     <div class="panel-heading">
-                            <div class="panel-title"><?php $row['title']; ?></div>
+                            <div class="panel-title"> <?php echo $row['title']; ?> </div>
                     </div>  
                     <div class="panel-body">
-                        <?php $row['description']; ?>
+                        <?php echo $row['description']; ?>
                     </div>
             </div>
         </div>
