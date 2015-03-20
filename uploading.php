@@ -56,7 +56,7 @@ if(isset($_FILES['uploaded_file'])) {
         $date = date('Y/m/d H:i:s');
         
         //type checking
-        if(($type != 'text/plain') && ($type != 'application/xml'))
+        if(($type != 'text/plain') && ($type != 'application/xml') && ($type != 'text/xml'))
         {
             echo '<p>Wrong File Type!</p>';
             mysqli_close($db);
