@@ -22,11 +22,11 @@
 <?php
     
     //Find the group's threads in that class
-    $query = "SELECT * FROM thread_table";
+    $query = "SELECT * FROM thread_table ";
     $query .="WHERE (class = '$class' ";
     $query .="AND id_group ='$group_id') ";
-    //$query .="ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
-    $result=mysqli_query($db, $query);
+    $query .="ORDER BY id DESC"; // OREDER BY id DESC is order result by descending
+    $result = mysqli_query($db, $query);
     if (!$result){
         echo 'Query To find the threads failed : '.mysqli_error($db);
         mysqli_close($db);
