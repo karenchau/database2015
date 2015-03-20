@@ -53,7 +53,8 @@ if (isset($_POST['signin'])) {
             require_once('connect.php');
             $db = open_connection();
             $email = mysqli_real_escape_string($db, $_POST['email']);
-            $password = mysqli_real_escape_string($db, $_POST['password']);
+            $hash = password_hash($_POST['password'],PASSWORD_DEFAULT, ['cost'=>11]);
+            //$password = mysqli_real_escape_string($db, $_POST['password']);
             $first_name = mysqli_real_escape_string($db, $_POST['first_name']);
             $last_name = mysqli_real_escape_string($db, $_POST['last_name']);
             $role = mysqli_real_escape_string($db, $_POST['role']);
@@ -63,8 +64,7 @@ if (isset($_POST['signin'])) {
 				mysqli_close($db);
 				$signup_errors = 'A user with this email already exists.';
 			} else {
-				$password = password_hash($POST ['password'],PASSWORD_DEFAULT, ['cost'=>11]);
-				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$password', '$role')";
+				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$hash', '$role')";
 				mysqli_query($db, $query);
 				$_SESSION['email'] = $email;
 				header('Location: index.php');
