@@ -71,9 +71,9 @@ if(!isset($_SESSION['class'])) {
       <div class="panel panel-default">
         <div class="container">
             <div class="page-header">
-                <h1>Please Ask a New Question</h1>
+                <h1>Please Ask a new Question</h1>
             </div>
-            <div id="create_thread" class="mainbox col-md-10">
+            <div id="create_thread" class="mainbox col-md-11">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="panel-title">Create Thread</div>
@@ -88,10 +88,9 @@ if(!isset($_SESSION['class'])) {
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="thread_desc" class="col-md-1 control-label">Description</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="thread_desc" placeholder="Please Enter Your Question">
-                                </div>
+                                <!-- Text area to use for desc -->
+                                <label for="thread_desc">Please provide a description of your issue</label>
+                                <textarea class="form-control" rows="5" name="thread_desc" placeholder="Description"></textarea>
                             </div>
                             <div class="form-group">
                                 <!-- Button -->                                        

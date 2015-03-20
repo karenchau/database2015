@@ -95,10 +95,52 @@
         </div>
         <br>
         <!-- Loop to display all posts for this thread -->
-        
+        <?php
+            $query ="SELECT * FROM post_table";
+            $query .=" WHERE id_thread = '$id' ";
+            $result = mysqli_query($db, $query);
+            if (!$result){
+                echo 'Error! Posts were not found: '.mysqli_error($db);
+                mysqli_close($db);
+                exit(0);
+            }  
+        ?>
+        <?php if (mysqli_num_rows($result) == 0) { ?>
+		<p>There are not available posts for this question yet.</p>
+	<?php } else { ?>
+         <!-- start loop for the number of available posts for this thread-->
+            <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                <!-- creating the eval criteria listing -->
+                <div id="posted_answers" class="mainbox col-lg-12"> 
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <!-- get all of the post's information -->
+                            <?php
+                                $title= $row['title'];
+                                $description= $row['description'];
+                                $datetime= $row['datetime'];
+                                $id_user= $row['id_user'];
+                            ?>
+                            <div class="panel-title"> <?php echo $title; ?> </div>
+                        </div>
+                        <div class="panel-body">
+                            <?php echo $row['description']; ?>
+                            <p>Date Posted: <?php echo $datetime; ?></p>
+                            <p>Posted By: <?php echo $id_user; ?></p> 
+                        </div>
+                    </div>
+                </div>
+                <br>
+            <?php } ?>
+        <?php } ?>
         
         <!-- Add New Post Box--->
-        
+            
+            
+            
+        <?php
+            mysqli_close($db);
+        ?> 
     </div>
   </body>
 </html>
