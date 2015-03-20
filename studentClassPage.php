@@ -124,7 +124,7 @@ if ($_GET['classid'] == NULL) {
           </div>
           
           <div id="your-projects-assessments" class="tab-pane fade">
-            <?php include_once("viewMyEvals.php/" .$group_id); ?>
+            <?php include_once("viewMyEvals.php/id=" .$group_id); ?>
           </div>
           
           <div id="grades" class="tab-pane fade">

@@ -21,7 +21,7 @@
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
     
     //the report group's id (not necessarily is the user's group as they can look at other group's reports)
-    $report_group = $_POST('group_id');
+    $report_group = mysqli_real_escape_string($db, $_GET('id'));
 ?>
 <!DOCTYPE html>
 <html lang="en">
