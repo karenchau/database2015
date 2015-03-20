@@ -120,10 +120,18 @@
                                         <p>Grade: <?php echo $row['criteria4']; ?></p>
                                     </p>
                                 </a>
+                                <a href="#detail" class="list-group-item ">
+                                    <h4 class="list-group-item-heading"><strong>Detail</strong></h4>
+                                    <p class="list-group-item-text">
+                                        <p>The report shows careful attention to detail.</p>
+                                        <p>Grade:</p>
+                                        <p><?php echo $row['criteria5']; ?></p>
+                                    </p>
+                                </a>
                                 <a href="#comment" class="list-group-item ">
                                     <h4 class="list-group-item-heading"><strong>Comment</strong></h4>
                                     <p class="list-group-item-text">
-                                        <p>The report shows careful attention to detail.</p>
+                                        <p>Comment submitted</p>
                                         <p>Comment:</p>
                                         <p><?php echo $row['comment']; ?></p>
                                     </p>
