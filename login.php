@@ -4,7 +4,6 @@ if (isset($_SESSION['email'])) {
 	header('Location: index.php');
 	return;
 }
-
 //If the user chooses to signin, then this would initiate this if statement
 if (isset($_POST['signin'])) {
     if (isset($_POST['email']) || isset($_POST['password'])) {
@@ -17,18 +16,7 @@ if (isset($_POST['signin'])) {
             $password = mysqli_real_escape_string($db, $_POST['password']);
             $query = "select * from user where email = '$email' and password = '$password' limit 1";
             $result = mysqli_query($db, $query);
-            $row = mysqli_fetch_assoc($result);
-            $pass = $row['password'];
-            if (password_verify($_POST['password'],$pass)){
-            	mysql_close($db);
-                $_SESSION['email'] = $email;
-                header('Location: index.php');
-                return;
-            } else {
-            	mysql($db);
-            	$signin_errors = 'Invalid credentials.';
-            }
-            /*
+            
             if (mysqli_num_rows($result) > 0) {
                     mysql_close($db);
                     $_SESSION['email'] = $email;
@@ -38,7 +26,6 @@ if (isset($_POST['signin'])) {
                     mysql_close($db);
                     $signin_errors = 'Invalid credentials.';
                 }
-                */
             }
 	} else {
 		unset($signin_errors);
@@ -61,7 +48,6 @@ if (isset($_POST['signin'])) {
 				mysqli_close($db);
 				$signup_errors = 'A user with this email already exists.';
 			} else {
-				$password = password_hash($POST ['password'],PASSWORD_DEFAULT, ['cost'=>11]);
 				$query = "insert into user(first_name, last_name, email, password, role) values ('$first_name', '$last_name', '$email', '$password', '$role')";
 				mysqli_query($db, $query);
 				$_SESSION['email'] = $email;
@@ -74,12 +60,11 @@ if (isset($_POST['signin'])) {
 		unset($signup_errors);
 	}
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
         <head>
-	   <title>Login Page</title>
+		<title>Login Page</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,9 +73,10 @@ if (isset($_POST['signin'])) {
         <link rel="icon" href="3333.png">
         
         <!-- Bootstrap core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<!-- Custom styles for this template -->
-	<link href="css/main.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="css/main.css" rel="stylesheet">
 
 	</head>
 	
