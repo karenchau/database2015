@@ -8,12 +8,14 @@ if(isset($_GET['id'])) {
     require_once('connect.php');
     $db = open_connection();
 	$id_num = mysqli_real_escape_string($db, $id);
-	$query = "SELECT * FROM report where group_id = '$id_num' AND class = '$_SESSION[class]'";
+    $class = mysqli_real_escape_string($db, $_SESSION['class']);
+	$query = "SELECT * FROM report where group_id = '$id_num' AND class = '$class'";
 	$result = mysqli_query($db, $query);
 
 
     if($result) {
         // Make sure the result is valid
+        echo result->num_rows;
         if($result->num_rows == 1) {
         // Get the row
             $row = mysqli_fetch_assoc($result);
