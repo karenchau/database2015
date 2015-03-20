@@ -77,7 +77,6 @@
 	   </div>
 	</form>
     </div>
-    
     <!-- Latest compiled and minified JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -85,29 +84,6 @@
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script src="http://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
     
-    <script type="text/javascript">
-	$(document).ready(function() {
-		$('#add_remove_form')
-		    .find('[name="add_remove"]')
-			.selectpicker()
-			.change(function(e) {
-			    // either add or delete
-			    $('#bootstrapSelectForm').add()
-			})
-			.end()
-		    .add({
-			framework: 'bootstrap',
-			excluded: ':disabled',
-			    add_remove: {
-				validators: {
-				    notEmpty: {
-					message: 'Please select an action.'
-				    }
-				}
-			    }
-			})
-		});
-    </script>
   </body>
 </html>
 
