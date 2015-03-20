@@ -3,7 +3,7 @@
     require_once('functions.php');
     $db = open_connection();
     $group = find_group($_SESSION['class'],$_SESSION['email']);
-    $query = "CREATE TEMPORARY TABLE `temptable` (`group_id` VARCHAR(10) NOT NULL, `class` VARCHAR(10) NOT NULL, `average` FLOAT NOT NULL DEFAULT 0, `rank` INT NULL, PRIMARY KEY (`group_id`, `class`)) ";
+    $query = "CREATE TABLE `temptable` (`group_id` VARCHAR(10) NOT NULL, `class` VARCHAR(10) NOT NULL, `average` FLOAT NOT NULL DEFAULT 0, `rank` INT NULL, PRIMARY KEY (`group_id`, `class`)) ";
     $result = mysqli_query($db, $query);
     $query3 = "INSERT INTO temptable (group_id, class, average) VALUES ('$group', '$_SESSION[class]', ( (SELECT grade from group_list where group_id = '$group' and class = '$_SESSION[class]')/ (SELECT num_groups from group_list where group_id = '$group' and class = '$_SESSION[class]') )) ";
     $result3 = mysqli_query($db, $query3);
@@ -15,5 +15,7 @@
       $reg_none_error = "No grades have been entered yet.";
       echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
     }
+    $query4 = "DROP TABLE `temptable`";
+    mysqli_query($db, $query4);
     mysqli_close($db);
 ?>
