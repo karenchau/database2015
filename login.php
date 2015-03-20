@@ -28,7 +28,7 @@ if (isset($_POST['signin'])) {
                 return;
             } else {
             	mysql($db);
-            	$signin_errors = 'Invalid credentials. row ' . $row . ' pass ' . $pass;
+            	$signin_errors = print_r($row);//'Invalid credentials. row ' . $row . ' pass ' . $pass;
 ;
             }
             /*
