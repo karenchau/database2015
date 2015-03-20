@@ -14,7 +14,6 @@
     } else {
       $reg_none_error = "No grades have been entered yet.";
       echo "<div class=\"alert alert-danger\" role=\"alert\">$reg_none_error</div>";
-      var_dump(40/3);
     }
     mysqli_close($db);
 ?>
