@@ -117,7 +117,7 @@ if ($_GET['classid'] == NULL) {
           </div>
 
           <div id="grades" class="tab-pane fade">
-            <?php include_once("admingroup.php");?>
+            <?php include_once("admingrade.php");?>
           </div>
 
           <div id="allusers" class="tab-pane fade">
