@@ -14,9 +14,8 @@
     require_once('functions.php');
     $db = open_connection();
     $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    //echo $class;
     $email = mysqli_real_escape_string($db, $_SESSION['email']);
-    //echo $email;
+
     $query = "SELECT group_id, member1, member2, member3 FROM group_list WHERE class = '$class'";
     $all_groups = mysqli_query($db,$query);
     //Get a list of all students in the class and insert into temporary table.
@@ -65,7 +64,6 @@
 	<h3>Manage Groups</h3>
 </head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<h3>All students registered for this class</h3>
 	<br>
 	<script>
 	    $(document).ready(function(){
@@ -123,20 +121,20 @@
 		</div>
                 <div class="form-group">
 			<label class="control-label col-sm-1">Group #:</label>
-			<input type="test" class="form-control" id="groupNum" name="groupNum" placeholder="Enter the group number">
+			<input type="text" class="form-control" id="groupNum" name="groupNum" placeholder="Enter the group number">
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-1">Class:</label>
 			<input type="text" id="c" name="c" class="form-control" readonly="readonly" placeholder="<?php echo $_SESSION['class']?>" value="<?php echo $_SESSION['class']?>">
 		</div>
-		<button type="submit" class="btn btn-primary" name="enroll" id="enroll">Enroll</button>
+		<button type="submit" class="btn btn-primary" name="add" id="add">Add the group</button>
 	</form>
 	<br>
 	<script>
 		$(document).ready(function(){
-			$('#removeform').on('submit',function(e) {
+			$('#removeFromGroup').on('submit',function(e) {
 				$.ajax({
-					url:'remove.php',
+					url:'removeFromGroup.php',
 					data:$(this).serialize(),
 					type:'POST',
 					success:function(data){
@@ -165,10 +163,14 @@
 		});
 	</script>
 	<h3>Remove a student from a Group</h3>
-	<form name="removeform" id="removeform">
+	<form name="removeFromGroup" id="removeFromGroup">
 		<div class="form-group">
 			<label class="control-label col-sm-1">Email:</label>
 			<input type="email" class="form-control" id="studentemail2" name="studentemail2" placeholder="Enter student's email">
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-1">Group #:</label>
+			<input type="text" class="form-control" id="groupNum2" name="groupNum2" placeholder="Enter the group number">
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-1">Class:</label>
