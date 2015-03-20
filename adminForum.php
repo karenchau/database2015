@@ -98,7 +98,7 @@ if (!isset($_SESSION['class'])) {
                     <tr>
                         <th scope="row"><?php echo $row['id']; ?></th>
                         <td bgcolor="#FFFFFF"><a href="viewThread.php?id=<? echo $row['id']; ?>"><? echo $row['title']; ?></a><BR></td>
-                        <td align="center" bgcolor="#FFFFFF"><? echo $row['email']; ?></td>
+                        <td bgcolor="#FFFFFF"><? echo $row['email']; ?></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['id_group']; ?></td>
                         <td align="center" bgcolor="#FFFFFF"><? echo $row['datetime']; ?></td>
                     </tr>
