@@ -130,8 +130,6 @@
                                 <a href="#comment" class="list-group-item ">
                                     <h4 class="list-group-item-heading"><strong>Comment</strong></h4>
                                     <p class="list-group-item-text">
-                                        <p>Comment submitted</p>
-                                        <p>Comment:</p>
                                         <p><?php echo $row['comment']; ?></p>
                                     </p>
                                 </a>
