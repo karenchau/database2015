@@ -4,6 +4,7 @@
     $db = open_connection();
     $group = find_group($_SESSION['class'],$_SESSION['email']);
     $query = "CREATE TABLE `temp_table_2` (`group_id` VARCHAR(10) NOT NULL, `class` VARCHAR(10) NOT NULL, `average` DECIMAL(10) NOT NULL DEFAULT 0, `rank` INT NULL, PRIMARY KEY (`group_id`, `class`)) ";
+    $result = mysqli_query($db, $query);
     $query2 = "SELECT group_id, class, 1+(SELECT count(*) from temp_table_1 a WHERE a.average > b.average AND a.class = '$_SESSION[class]') as rank, average FROM temp_table_1 b WHERE b.class = '$_SESSION[class]' AND b.group_id = '$group' ";
     $result2 = mysqli_query($db, $query2);
     if (mysqli_num_rows($result2) > 0) {
