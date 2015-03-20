@@ -1,4 +1,14 @@
 <?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header('Location: login.php');
+    return;
+}
+if(!isset($_SESSION['class'])) {
+    header('Location: index.php');
+    return;
+}
+
 // Make sure an ID was passed
 if(isset($_GET['id'])) {
 // Get the ID
