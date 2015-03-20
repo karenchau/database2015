@@ -17,8 +17,12 @@
     require_once('functions.php');
     //get group id
     $group_id = find_group($class, $email);
+?>
+<?php
     // get value of id that sent from address bar 
     $id=$_GET['id'];
+    echo 'ID: ' .$id;
+    
     $query="SELECT * FROM thread_table WHERE id='$id' AND class = '$class' ";
     $result= mysqli_query($db, $query);
     if(!result){
@@ -56,9 +60,9 @@
                 <h1> Group <?php echo $group_id ?> Forum</h1>
                 <ol class="breadcrumb">
                     <li><a href="index.php">Main Page</a></li>
-                    <li><a href="\studentClassPage.php?classid=".$class."\"> <?php echo $class?></a></li>
+                    <li><a href="\studentClassPage.php?classid=".$class."\"> <?php echo $class ?></a></li>
                     <li class="mainForum.php">Forum</li>
-                    <li class="active"><?php $row['title'];?></li>
+                    <li class="active"><?php $row['title']; ?></li>
                 </ol>
             </div>
         </div>
@@ -66,10 +70,10 @@
         <div id="read_thread" class="mainbox col-sm-12">
             <div class="panel panel-primary">
                     <div class="panel-heading">
-                            <div class="panel-title"><?php $row['title'];?></div>
+                            <div class="panel-title"><?php $row['title']; ?></div>
                     </div>  
                     <div class="panel-body">
-                        <?php $row['description'];?>
+                        <?php $row['description']; ?>
                     </div>
             </div>
         </div>
