@@ -12,14 +12,7 @@ if ($_GET['classid'] == NULL) {
   $_SESSION['class'] = $_GET['classid'];
 }
 ?>
-<?php
-    require_once('connect.php');
-    $db = open_connection();
-    $email = mysqli_real_escape_string($db, $_SESSION['email']);
-    $class = mysqli_real_escape_string($db, $_SESSION['class']);
-    require_once('functions.php');
-    $group_id = find_group($class,$email);
-?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -124,7 +117,7 @@ if ($_GET['classid'] == NULL) {
           </div>
           
           <div id="your-projects-assessments" class="tab-pane fade">
-            <?php include_once("viewMyEvals.php/"); ?>
+            <?php include_once("viewMyEvals.php"); ?>
           </div>
           
           <div id="grades" class="tab-pane fade">
