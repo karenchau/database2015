@@ -98,7 +98,7 @@ if ($_GET['classid'] == NULL) {
         <div class="tab-content">
           <div id="announcements" class="tab-pane active">
               <!--If we were to show it within the tab, doesn't look good though -->
-            <?php include_once("mainForum.php");?>
+            <?php include_once("adminForum.php");?>
           </div>
 
           <div id="students" class="tab-pane fade">
