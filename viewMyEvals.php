@@ -129,7 +129,7 @@
                                     </p>
                                 </a>
                             </ul>
-                            <form action="otherEvals.php" method="post" enctype="multipart/form-data">
+                            <form action="othersEvals.php" method="post" enctype="multipart/form-data">
                                 <div class ="form-group">
                                     <input type="submit" class ="btn btn-info" value ="View Group <?php echo $eval_group; ?>'s Grades" name="submit">
                                 </div>
