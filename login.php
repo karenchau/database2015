@@ -77,44 +77,17 @@ if (isset($_POST['signin'])) {
 
 		<!-- Custom styles for this template -->
 		<link href="css/main.css" rel="stylesheet">
-		<script>
-            $(document).ready(function(){
+		
 
-             $('#signupform').validate(
-             {
-              rules: {
-                email: {
-                  minlength: 5,
-                  required: true,
-                  email:true
-                },
-                password: {
-                  required: true,
-                  minlength: 8
-                },
-                first_name: {
-                  minlength: 2,
-                  required: true
-                }
-                last_name: {
-                  minlength:2,
-                  required:true
-                }
-                role: {
-                  required:true
-                }
-              },
-              highlight: function(element) {
-                $(element).closest('.control-group').removeClass('success').addClass('error');
-              },
-              success: function(element) {
-                element
-                .text('OK').addClass('valid')
-                .closest('.control-group').removeClass('error').addClass('success');
-              }
-             });
-            }); // end document.ready
-		</script>
+<script src="assets/js/jquery-1.7.1.min.js"></script> 
+<script src="assets/js/jquery.validate.js"></script> 
+<script src="script.js"></script> 
+<script>
+            addEventListener('load', prettyPrint, false);
+            $(document).ready(function(){
+            $('pre').addClass('prettyprint linenums');
+                  });
+            </script> 
 	</head>
 	
 	<body>
@@ -186,7 +159,7 @@ if (isset($_POST['signin'])) {
 							<?php } ?>
 							
 							<!-- Email Field-->
-							<div class="form-group">
+							<div class="form-control-group">
 								<label for="email" class="col-md-3 control-label">Email</label>
 								<div class="col-md-9">
 									<input type="text" class="form-control" name="email" placeholder="Please Enter Email">
@@ -194,15 +167,23 @@ if (isset($_POST['signin'])) {
 							</div>
 							
 							<!-- Password Field-->
-							<div class="form-group">
+							<div class="form-control-group">
 								<label for="password" class="col-md-3 control-label">Password</label>
 								<div class="col-md-9">
 									<input type="password" class="form-control" name="password" placeholder="Password">
 								</div>
 							</div>
+
+							<!-- ConfirmPassword Field-->
+							<div class="form-control-group">
+								<label for="confirm_password" class="col-md-3 control-label">Confirm Password</label>
+								<div class="col-md-9">
+									<input type="password" class="form-control" name="confirm_password" placeholder="Password">
+								</div>
+							</div>
 							
 							<!-- First Name Field-->
-							<div class="form-group">
+							<div class="form-control-group">
 								<label for="first_name" class="col-md-3 control-label">First Name</label>
 								<div class="col-md-9">
 									<input type="text" class="form-control" name="first_name" placeholder="Please Enter Your First Name">
@@ -210,7 +191,7 @@ if (isset($_POST['signin'])) {
 							</div>
 							
 							<!-- Last Name Field-->
-							<div class="form-group">
+							<div class="form-control-group">
 								<label for="last_name" class="col-md-3 control-label">Last Name</label>
 								<div class="col-md-9">
 									<input type="text" class="form-control" name="last_name" placeholder="Please Enter Your Last Name">
@@ -218,7 +199,7 @@ if (isset($_POST['signin'])) {
 							</div>
 							
 							<!-- Role Field-->
-							<div class="form-group">
+							<div class="form-control-group">
 								<label for="role" class="col-md-3 control-label">Role</label>
 								<div class="col-md-9">
 							        <select class="form-control" name="role" id="role">
@@ -229,7 +210,7 @@ if (isset($_POST['signin'])) {
 							    </div>
 							</div>
 							
-							<div class="form-group">
+							<div class="form-control-group">
 								<!-- Button -->                                        
 								<div class="col-md-offset-3 col-md-9">
 									<button id="btn-signup" name="signup" type="submit" class="btn btn-danger"><i class="icon-hand-right"></i>Sign Up</button>
