@@ -43,20 +43,16 @@ if(!isset($_SESSION['class'])) {
   
   // Connect to the database
   $db = open_connection();
-
   $class = mysqli_real_escape_string($db, $_SESSION['class']);
   $email = mysqli_real_escape_string($db, $_SESSION['email']);
-
   require_once('functions.php');
   $group_entry = find_group($class,$email);
-  echo "group" . $group_entry;
 
   // Query for all assigned reports  
   $query = "SELECT group_id, name, type, size, uploadtime from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
   $result = mysqli_query($db,$query);
   mysqli_close($db);
 
-  
   // Check if query was successful
   if($result) {
       // Make sure there are some files in there
@@ -122,18 +118,16 @@ if(!isset($_SESSION['class'])) {
             $db = open_connection();
             $query = "SELECT group_id from report where (group_id in (SELECT id_report_group FROM evaluation WHERE class = '$class' AND id_eval_group = '$group_entry')) AND class = '$class'";
             $result = mysqli_query($db,$query);
-
+            
             while(list($category) = mysqli_fetch_row($result)){
               $option = '<option value="'.$category.'">'.$category.'</option>';
               echo ($option);
             }
-
             mysqli_close($db);
           ?>
         </select>
       <br>
-
-
+        
       <b>Clarity</b>
       <p>The report is written in a clear and concise manner.</p>
       <label class="radio-inline">
@@ -151,7 +145,7 @@ if(!isset($_SESSION['class'])) {
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions1" id="inlineRadio5" value="5"> 5
       </label><br><br>
-
+      
       <b>Focus</b>
       <p>The report has a clear argument and stays on topic.</p>
       <label class="radio-inline">
@@ -169,7 +163,7 @@ if(!isset($_SESSION['class'])) {
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="5"> 5
       </label><br><br>
-
+      
       <b>Organization</b>
       <p>The report is well structured and organized.</p>
       <label class="radio-inline">
@@ -187,7 +181,7 @@ if(!isset($_SESSION['class'])) {
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="5"> 5
       </label><br><br>
-
+      
       <b>Analysis</b>
       <p>The report supports its argument with strong valid evidence.</p>
       <label class="radio-inline">
@@ -205,7 +199,7 @@ if(!isset($_SESSION['class'])) {
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions4" id="inlineRadio5" value="5"> 5
       </label><br><br>
-
+      
       <b>Detail</b>
       <p>The report shows careful attention to detail.</p>
       <label class="radio-inline">
@@ -223,7 +217,7 @@ if(!isset($_SESSION['class'])) {
       <label class="radio-inline">
         <input type="radio" name="inlineRadioOptions5" id="inlineRadio5" value="5"> 5
       </label><br><br>
-
+      
       <!-- Text area to submit comments -->
       <label for="comments">Please provide constructive criticism elaborating on your evaluation of this report.</label>
       <textarea class="form-control" rows="3" name="comments" placeholder="Comments"></textarea>
@@ -231,5 +225,4 @@ if(!isset($_SESSION['class'])) {
     <p class="help-block">Please check that all evaluations are accurate, as all submissions are final. No re-submissions are allowed.</p>
     <input type="submit" name="submit" value = "Submit Evaluation" class="btn btn-primary">
   </form>
-
-  </html>
+</html>
