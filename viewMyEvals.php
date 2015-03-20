@@ -20,7 +20,7 @@
     //get user's group_id (report_group)
     $query = "SELECT * FROM group_list "; 
     $query .= "WHERE class = '$class' "; 
-    $query .= "AND (member1 = '$email' OR member2 = '$email' OR member3 = '$email')";
+    $query .= "AND (member1 = '$email' OR (member2 = '$email' OR member3 = '$email'))";
     $result1 = mysqli_query($db, $query);
     if (!$result1){
         echo 'Query1 failed : '.mysqli_error($db);
@@ -29,7 +29,7 @@
     }
     $row = mysqli_fetch_assoc($result);
     $report_group = $row['group_id'];
-    printf("%s", $report_group);
+    printf("%d", $report_group);
 
 ?>
 <!DOCTYPE html>
