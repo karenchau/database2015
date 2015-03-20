@@ -63,11 +63,17 @@
         </header>
         <p>These are the evaluation forms received by groups that graded this group's work.</p>
         <br>
+        <ol class="breadcrumb">
+            <li><a href="index.php">Main Page</a></li>
+            <li><a href="/studentClassPage.php?classid=".$class."/"> <?php echo $class ?></a></li>
+            <li class="mainForum.php">Forum</li>
+            <li class="active"><?php $row['title']; ?></li>
+        </ol>
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">Submitted Evaluation Forms</div>
                 <div class="panel-body">
-                    <p>Your group's report was evaluated based on the following criteria.</p>
+                    <p>The group's report was evaluated based on the following criteria.</p>
                     <p>Marks were given as follows:
                         <ol>
                             <li> Strongly disagree </li>
